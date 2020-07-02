@@ -16,7 +16,7 @@ venv\Scripts\activate
 
 #Luego:
 
-pip install Flask
+pip3 install Flask
 
 #Este paso es OPCIONAL (solo si te propone actualizar el pip):
 
@@ -25,3 +25,11 @@ python -m pip install --upgrade pip
 #Verifica que ya instalaste flask:
 
 flask --version
+
+#
+set FLASK_ENV = development
+
+set FLASK_APP = app.py #Pones el nombre de tu app
+
+#
+flask run
