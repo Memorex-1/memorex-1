@@ -1,3 +1,4 @@
+/*Le cambie la fuente a todo temporalmente*/
 * {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -6,26 +7,27 @@ body{
     margin: 0;
     padding: 0;
     background : url(../img/fondo.jpg..) no-repeat center top ;
-    background-size: cover;
-    height: 100vh;  
+    background-size: cover; 
 }
 
 h1{
     padding: 30px 30px;
     color: rgb(0, 0, 0);
+    margin: 0;
 }
 
 .login-box{
     width: 400px;
-    height: 550px;
-    background-color: #debbff;
+    height: 620px;
+    background-color: #a7dcff;
     color:#010113;
-    top:50%;
+    top:45%;
     left: 50%;
     position: absolute;
     transform: translate(-40%,-40%);
     box-sizing: border-box;
     padding: 10px 30px;
+    border-radius: 25px;
 }
 
 #avatar{
@@ -49,10 +51,18 @@ h1{
 
 .login-box input {
     width: 100%;
+    border:none;
+    border-bottom: 3px solid #0031b9;
+    box-shadow: none;
+    border-radius: 5px;
+    height: 30px;
+}
+.login-box input[type="text"] {
     margin-bottom: 20px;
 }
 
-.login-box input[type="text"]
+/*ESTA PARTE DEL CODIGO NO ESTABA HACIENDO NADA*/
+/*.login-box input[type="text"]
 .login-box input[type="password"]{
     border : none;
     border-bottom: 1px solid #fff;
@@ -61,20 +71,30 @@ h1{
     height: 40px;
     color:#fff;
     font-size: 16px;
-}
+}*/
 
-.login-box input[type="submit"]{
+.login-box button{
     border : none;
     outline: none;
     height: 40px;
-    background:	#593fcc;
+    background:	#0031b9;
     color:#fff;
     font-size: 18px;
     border-radius:20px;
+    cursor: pointer;
+    width: 100%;
 }
 
-.login-box input[type="submit"]:hover {
-    background-color: #5200b1;
+.login-box button:hover {
+    background-color: #4981fa;
     transition: ease-in-out;
     transition-duration: 200ms;
+}
+
+/*AÑADIDOS LOS ESTILOS PARA EL DIV DE ERRORES*/
+#msg {
+    height: 50px;
+    color: #a80000;
+    padding: 10px 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

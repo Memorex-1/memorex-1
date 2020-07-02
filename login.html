@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesión </title>
     <link rel="stylesheet" href="css/master.css"> 
-    <script src="js/login.js"></script>
+    <script defer src="js/login.js"></script>
 </head>
 
 <header>
@@ -16,15 +16,18 @@
     <div class="login-box" >
         <img src="img/logo.png" alt="MEMOREX" id="avatar">
         <h1>Iniciar Sesión</h1>
-        <form>
+        <form action="PaginadePersonaje.html" method="GET" id="login">
 
             <label for = "username">Usuario</label>
-            <input type="text" id="username" name="username">
+            <input type="text" id="username" name="username" required maxlength="20">
 
             <label for = "password"> Contraseña</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" required maxlength="20">
 
-            <input type="submit"  value="INGRESAR">
+            <!-- Este div mostrará el mensaje de error al ingresar datos. Es modificado con el script -->
+            <div id="msg"></div>
+            
+            <button id="ingresar">INGRESAR</button>
         </form>
         
     </div>
