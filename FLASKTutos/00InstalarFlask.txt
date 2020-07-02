@@ -26,10 +26,13 @@ python -m pip install --upgrade pip
 
 flask --version
 
-#
-set FLASK_ENV = development
+#Creamos un archivo "app.py" dentro de nuestra carpeta (OJO,nuestra carpeta, NO la venv)
+(Este nombre puede variar, pero no olvidar que será nuestro referente)
 
-set FLASK_APP = app.py #Pones el nombre de tu app
+#Ahora toca designar el entorno y el app
+set FLASK_ENV=development #Cambia a modo desarrollador
 
-#
+set FLASK_APP=app.py #Pones el nombre de tu app
+
+#Probamos el server
 flask run
