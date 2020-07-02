@@ -1,0 +1,23 @@
+#Primero:
+
+python -V #Te permite saber tu versión de python
+
+#Luego:
+
+pip -V #Te permite saber tu versión de pip, si no la tienes, Python debe añadirse al Path
+
+#Ingresa a la carpeta del proyecto y luego desde ahí ejecuta en el cmd:
+
+python3 -m venv venv
+
+#Verifica que se haya creado la carpeta venv
+
+venv\Scripts\activate
+
+#Luego:
+
+pip install Flask
+
+#Este paso es opcional (solo si te propone actualizar el pip:
+
+python -m pip install --upgrade pip
