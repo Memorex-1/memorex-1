@@ -21,3 +21,7 @@ pip install Flask
 #Este paso es OPCIONAL (solo si te propone actualizar el pip:
 
 python -m pip install --upgrade pip
+
+#Verifica que ya instalaste flask:
+
+flask --version
