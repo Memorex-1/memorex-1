@@ -1,3 +1,7 @@
+#Importante: Verificar el Windows Powershell (Ejecutar como administrador)
+Get-ExecutionPolicy # Si marca "Unrestricted, normal", sino:
+Set-ExecutionPolicy Unrestricted #Aceptamos con S (o Y si tu PC está en inglés)
+
 #Primero:
 
 python -V #Te permite saber tu versión de python
@@ -8,11 +12,11 @@ pip -V #Te permite saber tu versión de pip, si no la tienes, Python debe añadi
 
 #Ingresa a la carpeta del proyecto y luego desde ahí ejecuta en el cmd:
 
-py -3 -m venv venv
+py -3 -m venv env
 
 #Verifica que se haya creado la carpeta venv
 
-venv\Scripts\activate
+env\Scripts\activate
 
 #Luego:
 
