@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta charset = "iso-8559-1"/>
+	<meta name = "description" content = "contenido politico"/>
+	<title>Memorex</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/archivoMemorex.css')}}"/>
+	<link rel="stylesheet" href="{{url_for('static', filename = 'css/master.css')}}"> 
+	<script defer src="{{url_for('static', filename ='js/login.js')}}"></script>
+</head>
+<body>
+	<img class="imagen1" src="{{url_for('static', filename='img/InicioMemorex.jpg')}}"/>
+	<hr>
+	<div class="contenedor">
+		<div class="item" id="item1">
+			<h2>Mi Perfil</h2>
+			<img src="{{url_for('static', filename='img/LogoAdmin.jpg')}}" id="avatar">
+			<br>
+			<h3>BIENVENIDO ADMINISTRADOR</h3>
+		</div>
+		<div class="item" id="item2">
+			<form action="/crear" method="POST">
+				<h2>Personajes</h2>
+				<label for = "nombrepersonaje">Crear Personaje</label>
+				<input type="text" name="nombre" placeholder="Ingrese Personaje">
+				<button id="CrearPersonaje" >Crear Personaje</button><br><br><!--boton crear personaje-->
+			</form>
+				<h2>Asignar referencia a personaje</h2>
+			<form action="/crear-referencia/{{task.id}}" method="POST">
+			<select name="PS">
+   				<option selected value="0"> Elige una personaje </option>
+       			<optgroup label="Personaje">
+				<ul>
+					{% for task in tasks %}
+					<option value="task.id">{{task.nombre}}</option> 
+					{% endfor %}
+				</ul> 
+				</optgroup> 
+			
+   			</select>
+   			<h2>Referencia</h2>
+			   <textarea id="descripcion" name="descripcion" cols="40" rows="5"></textarea>
+			   <button id="AsignarReferencia">Asignar Referencia</button><br><br><!--boton asignar referencia-->
+			</form>
+		</div>
+		<div class="item" id="item3">
+			<h2>Lista</h2>
+			
+			<label for = "listapersonaje">Crear Personaje</label><br><br>
+			<table>
+				<tr>
+					<th>Personajes</th>
+
+				</tr>	
+					<ul>
+						{% for task in tasks %}
+						<tr>
+							<td>
+								{{task.nombre}}
+							</td>				
+							{% endfor %}
+						</tr>
+						
+					</ul>
+				</td>
+				</tr> 
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
