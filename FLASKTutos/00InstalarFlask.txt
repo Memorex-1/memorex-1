@@ -30,6 +30,9 @@ python -m pip install --upgrade pip
 
 flask --version
 
+#Instalar sqlalchemy para flask
+pip install Flask-SQLAlchemy
+
 #Creamos un archivo "app.py" dentro de nuestra carpeta (OJO,nuestra carpeta, NO la venv)
 (Este nombre puede variar, pero no olvidar que será nuestro referente)
 
