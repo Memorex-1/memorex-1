@@ -6,6 +6,8 @@
 	<meta name = "description" content = "contenido politico"/>
 	<title>Memorex</title>
 	<link rel="stylesheet" href="css/archivoMemorex.css"/>
+	<link rel="stylesheet" href="css/master.css"> 
+	<script defer src="js/login.js"></script>
 </head>
 <body>
 	<img class="imagen1" src="img/InicioMemorex.jpg"/>
@@ -13,14 +15,15 @@
 	<div class="contenedor">
 		<div class="item" id="item1">
 			<h2>Mi Perfil</h2>
-			<img src="img/LogoAdmin.jpg">
+			<img src="img/LogoAdmin.jpg" id="avatar">
 			<br>
 			<h3>BIENVENIDO ADMINISTRADOR</h3>
 		</div>
 		<div class="item" id="item2">
 			<h2>Personajes</h2>
-			Crear Personaje:&nbsp;<input type="nombre" name="nombre" id="nombre" placeholder="Ingrese Personaje"><br><br>
-			<input type="submit" value="CrearPersonaje" id="CrearPersonaje"><br><br><!--boton crear personaje-->
+			<label for = "nombrepersonaje">Crear Personaje</label>
+			<input type="text" name="nombrepersonaje" placeholder="Ingrese Personaje">
+			<button id="CrearPersonaje" >Crear Personaje</button><br><br><!--boton crear personaje-->
 			<h2>Asignar referencia a personaje</h2>
 			<select name="PS">
    				<option selected value="0"> Elige una personaje </option>
@@ -31,12 +34,12 @@
    				</optgroup> 
    			</select>
    			<h2>Referencia</h2>
-   			<textarea id="descripcion" name="descripcion" cols="40" rows="5"></textarea>
-			   <input type="submit" value="AsignarReferencia" id="AsignarReferencia"><br><br><!--boton asignar referencia-->
+			   <textarea id="descripcion" name="descripcion" cols="40" rows="5"></textarea>
+			   <button id="AsignarReferencia">Asignar Referencia</button><br><br><!--boton asignar referencia-->
 		</div>
 		<div class="item" id="item3">
 			<h2>Lista</h2>
-			Lista de Personajes:&nbsp;<br><br>
+			<label for = "listapersonaje">Crear Personaje</label><br><br>
 			<table>
 				<tr>
 					<th>Personaje</th>
