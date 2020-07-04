@@ -1,0 +1,38 @@
+td{
+    border: solid 1px;/* para poner bordes a las filas */
+
+}
+
+.container{
+/*es para el fondo del primer container*/
+    background: #FFEFBA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
+    max-width: 960px;
+    max-height: 500px;
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    padding: 1.8em;
+
+}
+
+.table{
+    width: 100%;
+    border-spacing :0 ;
+}
+.table td , .table th{
+    padding: 1em;
+    text-align: left;
+
+}
+h1{
+text-align: center;
+}
