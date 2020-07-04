@@ -1,0 +1,14 @@
+{% block content %} //content es nombre de bloque
+
+//se compiara en otro html, menos lo que esta en esta seccion
+
+{% endblock %}
+
+//en el nuevo html
+{% extends 'ruta del archivo base'%} //agregara todo lo que esta en el archivo base
+
+{% block content %} 
+
+//en este espacio se agregara nuevo codigo html
+
+{% endblock %}
