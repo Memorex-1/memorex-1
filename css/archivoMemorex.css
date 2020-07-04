@@ -29,13 +29,16 @@ hr{
 	float: left;
 }
 #item1{
-	background-color: #a05ce4
+	background-color: #a7dcff;
+	color:#010113;
 }
 #item2{
-	background-color: #a06ce4
+	background-color: #a7dcff;
+	color:#010113;
 }
 #item3{
-	background-color: #a04ce4
+	background-color: #a7dcff;
+	color:#010113;
 }
 h2{
 	font-family: 'Arial';
@@ -46,13 +49,14 @@ h2{
 	float: right;
 }
 table {
+  background-color: #FFFFFF; 
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: solid 1px #000000;
   text-align: left;
-  padding: 8px;
+  padding: 10px;
 }
