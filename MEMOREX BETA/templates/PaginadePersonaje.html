@@ -27,13 +27,13 @@
 				<button id="CrearPersonaje" >Crear Personaje</button><br><br><!--boton crear personaje-->
 			</form>
 				<h2>Asignar referencia a personaje</h2>
-			<form action="/crear-referencia/" method="POST">
+			<form action="/crear-referencia" method="POST">
 			<select name="PS">
-   				<option selected value="0"> Elige una personaje </option>
+   				<option selected> Elige una personaje </option>
        			<optgroup label="Personaje">
 				<ul>
 					{% for task in tasks %}
-					<option value="task.id">{{task.nombre}}</option> 
+					<option value= {{task.id}}>{{task.nombre}}</option> 
 					{% endfor %}
 				</ul> 
 				</optgroup> 
@@ -46,8 +46,7 @@
 		</div>
 		<div class="item" id="item3">
 			<h2>Lista</h2>
-			
-			<label for = "listapersonaje">Crear Personaje</label><br><br>
+		
 			<table>
 				<tr>
 					<th>Personajes</th>
