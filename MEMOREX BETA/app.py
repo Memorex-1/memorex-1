@@ -25,12 +25,5 @@ def pagina():
     db.session.add(task)
     db.session.commit()
     return redirect(url_for('home'))
-@app.route('/crear-referencia/<id>', methods = ['POST'])
-def referencia():
-    task = personajes.query.filter_by(id=int(id)).first()
-    task = personajes(informacion = request.form['descripcion'])
-    db.session.add(task)
-    db.session.commit()
-    return redirect(url_for('home'))
 if __name__ == '__main__':
     app.run(debug=True)
