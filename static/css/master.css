@@ -61,18 +61,6 @@ h1{
     margin-bottom: 20px;
 }
 
-/*ESTA PARTE DEL CODIGO NO ESTABA HACIENDO NADA*/
-/*.login-box input[type="text"]
-.login-box input[type="password"]{
-    border : none;
-    border-bottom: 1px solid #fff;
-    background:transparent;
-    outline: none;
-    height: 40px;
-    color:#fff;
-    font-size: 16px;
-}*/
-
 .login-box button{
     border : none;
     outline: none;

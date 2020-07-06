@@ -14,40 +14,39 @@ hr{
 .login{
 	padding: 10px;
 	border: 1px solid #000;
-	position: absolute;
 	top: 0;
 	right: 0;
 }
-/*.contenedor{
-	background-color: #5ce4a0;
-	padding: 1em;
-}*/
+.contenedor{
+	display: flex;
+	flex-flow: row nowrap;
+}
 .item{
 	margin: 1em;
 	padding: 1em;
 	color: #ffffff;
-	float: left;
 }
 #item1{
 	background-color: #a7dcff;
 	color:#010113;
+	flex-grow: 1;
 }
 #item2{
 	background-color: #a7dcff;
 	color:#010113;
+	flex-shrink: 2;
 }
 #item3{
 	background-color: #a7dcff;
 	color:#010113;
+	flex-grow: 7;
 }
 h2{
 	font-family: 'Arial';
 	font-weight: bold;
 	font-size: 2em;
 }
-#CrearPersonaje{
-	float: right;
-}
+
 table {
   background-color: #FFFFFF; 
   font-family: arial, sans-serif;
