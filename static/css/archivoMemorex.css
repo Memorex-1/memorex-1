@@ -13,10 +13,28 @@ hr{
 }
 .login{
 	padding: 10px;
-	border: 1px solid #000;
-	top: 0;
-	right: 0;
+	border: 1px solid rgb(54, 81, 133);
+	background-color: rgb(0, 46, 199);
+	float: right;
+	width: 140px;
+	text-align: center;
+	cursor: pointer;
+	color: white;
+	font-weight: bold;
 }
+
+.login:hover {
+	background-color: rgb(93, 93, 255);
+	transition: ease-in-out;
+	transition-duration: 200ms;
+}
+
+.topbar a {
+	text-decoration: none;
+	cursor: pointer;
+	color: white;
+}
+
 .contenedor{
 	display: flex;
 	flex-flow: row nowrap;

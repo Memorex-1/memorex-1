@@ -8,9 +8,12 @@
 	<link rel="stylesheet" href="{{url_for('static', filename='css/archivoMemorex.css')}}">
 </head>
 <body>
-	<img class="imagen1" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}">
+	<div class="topbar">
+		<img class="imagen1" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}">
+		<a href="login"><button class="login">ACCEDER</button></a>
+	</div>
 	<hr>
 	<img class="imagen2" src="{{url_for('static', filename= 'img/LoginMemorex.jpg')}}"/>
-	<div class="login"><a href="login">ACCEDER</a></div>
+	
 </body>
 </html>
