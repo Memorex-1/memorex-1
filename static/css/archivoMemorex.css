@@ -35,6 +35,12 @@ hr{
 	color: white;
 }
 
+.botonLogout{
+	float: right;
+	height: 100px;  	
+	width: 100px;
+}
+
 .contenedor{
 	display: flex;
 	flex-flow: row nowrap;
