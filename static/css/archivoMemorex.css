@@ -10,8 +10,9 @@ ul {
 }
 
 .logo{
-	height: 55px;
-	display: inline-block;
+	height: 50px;
+	margin: 8px 15px 8px 0;
+	float: left;
 }
 .imagen2{
 	width: 500px;
@@ -19,46 +20,27 @@ ul {
 	margin: auto;
 	display: block;
 }
-.login{
-	padding: 10px;
-	border: 4px solid rgb(0, 0, 0);
-	background-color: #fff;
-	width: 140px;
-	text-align: center;
-	cursor: pointer;
-	color: #000;
-	font-family: Oswald, sans-serif;
-}
-
-.login:hover {
-	background-color: rgb(0, 255, 136);
-	transition: ease-in-out;
-	transition-duration: 200ms;
-}
 
 .topbar-cont {
 	background-color: #fff;
 	padding: 0 8%;
-	border-bottom: 3px solid #000;
+	border-bottom: 4px solid #000;
 	box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
 }
 
 .topbar {
-	font-family: Oswald, sans-serif;
-	font-size: 18px;
-	height: 70px;
-	display: flex;
-	justify-content: space-between;	
-	align-items: center;
+	font-family: 'Arvo', serif;
 	font-weight: 500;
+	font-size: 16px;
+	height: 70px;
+}
+
+.topbar nav {
+	float: left;
 }
 
 .topbar li {
 	display: inline-block;
-}
-
-.topbar nav {
-	width: 40%;
 }
 
 .topbar ul {
@@ -67,17 +49,40 @@ ul {
 }
 
 .topbar nav a {
-	padding: 4px 15px;
+	padding: 6px 10px;
 	text-decoration: none;
 	cursor: pointer;
 	color: #000;
+	margin: 18px 5px;
 }
 
 .topbar nav a:hover {
 	transition: ease-in-out;
 	transition-duration: 100ms;
-	outline: 4px solid #000;
-	color: rgb(156, 6, 6);
+	border-bottom: 4px solid #000;
+	/*outline: 4px solid #000;*/
+	color: rgb(255, 0, 0);
+}
+
+.boton {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	padding: 10px;
+	margin: 10px 5px;
+	border: 4px solid rgb(0, 0, 0);
+	background-color: #fff;
+	width: 140px;
+	text-align: center;
+	cursor: pointer;
+	color: #000;
+	float: right;
+}
+
+.boton:hover {
+	background-color: rgb(255, 37, 37);
+	transition: ease-in-out;
+	transition-duration: 200ms;
+	color: #fff;
 }
 
 .botonLogout{
@@ -131,23 +136,19 @@ td, th {
 
 .content {
 	display: flex;
-	margin: 20px 8%;
+	margin: 0 18% 10px 18%;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .col {
-	height: 1000px;
 	margin: 0 5px;
-	padding: 15px;
+	padding: 30px;
 	background-color: #fff;
 	border-radius: 2px;
-	overflow: hidden;
 	box-shadow: 0px 0px 4px -3px rgba(0,0,0,0.75);
 }
 
-.izq {
-	width: 30%;
-}
-
+/*
 .publis {
 	width: 60%;
 }
@@ -156,10 +157,16 @@ td, th {
 	width: 30%;
 }
 
+.relleno {
+	height: 500px;
+}
+*/
+
+
 /*FOOTER***************************/
 
 footer {
-	font-family: Oswald, sans-serif;
+	font-family: Rubik, sans-serif;
 	height: 80px;
 	width: 100%;
 	background-color: rgb(7, 7, 7);
