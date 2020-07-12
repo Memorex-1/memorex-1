@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta </title>
+    <link rel="stylesheet" href="{{url_for('static',filename = 'css/master.css')}}"> 
+</head>
+
+<header>
+<h1>Crear cuenta</h1>
+
+</header>
+<body>
+    <div class="login-box" >
+        <img src="{{url_for('static', filename = 'img/logo.png')}}" alt="MEMOREX" id="avatar">
+        <h1>Crear Cuenta</h1>
+        <form action="editor-personaje" method="GET" id="login">
+
+            <label for = "username">Nombre</label>
+            <input type="text" id="name" name="name" required maxlength="20">
+
+            <label for = "username">Apellido</label>
+            <input type="text" id="firtsname" name="firtsname" required maxlength="20">
+
+            <label for = "username">Correo</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for = "password"> Contraseña</label>
+            <input type="password" id="password" name="password" required maxlength="20">
+
+            <!-- Este div mostrará el mensaje de error al ingresar datos. Es modificado con el script -->
+            <div id="msg"></div>
+            
+            <button id="registrar">Registrar</button>
+        </form>
+        
+    </div>
+
+    
+</body>
+</html>
