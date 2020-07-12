@@ -18,6 +18,9 @@ def index():
 @app.route('/login')
 def login():
     return render_template('login.html')
+@app.route('/RegistrarUsuario')
+def registrar():
+    return render_template('RegistrarUsuario.html')
 @app.route('/editor-personaje')
 def editor():
     tasks = personajes.query.all()
