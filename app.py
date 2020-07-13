@@ -74,8 +74,13 @@ def registrar():
 
 @app.route('/editor-personaje', methods = ['POST','GET'])
 def editor():
-    tasks = personajes.query.all()
-    return render_template('editor-personaje.html', tasks = tasks)
+    if(request.method == "GET"):
+        if 'name' in session:
+            tasks = personajes.query.all()
+            return render_template('editor-personaje.html', tasks = tasks)
+        else:
+            return redirect(url_for('ingresar'))
+    
 
 # funcion que registra los datos en la bd uusuarios
 @app.route('/registro-usuario', methods = ['POST','GET'])
