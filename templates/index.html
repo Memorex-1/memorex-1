@@ -37,6 +37,11 @@
 			<div class="publicar">
 				<h3>Nueva Publicación</h3>
 				<form action="">
+					<label for="" style="display: block;">Percepcion:</label>
+					<input type="radio" id="bueno" name="percepcion" value="bueno">
+					<label for="bueno">Buena</label>
+					<input type="radio" id="malo" name="percepcion" value="malo">
+					<label for="malo">Mala</label>
 					<input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Título">
 					
 					<input type="text" id="personaje" name="personaje" maxlength="30" placeholder="Personaje">
@@ -44,10 +49,10 @@
 					<label for="fecha" style="float: right;" id="lblfecha">Fecha </label>
 					
 					
-					<label for="descripcion">Publicación </label>
-					<textarea name="descripcion" id="descripcion"></textarea>
-					<label for="referencias">Referencias </label>
-					<textarea name="referencias" id="referencias"></textarea>
+					
+					<textarea name="descripcion" id="descripcion" placeholder="Describe el acontecimiento..."></textarea>
+					<label for="referencias">Fuente(s): </label>
+					<textarea name="referencias" id="referencias" placeholder="Referencias"></textarea>
 					<button type="submit" class="boton" style="float: right;">PUBLICAR</button>
 					<div class="clear"></div>
 				</form>

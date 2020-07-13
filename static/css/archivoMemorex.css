@@ -40,16 +40,14 @@ ul {
 .topbar nav {
 	width: 40%;
 	float: left;
+	height: 25px;
+	margin: 22px 0;
 }
 
 .topbar li {
 	display: inline-block;
 }
 
-.topbar ul {
-	display: flex;
-	justify-content: space-between;
-}
 
 .topbar nav a {
 	padding: 6px 10px;
@@ -214,6 +212,11 @@ td, th {
 	transition: 200ms ease-in-out all;
 }
 
+.publicar input[type=radio] {
+	margin: 0;
+	width: 20px;
+}
+
 
 #titulo {
 	font-weight: 700;
@@ -226,11 +229,16 @@ td, th {
 
 #fecha {
 	margin:0;
+	width: 10%;
 }
 
 #fecha:focus {
 	border-bottom: 2px solid #000;
 	width: 15%;
+}
+
+#lblfecha {
+	width: 50px;
 }
 
 .relleno {
