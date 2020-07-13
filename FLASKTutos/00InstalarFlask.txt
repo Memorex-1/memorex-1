@@ -45,3 +45,6 @@ set FLASK_APP=app.py #Pones el nombre de tu app
 flask run
 
 #Para arreglarlo en el visual studio code es necesario tener la extensión de python y el lint
+
+#Plugin bcrypt:
+pip install bcrypt
