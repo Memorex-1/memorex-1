@@ -5,6 +5,8 @@ body {
 	background-color: rgb(44, 44, 44);
 }
 
+
+/* ESTILOS DE LA TOPBAR *******************************/
 ul {
 	list-style-type: none;
   	margin: 0;
@@ -15,12 +17,6 @@ ul {
 	height: 50px;
 	margin: 8px 15px 8px 0;
 	float: left;
-}
-.imagen2{
-	width: 500px;
-	height: 500px;
-	margin: auto;
-	display: block;
 }
 
 .topbar-cont {
@@ -68,13 +64,13 @@ ul {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: bold;
 	padding: 10px;
-	margin: 10px 5px;
-	border: 4px solid rgb(0, 0, 0);
-	background-color: #fff;
+	margin: 15px 5px;
+	border: none;
+	background-color: #444;
 	width: 140px;
 	text-align: center;
 	cursor: pointer;
-	color: #000;
+	color: #fff;
 	float: right;
 }
 
@@ -84,6 +80,8 @@ ul {
 	transition-duration: 200ms;
 	color: #fff;
 }
+
+/*************************************************************/
 
 .botonLogout{
 	float: right;

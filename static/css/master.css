@@ -1,82 +1,126 @@
-/*Le cambie la fuente a todo temporalmente*/
-* {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+*,
+::before,
+::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body{
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background : url(../img/fondo.jpg..) no-repeat center top ;
-    background-size: cover; 
+    background-color: #333;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-h1{
-    padding: 30px 30px;
-    color: rgb(0, 0, 0);
-    margin: 0;
-}
-
-.login-box{
-    width: 400px;
-    height: 620px;
-    background-color: #a7dcff;
-    color:#010113;
-    top:45%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-40%,-40%);
-    box-sizing: border-box;
-    padding: 10px 30px;
-    border-radius: 25px;
-}
-
-#avatar{
-    width: 100%;
-    border-radius: 50%;
-}
-
-.login-box h1{
-    margin: 0;
-    padding: 0 0 20px;
+h1{ 
+    font-family: Arvo, serif;
     text-align: center;
-    font-size: 22px;
+    font-weight: 700;
+    font-size: 24px;
+
 }
 
-.login-box.label{
-    margin: 0;
-    padding:0;
-    font-weight: bold;
-    display: block;
-}
-
-.login-box input {
-    width: 100%;
-    border:none;
-    border-bottom: 3px solid #0031b9;
-    box-shadow: none;
+form{
+    background: #fff;
+    padding: 40px 0 ;
+    box-shadow: 0 0 6px rgba(56, 56, 56, 0.8);
     border-radius: 5px;
-    height: 30px;
-}
-.login-box input[type="text"] {
-    margin-bottom: 20px;
 }
 
-.login-box button{
-    border : none;
-    outline: none;
-    height: 40px;
-    background:	#0031b9;
-    color:#fff;
+.login{
+    width: 100%;
+    margin : auto;
+}
+
+form .grupo{
+    position: relative;
+    margin: 45px;
+    
+    
+}
+input{
+    background:  none;
+    color : #c6c6c6;
     font-size: 18px;
-    border-radius:20px;
-    cursor: pointer;
+    padding: 10px 10px 10px 5px;;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid #000;
+
+}
+input:focus{
+    outline: none;
+    color:#5e5d5d;
+
+}
+label{
+    color: #aaa;
+    font-size: 16px;
+    position: absolute;
+    bottom:0;
+    left: 5px;
+    top: 10px;
+    transition:0.25s ease-in-out all;
+    pointer-events:  none;
+
+}
+input:focus~label,
+input:valid~label{
+    top:-14px;
+
+    font-size: 14px;
+    color: #4e0000;
+}
+
+.barra{
+    position: relative;
+    display: block;
     width: 100%;
 }
 
-.login-box button:hover {
-    background-color: #4981fa;
-    transition: ease-in-out;
-    transition-duration: 200ms;
+.barra::before{
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom :0;
+    position: absolute;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+    transition: 0.3s ease with;
+    left:0;
+}
+
+input:focus~.barra::before{
+width: 100%;
+
+}
+
+button{
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    display: block;
+    width: 80%;
+    margin:10px auto;
+    background-color: #444;
+    color : #fff;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: rgb(235, 0, 0);
+    color: #fff;
+    transition: 300ms ease-in-out all;
 }
 
 /*AÑADIDOS LOS ESTILOS PARA EL DIV DE ERRORES*/
