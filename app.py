@@ -92,7 +92,7 @@ def registro():
             return render_template('RegistrarUsuario.html')
     else:
         nombre = request.form['name']
-        apellido = request.form['firtsname']
+        apellido = request.form['apellido']
         correo = request.form['email']
         contraseña = request.form['password']
         password_encode = contraseña.encode("utf-8")
