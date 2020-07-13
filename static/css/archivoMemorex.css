@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	background-color: rgb(238, 238, 238);
+	background-color: rgb(44, 44, 44);
 }
 
 ul {
@@ -142,10 +142,95 @@ td, th {
 
 .col {
 	margin: 0 5px;
-	padding: 30px;
+	padding: 5px 30px;
+	width: 100%;
 	background-color: #fff;
 	border-radius: 2px;
 	box-shadow: 0px 0px 4px -3px rgba(0,0,0,0.75);
+}
+
+.publicar {
+	margin: 0 0 20px 0;
+	padding: 20px 0;
+	border-bottom: 6px solid #000;
+}
+
+.publicar h3 {
+	padding: 5px 15px;
+	background-color: rgb(160, 0, 0);
+	color: #fff;
+	width: 60%;
+	margin: 0 0 10px 0;
+}
+
+.publicar label {
+	font-size: 14px;
+	font-weight: 700;
+	width: 20%;
+}
+
+.publicar input {
+	width: 10%;
+	font-size: 14px;
+	height: 25px;
+	padding: 0 10px;
+	border: none;
+	border-bottom: 3px solid #ccc;
+}
+
+.publicar textarea {
+	width: 98%;
+	font-size: 14px;
+	height: 20px;
+	padding: 5px 10px;
+	border: 2px solid #aaa;
+}
+
+.publicar textarea:focus {
+	height: 100px;
+	transition: 100ms ease-in-out all;
+	border: 2px solid #000;
+}
+
+.publicar input:focus {
+	border: none;
+	border-bottom: 4px solid #000;
+	width: 70%;
+	transition: 200ms ease-in-out all;
+}
+
+#lblperso {
+	display: block;
+}
+
+#lblfecha {
+	width: 10%;
+}
+
+#titulo {
+	font-weight: 700;
+	display: block;
+}
+
+#personaje {
+	display: block;
+}
+
+#fecha:focus {
+	border-bottom: 2px solid #000;
+	width: 15%;
+}
+
+.publicar label, .publicar input {
+	margin: 5px 0;
+}
+
+.relleno {
+	height: 500px;
+}
+
+.clear {
+	height: 35px;
 }
 
 /*
