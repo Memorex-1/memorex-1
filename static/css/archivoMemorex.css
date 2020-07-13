@@ -38,7 +38,6 @@ ul {
 }
 
 .topbar nav {
-	width: 40%;
 	float: left;
 	height: 25px;
 	margin: 22px 0;
@@ -212,42 +211,39 @@ td, th {
 	transition: 200ms ease-in-out all;
 }
 
+.publicar input:hover {
+	border-bottom: 4px solid rgb(0, 0, 0);
+	transition: 200ms ease-in-out all;
+}
+
 .publicar input[type=radio] {
 	margin: 0;
 	width: 20px;
 }
 
+#bueno, #malo {	height: 10px; margin: 10px;}
+label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 
 #titulo {
 	font-weight: 700;
 	display: block;
 }
 
-#personaje {
-	display: block;
-}
+#personaje {display: block;}
 
 #fecha {
 	margin:0;
 	width: 10%;
+	display: block;
 }
 
 #fecha:focus {
 	border-bottom: 2px solid #000;
 	width: 15%;
 }
-
-#lblfecha {
-	width: 50px;
-}
-
-.relleno {
-	height: 500px;
-}
-
-.clear {
-	height: 35px;
-}
+#lblfecha {width: 50px;}
+.relleno {height: 500px;}
+.clear {height: 35px;}
 
 
 /*FOOTER***************************/
