@@ -71,12 +71,13 @@ def registrar():
             return render_template('RegistrarUsuario.html')
     else:
         return render_template('RegistrarUsuario.html')
+
 @app.route('/editor-personaje', methods = ['POST','GET'])
 def editor():
     tasks = personajes.query.all()
     return render_template('editor-personaje.html', tasks = tasks)
 
-# funcion que registra los datos en la bd 
+# funcion que registra los datos en la bd uusuarios
 @app.route('/registro-usuario', methods = ['POST','GET'])
 def registro():
     if(request.method == "GET"):
