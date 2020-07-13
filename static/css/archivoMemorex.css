@@ -3,13 +3,6 @@ body {
 	background-color: rgb(238, 238, 238);
 }
 
-/*parte agregada*/
-nav ul a{
-	color: #fff;
-	padding: 20px;
-	display: block;
-	text-decoration: none;
-}
 ul {
 	list-style-type: none;
   	margin: 0;
