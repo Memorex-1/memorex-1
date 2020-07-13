@@ -16,7 +16,7 @@
     <div class="login-box" >
         <img src="{{url_for('static', filename = 'img/logo.png')}}" alt="MEMOREX" id="avatar">
         <h1>Crear Cuenta</h1>
-        <form action="editor-personaje" method="GET" id="login">
+        <form action="/registro-usuario" method="POST" id="login">
 
             <label for = "username">Nombre</label>
             <input type="text" id="name" name="name" required maxlength="20">
