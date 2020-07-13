@@ -1,3 +1,5 @@
+
+
 body {
 	margin: 0;
 	background-color: rgb(44, 44, 44);
@@ -185,6 +187,7 @@ td, th {
 	font-size: 14px;
 	height: 25px;
 	padding: 0 10px;
+	margin: 15px 0;
 	border: none;
 	border-bottom: 3px solid #ccc;
 }
@@ -195,6 +198,7 @@ td, th {
 	height: 20px;
 	padding: 5px 10px;
 	border: 2px solid #aaa;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .publicar textarea:focus {
@@ -210,13 +214,6 @@ td, th {
 	transition: 200ms ease-in-out all;
 }
 
-#lblperso {
-	display: block;
-}
-
-#lblfecha {
-	width: 10%;
-}
 
 #titulo {
 	font-weight: 700;
@@ -227,13 +224,13 @@ td, th {
 	display: block;
 }
 
+#fecha {
+	margin:0;
+}
+
 #fecha:focus {
 	border-bottom: 2px solid #000;
 	width: 15%;
-}
-
-.publicar label, .publicar input {
-	margin: 5px 0;
 }
 
 .relleno {
