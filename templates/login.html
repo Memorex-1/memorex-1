@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesión</title>
-    <link rel="stylesheet" href="{{url_for('static',filename = 'css/master.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename = 'css/login.css')}}">
     <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 </head>
@@ -15,7 +15,7 @@
         <div class="form">
             <h1>Iniciar Sesión</h1>
 
-            <div class=" grupo">
+            <div class="grupo">
                 <input type="text" name="username" id="username" maxlength="50" required><span class="barra"></span>
                 <label for="username">Usuario</label>
             </div>
@@ -27,7 +27,10 @@
             <div id="msg"></div>
             <button id="ingresar">INGRESAR</button>
         </div>
-    
+        <div class="extra">
+            <a href="">¿Olvidaste tu contraseña?</a>
+            <a href="">¿No tienes cuenta? Regístrate aquí.</a>
+        </div>
     </form>
 </body>
 </html>

@@ -11,7 +11,7 @@ body{
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #333;
+    background-color: #ddd;
     height: 650px;
     display: flex;
     justify-content: center;
@@ -32,6 +32,7 @@ form{
     padding: 40px 0 ;
     box-shadow: 0 0 6px rgba(56, 56, 56, 0.8);
     border-radius: 5px;
+    width: 350px;
 }
 
 .login{
@@ -56,6 +57,12 @@ input{
     border-bottom: 3px solid #000;
 
 }
+
+input:hover {
+    border-bottom: 3px solid rgb(255, 2, 2);
+    transition: 200ms ease-in-out all;
+}
+
 input:focus{
     outline: none;
     color:#5e5d5d;
@@ -74,7 +81,7 @@ label{
 }
 input:focus~label,
 input:valid~label{
-    top:-14px;
+    top:-24px;
 
     font-size: 14px;
     color: #4e0000;
@@ -118,9 +125,22 @@ button{
 }
 
 button:hover {
-    background-color: rgb(235, 0, 0);
+    background-color: rgb(133, 0, 0);
     color: #fff;
     transition: 300ms ease-in-out all;
+}
+
+.extra a {
+    color: rgb(109, 109, 255);
+    font-size: 12px;
+    text-decoration: none;
+    display: block;
+    margin: 0 30px;
+    margin-top: 10px;
+}
+
+.extra a:hover {
+    color: blue;
 }
 
 /*AÑADIDOS LOS ESTILOS PARA EL DIV DE ERRORES*/

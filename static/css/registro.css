@@ -1,0 +1,141 @@
+
+*,
+::before,
+::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ddd;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1{ 
+    font-family: Arvo, serif;
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+
+}
+
+form{
+    background: #fff;
+    padding: 40px 0 ;
+    box-shadow: 0 0 6px rgba(56, 56, 56, 0.8);
+    border-radius: 5px;
+    width: 400px;
+}
+
+.login{
+    width: 100%;
+    margin : auto;
+}
+
+form .grupo{
+    position: relative;
+    margin: 45px;
+}
+.grupo input{
+    background:  none;
+    color : #929292;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid #000;
+
+}
+input:focus{
+    outline: none;
+    color:#252525;
+}
+
+input:hover {
+    border-bottom: 3px solid rgb(207, 0, 0);
+    transition: 200ms ease-in-out all;
+}
+
+.grupo label{
+    color: #aaa;
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    top: 10px;
+    transition:0.25s ease-in-out all;
+    pointer-events:  none;
+
+}
+
+input:focus~label,
+input:valid~label{
+    top:-22px;
+
+    font-size: 14px;
+    color: #4e0000;
+}
+
+.barra{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.barra::before{
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom :0;
+    position: absolute;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+    transition: 0.3s ease with;
+    left:0;
+}
+
+input:focus~.barra::before{
+width: 100%;
+
+}
+
+.terminos {
+    margin: 20px 45px;
+    font-size: 14px;
+}
+
+button{
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    display: block;
+    width: 80%;
+    margin:10px auto;
+    background-color: #444;
+    color : #fff;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(134, 0, 0);
+    color: #fff;
+    transition: 300ms ease-in-out all;
+}
+
+/*AÑADIDOS LOS ESTILOS PARA EL DIV DE ERRORES*/
+#msg {
+    height: 50px;
+    color: #a80000;
+    padding: 10px 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
