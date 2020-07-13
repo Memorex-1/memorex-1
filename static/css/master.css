@@ -3,13 +3,6 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    background : url(../img/fondo.jpg..) no-repeat center top ;
-    background-size: cover; 
-}
-
 h1{
     padding: 30px 30px;
     color: rgb(0, 0, 0);
@@ -31,8 +24,12 @@ h1{
 }
 
 #avatar{
-    width: 100%;
+    width: 35%;
     border-radius: 50%;
+    /*border: 1px solid;   borde a la imagen*/
+    display: block;      /*usado para centrar imagen*/
+    margin-left: auto;   /*usado para centrar imagen*/
+    margin-right: auto;  /*usado para centrar imagen*/
 }
 
 .login-box h1{
