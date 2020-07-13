@@ -3,6 +3,13 @@ body {
 	background-color: rgb(238, 238, 238);
 }
 
+/*parte agregada*/
+nav ul a{
+	color: #fff;
+	padding: 20px;
+	display: block;
+	text-decoration: none;
+}
 ul {
 	list-style-type: none;
   	margin: 0;
@@ -36,6 +43,7 @@ ul {
 }
 
 .topbar nav {
+	width: 40%;
 	float: left;
 }
 
@@ -92,15 +100,20 @@ ul {
 }
 
 .contenedor{
-	display: flex;
+	/*display: flex;*/
 	flex-flow: row nowrap;
+	margin: 0 auto;
+	width: 50%;/*centrar*/
 }
 .item{
 	margin: 1em;
 	padding: 1em;
 	color: #ffffff;
+	border: 1px solid;/*notar borde*/
+	border-radius: 1%;/*borde redondeado*/
 }
 #item1{
+	columns: 2;/*para dividir*/
 	background-color: #a7dcff;
 	color:#010113;
 	flex-grow: 1;
@@ -114,6 +127,11 @@ ul {
 	background-color: #a7dcff;
 	color:#010113;
 	flex-grow: 7;
+}
+#item4{
+	background-color: #a7dcff;
+	color:#010113;
+	flex-grow: 2;
 }
 h2{
 	font-family: 'Arial';
