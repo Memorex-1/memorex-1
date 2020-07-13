@@ -10,17 +10,51 @@
 	<script defer src="{{url_for('static', filename ='js/login.js')}}"></script>
 </head>
 <body>
-	<button><a href="http://127.0.0.1:8000/">
-	<img class="imagen1" src="{{url_for('static', filename='img/InicioMemorex.jpg')}}"/>
-	</a></button>
-	<button class="botonLogout"><a href="login">CERRAR SESION</a></button>
-	<hr>
+	<div class="topbar-cont">
+		<div class="topbar">
+			<div class="logo">
+				<a href="http://127.0.0.1:8000/"><img height="55px" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}"></a>
+			</div>
+			<section>
+			<nav>
+				<ul>
+					<li><a href="">Inicio</a></li>
+					<li><a href="">Publicaciones</a></li>
+					<li><a href="">Sobre la pagina</a></li>
+				</ul>
+			</nav>
+			</section>
+			<!--<a href="login"><button class="login">ACCEDER</button></a>-->
+			<a href="index"><button class="login">Cerrar Sesion</button></a>
+		</div>
+	</div>
 	<div class="contenedor">
 		<div class="item" id="item1">
 			<h2>Mi Perfil</h2>
+			<h3>BIENVENIDO ADMINISTRADOR</h3>
 			<img src="{{url_for('static', filename='img/LogoAdmin.jpg')}}" id="avatar">
 			<br>
-			<h3>BIENVENIDO ADMINISTRADOR</h3>
+			<ul>
+				<h3>Datos de Administrador</h3><br>
+				<li>Nombre: </li><br>
+				<li>Apellido: </li><br>
+				<li>Correo: </li><br>
+				<li>Telefono: </li><br>
+			</ul>
+		</div>
+		<div class="item" id="item4">
+			<form action="/crear" method="POST">
+				<h2>Cambiar datos: </h2>
+				<label for = "nombre">Nombre: </label>
+				<input type="text" name="nombre" placeholder="Nombre"><br><br>
+				<label for = "apellido">Apellido: </label>
+				<input type="text" name="apellido" placeholder="Apellido"><br><br>
+				<label for = "correo">Correo: </label>
+				<input type="email" name="email" placeholder="correo"><br><br>
+				<label for = "telefono">Telefono: </label>
+				<input type="telefono" name="telefono" placeholder="telefono"><br><br>
+				<button id="CambiarDatos" >Cambiar Datos</button><br><br><!--boton crear personaje-->
+			</form>
 		</div>
 		<div class="item" id="item2">
 			<form action="/crear" method="POST">
@@ -70,6 +104,8 @@
 			</table>
 		</div>
 	</div>
-
+	<footer>
+		<span>Memorex&copy; 2020</span>
+	</footer>
 </body>
 </html>
