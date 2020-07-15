@@ -7,7 +7,11 @@
 	<meta name = "description" content = "contenido politico"/>
 	<title>Memorex</title>
 	<link rel="stylesheet" href="{{url_for('static', filename='css/archivoMemorex.css')}}"/>
-	<link rel="stylesheet" href="{{url_for('static', filename = 'css/master.css')}}"> 
+	<link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+	<script src="https://kit.fontawesome.com/4527196161.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="topbar-cont">
@@ -15,7 +19,6 @@
 			<div class="logo">
 				<a href="http://127.0.0.1:5000/"><img height="55px" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}"></a>
 			</div>
-			<section>
 			<nav>
 				<ul>
 					<li><a href="">Inicio</a></li>
@@ -23,9 +26,10 @@
 					<li><a href="">Sobre la pagina</a></li>
 				</ul>
 			</nav>
-			</section>
 			<!--<a href="login"><button class="login">ACCEDER</button></a>-->
-			<a href="/salir"><button class="login">Cerrar Sesion</button></a>
+			<div class="btn-topbar">
+			<a href="/salir"><button class="boton cerrar" ><i class="fas fa-sign-out-alt"></i> CERRAR SESION</button></a>
+			</div>
 		</div>
 	</div>
 	<div class="contenedor">
@@ -46,64 +50,17 @@
 			<form action="/crear" method="POST">
 				<h2>Cambiar datos: </h2>
 				<label for = "nombre">Nombre: </label>
-				<input type="text" name="nombre" placeholder="Nombre"><br><br>
+				<input type="text" name="nombre" ><br><br>
 				<label for = "apellido">Apellido: </label>
-				<input type="text" name="apellido" placeholder="Apellido"><br><br>
+				<input type="text" name="apellido" ><br><br>
 				<label for = "correo">Correo: </label>
-				<input type="email" name="email" placeholder="correo"><br><br>
+				<input type="email" name="email" ><br><br>
 				<label for = "telefono">Telefono: </label>
-				<input type="telefono" name="telefono" placeholder="telefono"><br><br>
-				<button id="CambiarDatos" >Cambiar Datos</button><br><br><!--boton crear personaje-->
+				<input type="telefono" name="telefono" ><br><br>
+				<button id="CambiarDatos" class="boton">Cambiar Datos</button><br><br><!--boton cambiar datos-->
 			</form>
 		</div>
-		<div class="item" id="item2">
-			<form action="/crear" method="POST">
-				<h2>Personajes</h2>
-				<label for = "nombrepersonaje">Crear Personaje</label>
-				<input type="text" name="nombre" placeholder="Ingrese Personaje">
-				<button id="CrearPersonaje" >Crear Personaje</button><br><br><!--boton crear personaje-->
-			</form>
-				<h2>Asignar referencia a personaje</h2>
-			<form action="/crear-referencia" method="POST">
-			<select name="PS">
-   				<option selected> Elige un personaje </option>
-       			<optgroup label="Personaje">
-				<ul>
-					{% for task in tasks %}
-					<option value= {{task.id}}>{{task.nombre}}</option> 
-					{% endfor %}
-				</ul> 
-				</optgroup> 
-			
-   			</select>
-   			<h2>Referencia</h2>
-			   <textarea id="descripcion" name="descripcion" cols="40" rows="5"></textarea>
-			   <button id="AsignarReferencia">Asignar Referencia</button><br><br><!--boton asignar referencia-->
-			</form>
-		</div>
-		<div class="item" id="item3">
-			<h2>Lista</h2>
-		
-			<table>
-				<tr>
-					<th>Personajes</th>
 
-				</tr>	
-					<ul>
-						{% for task in tasks %}
-						<tr>
-							<td>
-								{{task.nombre}}
-							</td>				
-							{% endfor %}
-						</tr>
-						
-					</ul>
-				</td>
-				</tr> 
-			</table>
-		</div>
-	</div>
 	<footer>
 		<span>Memorex&copy; 2020</span>
 	</footer>
