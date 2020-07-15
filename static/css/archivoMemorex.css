@@ -4,7 +4,16 @@ body {
 	margin: 0;
 	background-color: #ddd;
 }
-
+/*para la imagen */
+#avatar{
+    width: 35%;
+    border-radius: 50%;
+    /*border: 1px solid;   borde a la imagen*/
+    display: block;      /*usado para centrar imagen*/
+    margin-left: auto;   /*usado para centrar imagen*/
+    margin-right: auto;  /*usado para centrar imagen*/
+}
+/**************************/
 
 /* ESTILOS DE LA TOPBAR *******************************/
 ul {
@@ -99,27 +108,26 @@ ul {
 	margin: 1em;
 	padding: 1em;
 	color: #ffffff;
-	border: 1px solid;/*notar borde*/
+	/*border: 1px solid;    notar borde*/
 	border-radius: 1%;/*borde redondeado*/
 }
+/*resaltar en rojo*/
+.item h2 {
+	padding: 5px 15px;
+	background-color: rgb(160, 0, 0);
+	color: #fff;
+	width: 60%;
+	margin: 0 0 10px 0;
+}
+/*******************/
 #item1{
 	columns: 2;/*para dividir*/
-	background-color: #a7dcff;
+	background-color: #ffffff;
 	color:#010113;
 	flex-grow: 1;
 }
-#item2{
-	background-color: #a7dcff;
-	color:#010113;
-	flex-shrink: 2;
-}
-#item3{
-	background-color: #a7dcff;
-	color:#010113;
-	flex-grow: 7;
-}
 #item4{
-	background-color: #a7dcff;
+	background-color: #ffffff;
 	color:#010113;
 	flex-grow: 2;
 }
