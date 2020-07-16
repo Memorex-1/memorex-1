@@ -15,12 +15,12 @@
                     <h1>Crear Cuenta</h1>
                     <div class="grupo">
                         <input type="text" id="name" name="name" required maxlength="20"><span class="barra "></span>
-                        <label for = "name">Nombre</label>
+                        <label for = "name">Nombre(s)</label>
                     </div>
                     
                     <div class="grupo">
                         <input type="text" id="apellido" name="apellido" required maxlength="20"><span class="barra "></span>
-                        <label for = "apellido">Apellido</label>
+                        <label for = "apellido">Apellidos</label>
                     </div>
                     
                     <div class="grupo">
@@ -33,14 +33,19 @@
                         <label for ="password"> Contraseña</label>
                     </div>
 
+                    <div class="grupo" id="sec">
+                        <input type="password" id="password-conf" name="password-conf" required maxlength="20"><span class="barra "></span>
+                        <label for ="password-conf"> Confirmar contraseña</label>
+                    </div>
+
                     <div class="terminos">
                         <input type="checkbox" id="terminos" required>
-                        <label for="terminos">Acepto los <a href="">terminos y condiciones</a> y <a href="">políticas de privacidad</a> del sitio web.</label>
+                        <label for="terminos">Acepto los <a href="">terminos y condiciones</a> del sitio web.</label>
                     </div>
                     
         
                     <!-- Este div mostrará el mensaje de error al ingresar datos. Es modificado con el script -->
-                    <div id="msg"></div>
+                    <div id="msg">Mensaje de errores de validacion van aqui sad asdas s sdassasdsa </div>
                     
                     <button id="registrar">REGISTRAR</button>
                 </div>

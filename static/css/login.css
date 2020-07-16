@@ -143,10 +143,15 @@ button:hover {
     color: blue;
 }
 
+#sec {
+    margin: 45px 45px 10px 45px;
+}
+
 /*AÑADIDOS LOS ESTILOS PARA EL DIV DE ERRORES*/
 #msg {
     height: 50px;
     color: #a80000;
-    padding: 10px 0px;
+    font-size: 14px;
+    margin: 15px 35px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
