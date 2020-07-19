@@ -92,6 +92,50 @@ ul {
 }
 
 /*************************************************************/
+/***ABOUT US*************/
+.contenedor-texto{
+	grid-area: texto;
+  	margin-right: 5px;
+	margin-left: 15px;
+  	text-align: justify;
+}
+
+.grid-info{
+	grid-area: texto;
+  	margin: auto;
+  	text-align: justify;
+}
+
+.grid-info img {
+	grid-area: imagen;
+  	width: 60%;
+  	margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+  	.grid-info {
+    		display: grid;
+    		grid-template-areas: "texto imagen";
+    		grid-template-columns: 50% 50%;
+    		grid-gap: 30px;
+  	}
+}
+
+
+/****REDES SOCIALES****/
+.contenedor-redes a{
+	display: inline;
+	margin-top: 10px;
+	margin-right:5px;
+	margin-left:5px;
+	font-size:1.2rem;
+}
+
+.contenedor-redes a:hover{
+color: var(--secundario);
+}
+
+/**********************/
 
 .botonLogout{
 	float: right;
