@@ -280,12 +280,18 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 	display: block;
 }
 
-#personaje {display: block;}
+#personaje {display: none;}
+
+#personaje-select {display: none;}
 
 #fecha {
 	margin:0;
 	width: 10%;
 	display: block;
+}
+
+.nuevo, .seleccionar {
+	float: none;
 }
 
 #fecha:focus {

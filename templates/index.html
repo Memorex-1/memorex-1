@@ -48,6 +48,10 @@
 					<input type="text" id="titulo" name="titulo" maxlength="100" value="uwu" placeholder="Título...">
 					
 					<label for="personaje-select">Personaje:</label>
+
+					<button type="button" class="boton seleccionar" id="boton-seleccionar" onclick="selectPerso()">Seleccionar</button>
+					<button type="button" class="boton nuevo" id="boton-nuevo" onclick="nuevoPerso()">Nuevo</button>
+
 					<select name="personaje" id="personaje-select">
 						<option value="nuevo">Nuevo Personaje</option>
 						<option value="keiko">Keiko Fujimori</option>
@@ -80,5 +84,21 @@
 	<footer>
 		<span>Memorex&copy; 2020</span>
 	</footer>
+
+	<script>
+
+		var perso = document.getElementById("personaje");
+		var persoSelect = document.getElementById("personaje-select");
+
+		function nuevoPerso() {
+			perso.style.display = "block";
+			persoSelect.style.display = "none";
+		}
+
+		function selectPerso() {
+			perso.style.display = "none";
+			persoSelect.style.display = "block";
+		}
+	</script>
 </body>
 </html>
