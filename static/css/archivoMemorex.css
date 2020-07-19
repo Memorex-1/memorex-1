@@ -2,7 +2,7 @@
 
 body {
 	margin: 0;
-	background-color: #ddd;
+	background-color: #eee;
 }
 /*para la imagen */
 #avatar{
@@ -125,7 +125,6 @@ ul {
 /****REDES SOCIALES****/
 .contenedor-redes a{
 	display: inline;
-	margin-top: 10px;
 	margin-right:5px;
 	margin-left:5px;
 	font-size:1.2rem;
@@ -280,14 +279,18 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 	display: block;
 }
 
-#personaje {display: none;}
+#personaje {display: none; margin: 0;}
 
-#personaje-select {display: none;}
+#personaje-select {display: none; margin: 0;}
 
 #fecha {
 	margin:0;
 	width: 10%;
 	display: block;
+}
+
+.perso {
+	height: 15px;
 }
 
 .nuevo, .seleccionar {
@@ -299,8 +302,55 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 	width: 15%;
 }
 #lblfecha {width: 50px;}
-.relleno {height: 500px;}
 .clear {height: 35px;}
+
+
+/*PUBLICACIONES ESTILOS********************/
+.publicacion {
+	border-bottom: 2px solid #aaa;
+	margin-top: 20px;
+}
+
+.publicacion h3{
+	font-size: 1.3em;
+	margin: 5px 0;
+}
+
+.publicacion span {
+	font-size: 0.8em;
+}
+
+#username-publi {
+	color: crimson;
+	font-weight: bold;
+}
+
+.publicacion div {
+	margin: 15px 0;
+}
+
+#info-publi {
+	text-align: justify;
+	text-justify: auto;
+	font-size: 1em;
+}
+
+#fuentes-lbl {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+#fuente-title {
+	display: block;
+}
+
+#fuente-publi a {
+	font-size: 0.8em;
+}
+
+
+
 
 
 /*FOOTER***************************/

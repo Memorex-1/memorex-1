@@ -6,7 +6,7 @@
 	<meta name = "description" content = "contenido politico"/>
 	<title>Memorex</title>
 	<link rel="stylesheet" href="{{url_for('static', filename='css/archivoMemorex.css')}}">
-	<link href='https://fonts.googleapis.com/css?family=Ro Slab' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
@@ -45,24 +45,26 @@
 					<label for="bueno">Buena</label>
 					<input type="radio" id="malo" name="percepcion" value="malo">
 					<label for="malo">Mala</label>
-					<input type="text" id="titulo" name="titulo" maxlength="100" value="uwu" placeholder="Título...">
+					<input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Título...">
 					
 					<label for="personaje-select">Personaje:</label>
 
 					<button type="button" class="boton seleccionar" id="boton-seleccionar" onclick="selectPerso()">Seleccionar</button>
 					<button type="button" class="boton nuevo" id="boton-nuevo" onclick="nuevoPerso()">Nuevo</button>
+					<div class="perso">
 
-					<select name="personaje" id="personaje-select">
-						<option value="nuevo">Nuevo Personaje</option>
-						<option value="keiko">Keiko Fujimori</option>
-						<option value="alan">Alan García</option>
-						<option value="julio-guzman">Julio Guzmán</option>
-						<option value="veronika-mendoza">Verónika Mendoza</option>
-						<option value="cesar-acuna">César Acuña</option>
-						<option value="daniel-urresti">Daniel Urresti</option>
-					</select>
-
-					<input type="text" id="personaje" name="personaje" maxlength="30" placeholder="Nuevo Personaje...">
+						<select name="personaje" id="personaje-select">
+							<option value="nuevo">Nuevo Personaje</option>
+							<option value="keiko">Keiko Fujimori</option>
+							<option value="alan">Alan García</option>
+							<option value="julio-guzman">Julio Guzmán</option>
+							<option value="veronika-mendoza">Verónika Mendoza</option>
+							<option value="cesar-acuna">César Acuña</option>
+							<option value="daniel-urresti">Daniel Urresti</option>
+						</select>
+	
+						<input type="text" id="personaje" name="personaje" maxlength="30" placeholder="Nuevo Personaje...">
+					</div>
 
 					<input type="date" id="fecha" name="fecha" style="float: right;">
 					<label for="fecha" style="float: right;" id="lblfecha">Fecha </label>
@@ -76,8 +78,68 @@
 					<div class="clear"></div>
 				</form>
 			</div>
-			<div class="relleno p1"></div>
-			<div class="relleno p2"></div>
+			<div class="publicacion n1">
+				<span id="username-publi">Username</span>
+				<h3 style="font-family: 'Roboto Slab';">Keiko Fujimori le habría pedido a Yesenia Ponce frenar un proyecto para perjudicar al Gobierno</h2>
+				<div id="perso-fecha">
+					<span id="fecha-lbl">
+						Fecha de publicación: <span id="fecha-publi">18/07/2020</span>
+					</span>
+					<span id="perso-publi" style="float: right;">
+						Keiko Fujimori
+					</span>
+				</div>
+				<div id="info-publi">
+					"Es un muy buen proyecto pero no es el momento. Así que hay que guardarlo y en su momento o sino nosotros mismos lo hacemos realidad. '¿Pero presidente, 2021?', le digo. 'Sí, hay que guardarlo. Ahora tenemos que ser leal a nuestro partido (...) No me interesa así se perjudiquen diez mil, cien mil personas. ¡No va!'", fue lo que le dijo Fujimori a Ponce, según relata en el audio. 
+				</div>
+				<div id="fuente-publi">
+					<span id="fuentes-lbl">Fuente(s):</span>
+					<span id="fuente-title">Keiko Fujimori le habría pedido a Yesenia Ponce frenar un proyecto para perjudicar al Gobierno: </span>
+					<a href="https://rpp.pe/politica/estado/audio-yesenia-ponce-habria-dicho-que-keiko-fujimori-le-pidio-frenar-un-proyecto-solo-para-perjudicar-al-gobierno-noticia-1077207">https://rpp.pe/politica/estado/audio-yesenia-ponce-habria-dicho-que-keiko-fujimori-le-pidio-frenar-un-proyecto-solo-para-perjudicar-al-gobierno-noticia-1077207</a>
+				</div>
+			</div>
+
+		<!-- ESTA PARTE ESTÁ REPETIDA DE LO DE ARRIBA COMO PARA RELLENAR -->
+			<div class="publicacion n2">
+				<span id="username-publi">Username</span>
+				<h3 style="font-family: 'Roboto Slab';">Keiko Fujimori le habría pedido a Yesenia Ponce frenar un proyecto para perjudicar al Gobierno</h2>
+				<div id="perso-fecha">
+					<span id="fecha-lbl">
+						Fecha de publicación: <span id="fecha-publi">18/07/2020</span>
+					</span>
+					<span id="perso-publi" style="float: right;">
+						Keiko Fujimori
+					</span>
+				</div>
+				<div id="info-publi">
+					"Es un muy buen proyecto pero no es el momento. Así que hay que guardarlo y en su momento o sino nosotros mismos lo hacemos realidad. '¿Pero presidente, 2021?', le digo. 'Sí, hay que guardarlo. Ahora tenemos que ser leal a nuestro partido (...) No me interesa así se perjudiquen diez mil, cien mil personas. ¡No va!'", fue lo que le dijo Fujimori a Ponce, según relata en el audio. 
+				</div>
+				<div id="fuente-publi">
+					<span id="fuentes-lbl">Fuente(s):</span>
+					<span id="fuente-title">Keiko Fujimori le habría pedido a Yesenia Ponce frenar un proyecto para perjudicar al Gobierno: </span>
+					<a href="https://rpp.pe/politica/estado/audio-yesenia-ponce-habria-dicho-que-keiko-fujimori-le-pidio-frenar-un-proyecto-solo-para-perjudicar-al-gobierno-noticia-1077207">https://rpp.pe/politica/estado/audio-yesenia-ponce-habria-dicho-que-keiko-fujimori-le-pidio-frenar-un-proyecto-solo-para-perjudicar-al-gobierno-noticia-1077207</a>
+				</div>
+			</div>
+			<div class="publicacion n3">
+				<span id="username-publi">Username</span>
+				<h3 style="font-family: 'Roboto Slab';">Keiko Fujimori le habría pedido a Yesenia Ponce frenar un proyecto para perjudicar al Gobierno</h2>
+				<div id="perso-fecha">
+					<span id="fecha-lbl">
+						Fecha de publicación: <span id="fecha-publi">18/07/2020</span>
+					</span>
+					<span id="perso-publi" style="float: right;">
+						Keiko Fujimori
+					</span>
+				</div>
+				<div id="info-publi">
+					"Es un muy buen proyecto pero no es el momento. Así que hay que guardarlo y en su momento o sino nosotros mismos lo hacemos realidad. '¿Pero presidente, 2021?', le digo. 'Sí, hay que guardarlo. Ahora tenemos que ser leal a nuestro partido (...) No me interesa así se perjudiquen diez mil, cien mil personas. ¡No va!'", fue lo que le dijo Fujimori a Ponce, según relata en el audio. 
+				</div>
+				<div id="fuente-publi">
+					<span id="fuentes-lbl">Fuente(s):</span>
+					<span id="fuente-title">Keiko Fujimori le habría pedido a Yesenia Ponce frenar un proyecto para perjudicar al Gobierno: </span>
+					<a href="https://rpp.pe/politica/estado/audio-yesenia-ponce-habria-dicho-que-keiko-fujimori-le-pidio-frenar-un-proyecto-solo-para-perjudicar-al-gobierno-noticia-1077207">https://rpp.pe/politica/estado/audio-yesenia-ponce-habria-dicho-que-keiko-fujimori-le-pidio-frenar-un-proyecto-solo-para-perjudicar-al-gobierno-noticia-1077207</a>
+				</div>
+			</div>
 		</main>
 	</div>
 
