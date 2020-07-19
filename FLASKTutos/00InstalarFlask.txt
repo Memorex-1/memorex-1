@@ -3,31 +3,24 @@ Get-ExecutionPolicy # Si marca "Unrestricted, normal", sino:
 Set-ExecutionPolicy Unrestricted #Aceptamos con S (o Y si tu PC está en inglés)
 
 #Primero:
-
 python -V #Te permite saber tu versión de python
 
 #Luego:
-
 pip -V #Te permite saber tu versión de pip, si no la tienes, Python debe añadirse al Path
 
 #Ingresa a la carpeta del proyecto y luego desde ahí ejecuta en el cmd:
-
 py -3 -m venv env
 
-#Verifica que se haya creado la carpeta venv
-
+#Verifica que se haya creado la carpeta venv:
 env\Scripts\activate
 
 #Luego:
-
 pip3 install Flask
 
 #Este paso es OPCIONAL (solo si te propone actualizar el pip):
-
 python -m pip install --upgrade pip
 
 #Verifica que ya instalaste flask:
-
 flask --version
 
 #Instalar sqlalchemy para flask
