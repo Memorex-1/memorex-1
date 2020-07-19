@@ -308,48 +308,61 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 /*PUBLICACIONES ESTILOS********************/
 .publicacion {
 	border-bottom: 2px solid #aaa;
-	margin-top: 20px;
+	padding-top: 20px;
+	border-right: 4px solid rgb(145, 0, 0);
 }
 
 .publicacion h3{
 	font-size: 1.3em;
-	margin: 5px 0;
+	margin: 10px 0;
 }
 
 .publicacion span {
 	font-size: 0.8em;
 }
 
-#username-publi {
+.username-publi {
 	color: crimson;
 	font-weight: bold;
 }
 
-.publicacion div {
-	margin: 15px 0;
-}
-
-#info-publi {
+.info-publi {
 	text-align: justify;
 	text-justify: auto;
 	font-size: 1em;
 }
 
-#fuentes-lbl {
+.fuentes-lbl {
 	display: block;
-	margin-bottom: 10px;
+	margin: 10px 0;
 	font-weight: bold;
 }
 
-#fuente-title {
+.fuente-title {
 	display: block;
 }
 
-#fuente-publi a {
+.fuente-publi a {
 	font-size: 0.8em;
 }
 
+.flex-body-publi {
+	display: flex;
+	align-items: flex-start;
+}
 
+.publi-body-col1{ margin: 0; padding: 0 20px 10px 5px;}
+.publi-body-col2{ 
+	width: 25%; 
+	padding: 20px 20px; 
+	background-color: rgb(78, 0, 0);
+	color: #fff;
+	font-family: 'Roboto Slab';
+	border-radius: 25px 0 0 25px;
+}
+.publi-body-col2 img {
+	border-radius: 5px;
+}
 
 
 
