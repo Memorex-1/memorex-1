@@ -42,7 +42,7 @@ form{
 
 form .grupo{
     position: relative;
-    margin: 45px;
+    margin: 30px 45px;
 }
 .grupo input{
     background:  none;
@@ -138,6 +138,7 @@ button{
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 button:hover {
@@ -148,7 +149,7 @@ button:hover {
 
 /*AÑADIDOS LOS ESTILOS PARA EL DIV DE ERRORES*/
 #sec {
-    margin: 45px 45px 10px 45px;
+    margin: 30px 45px 10px 45px;
 }
 
 #msg {

@@ -6,11 +6,12 @@
 	<meta name = "description" content = "contenido politico"/>
 	<title>Memorex</title>
 	<link rel="stylesheet" href="{{url_for('static', filename='css/archivoMemorex.css')}}">
-	<link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Ro Slab' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 	<script src="https://kit.fontawesome.com/4527196161.js" crossorigin="anonymous"></script>
+	<script src="../static/js/indexScript.js"></script>
 </head>
 <body>
 	<div class="topbar-cont">
@@ -44,9 +45,21 @@
 					<label for="bueno">Buena</label>
 					<input type="radio" id="malo" name="percepcion" value="malo">
 					<label for="malo">Mala</label>
-					<input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Título">
+					<input type="text" id="titulo" name="titulo" maxlength="100" value="uwu" placeholder="Título...">
 					
-					<input type="text" id="personaje" name="personaje" maxlength="30" placeholder="Personaje">
+					<label for="personaje-select">Personaje:</label>
+					<select name="personaje" id="personaje-select">
+						<option value="nuevo">Nuevo Personaje</option>
+						<option value="keiko">Keiko Fujimori</option>
+						<option value="alan">Alan García</option>
+						<option value="julio-guzman">Julio Guzmán</option>
+						<option value="veronika-mendoza">Verónika Mendoza</option>
+						<option value="cesar-acuna">César Acuña</option>
+						<option value="daniel-urresti">Daniel Urresti</option>
+					</select>
+
+					<input type="text" id="personaje" name="personaje" maxlength="30" placeholder="Nuevo Personaje...">
+
 					<input type="date" id="fecha" name="fecha" style="float: right;">
 					<label for="fecha" style="float: right;" id="lblfecha">Fecha </label>
 					
@@ -54,7 +67,7 @@
 					
 					<textarea name="descripcion" id="descripcion" placeholder="Describe el acontecimiento..."></textarea>
 					<label for="referencias">Fuente(s): </label>
-					<textarea name="referencias" id="referencias" placeholder="Referencias"></textarea>
+					<textarea name="referencias" id="referencias" placeholder="Referencias, citas, enlaces, etc..."></textarea>
 					<button type="submit" class="boton" style="float: right;">PUBLICAR</button>
 					<div class="clear"></div>
 				</form>
