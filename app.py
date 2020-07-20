@@ -26,30 +26,26 @@ class usuarios(db1.Model):
 @app.route('/index')
 def index():
     return render_template('index.html')
-#funcion que te lleva al login.html
-
-
-#funcion para ingresar a la pagina 
+    
 @app.route('/login',methods = ['POST','GET'])
 def login():
     if(request.method == "GET"):
         if 'name' in session:
             return redirect(url_for('editor'))
-    else:
-        #obtiene datos 
-        correo = request.form['username']
-        password = request.form['password']
-        password_encode = password.encode("utf-8")
-        usuario = usuarios.query.filter_by(correo = correo).first()
-        if(usuario !=None):
-            #obtiene el password encriptado encode
-            password_encriptado_encode = usuario.contraseña
-            #verifica el password
-            if(bcrypt.checkpw(password_encode,password_encriptado_encode)):
-                #registra la sesion
-                session['name'] = usuario.nombre
-                session['logged_in'] = True
-                return redirect(url_for('editor'))
+    #obtiene datos 
+    correo = request.form['username']
+    password = request.form['password']
+    password_encode = password.encode("utf-8")
+    usuario = usuarios.query.filter_by(correo = correo).first()
+    if(usuario !=None):
+        #obtiene el password encriptado encode
+        password_encriptado_encode = usuario.contraseña
+        #verifica el password
+        if(bcrypt.checkpw(password_encode,password_encriptado_encode)):
+            #registra la sesion
+            session['name'] = usuario.nombre
+            session['logged_in'] = True
+            return redirect(url_for('editor'))
     return render_template('login.html')
 
 @app.route('/editor-personaje', methods = ['POST','GET'])
@@ -68,24 +64,21 @@ def registro():
     if(request.method == "GET"):
         if 'name' in session:
             return redirect(url_for('editor'))
-        else:
-            return render_template('sign-up.html')
-    else:
-        nombre = request.form['name']
-        apellido = request.form['apellido']
-        correo = request.form['email']
-        contraseña = request.form['password']
-        password_encode = contraseña.encode("utf-8")
-        password_ecriptado = bcrypt.hashpw(password_encode,semilla)
-
-        task = usuarios(nombre = nombre, apellido = apellido, correo = correo, contraseña = password_ecriptado )
-        db.session.add(task)
-        db.session.commit()
-        #registra la sesion 
-        session['name'] = nombre
-        #session['firstname'] = apellido
-        #session['email'] = correo
-        return render_template('login.html')
+        return render_template('sign-up.html')
+    nombre = request.form['name']
+    apellido = request.form['apellido']
+    correo = request.form['email']
+    contraseña = request.form['password']
+    password_encode = contraseña.encode("utf-8")
+    password_ecriptado = bcrypt.hashpw(password_encode,semilla)
+    task = usuarios(nombre = nombre, apellido = apellido, correo = correo, contraseña = password_ecriptado )
+    db.session.add(task)
+    db.session.commit()
+    #registra la sesion 
+    session['name'] = nombre
+    #session['firstname'] = apellido
+    #session['email'] = correo
+    return render_template('login.html')        
 
 @app.route('/editor-personaje/crear', methods = ['POST'])
 def pagina():
