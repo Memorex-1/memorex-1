@@ -32,20 +32,21 @@ def login():
     if(request.method == "GET"):
         if 'name' in session:
             return redirect(url_for('editor'))
-    #obtiene datos 
-    correo = request.form['username']
-    password = request.form['password']
-    password_encode = password.encode("utf-8")
-    usuario = usuarios.query.filter_by(correo = correo).first()
-    if(usuario !=None):
-        #obtiene el password encriptado encode
-        password_encriptado_encode = usuario.contraseña
-        #verifica el password
-        if(bcrypt.checkpw(password_encode,password_encriptado_encode)):
-            #registra la sesion
-            session['name'] = usuario.nombre
-            session['logged_in'] = True
-            return redirect(url_for('editor'))
+    else:
+        #obtiene datos 
+        correo = request.form['username']
+        password = request.form['password']
+        password_encode = password.encode("utf-8")
+        usuario = usuarios.query.filter_by(correo = correo).first()
+        if(usuario !=None):
+            #obtiene el password encriptado encode
+            password_encriptado_encode = usuario.contraseña
+            #verifica el password
+            if(bcrypt.checkpw(password_encode,password_encriptado_encode)):
+                #registra la sesion
+                session['name'] = usuario.nombre
+                session['logged_in'] = True
+                return redirect(url_for('editor'))
     return render_template('login.html')
 
 @app.route('/editor-personaje', methods = ['POST','GET'])
