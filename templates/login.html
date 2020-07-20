@@ -7,44 +7,9 @@
     <link rel="stylesheet" href="{{url_for('static',filename = 'css/login.css')}}">
     <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <!--haciendo cambios -->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/archivoMemorex.css')}}">
-    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
-	<link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
-	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
-	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-	<script src="https://kit.fontawesome.com/4527196161.js" crossorigin="anonymous"></script>
-	<script src="../static/js/indexScript.js"></script>
-
 </head>
 
 <body>
-
-
-<!-- poniendo el footer-->
-<div class="topbar-cont">
-    <div class="topbar">
-        <div class="logo">
-            <a href="http://127.0.0.1:5000/"><img height="55px" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}"></a>
-        </div>
-        <nav>
-            <ul>
-                <!--<a href=""><li>Inicio</li></a>-->
-                <a href=""><li>Publicaciones</li></a>
-                <a href=""><li>Personajes</li></a>
-                <a href="nosotros"><li>Sobre la página</li></a>
-            </ul>
-        </nav>
-        <div class="btn-topbar">
-            <a href="login"><button class="boton login"><i class="fas fa-sign-in-alt"></i> ACCEDER</button></a>
-            <a href="RegistrarUsuario"><button class="boton registro"><i class="fas fa-user"></i> REGISTRARSE</button></a>
-        </div>
-    </div>
-    
-</div>
-
-    
-
    
     <form action="/ingresar" method="POST" id="login">
         <div class="form">
@@ -67,12 +32,5 @@
             <a href="RegistrarUsuario">¿No tienes cuenta? Regístrate aquí.</a>
         </div>
     </form>
-
-
-    <footer>
-		<span>Memorex&copy; 2020</span>
-	</footer>
-
-
 </body>
 </html>
