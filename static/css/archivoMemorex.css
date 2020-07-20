@@ -180,18 +180,18 @@ h2{
 	font-weight: bold;
 	font-size: 2em;
 }
-/*
+
 table {
   background-color: #FFFFFF; 
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-*/
-td{
 
+td, th {
+  border: solid 1px #000000;
   text-align: left;
-  padding: 5px;
+  padding: 10px;
 }
 
 .content {
