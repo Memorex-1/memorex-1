@@ -57,6 +57,7 @@ def ingresar():
             if(bcrypt.checkpw(password_encode,password_encriptado_encode)):
                 #registra la sesion
                 session['name'] = usuario.nombre
+                session['logged_in'] = True
                 return redirect(url_for('editor'))
             else:
                 return render_template('login.html')
@@ -122,6 +123,7 @@ def referenica():
 @app.route('/salir')
 def salir():
     session.clear()
+    session['logged_in'] = False
     return redirect(url_for('index'))
 
 @app.route('/nosotros')
