@@ -29,8 +29,11 @@
 			</nav>
 			<div class="btn-topbar">
 				{% if session['logged_in'] %}
-				¡Bienvenido, {{ session['name'] }}!
-				<a href="salir"><button class="boton cerrar" ><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</button></a>
+				<a href="salir"><button class="boton cerrar"><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</button></a>
+				<a href="editor-personaje"><button class="bienvenido" style="float:right">
+					<img style="border-radius: 10px;" height="22px" src="{{url_for('static', filename= 'img/LogoAdmin.jpg')}}" alt="">
+					{{ session['name'] }}
+				</button></a>
 				{% else %}
 				<a href="login"><button class="boton login"><i class="fas fa-sign-in-alt"></i> ACCEDER</button></a>
 				<a href="RegistrarUsuario"><button class="boton registro"><i class="fas fa-user"></i> REGISTRARSE</button></a>
