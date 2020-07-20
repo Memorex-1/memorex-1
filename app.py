@@ -23,6 +23,7 @@ class usuarios(db1.Model):
     contraseña = db1.Column(db.String(50))
 
 @app.route('/')
+@app.route('/index')
 def index():
     return render_template('index.html')
 #funcion que te lleva al login.html

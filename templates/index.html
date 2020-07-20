@@ -3,6 +3,7 @@
 {% block content %}
 	<div class="content">
 		<main class="col publis">
+			{% if session['logged_in'] %}
 			<div class="publicar">
 				<h3>Nueva Publicación</h3>
 				<form action="">
@@ -44,7 +45,7 @@
 					<div class="clear"></div>
 				</form>
 			</div>
-
+			{% endif %}
 			<div class="publicacion n1">
 				<span class="username-publi">Username</span>
 				<h3 style="font-family: 'Roboto Slab';">Keiko Fujimori le habría pedido a Yesenia Ponce frenar un proyecto para perjudicar al Gobierno</h2>

@@ -17,19 +17,19 @@
 	<div class="topbar-cont">
 		<div class="topbar">
 			<div class="logo">
-				<a href="http://127.0.0.1:5000/"><img height="55px" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}"></a>
+				<a href="index"><img height="55px" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}"></a>
 			</div>
 			<nav>
 				<ul>
 					<!--<a href=""><li>Inicio</li></a>-->
-					<a href=""><li>Publicaciones</li></a>
+					<a href="index"><li>Publicaciones</li></a>
 					<a href=""><li>Personajes</li></a>
 					<a href="nosotros"><li>Sobre la página</li></a>
 				</ul>
 			</nav>
 			<div class="btn-topbar">
 				{% if session['logged_in'] %}
-				<a href="/salir"><button class="boton cerrar" ><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</button></a>
+				<a href="salir"><button class="boton cerrar" ><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</button></a>
 				{% else %}
 				<a href="login"><button class="boton login"><i class="fas fa-sign-in-alt"></i> ACCEDER</button></a>
 				<a href="RegistrarUsuario"><button class="boton registro"><i class="fas fa-user"></i> REGISTRARSE</button></a>
