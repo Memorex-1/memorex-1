@@ -32,10 +32,7 @@ def login():
     if(request.method == "GET"):
         if 'name' in session:
             return redirect(url_for('editor'))
-        else:
-            return render_template('login.html')
-    else:
-        return render_template('login.html')
+    return render_template('login.html')
 
 #funcion para ingresar a la pagina 
 @app.route('/ingresar',methods = ['POST','GET'])
