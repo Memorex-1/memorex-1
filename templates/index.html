@@ -46,6 +46,8 @@
 				</form>
 			</div>
 			{% endif %}
+
+			{% for task in tasks %}
 			<div class="publicacion n1">
 				<span class="username-publi">Username</span>
 				<h3 style="font-family: 'Roboto Slab';">Keiko Fujimori le habría pedido a Yesenia Ponce frenar un proyecto para perjudicar al Gobierno</h2>
@@ -69,7 +71,7 @@
 							<a href="https://rpp.pe/politica/estado/audio-yesenia-ponce-habria-dicho-que-keiko-fujimori-le-pidio-frenar-un-proyecto-solo-para-perjudicar-al-gobierno-noticia-1077207">https://rpp.pe/politica/estado/audio-yesenia-ponce-habria-dicho-que-keiko-fujimori-le-pidio-frenar-un-proyecto-solo-para-perjudicar-al-gobierno-noticia-1077207</a>
 						</div>
 					</div>
-
+					
 					<div class="publi-body-col2">
 						<img style="max-height: 150px;" src="{{url_for('static', filename= 'img/perso-keiko.jpg')}}" alt="Keiko Fujimori">
 						<span class="nombre-perso" style="display: block; float: right;">
@@ -78,7 +80,7 @@
 					</div>
 				</div>
 			</div>
-
+			{% endfor %}
 		<!-- ESTA PARTE ESTÁ REPETIDA DE LO DE ARRIBA COMO PARA RELLENAR -->
 			<div class="publicacion n2">
 				<span class="username-publi">Username</span>
