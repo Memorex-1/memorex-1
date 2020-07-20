@@ -188,7 +188,7 @@ table {
   width: 100%;
 }
 */
-td, th {
+td{
   /*border: solid 1px #000000;*/
   text-align: left;
   padding: 10px;
