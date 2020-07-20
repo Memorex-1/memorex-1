@@ -32,7 +32,7 @@
 				<a href="salir"><button class="boton cerrar"><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</button></a>
 				<a href="editor-personaje"><button class="bienvenido" style="float:right">
 					<img style="border-radius: 10px;" height="22px" src="{{url_for('static', filename= 'img/LogoAdmin.jpg')}}" alt="">
-					{{ session['name'] }}
+					<span>{{ session['name'] }}</span>
 				</button></a>
 				{% else %}
 				<a href="login"><button class="boton login"><i class="fas fa-sign-in-alt"></i> ACCEDER</button></a>
