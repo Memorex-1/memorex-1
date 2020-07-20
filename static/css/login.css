@@ -155,3 +155,20 @@ button:hover {
     margin: 15px 35px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+/*CSS del footer*/
+footer {
+	font-family: Rubik, sans-serif;
+	height: 80px;
+	width: 100%;
+	background-color: rgb(7, 7, 7);
+	color: #fff;
+}
+
+footer span {
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+
