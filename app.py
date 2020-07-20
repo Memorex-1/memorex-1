@@ -58,12 +58,6 @@ def ingresar():
                 session['logged_in'] = True
                 return redirect(url_for('editor'))
         return render_template('login.html')
-@app.route('/RegistrarUsuario')
-def registrar():
-    if(request.method == "GET"):
-        if 'name' in session:
-            return redirect(url_for('editor'))
-    return render_template('RegistrarUsuario.html')
 
 @app.route('/editor-personaje', methods = ['POST','GET'])
 def editor():
@@ -76,13 +70,13 @@ def editor():
     
 
 # funcion que registra los datos en la bd uusuarios
-@app.route('/registro-usuario', methods = ['POST','GET'])
+@app.route('/sign-up', methods = ['POST','GET'])
 def registro():
     if(request.method == "GET"):
         if 'name' in session:
             return redirect(url_for('editor'))
         else:
-            return render_template('RegistrarUsuario.html')
+            return render_template('sign-up.html')
     else:
         nombre = request.form['name']
         apellido = request.form['apellido']
