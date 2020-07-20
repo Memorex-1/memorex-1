@@ -6,7 +6,7 @@
 			{% if session['logged_in'] %}
 			<div class="publicar">
 				<h3>Nueva Publicación</h3>
-				<form action="">
+				<form action="/crear" method="POST">
 					<label for="" style="display: block;">Percepción:</label>
 					<input type="radio" id="bueno" name="percepcion" value="bueno">
 					<label for="bueno">Buena</label>
@@ -75,7 +75,7 @@
 					<div class="publi-body-col2">
 						<img style="max-height: 150px;" src="{{url_for('static', filename= 'img/perso-keiko.jpg')}}" alt="Keiko Fujimori">
 						<span class="nombre-perso" style="display: block; float: right;">
-							Keiko Fujimori
+							{{task.nombre}}
 						</span>
 					</div>
 				</div>

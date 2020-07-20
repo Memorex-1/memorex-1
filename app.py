@@ -25,7 +25,8 @@ class usuarios(db1.Model):
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    tasks = personajes.query.all()
+    return render_template('index.html', tasks = tasks)
     
 @app.route('/login',methods = ['POST','GET'])
 def login():
@@ -81,18 +82,13 @@ def registro():
     #session['email'] = correo
     return render_template('login.html')        
 
-@app.route('/editor-personaje/crear', methods = ['POST'])
+@app.route('/crear', methods = ['POST'])
 def pagina():
-    task = personajes(nombre = request.form['nombre'])
+    task = personajes(nombre = request.form['personaje'])
     db.session.add(task)
     db.session.commit()
-    return redirect(url_for('editor'))
-@app.route('/editor-personaje/crear-referencia', methods = ['POST'])
-def referenica():
-    task = personajes.query.filter_by(id=int(request.form['PS'])).first()
-    task.informacion = request.form['descripcion']+" "
-    db.session.commit()
-    return redirect(url_for('editor'))
+    return redirect(url_for('index'))
+
 @app.route('/salir')
 def salir():
     session.clear()
@@ -102,6 +98,13 @@ def salir():
 @app.route('/nosotros')
 def nosotros():
     return render_template('nosotros.html')
+
+@app.route('/editor-personaje/crear-referencia', methods = ['POST'])
+def referenica():
+    task = personajes.query.filter_by(id=int(request.form['PS'])).first()
+    task.informacion = request.form['descripcion']+" "
+    db.session.commit()
+    return redirect(url_for('editor'))
 
 if __name__=='__main__':
     app.run(debug=True, port=5000)
