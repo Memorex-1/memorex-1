@@ -29,6 +29,7 @@
 			</nav>
 			<div class="btn-topbar">
 				{% if session['logged_in'] %}
+				¡Bienvenido, {{ session['name'] }}!
 				<a href="salir"><button class="boton cerrar" ><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</button></a>
 				{% else %}
 				<a href="login"><button class="boton login"><i class="fas fa-sign-in-alt"></i> ACCEDER</button></a>
