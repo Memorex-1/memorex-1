@@ -27,21 +27,14 @@ class usuarios(db1.Model):
 def index():
     return render_template('index.html')
 #funcion que te lleva al login.html
-@app.route('/login')
+
+
+#funcion para ingresar a la pagina 
+@app.route('/login',methods = ['POST','GET'])
 def login():
     if(request.method == "GET"):
         if 'name' in session:
             return redirect(url_for('editor'))
-    return render_template('login.html')
-
-#funcion para ingresar a la pagina 
-@app.route('/ingresar',methods = ['POST','GET'])
-def ingresar():
-    if(request.method == "GET"):
-        if 'name' in session:
-            return redirect(url_for('editor'))
-        else:
-            return render_template('login.html')
     else:
         #obtiene datos 
         correo = request.form['username']
@@ -57,7 +50,7 @@ def ingresar():
                 session['name'] = usuario.nombre
                 session['logged_in'] = True
                 return redirect(url_for('editor'))
-        return render_template('login.html')
+    return render_template('login.html')
 
 @app.route('/editor-personaje', methods = ['POST','GET'])
 def editor():
