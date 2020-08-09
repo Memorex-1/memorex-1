@@ -7,6 +7,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/task1.db'
 semilla = bcrypt.gensalt()
 db = SQLAlchemy(app)
 db1 = SQLAlchemy(app)
+db2 = SQLAlchemy(app)
 class personajes(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     nombre = db.Column(db.String(20))
@@ -21,12 +22,21 @@ class usuarios(db1.Model):
     apellido = db1.Column(db.String(20))
     correo = db1.Column(db.String(50))
     contraseña = db1.Column(db.String(50))
-
+class publicaciones(db2.Model):
+    __tablename__ = 'publicaciones'
+    id = db2.Column(db.Integer,primary_key=True)
+    username = db2.Column(db.String(20))
+    personaje = db2.Column(db.String(20))
+    titulo = db2.Column(db.String(50))
+    fecha = db2.Column(db.String(20))
+    contenido = db2.Column(db.String(450))
+    fuente = db2.Column(db.String(200))
 @app.route('/')
 @app.route('/index')
 def index():
-    tasks = personajes.query.all()
-    return render_template('index.html', tasks = tasks)
+    tasks1 = personajes.query.all()
+    tasks = publicaciones.query.all()
+    return render_template('index.html', tasks = tasks, tasks1 = tasks1)
     
 @app.route('/login',methods = ['POST','GET'])
 def login():
@@ -47,7 +57,7 @@ def login():
                 #registra la sesion
                 session['name'] = usuario.nombre
                 session['logged_in'] = True
-                return redirect(url_for('editor'))
+                return redirect(url_for('index'))
     return render_template('login.html')
 
 @app.route('/editor-personaje', methods = ['POST','GET'])
@@ -89,6 +99,19 @@ def pagina():
     db.session.commit()
     return redirect(url_for('index'))
 
+@app.route('/crearPublicacion', methods = ['POST'])
+def pagina1():
+    if 'name' in session:
+        username = session['name']
+        personaje = request.form['personaje']
+        titulo = request.form['titulo']
+        fecha = request.form['fecha']
+        contenido = request.form['descripcion']
+        fuente = request.form['referencias']
+        task = publicaciones(username = username, personaje = personaje, titulo = titulo, fecha = fecha, contenido = contenido, fuente = fuente)
+        db.session.add(task)
+        db.session.commit()
+    return redirect(url_for('index'))
 @app.route('/salir')
 def salir():
     session.clear()
