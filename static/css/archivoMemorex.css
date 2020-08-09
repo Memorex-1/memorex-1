@@ -7,7 +7,7 @@ body {
 /*para la imagen */
 #avatar{
     width: 35%;
-    border-radius: 50%;*/
+    border-radius: 50%;
     /*border: 1px solid;   borde a la imagen*/
     display: block;      /*usado para centrar imagen*/
     margin-left: auto;   /*usado para centrar imagen*/
@@ -127,7 +127,16 @@ ul {
 	background-color: #fff;
 }
 
-.topbar a {color: #000; font-weight: bold;}
+#override .topbar a {color: #000; font-weight: bold;}
+
+#override .navbar-nav a:hover {
+	position: relative;
+	top: 4px;
+	transition: ease-in-out;
+	transition-duration: 0ms;
+	border-bottom: 4px solid #000;
+	color: rgb(255, 0, 0);
+}
 
 .btn-group {
 	font-family: 'Open Sans', sans-serif;
