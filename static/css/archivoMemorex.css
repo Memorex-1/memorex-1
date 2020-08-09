@@ -3,7 +3,7 @@
 body {
 	margin: 0;
 	background-color: #eee;
-}/*se esta bloqueando para la imagen*/
+}
 /*para la imagen */
 #avatar{
     width: 35%;
@@ -118,6 +118,7 @@ ul {
 	bottom: 5px;
 } 
 */
+
 .enlace {
 	font-family: Arvo, serif;
 }
@@ -168,7 +169,7 @@ ul {
 		display: none;
 	}
 }
-
+}
 
 
 /****REDES SOCIALES****/
@@ -190,7 +191,7 @@ color: var(--secundario);
 	height: 100px;  	
 	width: 100px;
 }
-/*bloqueando contenedor*/
+
 .contenedor{
 	/*display: flex;*/
 	flex-flow: row nowrap;
@@ -204,30 +205,12 @@ color: var(--secundario);
 	/*border: 1px solid;    notar borde*/
 	border-radius: 1%;/*borde redondeado*/
 }
-/*para el row del bots*/
-.row{
-	margin: 1em;
-	padding: 1em;
-	color: #ffffff;
-	/*border: 1px solid;    notar borde*/
-	border-radius: 1%;/*borde redondeado*/
-}
-/************/
 /*resaltar en rojo*/
 .item h2 {
 	padding: 5px 15px;
 	background-color: rgb(160, 0, 0);
 	color: #fff;
-	width: 100%;
-	margin: 0 0 10px 0;
-}
-/*******************/
-/*resaltar en rojo el bots*/
-.row h2 {
-	padding: 5px 15px;
-	background-color: rgb(160, 0, 0);
-	color: #fff;
-	width: 100%;
+	width: 60%;
 	margin: 0 0 10px 0;
 }
 /*******************/
@@ -245,23 +228,18 @@ color: var(--secundario);
 h2{
 	font-family: 'Arial';
 	font-weight: bold;
-	font-size: 1em;
+	font-size: 2em;
 }
-h3{
-	font-family: 'Arial';
-	font-weight: bold;
-	font-size: 1em;
-}
-/*
+
 table {
   background-color: #FFFFFF; 
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-*/
-td{
-  /*border: solid 1px #000000;*/
+
+td, th {
+  border: solid 1px #000000;
   text-align: left;
   padding: 10px;
 }
