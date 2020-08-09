@@ -7,7 +7,7 @@ body {
 /*para la imagen */
 #avatar{
     width: 35%;
-    border-radius: 50%;*/
+    border-radius: 50%;
     /*border: 1px solid;   borde a la imagen*/
     display: block;      /*usado para centrar imagen*/
     margin-left: auto;   /*usado para centrar imagen*/
