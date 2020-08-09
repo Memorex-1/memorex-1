@@ -2,46 +2,61 @@
 <html lang = "es-ES">
 <head>
 	<meta charset="utf-8">
-	<meta charset = "iso-8559-1"/>
 	<meta name = "description" content = "contenido politico"/>
 	<title>Memorex</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- BOOTSTRAP CSS -->
+	<link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+  
 	<link rel="stylesheet" href="{{url_for('static', filename='css/archivoMemorex.css')}}">
 	<link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
 	<script src="https://kit.fontawesome.com/4527196161.js" crossorigin="anonymous"></script>
-    <script src="../static/js/indexScript.js"></script>
+	<script src="../static/js/indexScript.js"></script>
+
+	<!-- BOOTSTRAP JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="../static/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="topbar-cont">
-		<div class="topbar">
-			<div class="logo">
-				<a href="index"><img height="55px" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}"></a>
-			</div>
-			<nav>
-				<ul>
-					<!--<a href=""><li>Inicio</li></a>-->
-					<a href="index"><li>Publicaciones</li></a>
-					<a href="index"><li>Personajes</li></a>
-					<a href="nosotros"><li>Sobre la página</li></a>
-				</ul>
-			</nav>
-			<div class="btn-topbar">
+	<nav class="navbar navbar-expand-md navbar-light">
+		<a class="navbar-brand" href="index"><img height="55px" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-between" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link enlace" href="index">Publicaciones</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link enlace" href="index">Personajes</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link enlace" href="nosotros">Sobre la página</a>
+				</li>    
+			</ul>
+			<div class="btn-group">
 				{% if session['logged_in'] %}
-				<a href="salir"><button class="boton cerrar"><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</button></a>
-				<a href="editor-personaje"><button class="bienvenido" style="float:right">
-					<img style="border-radius: 10px;" height="22px" src="{{url_for('static', filename= 'img/LogoAdmin.jpg')}}" alt="">
+				<a href="salir"><button class="btn btn-secondary"><i class="fas fa-sign-out-alt"></i> CERRAR SESIÓN</button></a>
+				<a href="editor-personaje"><button class="btn btn-secondary" style="float:right">
+					<img style="border-radius: 10px;" height="15px" src="{{url_for('static', filename= 'img/LogoAdmin.jpg')}}" alt="">
 					<span>{{ session['name'] }}</span>
 				</button></a>
 				{% else %}
-				<a href="login"><button class="boton login"><i class="fas fa-sign-in-alt"></i> ACCEDER</button></a>
-				<a href="sign-up"><button class="boton registro"><i class="fas fa-user"></i> REGISTRARSE</button></a>
+				<a href="login"><button class="btn btn-secondary"><i class="fas fa-sign-in-alt"></i> ACCEDER</button></a>
+				<a href="sign-up"><button class="btn btn-danger"><i class="fas fa-user"></i> REGISTRARSE</button></a>
 				{% endif %}
 			</div>
 		</div>
 		
-    </div>
+		
+	</nav>
+	
 	{% block content %}{% endblock %}
 	<footer>
 		<span>Memorex&copy; 2020</span>

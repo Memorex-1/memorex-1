@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+}
+
 
 *,
 ::before,
@@ -12,32 +16,41 @@ body{
     margin: 0;
     padding: 0;
     background-color: #ddd;
-    height: 650px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    height: 100%;
 }
 
 h1{ 
-    font-family: Arvo, serif;
+    font-family: Verdana, serif;
     text-align: center;
     font-weight: 700;
     font-size: 24px;
 
 }
 
-form{
-    background: #fff;
-    padding: 40px 0 ;
-    box-shadow: 0 0 6px rgba(56, 56, 56, 0.8);
-    border-radius: 5px;
-    width: 350px;
+.login-content {
+    width: 450px;
+    height: 100%;
 }
 
-.login{
+form {
+    background-color: #fff;
     width: 100%;
-    margin : auto;
+    height: 550px;
+    padding: 60px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(56, 56, 56, 0.8);
+}
+
+@media (max-width: 700px) {
+    form {
+        height: 100%;
+        width: 100%;
+        box-shadow: none;
+    }
+    .login-content {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 form .grupo{
@@ -109,7 +122,7 @@ width: 100%;
 
 }
 
-button{
+#login{
     font-family: 'Open Sans', sans-serif;
     border: none;
     display: block;
@@ -124,11 +137,13 @@ button{
     border-radius: 6px;
 }
 
-button:hover {
+#login:hover {
     background-color: rgb(133, 0, 0);
     color: #fff;
     transition: 300ms ease-in-out all;
 }
+
+.extra {margin-top: 20px;}
 
 .extra a {
     color: rgb(109, 109, 255);
@@ -143,15 +158,10 @@ button:hover {
     color: blue;
 }
 
-#sec {
-    margin: 45px 45px 10px 45px;
+.validar {
+    font-size: 12px;
+    margin: 20px 40px;
 }
 
 /*AÑADIDOS LOS ESTILOS PARA EL DIV DE ERRORES*/
-#msg {
-    height: 50px;
-    color: #a80000;
-    font-size: 14px;
-    margin: 15px 35px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+
