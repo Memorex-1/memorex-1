@@ -1,11 +1,15 @@
 {% extends "header.html" %}
 {% block content %}
-	<div class="contenedor">
-		<div class="item" id="item1">
+	<div class="container"><!--reemplazando contenedor por container aun no-->
+		<div class="row" id="item1"><!--bots-->
+			<div class="col-xs-12 col-md-6"><!--bots-->
 			<h2>Mi Perfil</h2>
-			<h3>BIENVENIDO ADMINISTRADOR</h3>
+			<h3>BIENVENIDO ADMINISTRADOR</h3><!--agregado class y style por ahora no class="rounded-circle" height="23px" width="23px"-->
+			<br>
 			<img src="{{url_for('static', filename='img/LogoAdmin.jpg')}}" id="avatar">
 			<br>
+			</div><!--bots-->
+			<div class="col-xs-12 col-md-6"><!--bots-->
 			<ul>
 				<h3>Datos de Administrador</h3><br>
 				<li>Nombre: </li><br>
@@ -13,10 +17,36 @@
 				<li>Correo: </li><br>
 				<li>Teléfono: </li><br>
 			</ul>
+			</div><!--bots-->
 		</div>
 		<div class="item" id="item4">
 			<form action="/crear" method="POST">
 				<h2>Cambiar datos: </h2>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+					  <span class="input-group-text">Nombre</span>
+					</div>
+					<input type="text" class="form-control">
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+					  <span class="input-group-text">Apellido</span>
+					</div>
+					<input type="text" class="form-control">
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+					  <span class="input-group-text">Teléfono</span>
+					</div>
+					<input type="text" class="form-control">
+				</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Email" id="mail" name="email">
+					<div class="input-group-append">
+					  <span class="input-group-text">@example.com</span>
+					</div>
+				</div>
+				<!--
 				<label for = "nombre">Nombre: </label>
 				<input type="text" name="nombre" ><br><br>
 				<label for = "apellido">Apellido: </label>
@@ -25,7 +55,7 @@
 				<input type="email" name="email" ><br><br>
 				<label for = "telefono">Teléfono: </label>
 				<input type="telefono" name="telefono" ><br><br>
-				<button id="CambiarDatos" class="boton">Cambiar Datos</button><br><br><!--boton cambiar datos-->
+				<button id="CambiarDatos" class="boton">Cambiar Datos</button><br><br>boton cambiar datos-->
 			</form>
 		</div>
 	</div>
