@@ -3,20 +3,53 @@
 	<div class="container"><!--reemplazando contenedor por container aun no-->
 		<div class="row" id="item1"><!--bots-->
 			<div class="col-xs-12 col-md-6"><!--bots-->
-			<h2>Mi Perfil</h2>
-			<h3>BIENVENIDO ADMINISTRADOR</h3><!--agregado class y style por ahora no class="rounded-circle" height="23px" width="23px"-->
-			<br>
-			<img src="{{url_for('static', filename='img/LogoAdmin.jpg')}}" id="avatar">
-			<br>
+				<h2>Mi Perfil</h2>
+				<h3>
+					<table>
+						<td>BIENVENIDO</td>
+						<td>nombre del user</td>
+					</table>
+				</h3><!--
+				<h3>BIENVENIDO ADMINISTRADOR</h3>agregado class y style por ahora no class="rounded-circle" height="23px" width="23px"-->
+				<br>
+				<img src="{{url_for('static', filename='img/LogoAdmin.jpg')}}" id="avatar" width="300" height="100">
 			</div><!--bots-->
+			<br>
 			<div class="col-xs-12 col-md-6"><!--bots-->
-			<ul>
-				<h3>Datos de Administrador</h3><br>
-				<li>Nombre: </li><br>
-				<li>Apellido: </li><br>
-				<li>Correo: </li><br>
-				<li>Teléfono: </li><br>
-			</ul>
+				<ul>
+					<h3>
+						<table>
+							<td>Datos</td>
+							<td>nombre del user</td>
+						</table>
+					</h3>
+					<!--
+					<h3>Datos de Administrador</h3><br>-->
+				<table>
+					<tr>
+						<td>Nombre:</td>
+						<td>Aqui va el nombre </td>
+					</tr>
+					<tr>
+						<td>Apellido:</td>
+						<td>Aqui va el apellido </td>
+					</tr>
+					<tr>
+						<td>Correo:</td>
+						<td>Aqui va el correo </td>
+					</tr>
+					<tr>
+						<td>Telefono:</td>
+						<td>Aqui va el telefono </td>
+					</tr>
+				</table>
+				<!--
+					<h3>Datos de Administrador</h3><br>
+					<li>Nombre: </li><br>
+					<li>Apellido: </li><br>
+					<li>Correo: </li><br>
+					<li>Teléfono: </li><br>-->
+				</ul>
 			</div><!--bots-->
 		</div>
 		<div class="item" id="item4">
