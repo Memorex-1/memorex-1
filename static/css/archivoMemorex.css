@@ -172,13 +172,6 @@ ul {
 	  }
 	}
 
-@media screen and (max-width: 768px) {
-	.publi-body-col2 {
-		display: none;
-	}
-}
-
-
 
 /****REDES SOCIALES****/
 .contenedor-redes a{
@@ -418,29 +411,31 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 	font-size: 0.8em;
 }
 
-.flex-body-publi {
-	display: flex;
-	align-items: flex-start;
+.fuente-publi {
+	color: #000;
 }
 
-.publi-body-col1{ margin: 0; padding: 0 20px 10px 5px;}
+.publi-body-col1{ 
+	margin: 0; 
+	padding: 0 20px 10px 5px;
+	color: #000;
+}
 .publi-body-col2{ 
-	width: 25%; 
-	padding: 20px 20px; 
-	background-color: rgb(78, 0, 0);
+	background-color: rgb(32, 0, 0);
+	padding: 1em;
 	color: #fff;
 	font-family: 'Roboto Slab';
-	border-radius: 25px 0 0 25px;
+	border-radius: 4px 0 0 4px;
 }
 .publi-body-col2 img {
-	border-radius: 5px;
+	border-radius: 4px;
+	opacity: 0.8;
+	width: 100%;
+	max-width: 80px;
 }
 
-
-.relleno {
-	height: 200px;
+#override col {
 }
-
 
 /*FOOTER***************************/
 

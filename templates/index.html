@@ -49,25 +49,28 @@
 		<div class="publicacion n1">
 			<span class="username-publi">{{task.username}}</span>
 			<h3 style="font-family: 'Roboto Slab';">{{task.titulo}}</h2>
-			<div class="flex-body-publi">
-				<div class="publi-body-col1">
+			<div class="row m-0 p-0" style="align-items: center;">
+				<div class="publi-body-col1 col-9">
 					<span class="fecha-lbl">
 						Fecha de publicación: <span class="fecha-publi">{{task.fecha}}</span>
 					</span>
 					<div class="info-publi">
 						{{task.contenido}}
 					</div>
-					<div class="fuente-publi">
+					
+				</div>
+				
+				<div class="publi-body-col2 col-3">
+					<img class="img-fluid" src="{{url_for('static', filename= 'img/perso-keiko.jpg')}}" alt="Keiko Fujimori">
+					<span class="nombre-perso" style="display: block;">
+						{{task.personaje}}
+					</span>
+				</div>
+				<div class="fuente-publi row m-0 p-0 mb-3">
+					<div class="col-12 p-0">
 						<span class="fuentes-lbl">Fuente(s):</span>
 						<a href="{{task.fuente}}">{{task.fuente}}</a>
 					</div>
-				</div>
-				
-				<div class="publi-body-col2">
-					<img style="max-height: 150px;" src="{{url_for('static', filename= 'img/perso-keiko.jpg')}}" alt="Keiko Fujimori">
-					<span class="nombre-perso" style="display: block; float: right;">
-						{{task.personaje}}
-					</span>
 				</div>
 			</div>
 		</div>
