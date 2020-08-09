@@ -2,7 +2,9 @@
 
 {% block content %}
 	<main role="main" class="container-fluid container-md bg-white">
+		
 		{% if session['logged_in'] %}
+
 		<div class="publicar">
 			<h3>Nueva Publicación</h3>
 			<form action="/crear" method="POST">
