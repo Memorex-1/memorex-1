@@ -432,6 +432,16 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 	max-width: 80px;
 }
 
+
+
+
+/*CREAR PERSONAJE************************************/
+
+.crear-perso .row {
+	color: #000;
+}
+
+
 /*FOOTER***************************/
 
 footer {

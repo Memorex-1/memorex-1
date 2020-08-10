@@ -1,10 +1,37 @@
 {% extends "header.html" %}
 
 {% block content %}
-<div class="container shadow bg-white">
+<div class="container shadow bg-white pb-4">
     <h1>Crear Personaje</h1>
-
+    <form action="" class="crear-perso">
+        <div class="form-group">
+            <label for="perso-name" class="">Personaje:</label>
+            
+            <div class="row m-0 p-0">
+                <div class="col-md-6 my-2 p-0 pr-2">
+                    <input type="text" id="perso-name" placeholder="Nombre del personaje" class="form-control">
+                </div>
+                <div class="col-md-6 my-2 p-0 pl-2">
+                    <input type="text" id="perso-org" placeholder="Organización Política" class="form-control">
+                </div>
+            </div>
+            <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje">
+                <label class="custom-file-label" for="perso-img">Suba una imagen de su personaje</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="perso-desc">Descripción:</label>
+            <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-dark">Light</button>
+    </form>
 </div>
-
+<script>
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
 
 {% endblock %}
