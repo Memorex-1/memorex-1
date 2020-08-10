@@ -10,3 +10,8 @@ env/Lib/site-packages/click/__pycache__/_winconsole.cpython-38.pyc
 env/Lib/site-packages/click/__pycache__/core.cpython-38.pyc
 env/Lib/site-packages/click/__pycache__/decorators.cpython-38.pyc
 env/Lib/site-packages/click/__pycache__/exceptions.cpython-38.pyc
+__pycache__/app.cpython-38.pyc
+__pycache__/app.cpython-38.pyc
+env/Lib/site-packages/werkzeug/__pycache__/__init__.cpython-38.pyc
+env/Lib/site-packages/werkzeug/__pycache__/_compat.cpython-38.pyc
+*.pyc
