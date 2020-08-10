@@ -159,8 +159,6 @@ ul {
 
 .grid-info img {
 	grid-area: imagen;
-  	width: 60%;
-  	margin: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -432,9 +430,6 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 	opacity: 0.8;
 	width: 100%;
 	max-width: 80px;
-}
-
-#override col {
 }
 
 /*FOOTER***************************/
