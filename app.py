@@ -15,6 +15,7 @@ class personajes(db.Model):
     hecho = db.Column(db.String(100))
     pro = db.Column(db.Integer)
     fuente = db.Column(db.String(50))
+    foto = db.Column("foto")
 class usuarios(db1.Model):
     __tablename__ = 'login'
     id = db1.Column(db.Integer,primary_key=True)
@@ -31,11 +32,17 @@ class publicaciones(db2.Model):
     fecha = db2.Column(db.String(20))
     contenido = db2.Column(db.String(450))
     fuente = db2.Column(db.String(200))
+    foto = db2.Column("foto")
 @app.route('/')
 @app.route('/index')
 def index():
     tasks1 = personajes.query.all()
     tasks = publicaciones.query.all()
+    #crea las fotos desde la db2 s
+    for task in tasks:
+        foto = task.foto
+        with open('static/img/foto_{}.jpg'.format(task.personaje), 'wb') as f:
+            f.write(foto)
     return render_template('index.html', tasks = tasks, tasks1 = tasks1)
     
 @app.route('/login',methods = ['POST','GET'])
@@ -109,6 +116,9 @@ def pagina1():
         contenido = request.form['descripcion']
         fuente = request.form['referencias']
         task = publicaciones(username = username, personaje = personaje, titulo = titulo, fecha = fecha, contenido = contenido, fuente = fuente)
+        personaje = personajes.query.filter_by(nombre = task.personaje).first()
+        print(personaje.nombre)
+        task.foto = personaje.foto
         db.session.add(task)
         db.session.commit()
     return redirect(url_for('index'))
