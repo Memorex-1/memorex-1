@@ -21,8 +21,12 @@ body {
 	width: 50%;
 }
 
-#override .boton-sec .btn  {width: 100%;}
+#override .boton-sec .btn  {width: 100%; background-color: #000;}
 
+#override .boton-sec .btn:hover {
+	transition: 200ms ease-in-out all;
+	background-color: rgb(35, 36, 36);
+}
 #override .btn-user {
 	font-size: 0.9;
 }
