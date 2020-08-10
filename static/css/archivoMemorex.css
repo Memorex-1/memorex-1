@@ -344,7 +344,7 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 
 #personaje {display: none; margin: 0;}
 
-#personaje-select {display: none; margin: 0;}
+#personaje-select { margin: 0;}
 
 #fecha {
 	margin:0;
