@@ -9,3 +9,7 @@ def index():
 
 if __name__=='__main__':
     app.run(debug=True, port=8000)
+
+
+////////////
+<link rel="icon" href="{{url_for('static', filename='img/favico.ico')}}" type = "image&x-icon">
