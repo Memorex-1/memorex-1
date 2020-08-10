@@ -1,6 +1,7 @@
 from flask import Flask,render_template,redirect,request,url_for,session,flash
 from flask_sqlalchemy import SQLAlchemy
 import bcrypt
+import os
 app = Flask(__name__)
 app.secret_key = "appLogin"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/task1.db'
@@ -41,8 +42,9 @@ def index():
     #crea las fotos desde la db2 s
     for task in tasks:
         foto = task.foto
-        with open('static/img/foto_{}.jpg'.format(task.personaje), 'wb') as f:
-            f.write(foto)
+        if(os.path.isfile('static/img/foto_{}.jpg'.format(task.personaje)) == False):
+            with open('static/img/foto_{}.jpg'.format(task.personaje), 'wb') as f:
+                f.write(foto)
     return render_template('index.html', tasks = tasks, tasks1 = tasks1)
     
 @app.route('/login',methods = ['POST','GET'])
