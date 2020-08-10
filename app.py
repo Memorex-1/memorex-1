@@ -134,6 +134,10 @@ def salir():
 def nosotros():
     return render_template('nosotros.html')
 
+@app.route('/crear-perso')
+def crearPerso():
+    return render_template('crear-perso.html')
+
 @app.route('/editor-personaje/crear-referencia', methods = ['POST'])
 def referenica():
     task = personajes.query.filter_by(id=int(request.form['PS'])).first()
