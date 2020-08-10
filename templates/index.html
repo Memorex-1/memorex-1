@@ -1,97 +1,137 @@
 {% extends "header.html" %}
 
 {% block content %}
+
+{% if session['logged_in'] == false %}
+<div class="container-fluid row m-0 p-2 bienvenida" data-ride="carousel">
+	<div class="col-7 carousel slide" id="myCarousel">
+		<ul class="carousel-indicators">
+			<li class="item1 active"></li>
+			<li class="item2"></li>
+			<li class="item3"></li>
+		  </ul>
+		  
+		  <!-- The slideshow -->
+		  <div class="carousel-inner">
+			<div class="carousel-item active">
+			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="" >
+			  <div class="carousel-caption d-none d-md-block">
+				<h5>Alan García Pérez</h5>
+				<p>García se suicidó disparándose en la cabeza cuando la policía se preparaba para detenerlo preliminarmente por asuntos relacionados al caso Odebrecht.</p>
+			  </div>
+			</div>
+			<div class="carousel-item">
+			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="">
+			</div>
+			<div class="carousel-item">
+			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="">
+			</div>
+		  </div>	
+	</div>
+	<div class="col-5">
+
+	</div>
+</div>
+
+<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
+	
+{% else %}
 	<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
+	<div class="publicar">
+		<h3>Nueva Publicación</h3>
+		<form action="/crearPublicacion" method="POST">
+			<label for="" style="display: block;">Percepción:</label>
+			<input type="radio" id="bueno" name="percepcion" value="bueno">
+			<i class="fas fa-thumbs-up" aria-hidden="true"></i>
+			<input type="radio" id="malo" name="percepcion" value="malo">
+			<i class="fas fa-thumbs-down" aria-hidden="true"></i>
+			<input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Título...">
+			
+			<label for="personaje-select">Personaje:</label>
+				
+			<div class="perso">
+				<select name="personaje" id="personaje-select" style="grid-auto-flow:initial;">
+					<option value="">Seleccione un personaje</option>
+					{%for task in tasks1%}
+					<option value="{{task.nombre}}">{{task.nombre}}</option>
+					{%endfor%}
+				</select>
+				<a href="crear-perso"><button type="button" class="boton nuevo" id="boton-nuevo" onclick="nuevoPerso()" style="float: none;">Nuevo</button></a>
+			</div>
+
+			<input type="date" id="fecha" name="fecha" style="float: right;">
+			<label for="fecha" style="float: right;" id="lblfecha">Fecha </label>
+			
+			
+			
+			<textarea name="descripcion" id="descripcion" placeholder="Describe el acontecimiento..."></textarea>
+			<label for="referencias">Fuente(s): </label>
+			<textarea name="referencias" id="referencias" placeholder="Referencias, citas, enlaces, etc..."></textarea>
+			<button type="submit" class="boton" style="float: right;">PUBLICAR</button>
+			<div class="clear"></div>
+		</form>
+	</div>
+	
+	
+{% endif %}
+
+	{% for task in tasks %}
+	<div class="publicacion n1">
+		<span class="username-publi">{{task.username}}</span>
+		<h3 style="font-family: 'Roboto Slab';">{{task.titulo}}</h2>
+		<div class="media m-0 p-0" style="align-items: center;">
+			<div class="media-body publi-body-col1">
+				<span class="fecha-lbl">
+					Fecha de publicación: <span class="fecha-publi">{{task.fecha}}</span>
+				</span>
+				<div class="info-publi">
+					{{task.contenido}}
+				</div>
+				
+			</div>
+			<div class="publi-body-col2">
+				<img class="mx-auto" src="static/img/foto_{{task.personaje}}.jpg" alt="">
+				<span class="nombre-perso" style="display: block;">
+					{{task.personaje}}
+				</span>
+			</div>
+			
+		</div>
+		<div class="fuente-publi m-0 p-0 mb-3">
+			<div class="col-12 p-0">
+				<span class="fuentes-lbl">Fuente(s):</span>
+				<a href="{{task.fuente}}">{{task.fuente}}</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+
+</main>
+
+<script>
+
+	$(document).ready(function(){
+  	// Activate Carousel
+	$("#myCarousel").carousel();
 		
-		{% if session['logged_in'] %}
-
-		<div class="publicar">
-			<h3>Nueva Publicación</h3>
-			<form action="/crearPublicacion" method="POST">
-				<label for="" style="display: block;">Percepción:</label>
-				<input type="radio" id="bueno" name="percepcion" value="bueno">
-				<i class="fas fa-thumbs-up" aria-hidden="true"></i>
-				<input type="radio" id="malo" name="percepcion" value="malo">
-				<i class="fas fa-thumbs-down" aria-hidden="true"></i>
-				<input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Título...">
-				
-				<label for="personaje-select">Personaje:</label>
-
-				
-				<div class="perso">
-
-
-					<select name="personaje" id="personaje-select" style="grid-auto-flow:initial;">
-						<option value="">Seleccione un personaje</option>
-						{%for task in tasks1%}
-						<option value="{{task.nombre}}">{{task.nombre}}</option>
-						{%endfor%}
-					</select>
-					<a href="crear-perso"><button type="button" class="boton nuevo" id="boton-nuevo" onclick="nuevoPerso()" style="float: none;">Nuevo</button></a>
-
-					<input type="text" id="personaje" name="personaje" maxlength="30" placeholder="Nuevo Personaje...">
-				</div>
-
-				<input type="date" id="fecha" name="fecha" style="float: right;">
-				<label for="fecha" style="float: right;" id="lblfecha">Fecha </label>
-				
-				
-				
-				<textarea name="descripcion" id="descripcion" placeholder="Describe el acontecimiento..."></textarea>
-				<label for="referencias">Fuente(s): </label>
-				<textarea name="referencias" id="referencias" placeholder="Referencias, citas, enlaces, etc..."></textarea>
-				<button type="submit" class="boton" style="float: right;">PUBLICAR</button>
-				<div class="clear"></div>
-			</form>
-		</div>
-		{% endif %}
-
-		{% for task in tasks %}
-		<div class="publicacion n1">
-			<span class="username-publi">{{task.username}}</span>
-			<h3 style="font-family: 'Roboto Slab';">{{task.titulo}}</h2>
-			<div class="media m-0 p-0" style="align-items: center;">
-				<div class="media-body publi-body-col1">
-					<span class="fecha-lbl">
-						Fecha de publicación: <span class="fecha-publi">{{task.fecha}}</span>
-					</span>
-					<div class="info-publi">
-						{{task.contenido}}
-					</div>
-					
-				</div>
-				<div class="publi-body-col2">
-					<img class="mx-auto" src="static/img/foto_{{task.personaje}}.jpg" alt="">
-					<span class="nombre-perso" style="display: block;">
-						{{task.personaje}}
-					</span>
-				</div>
-				
-			</div>
-			<div class="fuente-publi m-0 p-0 mb-3">
-				<div class="col-12 p-0">
-					<span class="fuentes-lbl">Fuente(s):</span>
-					<a href="{{task.fuente}}">{{task.fuente}}</a>
-				</div>
-			</div>
-		</div>
-		{% endfor %}
-
-	</main>
-
-	<script>
-
-		var perso = document.getElementById("personaje");
-		var persoSelect = document.getElementById("personaje-select");
-
-		function nuevoPerso() {
-			perso.style.display = "block";
-			persoSelect.style.display = "none";
-		}
-
-		function selectPerso() {
-			perso.style.display = "none";
-			persoSelect.style.display = "block";
-		}
-	</script>
+	// Enable Carousel Indicators
+	$(".item1").click(function(){
+		$("#myCarousel").carousel(0);
+	});
+	$(".item2").click(function(){
+		$("#myCarousel").carousel(1);
+	});
+	$(".item3").click(function(){
+		$("#myCarousel").carousel(2);
+	});
+		
+	// Enable Carousel Controls
+	$(".carousel-control-prev").click(function(){
+		$("#myCarousel").carousel("prev");
+	});
+	$(".carousel-control-next").click(function(){
+		$("#myCarousel").carousel("next");
+	});
+	});
+</script>
 {% endblock %}
