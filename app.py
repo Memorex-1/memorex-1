@@ -134,6 +134,29 @@ def salir():
     session['logged_in'] = False
     return redirect(url_for('index'))
 
+@app.route('/Personaje')
+def Personaje():
+    return render_template('Personaje.html')
+
+# Creando rutas para cada personaje
+@app.route('/Keiko')
+def Keiko():
+    return render_template('Keiko.html')
+
+@app.route('/Alan')
+def Alan():
+    return render_template('Alan.html')
+
+@app.route('/Toledo')
+def Toledo():
+    return render_template('Toledo.html')
+
+@app.route('/Vizcarra')
+def Vizcarra():
+    return render_template('Vizcarra.html')
+
+#-----------------------
+
 @app.route('/nosotros')
 def nosotros():
     return render_template('nosotros.html')
