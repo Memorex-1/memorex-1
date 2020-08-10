@@ -25,7 +25,7 @@ body {
 
 #override .boton-sec .btn:hover {
 	transition: 200ms ease-in-out all;
-	background-color: rgb(35, 36, 36);
+	background-color: rgb(122, 0, 0);
 }
 #override .btn-user {
 	font-size: 0.9;
@@ -238,7 +238,7 @@ td{
 .publicar textarea {
 	width: 98%;
 	font-size: 14px;
-	height: 20px;
+	height: 30px;
 	padding: 5px 10px;
 	border: 2px solid #aaa;
 	font-family: 'Open Sans', sans-serif;
@@ -281,7 +281,7 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 
 #fecha {
 	margin:0;
-	width: 10%;
+	width: 150px;
 	display: block;
 }
 
@@ -293,11 +293,7 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 	float: none;
 }
 
-#fecha:focus {
-	border-bottom: 2px solid #000;
-	width: 15%;
-}
-#lblfecha {width: 50px;}
+#lblfecha {width: 50px; display: block;}
 .clear {height: 35px;}
 
 
