@@ -17,9 +17,9 @@
 				
 				<label for="personaje-select">Personaje:</label>
 
-				<button type="button" class="boton seleccionar" id="boton-seleccionar" onclick="selectPerso()">Seleccionar</button>
-				<a href="crear-perso"><button type="button" class="boton nuevo" id="boton-nuevo" onclick="nuevoPerso()" style="float:right;">Nuevo</button></a>
+				
 				<div class="perso">
+
 
 					<select name="personaje" id="personaje-select">
 						<option value="">Seleccione un personaje</option>
@@ -27,6 +27,7 @@
 						<option value="{{task.nombre}}">{{task.nombre}}</option>
 						{%endfor%}
 					</select>
+					<a href="crear-perso"><button type="button" class="boton nuevo" id="boton-nuevo" onclick="nuevoPerso()" style="float: none;">Nuevo</button></a>
 
 					<input type="text" id="personaje" name="personaje" maxlength="30" placeholder="Nuevo Personaje...">
 				</div>
