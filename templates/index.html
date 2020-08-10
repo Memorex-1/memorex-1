@@ -81,23 +81,33 @@
 	{% for task in tasks %}
 	<div class="publicacion n1">
 		<span class="username-publi">{{task.username}}</span>
-		<h3 style="font-family: 'Roboto Slab';">{{task.titulo}}</h2>
+		<div class="row m-0 p-0">
+			<div class="col-9 m-0 p-0" style="color: #000;">
+				<h3 style="font-family: 'Roboto Slab';">{{task.titulo}}</h2>
+				<span class="fecha-lbl">
+						Fecha de publicación: <span class="fecha-publi">{{task.fecha}}</span>
+				</span>
+			</div>
+			<div class="col-3 m-0 p-0">
+				<div class="publi-body-col2 ml-3">
+					<img class="mx-auto" src="static/img/foto_{{task.personaje}}.jpg" alt="">
+					<span class="nombre-perso" style="display: block;">
+						{{task.personaje}}
+					</span>
+				</div>
+			</div>
+		
+		</div>
+		
+		
 		<div class="media m-0 p-0" style="align-items: center;">
 			<div class="media-body publi-body-col1">
-				<span class="fecha-lbl">
-					Fecha de publicación: <span class="fecha-publi">{{task.fecha}}</span>
-				</span>
+				
 				<div class="info-publi">
 					{{task.contenido}}
 				</div>
-				
 			</div>
-			<div class="publi-body-col2">
-				<img class="mx-auto" src="static/img/foto_{{task.personaje}}.jpg" alt="">
-				<span class="nombre-perso" style="display: block;">
-					{{task.personaje}}
-				</span>
-			</div>
+			
 			
 		</div>
 		<div class="fuente-publi m-0 p-0 mb-3">
