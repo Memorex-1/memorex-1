@@ -48,19 +48,15 @@
 			<input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Título...">
 			
 			<label for="personaje-select">Personaje:</label>
-
-			<button type="button" class="boton seleccionar" id="boton-seleccionar" onclick="selectPerso()">Seleccionar</button>
-			<a href="crear-perso"><button type="button" class="boton nuevo" id="boton-nuevo" onclick="nuevoPerso()" style="float:right;">Nuevo</button></a>
+				
 			<div class="perso">
-
-				<select name="personaje" id="personaje-select">
+				<select name="personaje" id="personaje-select" style="grid-auto-flow:initial;">
 					<option value="">Seleccione un personaje</option>
 					{%for task in tasks1%}
 					<option value="{{task.nombre}}">{{task.nombre}}</option>
 					{%endfor%}
 				</select>
-
-				<input type="text" id="personaje" name="personaje" maxlength="30" placeholder="Nuevo Personaje...">
+				<a href="crear-perso"><button type="button" class="boton nuevo" id="boton-nuevo" onclick="nuevoPerso()" style="float: none;">Nuevo</button></a>
 			</div>
 
 			<input type="date" id="fecha" name="fecha" style="float: right;">

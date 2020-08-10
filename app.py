@@ -133,7 +133,6 @@ def salir():
     session.clear()
     session['logged_in'] = False
     return redirect(url_for('index'))
-
 @app.route('/Personaje')
 def Personaje():
     return render_template('Personaje.html')
@@ -154,8 +153,6 @@ def Toledo():
 @app.route('/Vizcarra')
 def Vizcarra():
     return render_template('Vizcarra.html')
-
-#-----------------------
 
 @app.route('/nosotros')
 def nosotros():
