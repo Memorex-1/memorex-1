@@ -3,13 +3,13 @@
 {% block content %}
 <div class="container shadow bg-white pb-4">
     <h1>Crear Personaje</h1>
-    <form action="" class="crear-perso">
+    <form action="/crear" class="crear-perso" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="perso-name" class="">Personaje:</label>
             
             <div class="row m-0 p-0">
                 <div class="col-md-6 my-2 p-0 pr-2">
-                    <input type="text" id="perso-name" placeholder="Nombre del personaje" class="form-control">
+                    <input type="text" id="perso-name" name = "personaje" placeholder="Nombre del personaje" class="form-control">
                 </div>
                 <div class="col-md-6 my-2 p-0 pl-2">
                     <input type="text" id="perso-org" placeholder="Organización Política" class="form-control">
@@ -24,7 +24,7 @@
             <label for="perso-desc">Descripción:</label>
             <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
         </div>
-        <button type="submit" class="btn btn-outline-dark">Light</button>
+        <button type="submit" class="btn btn-outline-dark">ENVIAR</button>
     </form>
 </div>
 <script>

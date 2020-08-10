@@ -1,5 +1,7 @@
 from flask import Flask,render_template,redirect,request,url_for,session,flash
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import secure_filename
+from werkzeug.datastructures import  FileStorage
 import bcrypt
 import os
 app = Flask(__name__)
@@ -103,7 +105,9 @@ def registro():
 
 @app.route('/crear', methods = ['POST'])
 def pagina():
-    task = personajes(nombre = request.form['personaje'])
+    foto = request.files['imagen-personaje']
+    f = foto.read()
+    task = personajes(nombre = request.form['personaje'], foto= f, informacion= request.form['descripcion'])
     db.session.add(task)
     db.session.commit()
     return redirect(url_for('index'))
@@ -129,7 +133,6 @@ def salir():
     session.clear()
     session['logged_in'] = False
     return redirect(url_for('index'))
-
 @app.route('/Personaje')
 def Personaje():
     return render_template('Personaje.html')
@@ -150,8 +153,6 @@ def Toledo():
 @app.route('/Vizcarra')
 def Vizcarra():
     return render_template('Vizcarra.html')
-
-#-----------------------
 
 @app.route('/nosotros')
 def nosotros():
