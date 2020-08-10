@@ -1,5 +1,6 @@
 
 
+
 body {
 	margin: 0;
 	background-color: #eee;
@@ -14,110 +15,18 @@ body {
     margin-right: auto;  /*usado para centrar imagen*/
 }
 
-
-/* ESTILOS DE LA TOPBAR *******************************/
-
-/* 
-ul {
-	list-style-type: none;
-  	margin: 0;
-  	padding: 0;
+#override .boton-sec a, #override .boton-sec .btn {
+	font-size: 0.95em;
+	height: 100%;
+	width: 50%;
 }
 
-.logo{
-	height: 50px;
-	margin: 8px 15px 8px 0;
-	float: left;
+#override .boton-sec .btn  {width: 100%;}
+
+#override .btn-user {
+	font-size: 0.9;
 }
 
-.topbar-cont {
-	background-color: #fff;
-	padding: 0 8%;
-	border-bottom: 4px solid #000;
-	box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
-}
-
-.topbar {
-	font-family: 'Arvo', serif;
-	font-weight: 500;
-	font-size: 16px;
-	height: 70px;
-}
-
-.topbar nav {
-	float: left;
-	height: 25px;
-	margin: 22px 0;
-}
-
-.topbar li {
-	display: inline-block;
-}
-
-
-.topbar nav a {
-	padding: 6px 10px;
-	text-decoration: none;
-	cursor: pointer;
-	color: #000;
-	margin: 18px 5px;
-}
-
-.topbar nav a:hover {
-	transition: ease-in-out;
-	transition-duration: 100ms;
-	border-bottom: 4px solid #000;
-	color: rgb(255, 0, 0);
-}
-
-.boton {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: bold;
-	padding: 10px;
-	margin: 15px 5px;
-	border: none;
-	background-color: #444;
-	width: 140px;
-	text-align: center;
-	cursor: pointer;
-	color: #fff;
-	float: right;
-	border-radius: 4px;
-}
-
-.boton:hover {
-	background-color: rgb(255, 37, 37);
-	transition: ease-in-out;
-	transition-duration: 200ms;
-	color: #fff;
-}
-
-.bienvenido {
-	font-family: 'Open Sans', sans-serif;
-	margin: 12px 10px;
-	padding: 10px 20px 10px 20px;
-	color: #000;
-	border-radius: 30px;
-	box-shadow: none;
-	border: 2px solid black;
-	background-color: #fff;
-}
-
-.bienvenido:hover {
-	cursor: pointer;
-	color: #fff;
-	background-color: rgb(68, 68, 68);
-	transition: 200ms ease-in-out all;
-}
-
-.bienvenido span {
-	font-size: 1.1em;
-	font-weight: 700;
-	padding-left: 5px;
-	position: relative;
-	bottom: 5px;
-} 
-*/
 .enlace {
 	font-family: Arvo, serif;
 }
@@ -138,6 +47,16 @@ ul {
 
 .btn-group {
 	font-family: 'Open Sans', sans-serif;
+}
+
+#override .carousel img {
+	height: 500px;
+}
+
+@media screen and (max-width: 768px) {
+	#override .carousel img {
+		height: 300px;
+	}
 }
 
 /*************************************************************/
@@ -169,7 +88,7 @@ ul {
     		grid-template-columns: 50% 50%;
     		grid-gap: 30px;
 	  }
-	}
+}
 
 
 /****REDES SOCIALES****/

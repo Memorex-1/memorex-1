@@ -1,10 +1,10 @@
 {% extends "header.html" %}
 
-{% block content %}}
+{% block content %}
 
 {% if session['logged_in'] == false %}
-<div class="container-fluid row m-0 p-2 bienvenida" data-ride="carousel">
-	<div class="col-6 carousel slide" id="myCarousel">
+<div class="container-fluid row m-0 p-0 px-2 bienvenida" data-ride="carousel">
+	<div class="col-md-6 carousel slide" id="myCarousel">
 		<ul class="carousel-indicators">
 			<li class="item1 active"></li>
 			<li class="item2"></li>
@@ -14,21 +14,25 @@
 		  <!-- The slideshow -->
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
-			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="" >
-			  <div class="carousel-caption d-none d-md-block">
+			  <img src="../static/img/foto_Julio Guzman.jpg" alt="">
+			  <div class="carousel-caption d-md-block">
 				<h5>Alan García Pérez</h5>
 				<p>García se suicidó disparándose en la cabeza cuando la policía se preparaba para detenerlo preliminarmente por asuntos relacionados al caso Odebrecht.</p>
 			  </div>
 			</div>
 			<div class="carousel-item">
-			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="">
+			  <img src="../static/img/Vizcarra2.jpg" alt="">
 			</div>
 			<div class="carousel-item">
-			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="">
+				<img src="../static/img/Keiko.jpg" alt="">
+				<div class="carousel-caption d-md-block">
+				  <h5>Alan García Pérez</h5>
+				  <p>García se suicidó disparándose en la cabeza cuando la policía se preparaba para detenerlo preliminarmente por asuntos relacionados al caso Odebrecht.</p>
+				</div>
 			</div>
-		  </div>	
+		</div>	
 	</div>
-	<div class="col-6">
+	<div class="col-md-6">
 	</div>
 </div>
 <main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">

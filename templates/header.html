@@ -26,13 +26,13 @@
 	<div id="fb-root"></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v8.0" 	
 	nonce="bF49QMPH"></script>
-	<nav class="topbar navbar navbar-expand-md navbar-light">
+	<nav class="topbar navbar navbar-expand-md navbar-light shadow-sm">
 		<a class="navbar-brand" href="index"><img height="55px" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse justify-content-between" id="collapsibleNavbar">
-			<ul class="navbar-nav">
+		<div class="collapse navbar-collapse justify-content-between row m-0 p-0" id="collapsibleNavbar">
+			<ul class="navbar-nav col-12 col-md-6 m-0 p-0 flex-wrap">
 				<li class="nav-item">
 					<a class="nav-link enlace" href="index">Publicaciones</a>
 				</li>
@@ -42,32 +42,51 @@
 				<li class="nav-item">
 					<a class="nav-link enlace" href="nosotros">Sobre la página</a>
 				</li>
-				<div class="container mt-3"> 
-					<div class="input-group mb-3" style="position: sticky;/* color: bisque; */">
+			</ul>
+			
+			<div class="col-12 col-md-6 row m-0 p-0">
+				{% if session['logged_in'] %}
+
+				<div class="btn-group btn-user col-12 col-lg-3 m-0 p-0 h-75">
+					<button type="button" class="btn btn-dark dropdown-toggle px-4 " data-toggle="dropdown">
+						<img style="border-radius: 10px;" height="15px" src="{{url_for('static', filename= 'img/LogoAdmin.jpg')}}" alt="">
+						{{ session['name'] }}
+						</button>
+					<div class="dropdown-menu px-0">
+						<a class="dropdown-item px-3" href="editor-personaje"><i class="fas fa-user mr-2"></i>Mi Cuenta</a>
+						<a class="dropdown-item px-3" href="salir"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesión</a>
+					</div>
+				</div>
+
+				<div class="col-12 col-lg-9 m-0 p-0"> 
+					<div class="input-group mb-3" style="position: sticky;">
 					  <input type="text" class="form-control" placeholder="Search">
 					  <div class="input-group-append">
-						<button class="btn btn-success" type="submit">Buscar</button>  
+						<button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>  
 					   </div>
 					</div> 
-				  </div>
-				
-
-			</ul>
-			<div class="btn-group boton-usuario mr-4">
-				{% if session['logged_in'] %}
-				<button type="button" class="btn btn-dark dropdown-toggle px-4" data-toggle="dropdown">
-					<img style="border-radius: 10px;" height="15px" src="{{url_for('static', filename= 'img/LogoAdmin.jpg')}}" alt="">
-					{{ session['name'] }}
-				 </button>
-				<div class="dropdown-menu px-0">
-					<a class="dropdown-item px-3" href="editor-personaje"><i class="fas fa-user mr-2"></i>Mi Cuenta</a>
-					<a class="dropdown-item px-3" href="salir"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesión</a>
 				</div>
+				
 				{% else %}
-				<a href="login"><button class="btn btn-secondary"><i class="fas fa-sign-in-alt mr-2"></i> ACCEDER</button></a>
-				<a href="sign-up"><button class="btn btn-danger"><i class="fas fa-user mr-2"></i> REGISTRARSE</button></a>
+
+				<div class="btn-group boton-sec col-12 col-lg-6 m-0 p-0">
+					<a href="login"><button class="btn btn-secondary"><i class="fas fa-sign-in-alt mr-2"></i>Acceder</button></a>
+					<a href="sign-up"><button class="btn btn-danger"><i class="fas fa-user mr-2"></i>Registrarse</button></a>
+				</div>
+				
+				<div class="col-12 col-lg-6 m-0 p-0"> 
+					<div class="input-group mb-3 h-100" style="position: sticky;color: bisque;">
+					  <input type="text" class="form-control h-100" placeholder="Search">
+					  <div class="input-group-append">
+						<button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>  
+					   </div>
+					</div> 
+				</div>
+
 				{% endif %}
+				
 			</div>
+			
 		</div>
 		
 		
@@ -75,7 +94,8 @@
 	
 	
 
-	{% block content %}{% endblock %}
+	{% block content %}
+	{% endblock %}
 	<div class="fb-comments" data-href="http://127.0.0.1:5000/index" data-numposts="2" data-width="100%"></div>
 	
 	<footer>
