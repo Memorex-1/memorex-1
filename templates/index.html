@@ -2,41 +2,9 @@
 
 {% block content %}
 
-{% if session['logged_in'] == false %}
-<div class="container-fluid row m-0 p-2 bienvenida" data-ride="carousel">
-	<div class="col-7 carousel slide" id="myCarousel">
-		<ul class="carousel-indicators">
-			<li class="item1 active"></li>
-			<li class="item2"></li>
-			<li class="item3"></li>
-		  </ul>
-		  
-		  <!-- The slideshow -->
-		  <div class="carousel-inner">
-			<div class="carousel-item active">
-			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="" >
-			  <div class="carousel-caption d-none d-md-block">
-				<h5>Alan García Pérez</h5>
-				<p>García se suicidó disparándose en la cabeza cuando la policía se preparaba para detenerlo preliminarmente por asuntos relacionados al caso Odebrecht.</p>
-			  </div>
-			</div>
-			<div class="carousel-item">
-			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="">
-			</div>
-			<div class="carousel-item">
-			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="">
-			</div>
-		  </div>	
-	</div>
-	<div class="col-5">
-
-	</div>
-</div>
+{% if session['logged_in'] %}
 
 <main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
-	
-{% else %}
-	<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
 	<div class="publicar">
 		<h3>Nueva Publicación</h3>
 		<form action="/crearPublicacion" method="POST">
@@ -72,6 +40,37 @@
 		</form>
 	</div>
 	
+{% else %}
+
+<div class="container-fluid row m-0 p-2 bienvenida" data-ride="carousel">
+	<div class="col-7 carousel slide" id="myCarousel">
+		<ul class="carousel-indicators">
+			<li class="item1 active"></li>
+			<li class="item2"></li>
+			<li class="item3"></li>
+		  </ul>
+		  
+		  <!-- The slideshow -->
+		  <div class="carousel-inner">
+			<div class="carousel-item active">
+			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="" >
+			  <div class="carousel-caption d-none d-md-block">
+				<h5>Alan García Pérez</h5>
+				<p>García se suicidó disparándose en la cabeza cuando la policía se preparaba para detenerlo preliminarmente por asuntos relacionados al caso Odebrecht.</p>
+			  </div>
+			</div>
+			<div class="carousel-item">
+			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="">
+			</div>
+			<div class="carousel-item">
+			  <img src="../static/img/foto_ALAN GARCIA.jpg" alt="">
+			</div>
+		  </div>	
+	</div>
+	<div class="col-5">
+
+	</div>
+</div>
 	
 {% endif %}
 
