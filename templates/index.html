@@ -2,7 +2,40 @@
 
 {% block content %}
 
-{% if session['logged_in'] == false %}
+{% if session['logged_in'] %}
+<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
+	<div class="publicar">
+		<h3>Nueva Publicación</h3>
+		<form action="/crearPublicacion" method="POST">
+			<!-- <label for="" style="display: block;">Percepción:</label>
+			<input type="radio" id="bueno" name="percepcion" value="bueno">
+			<i class="fas fa-thumbs-up" aria-hidden="true"></i>
+			<input type="radio" id="malo" name="percepcion" value="malo">
+			<i class="fas fa-thumbs-down" aria-hidden="true"></i>
+			<input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Título...">
+			 -->
+			<label for="personaje-select " style="display: block;">Personaje:</label>
+				
+				<select name="personaje" class="form-control mb-2 w-75" id="personaje-select" style="grid-auto-flow:initial;">
+					<option value="">Seleccione un personaje</option>
+					{%for task in tasks1%}
+					<option value="{{task.nombre}}">{{task.nombre}}</option>
+					{%endfor%}
+				</select>
+				<a href="crear-perso"><button type="button" class="btn-dark mb-2" id="boton-nuevo">Nuevo</button></a>
+
+			<label for="fecha" id="lblfecha">Fecha </label>
+			<input type="date" id="fecha" name="fecha">
+			
+			<textarea name="descripcion" id="descripcion" placeholder="Describe el acontecimiento..."></textarea>
+			<label for="referencias">Fuente(s): </label>
+			<textarea name="referencias" id="referencias" placeholder="Referencias, citas, enlaces, etc..."></textarea>
+			<button type="submit" class="btn-dark boton" style="float: right;">Publicar</button>
+			<div class="clear"></div>
+		</form>
+	</div>
+
+{% else %}
 <div class="container-fluid row m-0 p-0 px-2 bienvenida" data-ride="carousel">
 	<div class="col-md-6 carousel slide" id="myCarousel">
 		<ul class="carousel-indicators">
@@ -57,38 +90,7 @@
 </div>
 <main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
 
-{% else %}
-<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
-	<div class="publicar">
-		<h3>Nueva Publicación</h3>
-		<form action="/crearPublicacion" method="POST">
-			<!-- <label for="" style="display: block;">Percepción:</label>
-			<input type="radio" id="bueno" name="percepcion" value="bueno">
-			<i class="fas fa-thumbs-up" aria-hidden="true"></i>
-			<input type="radio" id="malo" name="percepcion" value="malo">
-			<i class="fas fa-thumbs-down" aria-hidden="true"></i>
-			<input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Título...">
-			 -->
-			<label for="personaje-select " style="display: block;">Personaje:</label>
-				
-				<select name="personaje" class="form-control mb-2 w-75" id="personaje-select" style="grid-auto-flow:initial;">
-					<option value="">Seleccione un personaje</option>
-					{%for task in tasks1%}
-					<option value="{{task.nombre}}">{{task.nombre}}</option>
-					{%endfor%}
-				</select>
-				<a href="crear-perso"><button type="button" class="btn-dark mb-2" id="boton-nuevo">Nuevo</button></a>
 
-			<label for="fecha" id="lblfecha">Fecha </label>
-			<input type="date" id="fecha" name="fecha">
-			
-			<textarea name="descripcion" id="descripcion" placeholder="Describe el acontecimiento..."></textarea>
-			<label for="referencias">Fuente(s): </label>
-			<textarea name="referencias" id="referencias" placeholder="Referencias, citas, enlaces, etc..."></textarea>
-			<button type="submit" class="btn-dark boton" style="float: right;">Publicar</button>
-			<div class="clear"></div>
-		</form>
-	</div>
 	
 {% endif %}
 
