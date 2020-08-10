@@ -4,6 +4,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 import bcrypt
 import os
+import io
 app = Flask(__name__)
 app.secret_key = "appLogin"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/task1.db'
@@ -107,7 +108,7 @@ def registro():
 def pagina():
     foto = request.files['imagen-personaje']
     f = foto.read()
-    task = personajes(nombre = request.form['personaje'], foto= f, informacion= request.form['descripcion'])
+    task = personajes(nombre = request.form['personaje'], foto = f, informacion= request.form['descripcion'])
     db.session.add(task)
     db.session.commit()
     return redirect(url_for('index'))
@@ -123,7 +124,6 @@ def pagina1():
         fuente = request.form['referencias']
         task = publicaciones(username = username, personaje = personaje, titulo = titulo, fecha = fecha, contenido = contenido, fuente = fuente)
         personaje = personajes.query.filter_by(nombre = task.personaje).first()
-        print(personaje.nombre)
         task.foto = personaje.foto
         db.session.add(task)
         db.session.commit()
