@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Lista de Personajes </title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link href="../css/Personaje.css" rel ="stylesheet">
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+      />
+        
+  
+    </head>
+
+    <body>
+        <div class="container ">
+            <div class="content animate__animated  animate__backInDown">
+                <div class="actions">
+                    <a href="Personaje" class="close" >
+                        <span>X</span>
+                    </a>
+                </div>
+                <header>
+                    <h2 class="title-item"> 
+                        <span class="position">1</span>
+                        Keiko Sofía Fujimori Higuchi 
+                    </h2>
+                </header>
+                <section>
+                    <img src="{{url_for('static', filename= 'img/Keiko.jpg')}}" class="main-image" alt="Keiko Fujimori">
+                    <div class=" text ">
+                        <address> 
+
+                        </address>
+                        <p class="paragraph">Keiko Sofía Fujimori Higuchi nació en Lima el 25 de mayo de 1975. Es una administradora y política peruana, hija del expresidente Alberto Fujimori y de Susana Higuchi. Fue primera dama del Perú durante el régimen de su padre (1994-2000), y congresista de la República (2006-2011).  </p>
+                         <p class="paragraph">La excandidata es investigada por los presuntos delitos de lavado de activos agravado, por organización criminal y obstrucción de la justicia. La investigación en contra de Fujimori surgió por el posible financiamiento de su campaña para las elecciones de 2011 con recursos de la constructora brasileña Odebrecht.
+                            </p>     
+                         <p class="paragraph">Salió este lunes (04.05.2020) en libertad por segunda vez en cinco meses después de que la Justicia revocase nuevamente la medida de prisión preventiva por presunto lavado de dinero tras el escándalo de la constructora brasileña Odebrecht. </p>
+                    </div>
+
+                </section> 
+            </div>
+        </div>
+    </body>
+</html>

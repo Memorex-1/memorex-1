@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Lista de Personajes </title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link href="../css/Personaje.css" rel ="stylesheet">
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+      />
+        
+  
+    </head>
+
+    <body>
+        <div class="container ">
+            <div class="content animate__animated  animate__backInDown">
+                <div class="actions">
+                    <a href="Personaje" class="close" >
+                        <span>X</span>
+                    </a>
+                </div>
+                <header>
+                    <h2 class="title-item"> 
+                        <span class="position">2</span>
+                        Alan Gabriel Ludwig García Pérez 
+                    </h2>
+                </header>
+                <section>
+                    <img src="{{url_for('static', filename= 'img/Alan.jpg')}}" class="main-image" alt="Alan García">
+                    <div class=" text ">
+                        <address> 
+
+                        </address>
+                        <p class="paragraph">Alan Gabriel Ludwig García Pérez nació en Lima el 23 de mayo de 1949 y falleció el 17 de abril de 2019. Fue un abogado, orador y político peruano. Ejerció como presidente del Perú en dos mandatos no consecutivos: de 1985 a 1990 y de 2006 a 2011. </p>
+                         <p class="paragraph">La sombra de la corrupción ya perseguía a García desde su primera Administración, de 1985 a 1990, cuando fue acusado de haber pedido un soborno para otorgar la concesión de la construcción inicial del Metro de Lima, obra que luego quedó abandonada por décadas tras ese escándalo.
+                            García eludió a la Justicia después de esa denuncia y posteriormente huyó del país en 1992
+                            </p>     
+                         <p class="paragraph">El suicidio de Alan García, expresidente del Perú, se produjo el 17 de abril de 2019 cuando oficiales de la Policía Nacional del Perú habían ido a su vivienda a arrestarlo preliminarmente por las investigaciones en su contra vinculadas al caso Odebrecht, procediendo a encerrarse en su dormitorio para luego dispararse en la cabeza. </p>
+                    </div>
+
+                </section> 
+            </div>
+        </div>
+    </body>
+</html>
