@@ -41,6 +41,8 @@ class publicaciones(db2.Model):
 @app.route('/index')
 def index():
     tasks1 = personajes.query.all()
+    #invertir orden, from flask_sqlalchemy import desc
+    #tasks = publicaciones.query.filter(publicaciones.id != 0).order_by(desc(publicaciones.id)).all()
     tasks = publicaciones.query.all()
     #crea las fotos desde la db2 s
     for task in tasks:
