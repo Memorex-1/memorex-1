@@ -113,10 +113,10 @@ def registro():
     return render_template('login.html')        
 
 @app.route('/crear', methods = ['POST'])
-def pagina():
+def creaPersonaje():
     foto = request.files['imagen-personaje']
     f = foto.read()
-    task = personajes(nombre = request.form['personaje'], foto = f, informacion= request.form['descripcion'])
+    task = personajes(nombre = request.form['personaje'], foto = f, informacion= request.form['descripcion'], partido = request.form['partido'])
     db.session.add(task)
     db.session.commit()
     return redirect(url_for('index'))
