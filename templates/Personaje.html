@@ -9,6 +9,7 @@
         <header>
             <h1 class="title"> Lista de Personajes </h1>
         </header>
+        
         <table class="table">
             <thead>
                 <th>#</th>
@@ -18,9 +19,10 @@
                 <th>Información</th>
             </thead>
             <tbody>
+                {% for task1 in tasks1 %}
                 <tr>
-                    <td>1</td>
-                    <td>Keiko Sofía Fujimori Higuchi</td>
+                    <td>{{task1.id}}</td>
+                    <td>{{task1.nombre}}</td>
                     <td>Fuerza Popular</td>
                     <td><i class="fas fa-star"></i><i class="fas fa-star"></i></td>
 
@@ -28,34 +30,7 @@
                         <a href="Keiko">Ver más </a>
                     </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Alan Gabriel Ludwig García Pérez</td>
-                    <td>Alianza Popular Revolucionaria Americana</td>
-                    <td><i class="fas fa-star"></i><i class="fas fa-star"></i></td>
-                    <td>
-                        <a href="Alan">Ver más </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Alejandro Celestino Toledo Manrique</td>
-                    <td>Perú Posible</td>
-                    <td><i class="fas fa-star"></i><i class="fas fa-star"></i></td>
-                    <td>
-                        <a href="Toledo">Ver más </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Martín Alberto Vizcarra Cornejo</td>
-                    <td>Peruanos Por el Kambio</td>
-                    <td><i class="fas fa-star"></i><i class="fas fa-star"></i></td>
-                    <td>
-                        <a href="Vizcarra">Ver más </a> 
-                    </td>
-                </tr>
-                
+                {% endfor %}
             </tbody>
         </table>
     </div>
