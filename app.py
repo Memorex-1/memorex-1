@@ -143,19 +143,8 @@ def Personaje():
 # Creando rutas para cada personaje
 @app.route('/Keiko')
 def Keiko():
-    return render_template('Keiko.html')
-
-@app.route('/Alan')
-def Alan():
-    return render_template('Alan.html')
-
-@app.route('/Toledo')
-def Toledo():
-    return render_template('Toledo.html')
-
-@app.route('/Vizcarra')
-def Vizcarra():
-    return render_template('Vizcarra.html')
+    person = personajes.query.filter_by(id=1).first()
+    return render_template('Keiko.html',  personaje = person)
 
 @app.route('/nosotros')
 def nosotros():
