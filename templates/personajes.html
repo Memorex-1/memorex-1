@@ -1,0 +1,38 @@
+
+{% extends "header.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css')}}">
+<div class="container">
+    <div class="content">
+        <header>
+            <h1 class="title"> Lista de Personajes </h1>
+        </header>
+        
+        <table class="table">
+            <thead>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Partido Político</th>
+                <th>Calificación</th>
+                <th>Información</th>
+            </thead>
+            <tbody>
+                {% for task1 in tasks1 %}
+                <tr>
+                    <td>{{task1.id}}</td>
+                    <td>{{task1.nombre}}</td>
+                    <td>Fuerza Popular</td>
+                    <td><i class="fas fa-star"></i><i class="fas fa-star"></i></td>
+
+                    <td>
+                        <a href="personaj/{{task1.id}}">Ver más </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

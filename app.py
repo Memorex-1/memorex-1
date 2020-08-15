@@ -138,7 +138,7 @@ def salir():
 @app.route('/personajes')
 def Personaje():
     tasks1 = personajes.query.all()
-    return render_template('Personaje.html',  tasks1 = tasks1)
+    return render_template('personajes.html',  tasks1 = tasks1)
 
 # Creando rutas para cada personaje
 @app.route('/personaj/<per_id>')
