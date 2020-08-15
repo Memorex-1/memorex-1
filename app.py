@@ -5,6 +5,7 @@ from werkzeug.datastructures import  FileStorage
 import bcrypt
 import os
 import io
+
 app = Flask(__name__)
 app.secret_key = "appLogin"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/task1.db'
@@ -12,6 +13,7 @@ semilla = bcrypt.gensalt()
 db = SQLAlchemy(app)
 db1 = SQLAlchemy(app)
 db2 = SQLAlchemy(app)
+
 class personajes(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     nombre = db.Column(db.String(20))
@@ -20,6 +22,8 @@ class personajes(db.Model):
     pro = db.Column(db.Integer)
     fuente = db.Column(db.String(50))
     foto = db.Column("foto")
+    partido = db.Column(db.String(50))
+
 class usuarios(db1.Model):
     __tablename__ = 'login'
     id = db1.Column(db.Integer,primary_key=True)
@@ -27,6 +31,7 @@ class usuarios(db1.Model):
     apellido = db1.Column(db.String(20))
     correo = db1.Column(db.String(50))
     contraseña = db1.Column(db.String(50))
+
 class publicaciones(db2.Model):
     __tablename__ = 'publicaciones'
     id = db2.Column(db.Integer,primary_key=True)
@@ -37,6 +42,7 @@ class publicaciones(db2.Model):
     contenido = db2.Column(db.String(450))
     fuente = db2.Column(db.String(200))
     foto = db2.Column("foto")
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -130,11 +136,13 @@ def pagina1():
         db.session.add(task)
         db.session.commit()
     return redirect(url_for('index'))
+
 @app.route('/salir')
 def salir():
     session.clear()
     session['logged_in'] = False
     return redirect(url_for('index'))
+
 @app.route('/personajes')
 def Personaje():
     tasks1 = personajes.query.all()
