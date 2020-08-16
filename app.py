@@ -92,14 +92,17 @@ def editor():
     #MEOTOD POST
     else:
         if 'name' in session:
-            nombre =request.form['nombre']
-            apellido =request.form['apellido']
-            telefono =request.form['telf']
             tasks = usuarios.query.filter_by(nombre = session['name']).first()
-            tasks.nombre = nombre
-            tasks.apellido = apellido
-            tasks.telefono = telefono
-            session['name']=nombre
+            if(request.form['nombre']!=''):
+                nombre =request.form['nombre']
+                tasks.nombre = nombre
+                session['name']=nombre
+            if(request.form['apellido']!=''):
+                apellido =request.form['apellido']
+                tasks.apellido = apellido
+            if(request.form['telf']!=''):
+                telefono =request.form['telf']
+                tasks.telefono = telefono
             db1.session.commit()
             return render_template('editor-usuario.html', tasks = tasks)
 
