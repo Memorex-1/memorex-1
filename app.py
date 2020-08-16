@@ -92,7 +92,6 @@ def editor():
     #MEOTOD POST
     else:
         if 'name' in session:
-            if(request.form['nombre']!=None):
             nombre =request.form['nombre']
             apellido =request.form['apellido']
             telefono =request.form['telf']
