@@ -267,9 +267,6 @@ td{
 	width: 20px;
 }
 
-#bueno, #malo {	height: 10px; margin: 10px;}
-label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
-
 #titulo {
 	font-weight: 700;
 	display: block;
@@ -370,6 +367,29 @@ label[for="bueno"], label[for="malo"] {font-weight: 500; margin-top: 10px;}
 	color: #000;
 }
 
+
+/* LISTA DE PERSOS ***************************************************/
+
+.lista-persos .card {
+	font-size: 0.9em;
+	color: #000;
+}
+
+.lista-persos .card-header {
+	font-size: 1em;
+	color: #fff;
+	margin: 0;
+}
+
+.lista-persos .card-img-top {
+	border-radius: 0;
+}
+
+.lista-persos .card-header {
+	background-color: rgb(36, 36, 36);
+	font-family: 'Open Sans', serif;
+	font-weight: bold;
+}
 
 /*FOOTER***************************/
 

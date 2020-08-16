@@ -3,36 +3,49 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css')}}">
-<div class="container">
-    <div class="content">
-        <header>
-            <h1 class="title"> Lista de Personajes </h1>
-        </header>
-        
-        <table class="table">
-            <thead>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Partido Político</th>
-                <th>Calificación</th>
-                <th>Información</th>
-            </thead>
-            <tbody>
-                {% for task1 in tasks1 %}
-                <tr>
-                    <td>{{task1.id}}</td>
-                    <td>{{task1.nombre}}</td>
-                    <td>{{task1.partido}}</td>
-                    <td><i class="fas fa-star"></i><i class="fas fa-star"></i></td>
-
-                    <td>
-                        <a href="personaj/{{task1.id}}">Ver más </a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+<div class="container-fluid container-md lista-persos bg-white main">
+    <div>
+        <h1 class=""> Lista de Personajes </h1>
     </div>
+    <div class="row">
+        {% for task1 in tasks1 %}
+        <div class="col-12 col-sm-6 col-lg-4 text-center">
+            <div class="card" >
+                <div class="card-header">{{task1.nombre}}</div>
+                <img style="height: 300px;" class="card-img-top" src="http://127.0.0.1:5000/static/img/foto_{{task1.nombre}}.jpg" alt="{{task1.nombre}}" style="width:100%">
+                <div class="card-body" style="height: 180px;">
+                  <p class="card-text">Organización Política: {{task1.partido}} <br>
+                    Publicaciones Relacionadas:    
+                </p>
+                  <a href="personaj/{{task1.id}}" class="btn btn-primary w-100">See Profile</a>
+                </div>
+            </div>
+        </div>
+        
+        {% endfor %}
+    </div>
+
+
+    <!-- <table class="table">
+        <thead>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Partido Político</th>
+            <th>Información</th>
+        </thead>
+        <tbody>
+            {% for task1 in tasks1 %}
+            <tr>
+                <td>{{task1.id}}</td>
+                <td>{{task1.nombre}}</td>
+                <td>{{task1.partido}}</td>
+
+                <td>
+                    <a href="personaj/{{task1.id}}">Ver más </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> -->
 </div>
 {% endblock %}
