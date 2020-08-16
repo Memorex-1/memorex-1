@@ -7,7 +7,7 @@
 				<h3>
 					<table>
 						<td>BIENVENIDO</td>
-						<td>nombre del user</td>
+						<td>{{ session['name'] }}</td>
 					</table>
 				</h3><!--
 				<h3>BIENVENIDO ADMINISTRADOR</h3>agregado class y style por ahora no class="rounded-circle" height="23px" width="23px"-->
@@ -20,7 +20,6 @@
 					<h3>
 						<table>
 							<td>Datos</td>
-							<td>nombre del user</td>
 						</table>
 					</h3>
 					<!--
@@ -28,19 +27,19 @@
 				<table>
 					<tr>
 						<td>Nombre:</td>
-						<td>Aqui va el nombre </td>
+						<td>{{ session['name'] }}</td>
 					</tr>
 					<tr>
 						<td>Apellido:</td>
-						<td>Aqui va el apellido </td>
+						<td>{{tasks.apellido}} </td>
 					</tr>
 					<tr>
 						<td>Correo:</td>
-						<td>Aqui va el correo </td>
+						<td>{{tasks.correo}} </td>
 					</tr>
 					<tr>
 						<td>Telefono:</td>
-						<td>Aqui va el telefono </td>
+						<td>{{tasks.telefono}} </td>
 					</tr>
 				</table>
 				<!--
@@ -53,25 +52,25 @@
 			</div><!--bots-->
 		</div>
 		<div class="item" id="item4">
-			<form action="/crear" method="POST">
+			<form action="/editor-usuario" method="POST">
 				<h2>Cambiar datos: </h2>
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 					  <span class="input-group-text">Nombre</span>
 					</div>
-					<input type="text" class="form-control">
+					<input type="text" id="nombre" name = "nombre" class="form-control">
 				</div>
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 					  <span class="input-group-text">Apellido</span>
 					</div>
-					<input type="text" class="form-control">
+					<input type="text"id="apellido" name = "apellido" class="form-control">
 				</div>
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 					  <span class="input-group-text">Teléfono</span>
 					</div>
-					<input type="text" class="form-control">
+					<input type="text" id="telf" name = "telf"class="form-control">
 				</div>
 				<div class="custom-file mb-3">
 					<input type="file" class="custom-file-input" id="user-img" name="imagen-usuario">

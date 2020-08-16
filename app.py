@@ -31,6 +31,7 @@ class usuarios(db1.Model):
     apellido = db1.Column(db.String(20))
     correo = db1.Column(db.String(50))
     contraseña = db1.Column(db.String(50))
+    telefono = db1.Column(db.Integer)
 
 class publicaciones(db2.Model):
     __tablename__ = 'publicaciones'
@@ -80,15 +81,28 @@ def login():
                 return redirect(url_for('index'))
     return render_template('login.html')
 
-@app.route('/editor-personaje', methods = ['POST','GET'])
+@app.route('/editor-usuario', methods = ['POST','GET'])
 def editor():
     if(request.method == "GET"):
         if 'name' in session:
-            tasks = personajes.query.all()
-            return render_template('editor-personaje.html', tasks = tasks)
+            tasks = usuarios.query.filter_by(nombre = session['name']).first()
+            return render_template('editor-usuario.html', tasks = tasks)
         else:
             return redirect(url_for('ingresar'))
-    
+    #MEOTOD POST
+    else:
+        if 'name' in session:
+            if(request.form['nombre']!=None):
+            nombre =request.form['nombre']
+            apellido =request.form['apellido']
+            telefono =request.form['telf']
+            tasks = usuarios.query.filter_by(nombre = session['name']).first()
+            tasks.nombre = nombre
+            tasks.apellido = apellido
+            tasks.telefono = telefono
+            session['name']=nombre
+            db1.session.commit()
+            return render_template('editor-usuario.html', tasks = tasks)
 
 # funcion que registra los datos en la bd uusuarios
 @app.route('/sign-up', methods = ['POST','GET'])
