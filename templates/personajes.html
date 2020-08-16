@@ -1,4 +1,3 @@
-
 {% extends "header.html" %}
 
 {% block content %}
@@ -10,18 +9,89 @@
     <div class="row">
         {% for task1 in tasks1 %}
         <div class="col-12 col-sm-6 col-lg-4 text-center">
-            <div class="card" >
+            <div class="card">
                 <div class="card-header">{{task1.nombre}}</div>
-                <img style="height: 300px;" class="card-img-top" src="http://127.0.0.1:5000/static/img/foto_{{task1.nombre}}.jpg" alt="{{task1.nombre}}" style="width:100%">
+                <img style="height: 300px;" class="card-img-top"
+                    src="http://127.0.0.1:5000/static/img/foto_{{task1.nombre}}.jpg" alt="{{task1.nombre}}"
+                    style="width:100%">
                 <div class="card-body">
-                  <p class="card-text">Organización Política: {{task1.partido}} <br>
-                    Publicaciones Relacionadas:    
-                </p>
-                  <a href="personaj/{{task1.id}}" class="btn btn-dark w-100">Ver más</a>
+                    <p class="card-text">Organización Política: {{task1.partido}} <br>
+                        Publicaciones Relacionadas:
+                    </p>
+                    <!--"personaj/{{task1.id}}" -->
+                    <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#myModal">Ver mas
+
+                    </button>
+
+                    <div class="modal fade" id="myModal" role="dialog" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+                                    <p>
+                                    </p>
+                                    <div class="container1 ">
+                                        <div class="content animate_animated  animate_backInDown">
+
+                                        </div>
+                                        <header>
+                                            <h2 class="title-item">
+                                                <span class="position">1</span>
+                                                Keiko Sofía Fujimori Higuchi
+                                            </h2>
+                                        </header>
+                                        <section>
+
+                                            <div class=" text ">
+                                                <address>
+
+                                                </address>
+                                                <p class="paragraph">Keiko Sofía Fujimori Higuchi nacio en Lima el 25 de
+                                                    mayo de
+                                                    1975.Es una administradora y política peruana, hija del expresidente
+                                                    Alberto
+                                                    Fujimori y de Susana Higuchi. Fue primera dama del Perú durante el
+                                                    régimen de su
+                                                    padre (1994-2000), y congresista de la República (2006-2011). </p>
+                                                <p class="paragraph">La excandidata es investigada por los presuntos
+                                                    delitos de
+                                                    lavado de activos agravado, por organización criminal y obstrucción
+                                                    de la
+                                                    justicia.La investigación en contra de Fujimori surgió por el
+                                                    posible
+                                                    financiamiento de su campaña para las elecciones de 2011 con
+                                                    recursos de la
+                                                    constructora brasileña Odebrecht.
+                                                </p>
+                                                <p class="paragraph">Salió este lunes (04.05.2020) en libertad por
+                                                    segunda vez en
+                                                    cinco meses después de que la Justicia revocase nuevamente la medida
+                                                    de prisión
+                                                    preventiva por presunto lavado de dinero tras el escándalo de la
+                                                    constructora
+                                                    brasileña Odebrecht. </p>
+                                            </div>
+
+                                            <div class="modal-footer">
+
+                                            </div>
+                                        </section>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+                            <p></p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-        
+
         {% endfor %}
     </div>
 
