@@ -19,11 +19,11 @@
                         Publicaciones Relacionadas:
                     </p>
                     <!--"personaj/{{task1.id}}" -->
-                    <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#myModal">Ver mas
+                    <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#myModal{{task1.id}}">Ver mas
 
                     </button>
 
-                    <div class="modal fade" id="myModal" role="dialog" style="display: none;" aria-hidden="true">
+                    <div class="modal fade" id="myModal{{task1.id}}" role="dialog" style="display: none;" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
 
@@ -37,42 +37,19 @@
                                         <header>
                                             <h2 class="title-item">
                                                 <span class="position"></span>
-                                                Keiko Sofía Fujimori Higuchi
+                                                {{task1.nombre}}
                                             </h2>
                                         </header>
                                         <section>
 
                                             <div class=" text ">
                                                 <address>
-                                                    <img style="width: 400px;height: 300px;" class="card-img-top"
-                                                        src="http://127.0.0.1:5000/static/img/foto_KEIKO FUJIMORI.jpg"
-                                                        alt="KEIKO FUJIMORI">
+                                                    <img style="max-width: 300px;" class="card-img-top"
+                                                        src="http://127.0.0.1:5000/static/img/foto_{{task1.nombre}}.jpg"
+                                                        alt="{{task1.nombre}}">
 
                                                 </address>
-                                                <p class="paragraph">Keiko Sofía Fujimori Higuchi nacio en Lima el 25 de
-                                                    mayo de
-                                                    1975.Es una administradora y política peruana, hija del expresidente
-                                                    Alberto
-                                                    Fujimori y de Susana Higuchi. Fue primera dama del Perú durante el
-                                                    régimen de su
-                                                    padre (1994-2000), y congresista de la República (2006-2011). </p>
-                                                <p class="paragraph">La excandidata es investigada por los presuntos
-                                                    delitos de
-                                                    lavado de activos agravado, por organización criminal y obstrucción
-                                                    de la
-                                                    justicia.La investigación en contra de Fujimori surgió por el
-                                                    posible
-                                                    financiamiento de su campaña para las elecciones de 2011 con
-                                                    recursos de la
-                                                    constructora brasileña Odebrecht.
-                                                </p>
-                                                <p class="paragraph">Salió este lunes (04.05.2020) en libertad por
-                                                    segunda vez en
-                                                    cinco meses después de que la Justicia revocase nuevamente la medida
-                                                    de prisión
-                                                    preventiva por presunto lavado de dinero tras el escándalo de la
-                                                    constructora
-                                                    brasileña Odebrecht. </p>
+                                                <p class="paragraph">{{task1.partido}}</p>
                                             </div>
 
                                             <div class="modal-footer">
