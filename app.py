@@ -32,6 +32,7 @@ class usuarios(db1.Model):
     correo = db1.Column(db.String(50))
     contraseña = db1.Column(db.String(50))
     telefono = db1.Column(db.Integer)
+    foto = db1.Column("foto")
 
 class publicaciones(db2.Model):
     __tablename__ = 'publicaciones'
@@ -103,6 +104,12 @@ def editor():
             if(request.form['telf']!=''):
                 telefono =request.form['telf']
                 tasks.telefono = telefono
+            
+            #if(request.files['foto']!=None):
+             #   foto = request.files['foto']
+              #  with open('static/img/foto_{}.jpg'.format(tasks.nombre), 'wb') as archivo:
+               #     archivo.write(f)
+                #    tasks.foto = f  
             db1.session.commit()
             return render_template('editor-usuario.html', tasks = tasks)
 
