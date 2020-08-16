@@ -116,7 +116,10 @@ def registro():
 def creaPersonaje():
     foto = request.files['imagen-personaje']
     f = foto.read()
-    task = personajes(nombre = request.form['personaje'], foto = f, informacion= request.form['descripcion'], partido = request.form['partido'])
+    task = personajes(nombre = request.form['personaje'],informacion= request.form['descripcion'], partido = request.form['partido'])
+    with open('static/img/foto_{}.jpg'.format(task.nombre), 'wb') as archivo:
+        archivo.write(f)
+        task.foto = f  
     db.session.add(task)
     db.session.commit()
     return redirect(url_for('index'))
