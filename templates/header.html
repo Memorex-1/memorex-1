@@ -58,7 +58,7 @@
 				
 				<div class="btn-group btn-user col-12 col-lg-3 m-0 p-0 h-75">
 					<button type="button" class="btn btn-dark dropdown-toggle px-4 " data-toggle="dropdown">
-						<img style="border-radius: 10px;" height="15px" src="{{url_for('static', filename= 'img/LogoAdmin.jpg')}}" alt="">
+						<img style="border-radius: 10px;" height="15px" src="static/img/foto_{{ session['name'] }}.jpg" alt="">
 						{{ session['name'] }}
 						</button>
 					<div class="dropdown-menu px-0">
