@@ -9,6 +9,7 @@ import io
 app = Flask(__name__)
 app.secret_key = "appLogin"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/task1.db'
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 semilla = bcrypt.gensalt()
 db = SQLAlchemy(app)
 db1 = SQLAlchemy(app)
@@ -97,6 +98,10 @@ def editor():
             if(request.form['nombre']!=''):
                 nombre =request.form['nombre']
                 tasks.nombre = nombre
+                f = tasks.foto
+                with open('static/img/foto_{}.jpg'.format(tasks.nombre), 'wb') as archivo:
+                    archivo.write(f)
+                    tasks.foto = f 
                 session['name']=nombre
             if(request.form['apellido']!=''):
                 apellido =request.form['apellido']
@@ -105,11 +110,12 @@ def editor():
                 telefono =request.form['telf']
                 tasks.telefono = telefono
             
-            #if(request.files['foto']!=None):
-             #   foto = request.files['foto']
-              #  with open('static/img/foto_{}.jpg'.format(tasks.nombre), 'wb') as archivo:
-               #     archivo.write(f)
-                #    tasks.foto = f  
+            if(request.files['foto']!=None):
+                foto = request.files['foto']
+                f = foto.read()
+                with open('static/img/foto_{}.jpg'.format(tasks.nombre), 'wb') as archivo:
+                    archivo.write(f)
+                    tasks.foto = f 
             db1.session.commit()
             return render_template('editor-usuario.html', tasks = tasks)
 

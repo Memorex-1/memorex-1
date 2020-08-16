@@ -7,12 +7,17 @@
 				<h3>
 					<table>
 						<td>BIENVENIDO</td>
-						<td>{{ session['name'] }}</td>
+						<td>{{ tasks.name }}</td>
 					</table>
 				</h3><!--
 				<h3>BIENVENIDO ADMINISTRADOR</h3>agregado class y style por ahora no class="rounded-circle" height="23px" width="23px"-->
 				<br>
-				<img src="{{url_for('static', filename='img/LogoAdmin.jpg')}}" id="avatar" width="300" height="100">
+				{%if(tasks.foto==None)%}
+					<img src="{{url_for('static', filename='img/LogoAdmin.jpg')}}" id="avatar" width="300" height="100">
+				{%endif%}
+				{%if(tasks.foto!=None)%}
+					<img src="static/img/foto_{{tasks.nombre}}.jpg" id="avatar" width="300" height="100">		
+				{%endif%}			
 			</div><!--bots-->
 			<br>
 			<div class="col-xs-12 col-md-6"><!--bots-->
@@ -52,7 +57,7 @@
 			</div><!--bots-->
 		</div>
 		<div class="item" id="item4">
-			<form action="/editor-usuario" method="POST">
+			<form action="/editor-usuario" method="POST" enctype="multipart/form-data">
 				<h2>Cambiar datos: </h2>
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
