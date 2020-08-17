@@ -98,10 +98,11 @@ def editor():
             if(request.form['nombre']!=''):
                 nombre =request.form['nombre']
                 tasks.nombre = nombre
-                f = tasks.foto
-                with open('static/img/foto_{}.jpg'.format(tasks.nombre), 'wb') as archivo:
-                    archivo.write(f)
-                    tasks.foto = f 
+                if(tasks.foto != None):
+                    f = tasks.foto
+                    with open('static/img/foto_{}.jpg'.format(tasks.nombre), 'wb') as archivo:
+                        archivo.write(f)
+                        tasks.foto = f 
                 session['name']=nombre
             if(request.form['apellido']!=''):
                 apellido =request.form['apellido']
@@ -110,7 +111,7 @@ def editor():
                 telefono =request.form['telf']
                 tasks.telefono = telefono
             
-            if(request.files['foto']!=None):
+            if 'foto' in request.files:
                 foto = request.files['foto']
                 f = foto.read()
                 with open('static/img/foto_{}.jpg'.format(tasks.nombre), 'wb') as archivo:
