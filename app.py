@@ -112,6 +112,7 @@ def editor():
                 tasks.telefono = telefono
             
             arch = request.files['imagen-usuario']
+            #si el usuar
             if(arch.filename!=""):
                 print(request.files['imagen-usuario'])
                 foto = request.files['imagen-usuario']
