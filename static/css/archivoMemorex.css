@@ -49,6 +49,14 @@ body {
 	color: rgb(255, 0, 0);
 }
 
+.nav-item {
+	font-size: 0.9em;
+}
+
+.nav-item i {
+	color: rgb(196, 0, 0);
+}
+
 .btn-group {
 	font-family: 'Open Sans', sans-serif;
 }
