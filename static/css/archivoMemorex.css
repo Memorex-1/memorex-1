@@ -351,10 +351,14 @@ td{
 	border-radius: 4px 0 0 4px;
 }
 .publi-body-col2 img {
-	border-radius: 4px;
+	width: 60px;
+	height: 60px;
 	opacity: 0.8;
-	width: 100%;
-	max-width: 80px;
+	object-fit: cover;
+}
+
+.nombre-perso {
+	font-size: 0.8em;
 }
 
 .publicacion .img-usuario {
