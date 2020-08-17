@@ -304,13 +304,14 @@ td{
 	margin: 10px 0;
 }
 
-.publicacion span {
-	font-size: 0.8em;
+.publicacion .fecha-lbl {
+	font-size: 0.9em;
 }
 
 .username-publi {
 	color: crimson;
 	font-weight: bold;
+	font-size: 0.9em;
 }
 
 .info-publi {
