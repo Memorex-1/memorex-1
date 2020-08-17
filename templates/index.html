@@ -68,7 +68,7 @@
 				<div class="carousel-caption d-md-block">
 				  <h5>Keiko Fujimori</h5>
 				  <p>La lideresa de Fuerza Popular tiene múltiples acusaciones y ha estado en prisión preventiva dos veces. 
-					  Se le imputan actos de corrupción relacionados al dinero recibido por diversas entidadades empresariales.
+					  Se le imputan actos de corrupción relacionados al dinero recibido por diversas entidades empresariales.
 				  </p>
 				</div>
 			</div>
@@ -95,7 +95,10 @@
 {% endif %}
 
 	{% for task in tasks | reverse %}
-	<div class="publicacion n1">
+	<div class="publicacion">
+		
+		<img src="../static/img/foto_Julio Guzman.jpg" alt="" class="img-usuario rounded-circle">
+
 		<span class="username-publi">{{task.username}}</span>
 		<div class="row m-0 p-0">
 			<div class="col-9 m-0 p-0" style="color: #000;">
