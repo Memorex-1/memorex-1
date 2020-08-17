@@ -3,8 +3,8 @@
 {% block content %}
 
 {% if session['logged_in'] %}
-<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
-	<div class="publicar">
+<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">	
+	<div class="publicar collapse" id="demo1">
 		<h3>Nueva Publicación</h3>
 		<form action="/crearPublicacion" method="POST">
 			<!-- <label for="" style="display: block;">Percepción:</label>
@@ -12,7 +12,7 @@
 			<i class="fas fa-thumbs-up" aria-hidden="true"></i>
 			<input type="radio" id="malo" name="percepcion" value="malo">
 			<i class="fas fa-thumbs-down" aria-hidden="true"></i>-->
-			<input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Título...">
+			<input type="text" id="titulo" name="titulo" maxlength="120" placeholder="Título...">
 			
 			<label for="personaje-select " style="display: block;">Personaje:</label>
 				
@@ -30,9 +30,11 @@
 			<textarea name="descripcion" id="descripcion" placeholder="Describe el acontecimiento..."></textarea>
 			<label for="referencias">Fuente(s): </label>
 			<textarea name="referencias" id="referencias" placeholder="Referencias, citas, enlaces, etc..."></textarea>
-			<button type="submit" class="btn-dark boton" style="float: right;">Publicar</button>
-			<div class="clear"></div>
+			<button type="submit" class="btn-dark boton">Publicar</button>
 		</form>
+	</div>
+	<div class="d-flex align-content-center justify-content-center">
+		<button data-toggle="collapse" data-target="#demo1" class="btn btn-dark collapsed nuevaPubliBtn px-5" aria-expanded="false" aria-controls="demo1"><span>Nueva Publicación </span><i class="fa" aria-hidden="true"></i></button>
 	</div>
 
 {% else %}

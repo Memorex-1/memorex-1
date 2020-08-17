@@ -206,9 +206,7 @@ td{
 }
 
 .publicar {
-	margin: 0 0 20px 0;
-	padding: 20px 0;
-	border-bottom: 6px solid #000;
+	
 }
 
 .publicar h3 {
@@ -226,7 +224,7 @@ td{
 }
 
 .publicar input {
-	width: 10%;
+	width: 200px;
 	font-size: 14px;
 	height: 25px;
 	padding: 0 10px;
@@ -253,7 +251,7 @@ td{
 .publicar input:focus {
 	border: none;
 	border-bottom: 4px solid #000;
-	width: 70%;
+	width: 90%;
 	transition: 200ms ease-in-out all;
 }
 
@@ -414,3 +412,13 @@ footer span {
 	display: block;
 	text-align: center;
 }
+
+
+[data-toggle="collapse"] .fa:before {  
+	content: "\f139";
+}
+  
+[data-toggle="collapse"].collapsed .fa:before {
+	content: "\f13a";
+}
+  
