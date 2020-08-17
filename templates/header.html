@@ -44,11 +44,11 @@
 				</li>
 			</ul>
 			
-			<div class="col-12 col-md-6 row m-0 p-0">
+			<div class="col-12 col-md-6 row align-items-center m-0 p-0">
 				{% if session['logged_in'] %}
 
-				<div class="col-12 col-lg-9 m-0 p-0"> 
-					<div class="input-group mb-3" style="position: sticky;">
+				<div class="col-12 col-lg-9 d-flex align-items-center m-0 p-0"> 
+					<div class="input-group px-1">
 						<input type="text" class="form-control" placeholder="Search">
 						<div class="input-group-append">
 							<button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>  
@@ -56,12 +56,12 @@
 					</div> 
 				</div>
 				
-				<div class="btn-group btn-user col-12 col-lg-3 m-0 p-0 h-75">
+				<div class="btn-group btn-user col-12 col-lg-3 m-0 p-0 h-75 px-1">
 					<button type="button" class="btn btn-dark dropdown-toggle px-4 " data-toggle="dropdown">
 						<img style="border-radius: 10px;" height="15px" src="static/img/foto_{{ session['name'] }}.jpg" alt="">
 						{{ session['name'] }}
 						</button>
-					<div class="dropdown-menu px-0">
+					<div class="dropdown-menu">
 						<a class="dropdown-item px-3" href="editor-usuario"><i class="fas fa-user mr-2"></i>Mi Cuenta</a>
 						<a class="dropdown-item px-3" href="salir"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesión</a>
 					</div>
