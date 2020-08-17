@@ -110,8 +110,11 @@ def editor():
             if(request.form['telf']!=''):
                 telefono =request.form['telf']
                 tasks.telefono = telefono
-            if(request.files['foto']!=None):
-                foto = request.files['foto']
+            
+            arch = request.files['imagen-usuario']
+            if(arch.filename!=""):
+                print(request.files['imagen-usuario'])
+                foto = request.files['imagen-usuario']
                 f = foto.read()
                 with open('static/img/foto_{}.jpg'.format(tasks.nombre), 'wb') as archivo:
                     archivo.write(f)
