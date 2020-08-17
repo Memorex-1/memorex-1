@@ -7,8 +7,7 @@ body {
 }/*se esta bloqueando para la imagen*/
 /*para la imagen */
 #avatar{
-    width: 35%;
-    border-radius: 50%;
+	object-fit: cover;
     /*border: 1px solid;   borde a la imagen*/
     display: block;      /*usado para centrar imagen*/
     margin-left: auto;   /*usado para centrar imagen*/
@@ -214,8 +213,12 @@ td{
 	font-family: 'Open Sans', sans-serif;
 }
 
+#override .publicar .form-control {
+	border: 2px solid rgb(114, 114, 114);
+}
+
 .publicar {
-	
+	padding-top: 15px;
 }
 
 .publicar h3 {
@@ -240,6 +243,7 @@ td{
 	margin: 15px 0;
 	border: none;
 	border-bottom: 3px solid #ccc;
+	border-radius: .25rem;
 }
 
 .publicar textarea {
@@ -249,6 +253,7 @@ td{
 	padding: 5px 10px;
 	border: 2px solid #aaa;
 	font-family: 'Open Sans', sans-serif;
+	border-radius: .25rem;
 }
 
 .publicar textarea:focus {
@@ -276,12 +281,18 @@ td{
 
 #titulo {
 	font-weight: 700;
+	font-size: 1em;
+	margin-top: 0;
+	font-family: 'Roboto Slab', serif;
 	display: block;
 }
 
 #personaje {display: none; margin: 0;}
 
-
+#personaje-select {
+	padding: 0;
+	height: 30px;
+}
 
 #fecha {
 	margin:0;

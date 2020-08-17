@@ -5,7 +5,6 @@
 {% if session['logged_in'] %}
 <main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">	
 	<div class="publicar collapse" id="demo1">
-		<h3>Nueva Publicación</h3>
 		<form action="/crearPublicacion" method="POST">
 			<!-- <label for="" style="display: block;">Percepción:</label>
 			<input type="radio" id="bueno" name="percepcion" value="bueno">
@@ -15,22 +14,31 @@
 			<input type="text" id="titulo" name="titulo" maxlength="120" placeholder="Título...">
 			
 			<label for="personaje-select " style="display: block;">Personaje:</label>
-				
-				<select name="personaje" class="form-control mb-2 w-75" id="personaje-select" style="grid-auto-flow:initial;">
-					<option value="">Seleccione un personaje</option>
-					{%for task in tasks1%}
-					<option value="{{task.nombre}}">{{task.nombre}}</option>
-					{%endfor%}
-				</select>
-				<a href="crear-perso"><button type="button" class="btn-dark mb-2" id="boton-nuevo">Nuevo</button></a>
-
+				<div class="row m-0 p-0">
+					<div class="col-12 col-md-4 p-0 m-0">
+						<select name="personaje" class="form-control mb-2 mr-2" id="personaje-select" style="grid-auto-flow:initial;">
+							<option value="">Seleccione un personaje</option>
+							{%for task in tasks1%}
+							<option value="{{task.nombre}}">{{task.nombre}}</option>
+							{%endfor%}
+						</select>
+					</div>
+					
+					<div class="col-12 col-md-8">
+						<a href="crear-perso" class="btn btn-outline-dark mb-2 py-1" >Nuevo</a>
+						<a href="#" title="¿No encuentra su personaje?" data-toggle="popover" data-trigger="focus" data-content="Puede crearlo haciendo clic en el botón &quot;Nuevo&quot;.">
+							<i class="fas fa-info-circle fa-lg"></i>
+						</a>
+					</div>
+					
+				</div>
 			<label for="fecha" id="lblfecha">Fecha </label>
 			<input type="date" id="fecha" name="fecha">
 			
 			<textarea name="descripcion" id="descripcion" placeholder="Describe el acontecimiento..."></textarea>
 			<label for="referencias">Fuente(s): </label>
 			<textarea name="referencias" id="referencias" placeholder="Referencias, citas, enlaces, etc..."></textarea>
-			<button type="submit" class="btn-dark boton">Publicar</button>
+			<button type="submit" class="btn btn-dark boton">Publicar</button>
 		</form>
 	</div>
 	<div class="d-flex align-content-center justify-content-center">
@@ -139,19 +147,19 @@
 			<br>
 			<!---->
 
-		<button type="button" class="btn-dark mb-2" data-toggle="collapse" data-target="#demo">Comentar</button>
+		<button type="button" class="btn btn-dark mb-2" data-toggle="collapse" data-target="#demo">Comentarios <i class="far fa-comments fa-lg" style="color: rgb(226, 226, 226);"></i></button>
   			<div id="demo" class="collapse">
 				<h3 id="reply-title" class="comment-reply-title">Dejar comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2011/08/28/facebook-comment-plugin/#respond" style="display:none;">Cancelar respuesta</a></small></h3><form action="" method="post" id="commentform" class="comment-form" novalidate><div class="clearfix"></div>
 					<div class="comment-form-input-wrap td-form-comment">
-						<textarea placeholder="Comentario:" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+						<textarea placeholder="Comentario:" id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea>
 						<br><br>
 					</div>
 					<div class="comment-form-input-wrap td-form-author">
-						<input class="" id="author" name="author" placeholder="Nombre:*" type="text" value="" size="30"  aria-required='true' />
+						<input class="form-control" id="author" name="author" placeholder="Nombre:*" type="text" value="" size="30"  aria-required='true' />
 						<br><br>
 					</div>
 					<div class="comment-form-input-wrap td-form-email">
-						<input class="" id="email" name="email" placeholder="Correo electrónico:*" type="text" value="" size="30"  aria-required='true' />
+						<input class="form-control" id="email" name="email" placeholder="Correo electrónico:*" type="text" value="" size="30"  aria-required='true' />
 						<br>		
 					</div>
 				<style type="text/css">
@@ -167,8 +175,7 @@
 						<label for="gdpr-comments-checkbox">He leído la <a href="">política de privacidad</a> y acepto que se almacenen mis datos para recibir respuestas por correo electrónico.</label>
 					</div>	
 				</div>
-	
-				<input name="submit" type="submit" id="submit" class="submit" value="Publicar comentario" /> 
+				<a href="" class="btn btn-outline-dark">Publicar comentario</a> 
 				<input type='hidden' name='comment_post_ID' value='3584' id='comment_post_ID' />
 				<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
 				<p style="display: none;">
