@@ -138,11 +138,50 @@
 			</div>
 			<br>
 			<!---->
-			<button type="button" class="btn-dark mb-2" data-toggle="collapse" data-target="#demo">Comentarios</button>
+
+		<button type="button" class="btn-dark mb-2" data-toggle="collapse" data-target="#demo">Comentar</button>
   			<div id="demo" class="collapse">
-    			Aqui debe ir los comentarios de facebook
+				<h3 id="reply-title" class="comment-reply-title">Dejar comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2011/08/28/facebook-comment-plugin/#respond" style="display:none;">Cancelar respuesta</a></small></h3><form action="" method="post" id="commentform" class="comment-form" novalidate><div class="clearfix"></div>
+					<div class="comment-form-input-wrap td-form-comment">
+						<textarea placeholder="Comentario:" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+						<br><br>
+					</div>
+					<div class="comment-form-input-wrap td-form-author">
+						<input class="" id="author" name="author" placeholder="Nombre:*" type="text" value="" size="30"  aria-required='true' />
+						<br><br>
+					</div>
+					<div class="comment-form-input-wrap td-form-email">
+						<input class="" id="email" name="email" placeholder="Correo electrónico:*" type="text" value="" size="30"  aria-required='true' />
+						<br>		
+					</div>
+				<style type="text/css">
+					#gdpr-comments-compliance > div { margin: 1rem 0; }
+					#gdpr-comments-checkbox-wrap { display: flex; align-items: baseline; }
+					#gdpr-comments-checkbox + label { display: inline; margin: 0; }
+					#gdpr-comments-compliance-text { font-size: .8em; }
+				</style>
+			
+				<div id="gdpr-comments-compliance">
+					<div id="gdpr-comments-checkbox-wrap">
+						<input id="gdpr-comments-checkbox" type="checkbox" name="gdpr_comments_checkbox" value="1" required="required" />
+						<label for="gdpr-comments-checkbox">He leído la <a href="">política de privacidad</a> y acepto que se almacenen mis datos para recibir respuestas por correo electrónico.</label>
+					</div>	
+				</div>
+	
+				<input name="submit" type="submit" id="submit" class="submit" value="Publicar comentario" /> 
+				<input type='hidden' name='comment_post_ID' value='3584' id='comment_post_ID' />
+				<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				<p style="display: none;">
+				<input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="190a14062b" />
+				</p><p style="display: none;">
+				<input type="hidden" id="ak_js" name="ak_js" value="83"/></p></form>	
+
+				<div class="fb-comments" data-href="http://127.0.0.1:5000/index" data-numposts="1" data-width="100%"></div>
+
 			</div>
-			<!----> 
+
+		
+
 		</div>
 	</div>
 	{% endfor %}
