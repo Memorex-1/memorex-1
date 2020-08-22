@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.secret_key = "appLogin"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/task1.db'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 semilla = bcrypt.gensalt()
 db = SQLAlchemy(app)
 db1 = SQLAlchemy(app)
@@ -60,7 +61,13 @@ def index():
             with open('static/img/foto_{}.jpg'.format(task.personaje), 'wb') as f:
                 f.write(foto)
     return render_template('index.html', tasks = tasks, tasks1 = tasks1)
-    
+
+@app.route('/search',methods = ['POST','GET'])
+def search():
+    textoBuscar = request.form['buscar']
+    post = personajes.query.filter_by(nombre = textoBuscar)
+    return render_template('testeo.html', posts = post)
+
 @app.route('/login',methods = ['POST','GET'])
 def login():
     if(request.method == "GET"):

@@ -1,0 +1,9 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+{% for task in posts | reverse %}
+{{task.nombre}}
+{% endfor %}
+
+{% endblock %}
