@@ -6,7 +6,11 @@
 <main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">	
 	<div class="publicar collapse" id="demo1">
 		<form action="/crearPublicacion" method="POST">
-
+			<!-- <label for="" style="display: block;">Percepción:</label>
+			<input type="radio" id="bueno" name="percepcion" value="bueno">
+			<i class="fas fa-thumbs-up" aria-hidden="true"></i>
+			<input type="radio" id="malo" name="percepcion" value="malo">
+			<i class="fas fa-thumbs-down" aria-hidden="true"></i>-->
 			<input type="text" id="titulo" name="titulo" maxlength="120" placeholder="Título...">
 			
 			<label for="personaje-select " style="display: block;">Personaje:</label>
@@ -130,7 +134,7 @@
           <p>This is a large modal.</p>
         </div>
         <div class="modal-footer">
-          <button data-dismiss="modal" class="btn btn-black type=">cerrar</button>
+          <button data-dismiss="modal" class="btn btn-info">cerrar</button>
         </div>
       </div>
     </div>
@@ -145,16 +149,11 @@
 				</span>
 			</div>
 			<div class="col-4 m-0 p-0">
-				<div class="publi-body-col2">
-					<div class="img-container">
-						<img class="rounded-circle" src="static/img/foto_{{task.personaje}}.jpg" alt="">
-					</div>
-					<div class="nombre-perso">
-						<div>
-							{{task.personaje}}
-						</div>
-					</div>
-					
+				<div class="publi-body-col2 ml-3 p-1 p-md-3">
+					<img class="mx-auto rounded-circle" src="static/img/foto_{{task.personaje}}.jpg" alt="">
+					<span class="nombre-perso pl-2" style="">
+						{{task.personaje}}
+					</span>
 				</div>
 			</div>
 		
@@ -179,8 +178,8 @@
 			<br>
 			<!---->
 
-		<button type="button" class="btn btn-dark mb-2" data-toggle="collapse" data-target="#demo{{task.id}}">Comentarios <i class="far fa-comments fa-lg" style="color: rgb(226, 226, 226);"></i></button>
-  			<div id="demo{{task.id}}" class="collapse">
+		<button type="button" class="btn btn-dark mb-2" data-toggle="collapse" data-target="#demo">Comentarios <i class="far fa-comments fa-lg" style="color: rgb(226, 226, 226);"></i></button>
+  			<div id="demo" class="collapse">
 				<h3 id="reply-title" class="comment-reply-title">Dejar comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2011/08/28/facebook-comment-plugin/#respond" style="display:none;">Cancelar respuesta</a></small></h3><form action="" method="post" id="commentform" class="comment-form" novalidate><div class="clearfix"></div>
 					<div class="comment-form-input-wrap td-form-comment">
 						<textarea placeholder="Comentario:" id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea>
