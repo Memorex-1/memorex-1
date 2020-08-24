@@ -25,10 +25,7 @@
 					</div>
 					
 					<div class="col-12 col-md-8">
-						<a href="crear-perso" class="btn btn-outline-dark mb-2 py-1" >Nuevo</a>
-						<a href="#" title="¿No encuentra su personaje?" data-toggle="popover" data-trigger="focus" data-content="Puede crearlo haciendo clic en el botón &quot;Nuevo&quot;.">
-							<i class="fas fa-info-circle fa-lg"></i>
-						</a>
+						<a href="crear-perso" class="btn btn-outline-dark mb-2 py-1" data-toggle="tooltip" data-placement="right" title="Puede crear un nuevo personaje si no encuentra el deseado">Nuevo</a>
 					</div>
 					
 				</div>
@@ -114,7 +111,7 @@
 			<img src="/static/img/foto_{{task.username}}.jpg" alt="" class="img-usuario rounded-circle">
 			<span class="username-publi pl-2"> {{task.username}}</span>
 			<button type="button" data-toggle="modal" data-target="#myModal" class="btn float-right"> 
-				<i class="fas fa-exclamation-circle fa-2x "></i>
+				<i class="fas fa-exclamation-circle fa-lg " data-toggle="tooltip" data-placement="top" title="Reportar"></i>
 			</button>
 		</div>
 <div class="container">
