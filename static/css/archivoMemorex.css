@@ -363,20 +363,18 @@ td{
 }
 .publi-body-col2{ 
 	background-color: rgb(32, 0, 0);
-	padding: 0.2em 0.8em;
+	padding: 0.6em 0.8em;
 	color: #fff;
 	font-family: 'Rubik';
 	border-radius: 60px 0 0 60px;
 	display: flex;
 	flex-direction: row;
-	padding: 0 auto;
 }
 #override .publi-body-col2 img {
 	width: 60px;
 	height: 60px;
 	opacity: 0.8;
 	object-fit: cover;
-	margin: 10px auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -385,13 +383,12 @@ td{
 		border-radius: 5px 0 0 5px;
 	}
 
-	.nombre-perso div {
+	.nombre-perso{
 		text-align: center;
 	}
 
-	.img-container {
-		display: flex;
-		justify-content: center;
+	.publi-body-col2 img {
+		margin: 10px auto;
 	}
 }
 

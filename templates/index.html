@@ -6,7 +6,11 @@
 <main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">	
 	<div class="publicar collapse" id="demo1">
 		<form action="/crearPublicacion" method="POST">
-
+			<!-- <label for="" style="display: block;">Percepción:</label>
+			<input type="radio" id="bueno" name="percepcion" value="bueno">
+			<i class="fas fa-thumbs-up" aria-hidden="true"></i>
+			<input type="radio" id="malo" name="percepcion" value="malo">
+			<i class="fas fa-thumbs-down" aria-hidden="true"></i>-->
 			<input type="text" id="titulo" name="titulo" maxlength="120" placeholder="Título...">
 			
 			<label for="personaje-select " style="display: block;">Personaje:</label>
@@ -109,8 +113,31 @@
 		<div>
 			<img src="/static/img/foto_{{task.username}}.jpg" alt="" class="img-usuario rounded-circle">
 			<span class="username-publi pl-2"> {{task.username}}</span>
-			<i class="fas fa-exclamation-circle fa-2x float-right"></i>
+			<button type="button" data-toggle="modal" data-target="#myModal" class="btn float-right"> 
+				<i class="fas fa-exclamation-circle fa-2x "></i>
+			</button>
 		</div>
+<div class="container">
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title">Reporte</h4>
+        </div>
+        <div class="modal-body">
+          <p>This is a large modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-light" data-dismiss="modal">cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 		
 		<div class="row m-0 p-0">
 			<div class="col-8 m-0 p-0" style="color: #000;">
@@ -121,15 +148,10 @@
 			</div>
 			<div class="col-4 m-0 p-0">
 				<div class="publi-body-col2">
-					<div class="img-container">
-						<img class="rounded-circle" src="static/img/foto_{{task.personaje}}.jpg" alt="">
-					</div>
-					<div class="nombre-perso">
-						<div>
-							{{task.personaje}}
-						</div>
-					</div>
-					
+					<img class="rounded-circle" src="static/img/foto_{{task.personaje}}.jpg" alt="">
+					<span class="nombre-perso pl-2">
+						{{task.personaje}}
+					</span>
 				</div>
 			</div>
 		
@@ -154,8 +176,8 @@
 			<br>
 			<!---->
 
-		<button type="button" class="btn btn-dark mb-2" data-toggle="collapse" data-target="#demo{{task.id}}">Comentarios <i class="far fa-comments fa-lg" style="color: rgb(226, 226, 226);"></i></button>
-  			<div id="demo{{task.id}}" class="collapse">
+		<button type="button" class="btn btn-dark mb-2" data-toggle="collapse" data-target="#comments{{task.id}}">Comentarios <i class="far fa-comments fa-lg" style="color: rgb(226, 226, 226);"></i></button>
+  			<div id="comments{{task.id}}" class="collapse">
 				<h3 id="reply-title" class="comment-reply-title">Dejar comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2011/08/28/facebook-comment-plugin/#respond" style="display:none;">Cancelar respuesta</a></small></h3><form action="" method="post" id="commentform" class="comment-form" novalidate><div class="clearfix"></div>
 					<div class="comment-form-input-wrap td-form-comment">
 						<textarea placeholder="Comentario:" id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea>
