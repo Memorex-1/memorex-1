@@ -64,8 +64,8 @@ def index():
 
 @app.route('/search',methods = ['POST','GET'])
 def search():
-    textoBuscar = request.form['buscar']
-    post = personajes.query.filter_by(nombre = textoBuscar)
+    textoBuscar = "%"+request.form['buscar']+"%"
+    post = personajes.query.filter(personajes.nombre.like(textoBuscar))
     return render_template('testeo.html', posts = post)
 
 @app.route('/login',methods = ['POST','GET'])
