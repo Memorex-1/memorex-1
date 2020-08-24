@@ -1,13 +1,81 @@
 {% extends "header.html" %}
 
 {% block content %}
+<div class="container-fluid container-md lista-persos bg-white main shadow-lg">
+    <div class="titulo-busqueda">
+        <h3>Se encontraron los siguientes resultados...</h3>
+    </div>
+    <div class="row mt-0">
+    {% for task in posts | reverse %}
+    
 
-{% for task in posts | reverse %}
-<div class="container-fluid container-md bg-white shadow-lg">
-    {{task.nombre}}
-</div>
+    <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
+        <div class="card">
+            <div class="card-header">{{task.nombre}}</div>
+            <img style="height: 300px;" class="card-img-top"
+                src="static/img/foto_{{task.nombre}}.jpg" alt="{{task.nombre}}"
+                style="width:100%">
+            <div class="card-body">
+                <p class="card-text">Organización Política: {{task.partido}}</p>
+                
+                <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#myModal{{task.id}}">Ver más<i class="fas fa-stream pl-2"></i></button>
+
+                <div class="modal fade" id="myModal{{task.id}}" role="dialog" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+
+                            <div class="modal-body">
+                                <p>
+                                </p>
+                                <div class="container1 ">
+                                    <div class="content animate_animated  animate_backInDown">
+
+                                    </div>
+                                    <header>
+                                        <h2 class="title-item">
+                                            <span class="position"></span>
+                                            {{task.nombre}}
+                                        </h2>
+                                    </header>
+                                    <section>
+
+                                        <div class=" text ">
+                                            <address>
+                                                <img style="max-width: 300px;" class="card-img-top"
+                                                    src="static/img/foto_{{task.nombre}}.jpg"
+                                                    alt="{{task.nombre}}">
+
+                                            </address>
+                                            <p class="paragraph">{{task.partido}}</p>
+                                            <p class="paragraph">{{task.informacion}}</p>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">Close</button>
+
+                                        </div>
+                                    </section>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+                        <p></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
 
 
 {% endfor %}
-
+</div>
+</div>
 {% endblock %}

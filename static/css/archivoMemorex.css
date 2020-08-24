@@ -439,6 +439,38 @@ td{
 }
 
 
+/*TESTEO*********************************/
+
+.titulo-busqueda h3 {
+	font-family: 'Open Sans', sans-serif;
+	padding-top: 20px;
+}
+
+.resultados-persos {
+	color: #000;
+}
+
+.resultados-persos .row {
+	padding: 0;
+	margin: 0;
+}
+
+.img-busqueda {
+	background-color: #000;
+}
+
+.resultados-persos main {
+	border-radius: 20px;
+}
+
+.resultados-persos img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	margin: 10px auto;
+}
+
+
 /*FOOTER***************************/
 
 footer {
