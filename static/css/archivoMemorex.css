@@ -1,6 +1,4 @@
 
-
-
 body {
 	margin: 0;
 	background-color: #eee;
@@ -365,26 +363,48 @@ td{
 }
 .publi-body-col2{ 
 	background-color: rgb(32, 0, 0);
-	padding: 1em;
+	padding: 0.2em 0.8em;
 	color: #fff;
 	font-family: 'Rubik';
-	border-radius: 4px 0 0 4px;
+	border-radius: 60px 0 0 60px;
+	display: flex;
+	flex-direction: row;
+	padding: 0 auto;
 }
-.publi-body-col2 img {
+#override .publi-body-col2 img {
 	width: 60px;
 	height: 60px;
 	opacity: 0.8;
 	object-fit: cover;
+	margin: 10px auto;
 }
 
-.nombre-perso {
-	font-size: 0.8em;
+@media screen and (max-width: 768px) {
+	.publi-body-col2 {
+		flex-direction: column;
+		border-radius: 5px 0 0 5px;
+	}
+
+	.nombre-perso div {
+		text-align: center;
+	}
+
+	.img-container {
+		display: flex;
+		justify-content: center;
+	}
 }
 
 .publicacion .img-usuario {
 	object-fit: cover;
 	width: 50px;
 	height: 50px;
+}
+
+.nombre-perso {
+	margin: auto 0;
+	padding-left: 10px;
+	font-size: 0.8em;
 }
 
 
