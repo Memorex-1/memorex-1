@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if session['logged_in'] %}
-<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">	
+<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
 	<div class="publicar collapse" id="demo1">
 		<form action="/crearPublicacion" method="POST">
 			<!-- <label for="" style="display: block;">Percepción:</label>
@@ -12,26 +12,29 @@
 			<input type="radio" id="malo" name="percepcion" value="malo">
 			<i class="fas fa-thumbs-down" aria-hidden="true"></i>-->
 			<input type="text" id="titulo" name="titulo" maxlength="120" placeholder="Título...">
-			
+
 			<label for="personaje-select " style="display: block;">Personaje:</label>
-				<div class="row m-0 p-0">
-					<div class="col-12 col-md-4 p-0 m-0">
-						<select name="personaje" class="form-control mb-2 mr-2" id="personaje-select" style="grid-auto-flow:initial;">
-							<option value="">Seleccione un personaje</option>
-							{%for task in tasks1%}
-							<option value="{{task.nombre}}">{{task.nombre}}</option>
-							{%endfor%}
-						</select>
-					</div>
-					
-					<div class="col-12 col-md-8">
-						<a href="crear-perso" class="btn btn-outline-dark mb-2 py-1" data-toggle="tooltip" data-placement="right" title="Puede crear un nuevo personaje si no encuentra el deseado">Nuevo</a>
-					</div>
-					
+			<div class="row m-0 p-0">
+				<div class="col-12 col-md-4 p-0 m-0">
+					<select name="personaje" class="form-control mb-2 mr-2" id="personaje-select"
+						style="grid-auto-flow:initial;">
+						<option value="">Seleccione un personaje</option>
+						{%for task in tasks1%}
+						<option value="{{task.nombre}}">{{task.nombre}}</option>
+						{%endfor%}
+					</select>
 				</div>
+
+				<div class="col-12 col-md-8">
+					<a href="crear-perso" class="btn btn-outline-dark mb-2 py-1" data-toggle="tooltip"
+						data-placement="right"
+						title="Puede crear un nuevo personaje si no encuentra el deseado">Nuevo</a>
+				</div>
+
+			</div>
 			<label for="fecha" id="lblfecha">Fecha </label>
 			<input type="date" id="fecha" name="fecha">
-			
+
 			<textarea name="descripcion" id="descripcion" placeholder="Describe el acontecimiento..."></textarea>
 			<label for="referencias">Fuente(s): </label>
 			<textarea name="referencias" id="referencias" placeholder="Referencias, citas, enlaces, etc..."></textarea>
@@ -39,204 +42,265 @@
 		</form>
 	</div>
 	<div class="d-flex align-content-center justify-content-center">
-		<button data-toggle="collapse" data-target="#demo1" class="btn btn-dark collapsed nuevaPubliBtn px-5" aria-expanded="false" aria-controls="demo1"><span>Nueva Publicación </span><i class="fa" aria-hidden="true"></i></button>
+		<button data-toggle="collapse" data-target="#demo1" class="btn btn-dark collapsed nuevaPubliBtn px-5"
+			aria-expanded="false" aria-controls="demo1"><span>Nueva Publicación </span><i class="fa"
+				aria-hidden="true"></i></button>
 	</div>
 
-{% else %}
-<div class="container-fluid row m-0 p-0 px-2 bienvenida" data-ride="carousel">
-	<div class="col-md-6 carousel slide" id="myCarousel">
-		<ul class="carousel-indicators">
-			<li class="item1 active"></li>
-			<li class="item2"></li>
-			<li class="item3"></li>
-		  </ul>
-		  
-		  <!-- The slideshow -->
-		  <div class="carousel-inner">
-			<div class="carousel-item active">
-			  <img src="../static/img/foto_Julio Guzman.jpg" alt="">
-			  <div class="carousel-caption d-md-block">
-				<h5>Julio Guzmán</h5>
-				<p>El líder del Partido Morado es conocido por su "tibiez" al momento de emitir opiniones sobre algún aspecto.
-					Esta característica suya le ha pasado factura en múltiples situaciones, la más reconocida es tal vez el incidente del incendio.
+	{% else %}
+	<div class="container-fluid row m-0 p-0 px-2 bienvenida" data-ride="carousel">
+		<div class="col-md-6 carousel slide" id="myCarousel">
+			<ul class="carousel-indicators">
+				<li class="item1 active"></li>
+				<li class="item2"></li>
+				<li class="item3"></li>
+			</ul>
+
+			<!-- The slideshow -->
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="../static/img/foto_Julio Guzman.jpg" alt="">
+					<div class="carousel-caption d-md-block">
+						<h5>Julio Guzmán</h5>
+						<p>El líder del Partido Morado es conocido por su "tibiez" al momento de emitir opiniones sobre
+							algún aspecto.
+							Esta característica suya le ha pasado factura en múltiples situaciones, la más reconocida es
+							tal vez el incidente del incendio.
+						</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="../static/img/Vizcarra2.jpg" alt="">
+					<div class="carousel-caption d-md-block">
+						<h5>Martín Vizcarra</h5>
+						<p>El actual presidente de la República no está exento de inculpaciones desfavorables a su
+							imagen política.
+							Sus opositores suelen atribuirle actos de corrupción y conflictos de interés.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="../static/img/Keiko.jpg" alt="">
+					<div class="carousel-caption d-md-block">
+						<h5>Keiko Fujimori</h5>
+						<p>La lideresa de Fuerza Popular tiene múltiples acusaciones y ha estado en prisión preventiva
+							dos veces.
+							Se le imputan actos de corrupción relacionados al dinero recibido por diversas entidades
+							empresariales.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 d-flex align-items-center pb-4 pt-4">
+			<div class="container-fluid d-flex justify-content-center flex-column">
+				<h1 style="display: flex; justify-content: center; font-family: Arvo, serif;">¡Bienvenido!</h1>
+				<p style="text-align: center;">
+					Esta es una página donde puedes ver acontecimientos relacionados a políticos o personajes públicos.
+					Estas publicaciones son realizadas por la ciudadanía y tú puedes ser partícipe de ello. <br>
+					Memorex tiene como objetivo que el ciudadano no olvide, pues nace ante la necesidad de recordar todo
+					lo relacionado a personajes vinculados a nuestra política.
 				</p>
-			  </div>
-			</div>
-			<div class="carousel-item">
-			  <img src="../static/img/Vizcarra2.jpg" alt="">
-			  <div class="carousel-caption d-md-block">
-				<h5>Martín Vizcarra</h5>
-				<p>El actual presidente de la República no está exento de inculpaciones desfavorables a su imagen política. 
-					Sus opositores suelen atribuirle actos de corrupción y conflictos de interés.</p>
-			  </div>
-			</div>
-			<div class="carousel-item">
-				<img src="../static/img/Keiko.jpg" alt="">
-				<div class="carousel-caption d-md-block">
-				  <h5>Keiko Fujimori</h5>
-				  <p>La lideresa de Fuerza Popular tiene múltiples acusaciones y ha estado en prisión preventiva dos veces. 
-					  Se le imputan actos de corrupción relacionados al dinero recibido por diversas entidades empresariales.
-				  </p>
+				<div class="btn-group boton-sec col-12 m-0 p-0 d-flex justify-content-center w-100">
+					<a href="login"><button class="btn btn-secondary"><i
+								class="fas fa-sign-in-alt mr-2"></i>Acceder</button></a>
+					<a href="sign-up"><button class="btn btn-danger"><i
+								class="fas fa-user mr-2"></i>Registrarse</button></a>
 				</div>
-			</div>
-		</div>	
-	</div>
-	<div class="col-md-6 d-flex align-items-center pb-4 pt-4">
-		<div class="container-fluid d-flex justify-content-center flex-column">
-			<h1 style="display: flex; justify-content: center; font-family: Arvo, serif;">¡Bienvenido!</h1>
-			<p style="text-align: center;">
-				Esta es una página donde puedes ver acontecimientos relacionados a políticos o personajes públicos. Estas publicaciones son realizadas por la ciudadanía y tú puedes ser partícipe de ello. <br>
-				Memorex tiene como objetivo que el ciudadano no olvide, pues nace ante la necesidad de recordar todo lo relacionado a personajes vinculados a nuestra política.
-			</p>
-			<div class="btn-group boton-sec col-12 m-0 p-0 d-flex justify-content-center w-100">
-				<a href="login"><button class="btn btn-secondary"><i class="fas fa-sign-in-alt mr-2"></i>Acceder</button></a>
-				<a href="sign-up"><button class="btn btn-danger"><i class="fas fa-user mr-2"></i>Registrarse</button></a>
 			</div>
 		</div>
 	</div>
-</div>
-<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
+	<main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
 
 
-	
-{% endif %}
 
-	{% for task in tasks | reverse %}
-	<div class="publicacion">
-		
-		
+		{% endif %}
+
+		{% for task in tasks | reverse %}
+		<div class="publicacion">
 
 
-		<div>
-			<img src="/static/img/foto_{{task.username}}.jpg" alt="" class="img-usuario rounded-circle">
-			<span class="username-publi pl-2"> {{task.username}}</span>
-			<button type="button" data-toggle="modal" data-target="#myModal" class="btn float-right"> 
-				<i class="fas fa-exclamation-circle fa-lg " data-toggle="tooltip" data-placement="top" title="Reportar"></i>
-			</button>
-		</div>
-<div class="container">
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          
-          <h4 class="modal-title">Reporte</h4>
-        </div>
-        <div class="modal-body">
-          <p>This is a large modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-light" data-dismiss="modal">cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-		
-		<div class="row m-0 p-0">
-			<div class="col-8 m-0 p-0" style="color: #000;">
-				<h3 style="font-family: 'Roboto Slab';">{{task.titulo}}</h2>
-				<span class="fecha-lbl">
-						Fecha de publicación: <span class="fecha-publi">{{task.fecha}}</span>
-				</span>
+			<div>
+				<img src="/static/img/foto_{{task.username}}.jpg" alt="" class="img-usuario rounded-circle">
+				<span class="username-publi pl-2"> {{task.username}}</span>
+				<button type="button" data-toggle="modal" data-target="#myModal" class="btn float-right">
+					<i class="fas fa-exclamation-circle fa-lg " data-toggle="tooltip" data-placement="top"
+						title="Reportar"></i>
+				</button>
 			</div>
-			<div class="col-4 m-0 p-0">
-				<div class="publi-body-col2">
-					<img class="rounded-circle" src="static/img/foto_{{task.personaje}}.jpg" alt="{{task.personaje}}">
-					<span class="nombre-perso pl-2">
-						{{task.personaje}}
-					</span>
+			<div class="container">
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" role="dialog" style="display: none;" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+
+								<h4 class="modal-title">¿Por qué razón sientes que esta publicación/personaje debe ser
+									reportado(a)?</h4>
+								<button type="button" class="btn btn-light" data-dismiss="modal">×</button>
+							</div>
+							<div class="modal-body">
+
+								<div class="custom-control custom-radio">
+									<input type="radio" class="custom-control-input" id="radio1" name="radios">
+									<label for="radio1" class="custom-control-label ">Duplicado</label>
+								</div>
+
+								<div class="custom-control custom-radio">
+									<input type="radio" class="custom-control-input" id="radio2" name="radios">
+									<label for="radio2" class="custom-control-label ">Malintencioando</label>
+								</div>
+
+								<div class="custom-control custom-radio">
+									<input type="radio" class="custom-control-input" id="radio3" name="radios">
+									<label for="radio3" class="custom-control-label ">Irrelevante(Spam)</label>
+								</div>
+								<div class="custom-control custom-radio">
+									<input type="radio" class="custom-control-input" id="radio4" name="radios">
+									<label for="radio4" class="custom-control-label ">Otro:</label>
+									<p>............</p>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-light" data-dismiss="modal">cerrar</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		
-		</div>
-		
-		
-		<div class="media m-0 p-0" style="align-items: center;">
-			<div class="media-body publi-body-col1">
-				
-				<div class="info-publi">
-					{{task.contenido}}
+
+			<div class="row m-0 p-0">
+				<div class="col-8 m-0 p-0" style="color: #000;">
+					<h3 style="font-family: 'Roboto Slab';">{{task.titulo}}</h2>
+						<span class="fecha-lbl">
+							Fecha de publicación: <span class="fecha-publi">{{task.fecha}}</span>
+						</span>
 				</div>
-			</div>
-			
-			
-		</div>
-		<div class="fuente-publi m-0 p-0 mb-3">
-			<div class="col-12 p-0">
-				<span class="fuentes-lbl">Fuente(s):</span>
-				<a href="{{task.fuente}}">{{task.fuente}}</a>
-			</div>
-			<br>
-			<!---->
-
-		<button type="button" class="btn btn-dark mb-2" data-toggle="collapse" data-target="#comments{{task.id}}">Comentarios <i class="far fa-comments fa-lg" style="color: rgb(226, 226, 226);"></i></button>
-  			<div id="comments{{task.id}}" class="collapse">
-				<h3 id="reply-title" class="comment-reply-title">Dejar comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2011/08/28/facebook-comment-plugin/#respond" style="display:none;">Cancelar respuesta</a></small></h3><form action="" method="post" id="commentform" class="comment-form" novalidate><div class="clearfix"></div>
-					<div class="comment-form-input-wrap td-form-comment">
-						<textarea placeholder="Comentario:" id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea>
-						<br><br>
+				<div class="col-4 m-0 p-0">
+					<div class="publi-body-col2">
+						<img class="rounded-circle" src="static/img/foto_{{task.personaje}}.jpg"
+							alt="{{task.personaje}}">
+						<span class="nombre-perso pl-2">
+							{{task.personaje}}
+						</span>
 					</div>
-					<div class="comment-form-input-wrap td-form-author">
-						<input class="form-control" id="author" name="author" placeholder="Nombre:*" type="text" value="" size="30"  aria-required='true' />
-						<br><br>
-					</div>
-					<div class="comment-form-input-wrap td-form-email">
-						<input class="form-control" id="email" name="email" placeholder="Correo electrónico:*" type="text" value="" size="30"  aria-required='true' />
-						<br>		
-					</div>
-				<style type="text/css">
-					#gdpr-comments-compliance > div { margin: 1rem 0; }
-					#gdpr-comments-checkbox-wrap { display: flex; align-items: baseline; }
-					#gdpr-comments-checkbox + label { display: inline; margin: 0; }
-					#gdpr-comments-compliance-text { font-size: .8em; }
-				</style>
-			
-				<div id="gdpr-comments-compliance">
-					<div id="gdpr-comments-checkbox-wrap">
-						<input id="gdpr-comments-checkbox" type="checkbox" name="gdpr_comments_checkbox" value="1" required="required" />
-						<label for="gdpr-comments-checkbox">He leído la <a href="">política de privacidad</a> y acepto que se almacenen mis datos para recibir respuestas por correo electrónico.</label>
-					</div>	
 				</div>
-				<a href="" class="btn btn-outline-dark">Publicar comentario</a> 
-				<input type='hidden' name='comment_post_ID' value='3584' id='comment_post_ID' />
-				<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
-				<p style="display: none;">
-				<input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="190a14062b" />
-				</p><p style="display: none;">
-				<input type="hidden" id="ak_js" name="ak_js" value="83"/></p></form>	
-
-				<div class="fb-comments" data-href="http://127.0.0.1:5000/index" data-numposts="1" data-width="100%"></div>
 
 			</div>
 
-		
 
+			<div class="media m-0 p-0" style="align-items: center;">
+				<div class="media-body publi-body-col1">
+
+					<div class="info-publi">
+						{{task.contenido}}
+					</div>
+				</div>
+
+
+			</div>
+			<div class="fuente-publi m-0 p-0 mb-3">
+				<div class="col-12 p-0">
+					<span class="fuentes-lbl">Fuente(s):</span>
+					<a href="{{task.fuente}}">{{task.fuente}}</a>
+				</div>
+				<br>
+				<!---->
+
+				<button type="button" class="btn btn-dark mb-2" data-toggle="collapse"
+					data-target="#comments{{task.id}}">Comentarios <i class="far fa-comments fa-lg"
+						style="color: rgb(226, 226, 226);"></i></button>
+				<div id="comments{{task.id}}" class="collapse">
+					<h3 id="reply-title" class="comment-reply-title">Dejar comentario <small><a rel="nofollow"
+								id="cancel-comment-reply-link" href="/2011/08/28/facebook-comment-plugin/#respond"
+								style="display:none;">Cancelar respuesta</a></small></h3>
+					<form action="" method="post" id="commentform" class="comment-form" novalidate>
+						<div class="clearfix"></div>
+						<div class="comment-form-input-wrap td-form-comment">
+							<textarea placeholder="Comentario:" id="comment" class="form-control" name="comment"
+								cols="45" rows="8" aria-required="true"></textarea>
+							<br><br>
+						</div>
+						<div class="comment-form-input-wrap td-form-author">
+							<input class="form-control" id="author" name="author" placeholder="Nombre:*" type="text"
+								value="" size="30" aria-required='true' />
+							<br><br>
+						</div>
+						<div class="comment-form-input-wrap td-form-email">
+							<input class="form-control" id="email" name="email" placeholder="Correo electrónico:*"
+								type="text" value="" size="30" aria-required='true' />
+							<br>
+						</div>
+						<style type="text/css">
+							#gdpr-comments-compliance>div {
+								margin: 1rem 0;
+							}
+
+							#gdpr-comments-checkbox-wrap {
+								display: flex;
+								align-items: baseline;
+							}
+
+							#gdpr-comments-checkbox+label {
+								display: inline;
+								margin: 0;
+							}
+
+							#gdpr-comments-compliance-text {
+								font-size: .8em;
+							}
+						</style>
+
+						<div id="gdpr-comments-compliance">
+							<div id="gdpr-comments-checkbox-wrap">
+								<input id="gdpr-comments-checkbox" type="checkbox" name="gdpr_comments_checkbox"
+									value="1" required="required" />
+								<label for="gdpr-comments-checkbox">He leído la <a href="">política de privacidad</a> y
+									acepto que se almacenen mis datos para recibir respuestas por correo
+									electrónico.</label>
+							</div>
+						</div>
+						<a href="" class="btn btn-outline-dark">Publicar comentario</a>
+						<input type='hidden' name='comment_post_ID' value='3584' id='comment_post_ID' />
+						<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						<p style="display: none;">
+							<input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce"
+								value="190a14062b" />
+						</p>
+						<p style="display: none;">
+							<input type="hidden" id="ak_js" name="ak_js" value="83" /></p>
+					</form>
+
+					<div class="fb-comments" data-href="http://127.0.0.1:5000/index" data-numposts="1"
+						data-width="100%"></div>
+
+				</div>
+
+
+
+			</div>
 		</div>
-	</div>
-	{% endfor %}
+		{% endfor %}
 
-</main>
+	</main>
 
-<script>
-$(document).ready(function(){
-  // Activate Carousel
-  $("#myCarousel").carousel();
-    
-  // Enable Carousel Indicators
-  $(".item1").click(function(){
-    $("#myCarousel").carousel(0);
-  });
-  $(".item2").click(function(){
-    $("#myCarousel").carousel(1);
-  });
-  $(".item3").click(function(){
-    $("#myCarousel").carousel(2);
-  });
-});
-</script>
+	<script>
+		$(document).ready(function () {
+			// Activate Carousel
+			$("#myCarousel").carousel();
 
-{% endblock %}
+			// Enable Carousel Indicators
+			$(".item1").click(function () {
+				$("#myCarousel").carousel(0);
+			});
+			$(".item2").click(function () {
+				$("#myCarousel").carousel(1);
+			});
+			$(".item3").click(function () {
+				$("#myCarousel").carousel(2);
+			});
+		});
+	</script>
+
+	{% endblock %}
