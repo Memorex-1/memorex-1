@@ -2,9 +2,7 @@ from flask import Flask,render_template,redirect,request,url_for,session,flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
-import bcrypt
-import os
-import io
+import bcrypt, io, os
 
 app = Flask(__name__)
 app.secret_key = "appLogin"
@@ -47,8 +45,8 @@ class publicaciones(db2.Model):
     fuente = db2.Column(db.String(200))
     foto = db2.Column("foto")
 
-@app.route('/')
 @app.route('/index')
+@app.route('/')
 def index():
     tasks1 = personajes.query.all()
     #invertir orden, from flask_sqlalchemy import desc
