@@ -485,6 +485,12 @@ td{
 	color: #fff;
 }
 
+#override .publicar .dropdown-item.selected { 
+	background-color: rgb(146, 0, 0);
+	transition: 100ms ease-in-out all;
+	color: #fff;
+}
+
 #override .publicar .dropdown input {
 	margin: 0;
 	border: none;
