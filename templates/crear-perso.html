@@ -24,9 +24,74 @@
             <label for="perso-desc">Descripción:</label>
             <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
         </div>
-        <button type="submit" class="btn btn-outline-dark">ENVIAR</button>
+        <!--<button type="submit" class="btn btn-outline-dark">ENVIAR</button>-->
     </form>
+    <!--aki inicia agregado para el poppu-->
+    <!--Boton para el modal-->
+    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" id="btn">Crear</button>
+    <!-- The Modal 1-->
+  <div class="modal fade" id="myModal1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <!-- Modal body 1-->
+        <div class="modal-body">
+          Probablemente el Personaje ya ha sido creado<br>
+          Personaje1<br>
+          Personaje2<br>
+          Desea crear de todas maneras
+        </div>
+        
+        <!-- Modal footer 1-->
+        <div class="modal-footer">
+            <!--al hacer click en el boton continuar debe debe guardar el personaje en BD-->
+          <button type="submit" class="btn btn-outline-dark" data-dismiss="modal">Continuar</button>
+          <!--<button type="button" class="btn btn-primary" data-dismiss="modal">Crear</button>-->
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- The Modal 2-->
+  <div class="modal fade" id="myModal2">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <!-- Modal body 2-->
+        <div class="modal-body">
+          Personaje creado con Exito
+        </div>
+        
+        <!-- Modal footer 2-->
+        <div class="modal-footer">
+            <!--al hacer click en el boton cerrar debe guardar el personaje en BD-->
+          <button type="submit" class="btn btn-outline-dark" data-dismiss="modal">Cerrar</button>
+          <!--<button type="button" class="btn btn-primary" data-dismiss="modal">Continuar</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--aki finaliza lo del poppu-->
 </div>
-
+<!-- Script de prueba
+<script>
+    $(document).keyup(function(){
+        nom=$('.form-control').val();
+        
+        if(nom == "Cristian"){
+    
+            $('#btn').click(function(){
+                $('#myModal1').modal();
+            });
+        }else {
+            
+            $('#btn').click(function(){
+                $('#myModal2').modal();
+            });
+        }
+    });
+    </script>
+-->
 
 {% endblock %}
