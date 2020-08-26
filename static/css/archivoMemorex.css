@@ -470,6 +470,33 @@ td{
 	margin: 10px auto;
 }
 
+#override .publicar .dropdown-toggle {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.9em;
+}
+
+#override .publicar .dropdown-item {
+	font-size: 0.9em;
+}
+
+#override .publicar .dropdown-item:hover {
+	background-color: #333;
+	transition: 100ms ease-in-out all;
+	color: #fff;
+}
+
+#override .publicar .dropdown input {
+	margin: 0;
+	border: none;
+	border-bottom: 2px solid #000;
+	border-radius: 0;
+	height: auto;
+}
+
+#override .publicar .dropdown input:focus {
+	width: 100%;
+}
+
 
 /*FOOTER***************************/
 

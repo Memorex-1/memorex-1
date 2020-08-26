@@ -14,24 +14,18 @@
 			<input type="text" id="titulo" name="titulo" maxlength="120" placeholder="Título...">
 
 			<label for="personaje-select " style="display: block;">Personaje:</label>
-			<div class="row m-0 p-0">
-				<div class="col-12 col-md-4 p-0 m-0">
-					<select name="personaje" class="form-control mb-2 mr-2" id="personaje-select"
-						style="grid-auto-flow:initial;">
-						<option value="">Seleccione un personaje</option>
-						{%for task in tasks1%}
-						<option value="{{task.nombre}}">{{task.nombre}}</option>
-						{%endfor%}
-					</select>
-				</div>
 
-				<div class="col-12 col-md-8">
-					<a href="crear-perso" class="btn btn-outline-dark mb-2 py-1" data-toggle="tooltip"
-						data-placement="right"
-						title="Puede crear un nuevo personaje si no encuentra el deseado">Nuevo</a>
-				</div>
 
-			</div>
+			<select name="personaje" class="selectpicker mb-2 mr-2" title="Seleccione un personaje..." data-size="5" data-live-search="true" data-style="btn-outline-dark">
+				{%for task in tasks1%}
+				<option value="{{task.nombre}}">{{task.nombre}}</option>
+				{%endfor%}
+			</select> 
+			<a href="crear-perso" class="btn btn-outline-dark mb-2 py-1" data-toggle="tooltip"
+				data-placement="right"
+				title="Puede crear un nuevo personaje si no encuentra el deseado">Nuevo</a>
+
+
 			<label for="fecha" id="lblfecha">Fecha </label>
 			<input type="date" id="fecha" name="fecha">
 
