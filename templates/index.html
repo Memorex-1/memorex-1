@@ -36,8 +36,8 @@
 		</form>
 	</div>
 	<div class="d-flex align-content-center justify-content-center">
-		<button data-toggle="collapse" data-target="#demo1" class="btn btn-dark collapsed nuevaPubliBtn px-5"
-			aria-expanded="false" aria-controls="demo1"><span>Nueva Publicación </span><i class="fa"
+		<button data-toggle="collapse" data-target="#demo1" class="btn btn-outline-dark collapsed nuevaPubliBtn px-5"
+			aria-expanded="false" aria-controls="demo1"><i class="fa fa-lg"
 				aria-hidden="true"></i></button>
 	</div>
 
@@ -118,37 +118,37 @@
 			<div>
 				<img src="/static/img/foto_{{task.username}}.jpg" alt="" class="img-usuario rounded-circle">
 				<span class="username-publi pl-2"> {{task.username}}</span>
-				<button type="button" data-toggle="modal" data-target="#myModal" class="btn float-right">
-					<i class="fas fa-exclamation-circle fa-lg " data-toggle="tooltip" data-placement="top"
-						title="Reportar"></i>
+				<button type="button" data-toggle="modal" data-target="#modalReporte{{task.id}}" class="btn float-right">
+					<i class="far fa-flag" data-toggle="tooltip" data-placement="top"
+						title="Reportar" style="color: rgb(168, 0, 0);"></i>
 				</button>
 			</div>
 			<div class="container">
 				<!-- Modal -->
-				<div class="modal fade" id="myModal" role="dialog" style="display: none;" aria-hidden="true">
-					<div class="modal-dialog modal-sm">
-						<div class="modal-content">
+				<div class="modal fade" id="modalReporte{{task.id}}">
+					<div class="modal-dialog" >
+						<div class="modal-content bg-dark" style="color: #fff;">
 							<div class="modal-header">
 
-								<h4 class="modal-title">¿Por qué razón sientes que esta publicación/personaje debe ser
+								<h4 class="modal-title" style="font-size: 1.2em;">¿Por qué razón sientes que esta publicación/personaje debe ser
 									reportado(a)?</h4>
-								<button type="button" class="btn btn-light" data-dismiss="modal">×</button>
+								<button type="button" class="btn btn-outline-light" data-dismiss="modal">X</button>
 							</div>
 							<div class="modal-body">
 
 								<div class="custom-control custom-radio">
-									<input type="radio" class="custom-control-input" id="radio1" name="radios">
-									<label for="radio1" class="custom-control-label ">Duplicado</label>
+									<input type="radio" class="custom-control-input" id="duplicado{{task.id}}" value="duplicado" name="reporte{{task.id}}">
+									<label for="duplicado{{task.id}}" class="custom-control-label ">Duplicado</label>
 								</div>
 
 								<div class="custom-control custom-radio">
-									<input type="radio" class="custom-control-input" id="radio2" name="radios">
-									<label for="radio2" class="custom-control-label ">Malintencioando</label>
+									<input type="radio" class="custom-control-input" id="malintencionado{{task.id}}" value="malintencionado" name="reporte{{task.id}}">
+									<label for="malintencionado{{task.id}}" class="custom-control-label ">Malintencionado</label>
 								</div>
 
 								<div class="custom-control custom-radio">
-									<input type="radio" class="custom-control-input" id="radio3" name="radios">
-									<label for="radio3" class="custom-control-label ">Irrelevante(Spam)</label>
+									<input type="radio" class="custom-control-input" id="spam{{task.id}}" value="spam" name="reporte{{task.id}}">
+									<label for="spam{{task.id}}" class="custom-control-label ">Irrelevante(Spam)</label>
 								</div>
 								<!--<div class="custom-control custom-radio">
 									<input type="radio" class="custom-control-input" id="radio4" name="radios">
@@ -157,7 +157,7 @@
 								</div>-->
 							</div>
 							<div class="modal-footer">
-								<button class="btn btn-light" data-dismiss="modal">Reportar</button>
+								<button class="btn btn-outline-danger" style="color: #fff;" data-dismiss="modal">Reportar</button>
 							</div>
 						</div>
 					</div>

@@ -522,10 +522,12 @@ footer span {
 
 
 [data-toggle="collapse"] .fa:before {  
-	content: "\f139";
+	content: "\f068";
+
 }
   
 [data-toggle="collapse"].collapsed .fa:before {
-	content: "\f13a";
+	content: "\f067";
+
 }
   
