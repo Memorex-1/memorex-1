@@ -116,9 +116,7 @@
         	<li class="page-item"><a class="btn btn-outline-dark" href="#">Previous</a></li>
 			{% endif %}
             {%for page in paginacion.iter_pages() %}
-			{% if page %}
-			<li class="page-item"><a class="btn btn-outline-dark" href="{{page}}">{{page}}</a></li>
-			{% endif %}
+			<li class="page-item"><a class="btn btn-outline-dark" href="/personajes/{{page}}">{{page}}</a></li>
 			{% endfor %}
 
 			{% if next_url %}
