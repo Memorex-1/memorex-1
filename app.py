@@ -45,6 +45,7 @@ class publicaciones(db2.Model):
     fuente = db2.Column(db.String(200))
     foto = db2.Column("foto")
 
+@app.route('/') 
 @app.route('/index')   
 @app.route('/<int:page>')
 def index(page=1):
@@ -190,9 +191,14 @@ def salir():
     return redirect(url_for('index'))
 
 @app.route('/personajes')
-def Personaje():
-    tasks1 = personajes.query.all()
-    return render_template('personajes.html',  tasks1 = tasks1)
+@app.route('/personajes/<int:page>')
+def Personaje(page=1):
+    tasks1 = personajes.query.order_by(personajes.id.desc()).paginate(page,2,False)
+    next_url = url_for('Personaje', page=tasks1.next_num) \
+        if tasks1.has_next else None
+    prev_url = url_for('Personaje', page=tasks1.prev_num) \
+        if tasks1.has_prev else None
+    return render_template('personajes.html',  tasks1 = tasks1.items, next_url=next_url,prev_url=prev_url, paginacion = tasks1)
 
 # Creando rutas para cada personaje
 @app.route('/personaj/<per_id>')

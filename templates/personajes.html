@@ -110,11 +110,21 @@
     </table> -->
     	<!--paginacion-->
 		<ul class=" pagination justify-content-end">
-			<li class="page-item"><a class="btn btn-outline-dark" href="#">Previous</a></li>
-			<li class="page-item"><a class="btn btn-outline-dark" href="#">1</a></li>
-			<li class="page-item"><a class="btn btn-outline-dark" href="#">2</a></li>
-			<li class="page-item"><a class="btn btn-outline-dark" href="#">3</a></li>
-			<li class="page-item"><a class="btn btn-outline-dark" href="#">Next</a></li>
+            {% if prev_url %}
+			<li class="page-item"><a class="btn btn-outline-dark" href="{{prev_url }}">Previous</a></li>
+			{% else %}
+        	<li class="page-item"><a class="btn btn-outline-dark" href="#">Previous</a></li>
+			{% endif %}
+            {%for page in paginacion.iter_pages() %}
+			{% if page %}
+			<li class="page-item"><a class="btn btn-outline-dark" href="{{page}}">{{page}}</a></li>
+			{% endif %}
+			{% endfor %}
+
+			{% if next_url %}
+			<li class="page-item"><a class="btn btn-outline-dark" href="{{ next_url }}">Next</a></li>
+
+			{% endif %}
 		</ul>
 		<!---->
 </div>
