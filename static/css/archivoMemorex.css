@@ -503,6 +503,15 @@ td{
 	width: 100%;
 }
 
+.topbar .dropdown-item {
+	font-size: 0.9em;
+}
+
+#override .topbar .dropdown-item:hover {
+	background-color: #333;
+	color: #fff;
+}
+
 
 /*FOOTER***************************/
 

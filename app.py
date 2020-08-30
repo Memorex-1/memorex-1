@@ -210,5 +210,9 @@ def referenica():
     db.session.commit()
     return redirect(url_for('editor'))
 
+@app.route('/admin-reportes')
+def adminReportes():
+    return render_template('admin-reportes.html')
+
 if __name__=='__main__':
     app.run(debug=True, port=5000)

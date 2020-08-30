@@ -91,8 +91,8 @@
 				<p style="text-align: center;">
 					Esta es una página donde puedes ver acontecimientos relacionados a políticos o personajes públicos.
 					Estas publicaciones son realizadas por la ciudadanía y tú puedes ser partícipe de ello. <br>
-					Memorex tiene como objetivo que el ciudadano no olvide, pues nace ante la necesidad de recordar todo
-					lo relacionado a personajes vinculados a nuestra política.
+					<b>Memorex tiene como objetivo que el ciudadano no olvide. Nace ante la necesidad de recordar todo
+					lo relacionado a personajes vinculados a nuestra política.</b>
 				</p>
 				<div class="btn-group boton-sec col-12 m-0 p-0 d-flex justify-content-center w-100">
 					<a href="login"><button class="btn btn-secondary"><i
@@ -127,12 +127,12 @@
 				<!-- Modal -->
 				<div class="modal fade" id="modalReporte{{task.id}}">
 					<div class="modal-dialog" >
-						<div class="modal-content bg-dark" style="color: #fff;">
+						<div class="modal-content bg-light" style="color: #000;">
 							<div class="modal-header">
 
-								<h4 class="modal-title" style="font-size: 1.2em;">¿Por qué razón sientes que esta publicación/personaje debe ser
-									reportado(a)?</h4>
-								<button type="button" class="btn btn-outline-light" data-dismiss="modal">X</button>
+								<h4 class="modal-title" style="font-size: 1.1em; font-weight: 700;">¿Por qué razón sientes que esta publicación debe ser
+									reportada?</h4>
+								<button type="button" class="btn btn-outline-danger" data-dismiss="modal">X</button>
 							</div>
 							<div class="modal-body">
 
@@ -148,16 +148,16 @@
 
 								<div class="custom-control custom-radio">
 									<input type="radio" class="custom-control-input" id="spam{{task.id}}" value="spam" name="reporte{{task.id}}">
-									<label for="spam{{task.id}}" class="custom-control-label ">Irrelevante(Spam)</label>
+									<label for="spam{{task.id}}" class="custom-control-label ">Irrelevante (Spam)</label>
 								</div>
-								<!--<div class="custom-control custom-radio">
-									<input type="radio" class="custom-control-input" id="radio4" name="radios">
-									<label for="radio4" class="custom-control-label ">Otro:</label>
-									<p>............</p>
-								</div>-->
+								<div class="custom-control custom-radio">
+									<input type="radio" data-toggle="collapse" data-target="#report-otro-text{{task.id}}" class="custom-control-input" id="otro{{task.id}}" name="reporte{{task.id}}">
+									<label for="otro{{task.id}}" class="custom-control-label">Otro:</label>
+								</div>
+								<textarea name="otro-text" id="report-otro-text{{task.id}}" placeholder="Escriba su razón..." rows="4" maxlength="200"  class="form-control collapse"></textarea>
 							</div>
 							<div class="modal-footer">
-								<button class="btn btn-outline-danger" style="color: #fff;" data-dismiss="modal">Reportar</button>
+								<button class="btn btn-dark" data-dismiss="modal">Reportar</button>
 							</div>
 						</div>
 					</div>
