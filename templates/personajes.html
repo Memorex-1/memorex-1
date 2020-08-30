@@ -109,18 +109,18 @@
         </tbody>
     </table> -->
     	<!--paginacion-->
-		<ul class=" pagination justify-content-end">
+		<ul class=" pagination pagination-sm justify-content-end">
             {% if prev_url %}
-			<li class="page-item"><a class="btn btn-outline-dark" href="{{prev_url }}">Previous</a></li>
+			<li class="page-item"><a class="page-link btn btn-dark" href="{{prev_url }}"><i class="fas fa-chevron-left"></i></a></li>
 			{% else %}
-        	<li class="page-item"><a class="btn btn-outline-dark" href="#">Previous</a></li>
+        	<li class="page-item"><a class="page-link btn btn-dark disabled" href="#"><i class="fas fa-chevron-left"></i></a></li>
 			{% endif %}
             {%for page in paginacion.iter_pages() %}
-			<li class="page-item"><a class="btn btn-outline-dark" href="/personajes/{{page}}">{{page}}</a></li>
+			<li class="page-item"><a class="page-link btn btn-outline-dark" href="/personajes/{{page}}">{{page}}</a></li>
 			{% endfor %}
 
 			{% if next_url %}
-			<li class="page-item"><a class="btn btn-outline-dark" href="{{ next_url }}">Next</a></li>
+			<li class="page-item"><a class="page-link btn btn-dark" href="{{ next_url }}"><i class="fas fa-chevron-right"></i></a></li>
 
 			{% endif %}
 		</ul>
