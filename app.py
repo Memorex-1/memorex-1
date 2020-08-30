@@ -45,7 +45,7 @@ class publicaciones(db2.Model):
     fuente = db2.Column(db.String(200))
     foto = db2.Column("foto")
 
-@app.route('/')   
+@app.route('/index')   
 @app.route('/<int:page>')
 def index(page=1):
     tasks1 = personajes.query.all()
