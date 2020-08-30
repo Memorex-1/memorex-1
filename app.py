@@ -45,9 +45,9 @@ class publicaciones(db2.Model):
     fuente = db2.Column(db.String(200))
     foto = db2.Column("foto")
 
-@app.route('/index')
-@app.route('/')
-def index():
+@app.route('/')   
+@app.route('/<int:page>')
+def index(page=1):
     tasks1 = personajes.query.all()
     #invertir orden, from flask_sqlalchemy import desc
     #tasks = publicaciones.query.filter(publicaciones.id != 0).order_by(desc(publicaciones.id)).all()
@@ -58,7 +58,12 @@ def index():
         if(os.path.isfile('static/img/foto_{}.jpg'.format(task.personaje)) == False):
             with open('static/img/foto_{}.jpg'.format(task.personaje), 'wb') as f:
                 f.write(foto)
-    return render_template('index.html', tasks = tasks, tasks1 = tasks1)
+    tasks = publicaciones.query.order_by(publicaciones.id.desc()).paginate(page,2,False)
+    next_url = url_for('index', page=tasks.next_num) \
+        if tasks.has_next else None
+    prev_url = url_for('index', page=tasks.prev_num) \
+        if tasks.has_prev else None
+    return render_template('index.html', tasks = tasks.items, tasks1 = tasks1, next_url=next_url,prev_url=prev_url, paginacion = tasks)
 
 @app.route('/search',methods = ['POST','GET'])
 def search():
