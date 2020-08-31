@@ -43,6 +43,7 @@ class publicaciones(db2.Model):
     fecha = db2.Column(db.String(20))
     contenido = db2.Column(db.String(450))
     fuente = db2.Column(db.String(200))
+    reportado = db2.Column(db.Boolean, default = False)
     foto = db2.Column("foto")
 @app.route('/') 
 @app.route('/index')   
@@ -68,7 +69,7 @@ def index(page=1):
 @app.route('/search',methods = ['POST','GET'])
 def search():
     textoBuscar = "%"+request.form['buscar']+"%"
-    post = personajes.query.filter(personajes.nombre.ilike(textoBuscar))
+    post = personajes.query.filter(personajes.nombre.like(textoBuscar))
     return render_template('testeo.html', posts = post)
 
 @app.route('/login',methods = ['POST','GET'])
@@ -145,7 +146,7 @@ def registro():
     contraseña = request.form['password']
     password_encode = contraseña.encode("utf-8")
     password_ecriptado = bcrypt.hashpw(password_encode,semilla)
-    task = usuarios(nombre = nombre, apellido = apellido, correo = correo, contraseña = password_ecriptado )
+    task = usuarios(nombre = nombre, apellido = apellido, correo = correo, contraseña = password_ecriptado)
     db.session.add(task)
     db.session.commit()
     #registra la sesion 
@@ -221,7 +222,8 @@ def referenica():
 
 @app.route('/admin-reportes')
 def adminReportes():
-    return render_template('admin-reportes.html')
+    reportedPost = publicaciones.query.filter(publicaciones.reportado == 1)
+    return render_template('admin-reportes.html', reportedPosts = reportedPost)
 
 if __name__=='__main__':
     app.run(debug=True, port=5000)
