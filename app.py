@@ -79,6 +79,13 @@ def report(post_id):
     db2.session.commit()
     return redirect(url_for('index'))
 
+@app.route('/ignorar/<post_id>', methods = ['POST','GET'])
+def ignorar(post_id):
+    rPost = publicaciones.query.filter_by(id = post_id).first()
+    rPost.reportado = False
+    db2.session.commit()
+    return redirect(url_for('adminReportes'))
+
 @app.route('/login',methods = ['POST','GET'])
 def login():
     if(request.method == "GET"):
@@ -221,7 +228,7 @@ def referenica():
     db.session.commit()
     return redirect(url_for('editor'))
 
-@app.route('/admin-reportes')
+@app.route('/admin-reportes', methods = ['POST','GET'])
 def adminReportes():
     reportedPost = publicaciones.query.filter(publicaciones.reportado)
     return render_template('admin-reportes.html', reportedPosts = reportedPost)
