@@ -44,7 +44,6 @@ class publicaciones(db2.Model):
     contenido = db2.Column(db.String(450))
     fuente = db2.Column(db.String(200))
     foto = db2.Column("foto")
-
 @app.route('/') 
 @app.route('/index')   
 @app.route('/<int:page>')
@@ -69,7 +68,7 @@ def index(page=1):
 @app.route('/search',methods = ['POST','GET'])
 def search():
     textoBuscar = "%"+request.form['buscar']+"%"
-    post = personajes.query.filter(personajes.nombre.like(textoBuscar))
+    post = personajes.query.filter(personajes.nombre.ilike(textoBuscar))
     return render_template('testeo.html', posts = post)
 
 @app.route('/login',methods = ['POST','GET'])
@@ -102,7 +101,6 @@ def editor():
             return render_template('editor-usuario.html', tasks = tasks)
         else:
             return redirect(url_for('ingresar'))
-    #MEOTOD POST
     else:
         if 'name' in session:
             tasks = usuarios.query.filter_by(nombre = session['name']).first()
@@ -193,7 +191,7 @@ def salir():
 @app.route('/personajes')
 @app.route('/personajes/<int:page>')
 def Personaje(page=1):
-    tasks1 = personajes.query.order_by(personajes.id.desc()).paginate(page,2,False)
+    tasks1 = personajes.query.order_by(personajes.nombre.asc()).paginate(page,3,False)
     next_url = url_for('Personaje', page=tasks1.next_num) \
         if tasks1.has_next else None
     prev_url = url_for('Personaje', page=tasks1.prev_num) \
