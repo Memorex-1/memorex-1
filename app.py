@@ -33,6 +33,7 @@ class usuarios(db1.Model):
     contraseña = db1.Column(db.String(50))
     telefono = db1.Column(db.Integer)
     foto = db1.Column("foto")
+    rol = db1.Column(db.String(20))
 
 class publicaciones(db2.Model):
     __tablename__ = 'publicaciones'
