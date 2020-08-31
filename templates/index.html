@@ -35,7 +35,7 @@
 			<button type="submit" class="btn btn-dark boton">Publicar</button>
 		</form>
 	</div>
-	<div class="d-flex align-content-center justify-content-center">
+	<div title="Nueva Publicación" class="d-flex align-content-center justify-content-center">
 		<button data-toggle="collapse" data-target="#demo1" class="btn btn-outline-dark collapsed nuevaPubliBtn px-5"
 			aria-expanded="false" aria-controls="demo1"><i class="fa fa-lg"
 				aria-hidden="true" ></i></button>
@@ -277,21 +277,21 @@
 		</div>
 		{% endfor %}
 		<!--paginacion-->
-		<ul class="pagination pagination-sm justify-content-end">
+		<ul class="pagination pagination-sm justify-content-end py-3">
 			{% if prev_url %}
-			<li class="page-item"><a class="page-link btn btn-dark" href="{{ prev_url }}"><i class="fas fa-chevron-left"></i></a></li>
+			<li class="page-item"><a title="Anterior" class="page-link btn" href="{{ prev_url }}"><i class="fas fa-chevron-left"></i></a></li>
 			{% else %}
-        	<li class="page-item"><a class="page-link btn btn-dark disabled" href="#"><i class="fas fa-chevron-left"></i></a></li>
+        	<li class="page-item"><a title="Anterior" class="page-link btn disabled" href="#"><i class="fas fa-chevron-left"></i></a></li>
 			{% endif %}
 			
 			{%for page in paginacion.iter_pages() %}
 			{% if page %}
-			<li class="page-item"><a class="page-link btn btn-outline-dark" href="{{page}}">{{page}}</a></li>
+			<li class="page-item"><a title="{{page}}" class="page-link btn" href="{{page}}">{{page}}</a></li>
 			{% endif %}
 			{% endfor %}
 			
 			{% if next_url %}
-			<li class="page-item"><a class="page-link btn btn-dark" href="{{ next_url }}"><i class="fas fa-chevron-right"></i></a></li>
+			<li class="page-item"><a title="Siguiente" class="page-link btn" href="{{ next_url }}"><i class="fas fa-chevron-right"></i></a></li>
 
 			{% endif %}
 		</ul>
