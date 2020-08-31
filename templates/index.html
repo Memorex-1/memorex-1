@@ -112,9 +112,6 @@
 		{% for task in tasks%}
 		<div class="publicacion">
 
-
-
-
 			<div>
 				<img src="/static/img/foto_{{task.username}}.jpg" alt="" class="img-usuario rounded-circle">
 				<span class="username-publi pl-2"> {{task.username}}</span>
@@ -157,7 +154,9 @@
 								<textarea name="otro-text" id="report-otro-text{{task.id}}" placeholder="Escriba su razón..." rows="4" maxlength="200"  class="form-control collapse"></textarea>
 							</div>
 							<div class="modal-footer">
-								<button class="btn btn-dark" data-dismiss="modal">Reportar</button>
+								<form action="/reportar/{{task.id}}" method="POST" class="col-12 d-flex m-0 p-0">
+										<button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>  
+								</form>
 							</div>
 						</div>
 					</div>

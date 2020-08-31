@@ -45,12 +45,12 @@ class publicaciones(db2.Model):
     fuente = db2.Column(db.String(200))
     reportado = db2.Column(db.Boolean, default = False)
     foto = db2.Column("foto")
-@app.route('/') 
-@app.route('/index')   
+
+@app.route('/index')
+@app.route('/')  
 @app.route('/<int:page>')
 def index(page=1):
-    tasks1 = personajes.query.all()
-    #invertir orden, from flask_sqlalchemy import desc
+    tasks1 = personajes.query.all() 
     #tasks = publicaciones.query.filter(publicaciones.id != 0).order_by(desc(publicaciones.id)).all()
     tasks = publicaciones.query.all()
     #crea las fotos desde la db2 s
@@ -66,11 +66,18 @@ def index(page=1):
         if tasks.has_prev else None
     return render_template('index.html', tasks = tasks.items, tasks1 = tasks1, next_url=next_url,prev_url=prev_url, paginacion = tasks)
 
-@app.route('/search',methods = ['POST','GET'])
+@app.route('/search', methods = ['POST','GET'])
 def search():
     textoBuscar = "%"+request.form['buscar']+"%"
     post = personajes.query.filter(personajes.nombre.like(textoBuscar))
     return render_template('testeo.html', posts = post)
+
+@app.route('/reportar/<post_id>', methods = ['POST','GET'])
+def report(post_id):
+    rPost = publicaciones.query.filter_by(id = post_id).first()
+    rPost.reportado = True
+    db.session.commit()
+    return redirect(url_for('index'))
 
 @app.route('/login',methods = ['POST','GET'])
 def login():
@@ -199,12 +206,6 @@ def Personaje(page=1):
         if tasks1.has_prev else None
     return render_template('personajes.html',  tasks1 = tasks1.items, next_url=next_url,prev_url=prev_url, paginacion = tasks1)
 
-# Creando rutas para cada personaje
-@app.route('/personaj/<per_id>')
-def personaj(per_id=0):
-    person = personajes.query.filter_by(id=per_id).first()
-    return render_template('personaj.html',  personaje = person)
-
 @app.route('/nosotros')
 def nosotros():
     return render_template('nosotros.html')
@@ -222,7 +223,7 @@ def referenica():
 
 @app.route('/admin-reportes')
 def adminReportes():
-    reportedPost = publicaciones.query.filter(publicaciones.reportado == 1)
+    reportedPost = publicaciones.query.filter(publicaciones.reportado)
     return render_template('admin-reportes.html', reportedPosts = reportedPost)
 
 if __name__=='__main__':
