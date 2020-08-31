@@ -406,6 +406,10 @@ td{
 
 /*CREAR PERSONAJE************************************/
 
+.crear-perso {
+	padding: 20px;
+}
+
 .crear-perso .row {
 	color: #000;
 }
@@ -509,6 +513,81 @@ td{
 #override .topbar .dropdown-item:hover {
 	background-color: #333;
 	color: #fff;
+}
+
+.header-seccion {
+	color: #ddd;
+	background-color: #111;
+	padding: 10px 20px;
+
+}
+
+.header-seccion h1 {
+	text-align: center;
+	font-family: 'Roboto Slab', serif; 
+	font-size: 1.3em;
+	font-weight: 700;
+}
+
+.header-seccion h3 {
+	text-align: center;
+	font-family: 'Roboto Slab', serif; 
+	font-size: 1.3em;
+	font-weight: 700;
+}
+
+/*REPORTES**************************************************/
+.admin-rep-container {
+	padding: 0;
+}
+
+.admin-rep-container main  {
+	padding: 0 20px;
+}
+
+.admin-rep-container h2 {
+	font-size: 1em;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
+	padding: 10px 10px;
+	text-align: center;
+	background-color: rgb(70, 0, 0);
+	color: #fff;
+	border-radius: 0 0 10px 10px;
+}
+
+.p-reportado div{
+	padding: 0;
+	margin: 5px 0;
+}
+
+.p-reportado span {
+	padding: 5px 0;
+}
+
+.p-reportado .pr-perso {
+	margin: 10px 0;
+}
+
+/*EDITAR DATOS****************************************/
+
+.editar-usuario ul {
+	padding: 0;
+}
+
+.editar-usuario .user-bienvenida h3 {
+	font-size: 1em;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
+	padding: 8px 20px;
+	text-align: center;
+	background-color: rgb(70, 0, 0);
+	color: #fff;
+	border-radius: 0 0 10px 10px;
+}
+
+.editar-usuario .user-bienvenida {
+	padding-bottom: 10px;
 }
 
 

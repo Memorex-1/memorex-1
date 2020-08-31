@@ -1,8 +1,10 @@
 {% extends "header.html" %}
 
 {% block content %}
-<div class="container shadow bg-white pb-4">
+<div class="container-fluid container-md shadow bg-white p-0 pb-4">
+  <div class="header-seccion shadow">
     <h1>Crear Personaje</h1>
+  </div>
     <form action="/crear" class="crear-perso" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="perso-name" class="">Personaje:</label>
@@ -24,13 +26,13 @@
             <label for="perso-desc">Descripción:</label>
             <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
         </div>
-        <!--<button type="submit" class="btn btn-outline-dark">ENVIAR</button>-->
+        <button type="submit" class="btn btn-outline-dark">Crear Personaje</button>
     </form>
     <!--aki inicia agregado para el poppu-->
     <!--Boton para el modal-->
-    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" id="btn">Crear</button>
+    <!-- <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal1" id="btn">Crear</button> -->
     <!-- The Modal 1-->
-  <div class="modal fade" id="myModal1">
+  <div class="modal fade" id="myModal2">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         
@@ -54,7 +56,7 @@
   </div>
   
   <!-- The Modal 2-->
-  <div class="modal fade" id="myModal2">
+  <div class="modal fade" id="myModal1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         

@@ -2,16 +2,18 @@
 
 {% block content %}
 <div class="admin-rep-container container-fluid container-md shadow-lg bg-light">
-    <h1>Administrar Reportes</h1>
+    <div class="header-seccion shadow">
+        <h1>Administrar Reportes</h1>
+    </div>
     <main>
-        <h3>Publicaciones reportadas</h3>
-
+		<h2>Publicaciones reportadas</h2>
+    
         {% for post in reportedPosts %}
-        <div class="publicacion">
+        <div class="publicacion p-reportado">
             
             <div class="row m-0 p-0">
                 <div class="col-7">
-                    
+                    Usuario: 
                     <span class="username-publi pl-2">{{ post.username }}</span>
                 </div>
                 <div class="col-5 d-flex justify-content-end">
@@ -33,7 +35,7 @@
                     </div>
 			
 				
-                    <div class="" >
+                    <div class="pr-perso" >
                         <span>Personaje: </span>
 						<span class="nombre-perso pl-2" style="color: rgb(145, 0, 0); font-weight: 700;">
 							{{ post.personaje }}
