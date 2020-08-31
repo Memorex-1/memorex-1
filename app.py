@@ -86,6 +86,13 @@ def ignorar(post_id):
     db2.session.commit()
     return redirect(url_for('adminReportes'))
 
+@app.route('/delete/<post_id>', methods = ['POST','GET'])
+def delete(post_id):
+    rPost = publicaciones.query.filter_by(id = post_id).first()
+    db2.session.delete(rPost)
+    db2.session.commit()
+    return redirect(url_for('adminReportes'))
+
 @app.route('/login',methods = ['POST','GET'])
 def login():
     if(request.method == "GET"):
