@@ -111,8 +111,13 @@ def login():
             #verifica el password
             if(bcrypt.checkpw(password_encode,password_encriptado_encode)):
                 #registra la sesion
-                session['name'] = usuario.nombre
+                session['name'] = usuario.nombre      
+                session['rol'] = usuario.rol
                 session['logged_in'] = True
+                if (session['rol'] == 'mod'):
+                    session['mod'] = True
+                else:
+                    session['mod'] = False
                 return redirect(url_for('index'))
     return render_template('login.html')
 
@@ -173,6 +178,7 @@ def registro():
     db.session.commit()
     #registra la sesion 
     session['name'] = nombre
+    session['logged_in'] = True
     #session['firstname'] = apellido
     #session['email'] = correo
     return render_template('login.html')        
