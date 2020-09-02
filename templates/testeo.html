@@ -3,86 +3,314 @@
 {% block content %}
 <div class="container-fluid container-md lista-persos bg-white main shadow-lg">
     <div class="titulo-busqueda">
-       <!-- <h3>Se encontraron los siguientes resultados...</h3>-->
+        <!-- <h3>Se encontraron los siguientes resultados...</h3>-->
         <hr>
-       <!-- para la busqueda de personajes -->
+        <!-- para la busqueda de personajes -->
         <label for="inputsm">Personajes encontrados</label>
     </div>
 
     <div class="row mt-0">
-    {% for task in posts | reverse %}
-    
+        {% for task in posts | reverse %}
 
-    <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
-        <div class="card">
-            <div class="card-header">{{task.nombre}}</div>
-            <img style="height: 300px;" class="card-img-top"
-                src="static/img/foto_{{task.nombre}}.jpg" alt="{{task.nombre}}"
-                style="width:100%">
-            <div class="card-body">
-                <p class="card-text">Organización Política: {{task.partido}}</p>
-                
-                <button type="button" class="btn btn-dark w-100" data-toggle="modal" data-target="#myModal{{task.id}}">Ver más<i class="fas fa-stream pl-2"></i></button>
 
-                <div class="modal fade" id="myModal{{task.id}}" role="dialog" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
+        <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
+            <div class="card">
+                <div class="card-header">{{task.nombre}}</div>
+                <img style="height: 300px;" class="card-img-top" src="static/img/foto_{{task.nombre}}.jpg"
+                    alt="{{task.nombre}}" style="width:100%">
+                <div class="card-body">
+                    <p class="card-text">Organización Política: {{task.partido}}</p>
 
-                            <div class="modal-body">
-                                <p>
-                                </p>
-                                <div class="container1 ">
-                                    <div class="content animate_animated  animate_backInDown">
+                    <button type="button" class="btn btn-dark w-100" data-toggle="modal"
+                        data-target="#myModal{{task.id}}">Ver más<i class="fas fa-stream pl-2"></i></button>
 
+                    <div class="modal fade" id="myModal{{task.id}}" role="dialog" style="display: none;"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+                                    <p>
+                                    </p>
+                                    <div class="container1 ">
+                                        <div class="content animate_animated  animate_backInDown">
+
+                                        </div>
+                                        <header>
+                                            <h2 class="title-item">
+                                                <span class="position"></span>
+                                                {{task.nombre}}
+                                            </h2>
+                                        </header>
+                                        <section>
+
+                                            <div class=" text ">
+                                                <address>
+                                                    <img style="max-width: 300px;" class="card-img-top"
+                                                        src="static/img/foto_{{task.nombre}}.jpg" alt="{{task.nombre}}">
+
+                                                </address>
+                                                <p class="paragraph">{{task.partido}}</p>
+                                                <p class="paragraph">{{task.informacion}}</p>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">Close</button>
+
+                                            </div>
+                                        </section>
                                     </div>
-                                    <header>
-                                        <h2 class="title-item">
-                                            <span class="position"></span>
-                                            {{task.nombre}}
-                                        </h2>
-                                    </header>
-                                    <section>
 
-                                        <div class=" text ">
-                                            <address>
-                                                <img style="max-width: 300px;" class="card-img-top"
-                                                    src="static/img/foto_{{task.nombre}}.jpg"
-                                                    alt="{{task.nombre}}">
 
-                                            </address>
-                                            <p class="paragraph">{{task.partido}}</p>
-                                            <p class="paragraph">{{task.informacion}}</p>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default"
-                                                data-dismiss="modal">Close</button>
-
-                                        </div>
-                                    </section>
                                 </div>
-
-
                             </div>
+
+
+
+                            <p></p>
                         </div>
 
-
-
-                        <p></p>
                     </div>
-
                 </div>
             </div>
         </div>
+
+        <div class="publicacion">
+            <hr>
+            <div class="titulo-busqueda">
+
+                <label for="inputsm">Publicaciones encontradas</label>
+            </div>
+
+
+
+            <div>
+                <img src="/static/img/foto_Maurizio.jpg" alt="" class="img-usuario rounded-circle">
+                <span class="username-publi pl-2"> Maurizio</span>
+                <button type="button" data-toggle="modal" data-target="#modalReporte5" class="btn float-right">
+                    <i class="far fa-flag" data-toggle="tooltip" data-placement="top" title=""
+                        style="color: rgb(168, 0, 0);" aria-hidden="true" data-original-title="Reportar"></i><span
+                        class="sr-only">Reportar</span>
+                </button>
+            </div>
+            <div class="container">
+                <!-- Modal Reporte-->
+                <div class="modal fade" id="modalReporte5">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-light" style="color: #000;">
+                            <div class="modal-header">
+
+                                <h4 class="modal-title" style="font-size: 1.1em; font-weight: 700;">¿Por qué razón
+                                    sientes que esta publicación debe ser
+                                    reportada?</h4>
+                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">X</button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="duplicado5" value="duplicado"
+                                        name="reporte5">
+                                    <label for="duplicado5" class="custom-control-label ">Duplicado</label>
+                                </div>
+
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="malintencionado5"
+                                        value="malintencionado" name="reporte5">
+                                    <label for="malintencionado5" class="custom-control-label ">Malintencionado</label>
+                                </div>
+
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="spam5" value="spam"
+                                        name="reporte5">
+                                    <label for="spam5" class="custom-control-label ">Irrelevante
+                                        (Spam)</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" data-toggle="collapse" data-target="#report-otro-text5"
+                                        class="custom-control-input" id="otro5" name="reporte5">
+                                    <label for="otro5" class="custom-control-label">Otro:</label>
+                                </div>
+                                <textarea name="otro-text" id="report-otro-text5" placeholder="Escriba su razón..."
+                                    rows="4" maxlength="200" class="form-control collapse"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="/reportar/5" method="POST"
+                                    class="col-12 d-flex m-0 p-0 justify-content-end">
+                                    <button class="btn btn-dark" type="submit">Reportar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-0 p-0">
+                <div class="col-8 m-0 p-0" style="color: #000;">
+                    <h3 style="font-family: 'Roboto Slab';">Desde hoy rige la inmovilización social obligatoria los días
+                        domingos</h3>
+                    <span class="fecha-lbl">
+                        Fecha de publicación: <span class="fecha-publi">2020-08-16</span>
+                    </span>
+                </div>
+                <div class="col-4 m-0 p-0">
+                    <div class="publi-body-col2">
+                        <img class="rounded-circle" src="static/img/foto_Martín Alberto Vizcarra Cornejo.jpg"
+                            alt="Martín Alberto Vizcarra Cornejo">
+                        <span class="nombre-perso pl-2">
+                            Martín Alberto Vizcarra Cornejo
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="media m-0 p-0" style="align-items: center;">
+                <div class="media-body publi-body-col1">
+
+                    <div class="info-publi">
+                        A partir de hoy rige a nivel nacional la inmovilización social obligatoria de los días domingos,
+                        una medida que decretó el presidente Martín Vizcarra, antes el incremento de contagios por
+                        COVID-19.
+                        En la víspera el país registró un récord de 9,507 nuevos contagios y superó los 26,000 muertos
+                        de coronavirus, en medio de un rebrote de la pandemia en vísperas de iniciar un toque de queda
+                        dominical nacional, informó el Ministerio de Salud (Minsa).
+                        De este modo, ahora el toque queda va desde las 10:00 p.m. hasta las 4:00 a.m. de lunes a sábado
+                        y los domingos la inmovilización social obligatoria es todo el día.
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="fuente-publi m-0 p-0 mb-3">
+                <div class="col-12 p-0">
+                    <span class="fuentes-lbl">Fuente(s):</span>
+                    <a
+                        href="https://gestion.pe/peru/desde-hoy-rige-la-inmovilizacion-obligatoria-los-dias-domingos-noticia/">https://gestion.pe/peru/desde-hoy-rige-la-inmovilizacion-obligatoria-los-dias-domingos-noticia/</a>
+                </div>
+                <br>
+                <!---->
+
+                <button type="button" class="btn btn-dark mb-2 collapsed" data-toggle="collapse"
+                    data-target="#comments5" aria-expanded="false">Comentarios <i class="far fa-comments fa-lg"
+                        style="color: rgb(226, 226, 226);" aria-hidden="true"></i></button>
+                <div id="comments5" class="collapse" style="">
+                    <h3 id="reply-title" class="comment-reply-title">Dejar comentario <small><a rel="nofollow"
+                                id="cancel-comment-reply-link" href="/2011/08/28/facebook-comment-plugin/#respond"
+                                style="display:none;">Cancelar respuesta</a></small></h3>
+                    <form action="" method="post" id="commentform" class="comment-form" novalidate="">
+                        <div class="clearfix"></div>
+                        <div class="comment-form-input-wrap td-form-comment">
+                            <textarea placeholder="Comentario:" id="comment" class="form-control" name="comment"
+                                cols="45" rows="8" aria-required="true"></textarea>
+                            <!-- 
+                                        <br>
+                                    <br>
+                                    -->
+                        </div>
+                        <!-- 
+                                <div class="comment-form-input-wrap td-form-author">
+                                    <input class="form-control" id="author" name="author" placeholder="Nombre:*" type="text"
+                                        value="" size="30" aria-required='true' />
+                                    <br>
+                                    <br>
+                                </div>
+                                <div class="comment-form-input-wrap td-form-email">
+                                    <input class="form-control" id="email" name="email" placeholder="Correo electrónico:*"
+                                        type="text" value="" size="30" aria-required='true' />
+                                    <br>
+                                </div>
+        
+        
+                            
+        
+                                <style type="text/css">
+                                    #gdpr-comments-compliance>div {
+                                        
+                    
+                                        /*margin: 1rem 0;*/
+                                        
+                                        margin: 0.3rem 0;
+                                    }
+        
+                                    #gdpr-comments-checkbox-wrap {
+                                        display: flex;
+                                        align-items: baseline;
+                                    }
+        
+                                    #gdpr-comments-checkbox+label {
+                                        display: inline;
+                                        margin: 0;
+                                    }
+        
+                                    #gdpr-comments-compliance-text {
+                                        font-size: .8em;
+                                    }
+                                </style>
+        
+                                -->
+
+                        <div id="gdpr-comments-compliance">
+                            <div id="gdpr-comments-checkbox-wrap">
+                                <!--
+                                        <input id="gdpr-comments-checkbox" type="checkbox" name="gdpr_comments_checkbox"
+                                            value="1" required="required" />
+                                    
+                                            <label for="gdpr-comments-checkbox">He leído la <a href="">política de privacidad</a> y
+                                            acepto que se almacenen mis datos para recibir respuestas por correo
+                                            electrónico.</label>
+                                        -->
+
+                            </div>
+                        </div>
+                        <br>
+                        <a href="" class="btn btn-outline-dark">Publicar comentario</a>
+                        <br>
+                        <input type="hidden" name="comment_post_ID" value="3584" id="comment_post_ID">
+                        <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                        <p style="display: none;">
+                            <input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce"
+                                value="190a14062b">
+                        </p>
+                        <p style="display: none;">
+                            <input type="hidden" id="ak_js" name="ak_js" value="83"></p>
+                        <br>
+
+                        <div class="media">
+                            <div class="media-left media-top">
+                                <img src="../static/img/CerebroMemorex.jpg" class="media-object" style="width:80px">
+                            </div>
+                            <div class="media-body">
+                                <span class="username-publi pl-2"> Jhon Marco Salcedo Alfaro</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua.</p>
+
+                            </div>
+                        </div>
+                        <br>
+                    </form>
+
+                    <!--
+                                <div class="fb-comments" data-href="http://127.0.0.1:5000/index" data-numposts="1"
+                                data-width="100%">
+                            </div>
+                        -->
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        {% endfor %}
     </div>
-
-
-    
-    
-
-
-
-{% endfor %}
-</div>
 </div>
 {% endblock %}
