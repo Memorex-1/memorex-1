@@ -3,6 +3,37 @@
 {% block content %}
 
 <div class="container-fluid container-md lista-persos bg-white main shadow-lg">
+    <!---->
+    <div class="publicar collapse" id="demo1">
+        <div class="form-group">
+<label for="perso-name" class="">Personaje:</label>
+<form>
+  <div class="row" m-0 p-0>
+    <div class="col">
+      <input type="text" class="form-control" id="perso-name" placeholder="Nombre del personaje" name="personaje">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Organizacion Politica" name="organizacion">
+    </div>
+  </div>
+  <br>
+    <div class="custom-file mb-3">
+        <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje">
+    <label class="custom-file-label" for="perso-img">Suba una imagen de su personaje</label>
+    </div>
+  <div class="form-group">
+    <label for="perso-desc">Descripcion:</label>
+    <textarea class="form-control" rows="5" id="perso-desc" name="descripcion"></textarea>
+  </div>
+  <button type="submit" class="btn btn-outline-dark">Crear Personaje</button>
+</form>
+</div>
+  </div>
+  <div title="Nueva Publicación" class="d-flex align-content-center justify-content-center">
+      <button data-toggle="collapse" data-target="#demo1" class="btn btn-outline-dark collapsed nuevaPubliBtn px-5"
+          aria-expanded="false" aria-controls="demo1"><i class="fa fa-lg" aria-hidden="true"></i></button>
+  </div>
+    <!---->
     <div class="row mt-0">
         {% for task1 in tasks1 %}
         <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
