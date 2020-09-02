@@ -3,8 +3,12 @@
 {% block content %}
 <div class="container-fluid container-md lista-persos bg-white main shadow-lg">
     <div class="titulo-busqueda">
-        <h3>Se encontraron los siguientes resultados...</h3>
+       <!-- <h3>Se encontraron los siguientes resultados...</h3>-->
+        <hr>
+       <!-- para la busqueda de personajes -->
+        <label for="inputsm">Personajes encontrados</label>
     </div>
+
     <div class="row mt-0">
     {% for task in posts | reverse %}
     
@@ -71,6 +75,9 @@
             </div>
         </div>
     </div>
+
+
+    
     
 
 
