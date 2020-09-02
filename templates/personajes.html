@@ -45,7 +45,20 @@
         {% for task1 in tasks1 %}
         <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
             <div class="card">
-                <div class="card-header">{{task1.nombre}}</div>
+                <div class="card-header">{{task1.nombre}}
+                    <!--Botones de Reportar y modificar-->
+                    <button type="button" class="btn btn-outline-dark" data-toggle="modal" 
+                        data-target="#myModal-Modificar"><i class="fa fa-pen" data-toggle="tooltip" data-placement="top" 
+                        title="Modificar" style="color: rgb(256, 0, 0);" aria-hidden="true" 
+                        data-original-title="Modificar"></i><span class="sr-only">Modificar</span>
+                    </button>
+                    <button type="button" class="btn btn-outline-dark" data-toggle="modal" 
+                        data-target="#myModal-Reportar"><i class="far fa-flag" data-toggle="tooltip" data-placement="top" 
+                        title="Reportar" style="color: rgb(256, 0, 0);" aria-hidden="true" 
+                        data-original-title="Reportar"></i><span class="sr-only">Reportar</span>
+                    </button>
+                    <!--Fin Botones de Reportar y modificar-->
+                </div>
                 <img style="height: 300px;" class="card-img-top"
                     src="http://127.0.0.1:5000/static/img/foto_{{task1.nombre}}.jpg" alt="{{task1.nombre}}"
                     style="width:100%">
@@ -162,6 +175,93 @@
 
 			{% endif %}
 		</ul>
-		<!---->
+        <!---->
+    <!-- The Modal Modificar personaje-->
+  <div class="modal fade" id="myModal-Modificar">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header Modificar personaje-->
+        <div class="modal-header">
+          <h4 class="modal-title">Modificar Personaje</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body Modificar personaje-->
+        <div class="modal-body">
+        <form action="/crear" class="crear-perso" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="row m-0 p-0">
+                <div class="col-md-6 my-2 p-0 pr-2">
+                    <input type="text" id="perso-name" name = "personaje" placeholder="Nombre del personaje" class="form-control">
+                </div>
+                <div class="col-md-6 my-2 p-0 pr-2">
+                    <input type="text" id="perso-org" name = "partido" placeholder="Nueva Organización Política" class="form-control">
+                </div>
+            </div>
+            <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje">
+                <label class="custom-file-label" for="perso-img">Suba nueva imagen de su personaje</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="perso-desc">Nueva descripción del personaje:</label>
+            <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark">Modificar</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin The Modal Modificar personaje-->
+  
+  <!-- The Modal Reportar-->
+  <div class="modal fade" id="myModal-Reportar">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header Reportar-->
+        <div class="modal-header">
+          <h4 class="modal-title">¿Cual es la razon por la que este personaje debe ser reportado?</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body Reportar-->
+        <div class="modal-body">
+          <form action="/action_page.php">
+    		<div class="form-check">
+      			<label class="form-check-label" for="radio1">
+        			<input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Duplicado
+      			</label>
+    		</div>
+    		<div class="form-check">
+      			<label class="form-check-label" for="radio2">
+        			<input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Malintencionado
+      			</label>
+    		</div>
+    		<div class="form-check">
+      			<label class="form-check-label" for="radio3">
+        			<input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">Irrelevante
+      			</label>
+    		</div>
+    		<div class="form-check">
+      			<label class="form-check-label" data-toggle="collapse" data-target="#demo" for="radio4">
+        			<input type="radio" class="form-check-input" id="radio4" name="optradio" value="option4">Otro:
+      			</label>
+       		<div id="demo" class="collapse">
+    		<div class="form-group">
+      			<textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+    		</div>
+            </div>
+            </div>
+            <br>
+    		<button type="submit" class="btn btn-dark">Reportar</button>
+  		</form>
+       </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin The Modal Reportar-->
 </div>
 {% endblock %}
