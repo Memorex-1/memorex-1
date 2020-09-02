@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang = "es-ES">
+<html lang="es-ES">
+
 <head>
 	<meta charset="utf-8">
-	<meta name = "description" content = "contenido politico"/>
+	<meta name="description" content="contenido politico" />
 	<title>Memorex</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- BOOTSTRAP CSS -->
@@ -20,18 +21,20 @@
 
 	<!-- BOOTSTRAP JS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	  <script src="../static/bootstrap/js/bootstrap.min.js"></script>
-	  <script src="../static/bootstrap/js/bootstrap-select.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../static/bootstrap/js/bootstrap-select.min.js"></script>
 
-	
+
 </head>
+
 <body id="override">
 	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v8.0" 	
-	nonce="bF49QMPH"></script>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v8.0"
+		nonce="bF49QMPH"></script>
 	<nav class="topbar navbar navbar-expand-md navbar-light shadow-sm">
-		<a class="navbar-brand" href="http://localhost:5000/"><img height="55px" src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}"></a>
+		<a class="navbar-brand" href="http://localhost:5000/"><img height="55px"
+				src="{{url_for('static', filename= 'img/InicioMemorex.jpg')}}"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -41,33 +44,65 @@
 					<a class="nav-link enlace" href="/1"><i class="fas fa-bullhorn fa-lg"></i> Publicaciones</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link enlace" href="http://localhost:5000/personajes"><i class="fas fa-user-tie fa-lg"></i> Personajes</a>
+					<a class="nav-link enlace" href="http://localhost:5000/personajes"><i
+							class="fas fa-user-tie fa-lg"></i> Personajes</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link enlace" href="http://localhost:5000/nosotros"><i class="fas fa-brain fa-lg"></i> Sobre la página</a>
+					<a class="nav-link enlace" href="http://localhost:5000/nosotros"><i class="fas fa-brain fa-lg"></i>
+						Sobre la página</a>
 				</li>
 			</ul>
-			
+
 			<div class="col-12 col-md-6 row align-items-center m-0 p-0">
-				
+
 				{% if session['logged_in'] %}
 				<form action="/search" method="post" class="col-12 col-lg-9 d-flex m-0 p-0 px-1">
+
 					<input type="text" class="form-control" name="buscar" placeholder="Buscar...">
+
+
+					<!-- el buscar por personaje o puplicacion -->
+					<div class="btn-group-vertical">
+
+						<div class="btn-group">
+							<button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false">Todo</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">Publicaciones</a>
+								<a class="dropdown-item" href="#">Personajes</a>
+							</div>
+						</div>
+					</div>
+
+
+
 					<div class="input-group-append">
-						<button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>  
+						<button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
 					</div>
 				</form>
+
+
+
+
+
+
+
+
 				<div class="btn-group btn-user col-12 col-lg-3 m-0 p-0 px-1 h-75">
 					<button type="button" class="btn btn-dark dropdown-toggle px-2 " data-toggle="dropdown">
-						<img style="border-radius: 10px;" height="15px" src="static/img/foto_{{ session['name'] }}.jpg" alt="">
+						<img style="border-radius: 10px;" height="15px" src="static/img/foto_{{ session['name'] }}.jpg"
+							alt="">
 						{{ session['name'] }}
 					</button>
 					<div class="dropdown-menu">
-						<a class="dropdown-item px-3" href="editor-usuario"><i class="fas fa-user mr-2"></i>Mi Cuenta</a>
+						<a class="dropdown-item px-3" href="editor-usuario"><i class="fas fa-user mr-2"></i>Mi
+							Cuenta</a>
 						{% if session['mod'] %}
-						<a class="dropdown-item px-3" href="admin-reportes"><i class="fas fa-cog mr-2"></i>Administrar</a>
+						<a class="dropdown-item px-3" href="admin-reportes"><i
+								class="fas fa-cog mr-2"></i>Administrar</a>
 						{% endif %}
-						<a class="dropdown-item px-3" href="salir"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesión</a>
+						<a class="dropdown-item px-3" href="salir"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar
+							Sesión</a>
 					</div>
 				</div>
 
@@ -75,48 +110,49 @@
 				<form action="/search" method="post" class="col-12 d-flex m-0 p-0">
 					<input type="text" class="form-control" name="buscar" placeholder="Buscar...">
 					<div class="input-group-append">
-						<button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>  
+						<button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
 					</div>
 				</form>
 				{% endif %}
 
 
-				
-				
-				
+
+
+
 			</div>
-			
+
 		</div>
-		
-		
+
+
 	</nav>
-	
-	
+
+
 
 	{% block content %}
 	{% endblock %}
 	<!--
 		<div class="fb-comments" data-href="http://127.0.0.1:5000/index" data-numposts="2" data-width="100%"></div>
 	-->
-	
-	
+
+
 	<footer>
 		<span>Memorex&copy; 2020</span>
 	</footer>
 
 	<script>
-		$(".custom-file-input").on("change", function() {
-		  var fileName = $(this).val().split("\\").pop();
-		  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+		$(".custom-file-input").on("change", function () {
+			var fileName = $(this).val().split("\\").pop();
+			$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 		});
 
-		$(document).ready(function(){
-		$('[data-toggle="popover"]').popover();   
+		$(document).ready(function () {
+			$('[data-toggle="popover"]').popover();
 		});
 
-		$(document).ready(function(){
-		$('[data-toggle="tooltip"]').tooltip();   
+		$(document).ready(function () {
+			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
 </body>
+
 </html>
