@@ -71,7 +71,8 @@ def index(page=1):
 def search():
     textoBuscar = "%"+request.form['buscar']+"%"
     post = personajes.query.filter(personajes.nombre.like(textoBuscar))
-    return render_template('testeo.html', posts = post)
+    publis = publicaciones.query.filter(publicaciones.personaje.like(textoBuscar))
+    return render_template('testeo.html', posts = post, publis = publis)
 
 @app.route('/reportar/<post_id>', methods = ['POST','GET'])
 def report(post_id):

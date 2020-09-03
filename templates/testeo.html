@@ -85,6 +85,7 @@
 
 
         {% endfor %}
+        {% for task in publis | reverse %}
         <!-- esto es para encontrar solo las pubicaciones pero todavia no esta 
         conectado en la base de datos -->
         <div class="publicacion">
@@ -93,12 +94,10 @@
 
                 <label for="inputsm">Publicaciones encontradas</label>
             </div>
-
-
-
+           
             <div>
-                <img src="/static/img/foto_Maurizio.jpg" alt="" class="img-usuario rounded-circle">
-                <span class="username-publi pl-2"> Maurizio</span>
+                <img src="/static/img/foto_{{task.username}}.jpg" alt="" class="img-usuario rounded-circle">
+                <span class="username-publi pl-2"> {{task.username}}</span>
                 <button type="button" data-toggle="modal" data-target="#modalReporte5" class="btn float-right">
                     <i class="far fa-flag" data-toggle="tooltip" data-placement="top" title=""
                         style="color: rgb(168, 0, 0);" aria-hidden="true" data-original-title="Reportar"></i><span
@@ -158,18 +157,17 @@
 
             <div class="row m-0 p-0">
                 <div class="col-8 m-0 p-0" style="color: #000;">
-                    <h3 style="font-family: 'Roboto Slab';">Desde hoy rige la inmovilización social obligatoria los días
-                        domingos</h3>
+                    <h3 style="font-family: 'Roboto Slab';">{{task.titulo}}</h3>
                     <span class="fecha-lbl">
-                        Fecha de publicación: <span class="fecha-publi">2020-08-16</span>
+                        Fecha de publicación: <span class="fecha-publi">{{task.fecha}}</span>
                     </span>
                 </div>
                 <div class="col-4 m-0 p-0">
                     <div class="publi-body-col2">
-                        <img class="rounded-circle" src="static/img/foto_Martín Alberto Vizcarra Cornejo.jpg"
+                        <img class="rounded-circle" src="static/img/foto_{{task.personaje}}.jpg"
                             alt="Martín Alberto Vizcarra Cornejo">
                         <span class="nombre-perso pl-2">
-                            Martín Alberto Vizcarra Cornejo
+                            {{task.personaje}}
                         </span>
                     </div>
                 </div>
@@ -181,15 +179,7 @@
                 <div class="media-body publi-body-col1">
 
                     <div class="info-publi">
-                        A partir de hoy rige a nivel nacional la inmovilización social obligatoria de los días domingos,
-                        una medida que decretó el presidente Martín Vizcarra, antes el incremento de contagios por
-                        COVID-19.
-                        En la víspera el país registró un récord de 9,507 nuevos contagios y superó los 26,000 muertos
-                        de coronavirus, en medio de un rebrote de la pandemia en vísperas de iniciar un toque de queda
-                        dominical nacional, informó el Ministerio de Salud (Minsa).
-                        De este modo, ahora el toque queda va desde las 10:00 p.m. hasta las 4:00 a.m. de lunes a sábado
-                        y los domingos la inmovilización social obligatoria es todo el día.
-
+                        {{task.contenido}}
                     </div>
                 </div>
 
@@ -199,7 +189,7 @@
                 <div class="col-12 p-0">
                     <span class="fuentes-lbl">Fuente(s):</span>
                     <a
-                        href="https://gestion.pe/peru/desde-hoy-rige-la-inmovilizacion-obligatoria-los-dias-domingos-noticia/">https://gestion.pe/peru/desde-hoy-rige-la-inmovilizacion-obligatoria-los-dias-domingos-noticia/</a>
+                        href="{{task.referencia}}">{{task.referencia}}</a>
                 </div>
                 <br>
                 <!---->
@@ -311,11 +301,11 @@
                 </div>
 
 
-
             </div>
+            
         </div>
 
-
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
