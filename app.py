@@ -69,7 +69,10 @@ def index(page=1):
 
 @app.route('/search', methods = ['POST','GET'])
 def search():
-    opcion = request.form['opc']
+    if 'name' in session:
+        opcion = request.form['opc']
+    else:
+        opcion = 'comun'
     textoBuscar = "%"+request.form['buscar']+"%"
     post = personajes.query.filter(personajes.nombre.like(textoBuscar))
     publis = publicaciones.query.filter(publicaciones.personaje.like(textoBuscar))
