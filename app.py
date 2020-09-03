@@ -69,10 +69,11 @@ def index(page=1):
 
 @app.route('/search', methods = ['POST','GET'])
 def search():
+    opcion = request.form['opc']
     textoBuscar = "%"+request.form['buscar']+"%"
     post = personajes.query.filter(personajes.nombre.like(textoBuscar))
     publis = publicaciones.query.filter(publicaciones.personaje.like(textoBuscar))
-    return render_template('testeo.html', posts = post, publis = publis)
+    return render_template('testeo.html', posts = post, publis = publis, opcion = opcion)
 
 @app.route('/reportar/<post_id>', methods = ['POST','GET'])
 def report(post_id):

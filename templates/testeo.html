@@ -6,13 +6,14 @@
         <!-- <h3>Se encontraron los siguientes resultados...</h3>-->
         <hr>
         <!-- para la busqueda de personajes -->
+        {%if opcion == 'Todo' or opcion == 'Personajes'%}
         <label for="inputsm">Personajes encontrados</label>
+        {%endif%}
     </div>
 
     <div class="row mt-0">
+        {%if opcion == 'Todo' or opcion == 'Personajes'%}
         {% for task in posts | reverse %}
-
-
         <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
             <div class="card">
                 <div class="card-header">{{task.nombre}}</div>
@@ -76,15 +77,9 @@
             </div>
         </div>
 
-        
-
-
-
-
-
-
-
         {% endfor %}
+        {%endif%}
+        {%if opcion == 'Todo' or opcion == 'Publicaciones'%}
         {% for task in publis | reverse %}
         <!-- esto es para encontrar solo las pubicaciones pero todavia no esta 
         conectado en la base de datos -->
@@ -306,6 +301,7 @@
         </div>
 
         {% endfor %}
+        {%endif%}
     </div>
 </div>
 {% endblock %}
