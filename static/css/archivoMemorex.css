@@ -42,7 +42,7 @@ body {
 	background-color: #fff;
 }
 
-#override .topbar a {color: #000; font-weight: bold;}
+#override .topbar .navbar-nav a {color: #000; font-weight: bold;}
 
 #override .navbar-nav a:hover {
 
@@ -66,6 +66,15 @@ body {
 
 #override .carousel img {
 	height: 500px;
+	width: 100%;
+	object-fit: cover;
+}
+
+@media screen and (max-width: 1200px) {
+	#override .carousel img {
+		height: 400px;
+		right: 100px;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -88,6 +97,35 @@ body {
 #override .busqueda {
 	border: 1px solid rgb(102, 102, 102);
 	border-radius: 5px 0 0 5px;
+}
+#override .botones-user {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+#override .botones-user form, #override .botones-user .btn-group {
+	width: 50%;
+}
+
+
+#override .botones-user .btn-group .btn {
+	font-size: 0.9em;
+}
+
+.botones-user .btn-group a:hover {
+	color: #fff;
+	transition: 100ms ease-in-out all;
+}
+
+@media screen and (max-width: 1330px) {
+	#override .botones-user {
+		flex-direction: column;
+	}
+
+	#override .botones-user form, #override .botones-user .btn-group {
+		width: 100%;
+	}
 }
 
 /*************************************************************/
@@ -471,6 +509,12 @@ td{
 	position: absolute;
 	top: 50px;
 	right: 5px;
+}
+
+#override .btn-outline-danger:hover {
+	background-color: rgb(63, 0, 0);
+	color: #fff;
+	transition: 100ms ease-in-out all;
 }
 
 
