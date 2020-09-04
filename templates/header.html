@@ -39,7 +39,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse justify-content-between row m-0 p-0" id="collapsibleNavbar">
-			<ul class="navbar-nav col-12 col-md-6 m-0 p-0 flex-wrap">
+			<ul class="navbar-nav col-12 col-md-5 m-0 p-0 flex-wrap">
 				<li class="nav-item">
 					<a class="nav-link enlace" href="/1"><i class="fas fa-bullhorn fa-lg"></i> Publicaciones</a>
 				</li>
@@ -56,25 +56,27 @@
 			
 
 				{% if session['logged_in'] %}
-			<div class="col-12 col-md-6 row m-0 p-0">
+			<div class="col-12 col-md-7 row m-0 p-0">
 				<form action="/search" method="post" class="col-12 col-lg-9 d-flex m-0 p-0 px-1">
 
 					<!-- para seleccionar la busqueda -->
-					<select class="custom-select select-busqueda" name="opc" title="Tipo de búsqueda" id="exampleFormControlSelect1">
-						<option value =Todo> Todo </option>
-						<option>Publicaciones</option>
-						<option>Personajes</option>
+					<select class="selectpicker show-tick" data-width="30px" data-style="btn-dark select-busqueda" name="opc" title="Tipo de búsqueda" id="exampleFormControlSelect1">
+						<option value =Todo selected title="Buscar Todo">Todo</option>
+						<option title="Buscar personajes">Publicaciones</option>
+						<option title="Buscar publicaciones">Personajes</option>
 					</select>
-					<input type="text" class="form-control busqueda" name="buscar" placeholder="Buscar...">
+					
+					<input type="text" class="form-control busqueda" style="border-radius: 0;" name="buscar" placeholder="Buscar...">
 
 					<div class="input-group-append">
 						<button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
+						
 					</div>
 				</form>
 
 				<div class="btn-group btn-user col-12 col-lg-3 m-0 p-0 px-1 h-75">
 					<button type="button" class="btn btn-dark dropdown-toggle px-2 " data-toggle="dropdown">
-						<img style="border-radius: 10px;" height="15px" src="static/img/foto_{{ session['name'] }}.jpg"
+						<img src="static/img/foto_{{ session['name'] }}.jpg"
 							alt="">
 						{{ session['name'] }}
 					</button>
@@ -92,22 +94,22 @@
 			</div>
 
 			{% else %}
-			<div class="botones-user col-12 col-md-6 row m-0 p-0">
-				<form action="/search" method="post" class=" position-relative d-flex m-0 p-0 px-1">
+			<div class="botones-user col-12 col-md-7 row m-0 p-0">
+				<form action="/search" method="post" class=" position-relative col-12 col-lg-10 d-flex m-0 p-0 px-1">
 					<!-- para seleccionar la busqueda -->
-					<select class="custom-select select-busqueda" name="opc" title="Tipo de búsqueda" id="exampleFormControlSelect1">
-						<option value =Todo> Todo </option>
-						<option>Publicaciones</option>
-						<option>Personajes</option>
+					<select class="selectpicker show-tick" data-width="30px" data-style="btn-dark select-busqueda" name="opc" title="Tipo de búsqueda" id="exampleFormControlSelect1">
+						<option value =Todo selected title="Buscar Todo">Todo</option>
+						<option title="Buscar personajes">Publicaciones</option>
+						<option title="Buscar publicaciones">Personajes</option>
 					</select>
-					<input type="text" class="form-control busqueda" name="buscar" placeholder="Buscar...">
+					<input type="text" class="form-control busqueda" style="border-radius: 0;" name="buscar" placeholder="Buscar...">
 					<div class="input-group-append">
 						<button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
 					</div>
 				</form>
-				<div class="btn-group m-0 p-0 px-1">
-					<a href="login" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt mr-2"></i>Acceder</a>
-					<a href="sign-up" class="btn btn-outline-dark"><i class="fas fa-user mr-2"></i>Registrarse</a>
+				<div class="btn-group col-12 col-lg-2 m-0 p-0 px-1">
+					<a href="login" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="bottom" title="Acceder"><i class="fas fa-sign-in-alt mr-2"></i></a>
+					<a href="sign-up" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="bottom" title="Registrarse"><i class="fas fa-user mr-2"></i></a>
 				</div>
 			</div>
 				

@@ -33,6 +33,12 @@ body {
 	font-size: 0.9;
 }
 
+#override .btn-user img {
+	height: 20px;
+	border-radius: 15px;
+	object-fit: cover;
+}
+
 .enlace {
 	font-family: Arvo, serif;
 }
@@ -84,14 +90,8 @@ body {
 }
 
 #override .select-busqueda {
-	color: rgb(107, 107, 107);
-	font-size: 0.8em;
-	height: 34px;
-	padding: 5px 2px;
-	width: 100px;
-	position: absolute;
-	right: 48px;
-	top: 2px;
+	border-radius: 4px 0 0 4px;
+	padding: 6px 8px;
 }
 
 #override .busqueda {
@@ -105,7 +105,7 @@ body {
 }
 
 #override .botones-user form, #override .botones-user .btn-group {
-	width: 50%;
+	width: auto;
 }
 
 
@@ -118,14 +118,8 @@ body {
 	transition: 100ms ease-in-out all;
 }
 
-@media screen and (max-width: 1330px) {
-	#override .botones-user {
-		flex-direction: column;
-	}
-
-	#override .botones-user form, #override .botones-user .btn-group {
-		width: 100%;
-	}
+@media screen and (max-width: 920px) {
+	
 }
 
 /*************************************************************/
