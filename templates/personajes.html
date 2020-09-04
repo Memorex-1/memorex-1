@@ -4,6 +4,7 @@
 
 <div class="container-fluid container-md lista-persos bg-white main shadow-lg">
     <!--Colapsable en personajes-->
+    {% if session['logged_in'] %}
     <div class="container">
         <div class="collapse" id="demo1">
     <div class="form-group">
@@ -40,6 +41,7 @@
                 aria-expanded="false" aria-controls="demo1" title="Crear Personaje"><i class="fa fa-lg" aria-hidden="true"></i></button>
         </div>
     </div>
+    {% endif %}
     <!--Fin Colapsable en personajes-->
     <div class="row mt-0">
         {% for task1 in tasks1 %}
@@ -48,6 +50,7 @@
             <div class="card">
                 <div class="card-header">{{task1.nombre}}
                     <!--Botones de Reportar y modificar-->
+                    {% if session['logged_in'] %}
                     <div class="btn-group botones-header-perso">
                         <button type="button" class="btn btn-outline-dark boton-perso-header" data-toggle="modal" 
                             data-target="#myModal-Modificar" title="Modificar Personaje"><i class="fa fa-pen"></i><span class="sr-only">Modificar</span>
@@ -56,6 +59,7 @@
                             data-target="#myModal-Reportar" title="Reportar Personaje"><i class="far fa-flag"></i><span class="sr-only">Reportar</span>
                         </button>
                     </div>
+                    {% endif %}
                     <!--Fin Botones de Reportar y modificar-->
                 </div>
                 <img style="height: 300px;" class="card-img-top"
