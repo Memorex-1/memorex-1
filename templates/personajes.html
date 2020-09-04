@@ -50,16 +50,14 @@
             <div class="card">
                 <div class="card-header">{{task1.nombre}}
                     <!--Botones de Reportar y modificar-->
-                    <button type="button" class="btn btn-outline-dark" data-toggle="modal" 
-                        data-target="#myModal-Modificar"><i class="fa fa-pen" data-toggle="tooltip" data-placement="top" 
-                        title="Modificar" style="color: rgb(256, 0, 0);" aria-hidden="true" 
-                        data-original-title="Modificar"></i><span class="sr-only">Modificar</span>
-                    </button>
-                    <button type="button" class="btn btn-outline-dark" data-toggle="modal" 
-                        data-target="#myModal-Reportar"><i class="far fa-flag" data-toggle="tooltip" data-placement="top" 
-                        title="Reportar" style="color: rgb(256, 0, 0);" aria-hidden="true" 
-                        data-original-title="Reportar"></i><span class="sr-only">Reportar</span>
-                    </button>
+                    <div class="btn-group botones-header-perso">
+                        <button type="button" class="btn btn-outline-dark boton-perso-header" data-toggle="modal" 
+                            data-target="#myModal-Modificar" title="Modificar Personaje"><i class="fa fa-pen"></i><span class="sr-only">Modificar</span>
+                        </button>
+                        <button type="button" class="btn btn-outline-dark boton-perso-header" data-toggle="modal" 
+                            data-target="#myModal-Reportar" title="Reportar Personaje"><i class="far fa-flag"></i><span class="sr-only">Reportar</span>
+                        </button>
+                    </div>
                     <!--Fin Botones de Reportar y modificar-->
                 </div>
                 <img style="height: 300px;" class="card-img-top"
@@ -166,16 +164,16 @@
     	<!--paginacion-->
 		<ul class=" pagination pagination-sm justify-content-end py-3">
             {% if prev_url %}
-			<li class="page-item"><a class="page-link btn" href="{{prev_url }}"><i class="fas fa-chevron-left"></i></a></li>
+			<li class="page-item"><a class="page-link btn" href="{{prev_url }}" title="Anterior"><i class="fas fa-chevron-left"></i></a></li>
 			{% else %}
-        	<li class="page-item"><a class="page-link btn disabled" href="#"><i class="fas fa-chevron-left"></i></a></li>
+        	<li class="page-item"><a class="page-link btn disabled" href="#" title="Anterior"><i class="fas fa-chevron-left"></i></a></li>
 			{% endif %}
             {%for page in paginacion.iter_pages() %}
-			<li class="page-item"><a class="page-link btn" href="/personajes/{{page}}">{{page}}</a></li>
+			<li class="page-item"><a class="page-link btn" href="/personajes/{{page}}" title="{{page}}">{{page}}</a></li>
 			{% endfor %}
 
 			{% if next_url %}
-			<li class="page-item"><a class="page-link btn" href="{{ next_url }}"><i class="fas fa-chevron-right"></i></a></li>
+			<li class="page-item"><a class="page-link btn" href="{{ next_url }}" title="Siguiente"><i class="fas fa-chevron-right"></i></a></li>
 
 			{% endif %}
 		</ul>

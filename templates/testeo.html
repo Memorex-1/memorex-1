@@ -76,20 +76,20 @@
                 </div>
             </div>
         </div>
+    
 
         {% endfor %}
+    </div>
         {%endif%}
         {%if opcion == 'Todo' or opcion == 'Publicaciones' or opcion == 'comun'%}
+        <hr>
+        <div class="titulo-busqueda">
+            <label for="inputsm">Publicaciones encontradas</label>
+        </div>
         {% for task in publis | reverse %}
         <!-- esto es para encontrar solo las pubicaciones pero todavia no esta 
         conectado en la base de datos -->
         <div class="publicacion">
-            <hr>
-            <div class="titulo-busqueda">
-
-                <label for="inputsm">Publicaciones encontradas</label>
-            </div>
-           
             <div>
                 <img src="/static/img/foto_{{task.username}}.jpg" alt="" class="img-usuario rounded-circle">
                 <span class="username-publi pl-2"> {{task.username}}</span>

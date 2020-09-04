@@ -1,7 +1,12 @@
+html {
+	height: 100%;
+}
 
 body {
 	margin: 0;
+	min-height: 100%;
 	background-color: #eee;
+	position: relative;
 }/*se esta bloqueando para la imagen*/
 /*para la imagen */
 #avatar{
@@ -67,6 +72,22 @@ body {
 	#override .carousel img {
 		height: 300px;
 	}
+}
+
+#override .select-busqueda {
+	color: rgb(107, 107, 107);
+	font-size: 0.8em;
+	height: 34px;
+	padding: 5px 2px;
+	width: 100px;
+	position: absolute;
+	right: 48px;
+	top: 2px;
+}
+
+#override .busqueda {
+	border: 1px solid rgb(102, 102, 102);
+	border-radius: 5px 0 0 5px;
 }
 
 /*************************************************************/
@@ -441,6 +462,17 @@ td{
 	font-weight: bold;
 }
 
+#override .boton-perso-header {
+	color: rgb(255, 255, 255);
+	font-size: 0.9em;
+}
+
+#override .botones-header-perso {
+	position: absolute;
+	top: 50px;
+	right: 5px;
+}
+
 
 /*TESTEO*********************************/
 
@@ -597,9 +629,13 @@ td{
 
 /*FOOTER***************************/
 
+body::after{ content:''; display:block; height:80px; }
+
 footer {
 	font-family: Rubik, sans-serif;
 	height: 80px;
+	position: absolute;
+	bottom: 0;
 	width: 100%;
 	background-color: rgb(7, 7, 7);
 	color: #fff;
