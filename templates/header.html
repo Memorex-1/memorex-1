@@ -81,13 +81,13 @@
 						{{ session['name'] }}
 					</button>
 					<div class="dropdown-menu">
-						<a class="dropdown-item px-3" href="editor-usuario"><i class="fas fa-user mr-2"></i>Mi
+						<a class="dropdown-item px-3" href="http://localhost:5000/editor-usuario"><i class="fas fa-user mr-2"></i>Mi
 							Cuenta</a>
 						{% if session['mod'] %}
-						<a class="dropdown-item px-3" href="admin-reportes"><i
+						<a class="dropdown-item px-3" href="http://localhost:5000/admin-reportes"><i
 								class="fas fa-cog mr-2"></i>Administrar</a>
 						{% endif %}
-						<a class="dropdown-item px-3" href="salir"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar
+						<a class="dropdown-item px-3" href="http://localhost:5000/salir"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar
 							Sesión</a>
 					</div>
 				</div>
