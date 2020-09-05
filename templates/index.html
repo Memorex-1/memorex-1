@@ -119,6 +119,10 @@
 					<i class="far fa-flag" data-toggle="tooltip" data-placement="top" title="Reportar"
 						style="color: rgb(168, 0, 0);"></i>
 				</button>
+				<button type="button" class="btn btn-outline-danger float-right" data-toggle="modal" 
+					data-target="#myModal-Eliminar{{task.id}}" title="Eliminar Personaje">
+					<i class="far fa-trash-alt"></i>
+				</button>
 			</div>
 			<div class="container">
 				<!-- Modal Reporte-->
@@ -173,6 +177,29 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- The Modal Eliminar Personaje-->
+			<div class="modal fade" id="myModal-Eliminar{{task.id}}">
+				<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+				
+					<!-- Modal Header Modificar personaje-->
+					<div class="modal-header">
+					<h4 class="modal-title">¿Está seguro que desea eliminar el personaje?</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					
+					<!-- Modal body Modificar personaje-->
+					<div class="modal-body">
+						<form action="" class="crear-perso d-flex justify-content-around" method="POST" enctype="multipart/form-data">
+							<button type="submit" class="btn btn-dark">Cancelar</button>
+							<button type="submit" class="btn btn-outline-danger">Eliminar</button>
+						</form>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!-- Fin The Modal Modificar personaje-->
 
 			<div class="row m-0 p-0">
 				<div class="col-8 m-0 p-0" style="color: #000;">
