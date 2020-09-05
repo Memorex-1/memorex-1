@@ -281,11 +281,21 @@ def referenica():
     task.informacion = request.form['descripcion']+" "
     db.session.commit()
     return redirect(url_for('editor'))
-
 @app.route('/admin-reportes', methods = ['POST','GET'])
 def adminReportes():
     reportedPost = publicaciones.query.filter(publicaciones.reportado)
     return render_template('admin-reportes.html', reportedPosts = reportedPost)
+@app.route('/eliminar/<nombre>', methods = ['POST'])
+def eliminarPerso(nombre):
+    task =  personajes.query.filter_by(nombre = nombre).all()
+    task1 = publicaciones.query.filter_by(personaje = nombre).all()
+    for o in task:
+        db.session.delete(o)
+    for o in task1:
+        db2.session.delete(o)
+    db.session.commit()
+    db2.session.commit()
+    return redirect(url_for('index'))
 
 if __name__=='__main__':
     app.run(debug=True, port=5000)
