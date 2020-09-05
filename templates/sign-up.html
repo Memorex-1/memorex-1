@@ -37,9 +37,9 @@
                 </div>
                 
                 <div class="grupo">
-                    <input class="form-control" type="password" id="password" name="password" required maxlength="25"><span class="barra "></span>
+                    <input class="form-control" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="password" name="password" required maxlength="25"><span class="barra "></span>
                     <label for ="password"> Contraseña</label>
-                    <div class="invalid-feedback">Por favor, rellene este campo.</div>
+                    <div class="invalid-feedback">La contraseña es inválida o no ha rellenado el campo.</div>
                 </div>
     
                 <div class="terminos">
