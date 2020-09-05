@@ -114,6 +114,8 @@
 			<div>
 				<img src="/static/img/foto_{{task.username}}.jpg" alt="" class="img-usuario rounded-circle">
 				<span class="username-publi pl-2"> {{task.username}}</span>
+				
+				{% if session['logged_in'] %}
 				<button type="button" data-toggle="modal" data-target="#modalReporte{{task.id}}"
 					class="btn float-right">
 					<i class="far fa-flag" data-toggle="tooltip" data-placement="top" title="Reportar"
@@ -123,6 +125,8 @@
 					data-target="#myModal-Eliminar{{task.id}}" title="Eliminar Personaje">
 					<i class="far fa-trash-alt"></i>
 				</button>
+				{% endif %}
+
 			</div>
 			<div class="container">
 				<!-- Modal Reporte-->
@@ -183,13 +187,13 @@
 				<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 				
-					<!-- Modal Header Modificar personaje-->
+					
 					<div class="modal-header">
-					<h4 class="modal-title">¿Está seguro que desea eliminar el personaje?</h4>
+					<h4 class="modal-title">¿Está seguro que desea eliminar la publicación?</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					
-					<!-- Modal body Modificar personaje-->
+					
 					<div class="modal-body">
 						<form action="" class="crear-perso d-flex justify-content-around" method="POST" enctype="multipart/form-data">
 							<button type="submit" class="btn btn-dark">Cancelar</button>
@@ -199,7 +203,7 @@
 				</div>
 				</div>
 			</div>
-			<!-- Fin The Modal Modificar personaje-->
+			<!-- Fin The Modal Eliminar personaje-->
 
 			<div class="row m-0 p-0">
 				<div class="col-8 m-0 p-0" style="color: #000;">
@@ -239,53 +243,35 @@
 				<br>
 				<!---->
 
-				<button type="button" class="btn btn-dark mb-2" data-toggle="collapse"
-					data-target="#comments{{task.id}}">Comentarios <i class="far fa-comments fa-lg"
-						style="color: rgb(226, 226, 226);"></i></button>
-				<div id="comments{{task.id}}" class="collapse">
-					<h3 id="reply-title" class="comment-reply-title">Dejar comentario <small><a rel="nofollow"
-								id="cancel-comment-reply-link" href="/2011/08/28/facebook-comment-plugin/#respond"
-								style="display:none;">Cancelar respuesta</a></small></h3>
-					<form action="" method="post" id="commentform" class="comment-form" novalidate>
-						<div class="clearfix"></div>
-						<div class="comment-form-input-wrap td-form-comment">
-							<textarea placeholder="Comentario:" id="comment" class="form-control" name="comment"
-								cols="45" rows="8" aria-required="true"></textarea>
-						</div>
-						
-						<br>
-						<a href="" class="btn btn-outline-dark">Publicar comentario</a>
-						<br>
-						<input type='hidden' name='comment_post_ID' value='3584' id='comment_post_ID' />
-						<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
-						<p style="display: none;">
-							<input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce"
-								value="190a14062b" />
-						</p>
-						<p style="display: none;">
-							<input type="hidden" id="ak_js" name="ak_js" value="83" /></p>
-						<br>
+				<button type="button" class="btn btn-dark mb-2 collapsed" data-toggle="collapse"
+                    data-target="#comments{{task.id}}" aria-expanded="false">Comentarios <i class="far fa-comments fa-lg"
+                        style="color: rgb(226, 226, 226);" aria-hidden="true"></i></button>
+                <div id="comments{{task.id}}" class="collapse" >
+                    
+                    <form action="" method="" id="commentform" class="comment-form" novalidate="">
+                        <div class="comment-form-input-wrap td-form-comment">
+                            <textarea placeholder="Escriba su comentario..." id="comment" class="form-control" name="comment"
+                                 rows="3" maxlength="400" required></textarea>
+                        </div>
+            
+                        <br>
+                        <button type="submit" class="btn btn-outline-dark">Publicar comentario</button>
+                        <br>
 
-						<div class="media">
-							<div class="media-left media-top">
-								<img src="../static/img/CerebroMemorex.jpg" class="media-object" style="width:80px">
-							</div>
-							<div class="media-body">
-								<span class="username-publi pl-2"> Jhon Marco Salcedo Alfaro</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="media">
+                            <div class="media-left media-top">
+                                <img src="../static/img/CerebroMemorex.jpg" class="media-object" style="width:80px">
+                            </div>
+                            <div class="media-body">
+                                <span class="username-publi pl-2"> Jhon Marco Salcedo Alfaro</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                        <br>
+                    </form>
 
-							</div>
-						</div>
-						<br>
-					</form>
-
-					<!--
-						<div class="fb-comments" data-href="http://127.0.0.1:5000/index" data-numposts="1"
-						data-width="100%">
-					</div>
-				-->
-				</div>
+                </div>
 
 
 

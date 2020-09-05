@@ -190,88 +190,19 @@
                 <!---->
 
                 <button type="button" class="btn btn-dark mb-2 collapsed" data-toggle="collapse"
-                    data-target="#comments5" aria-expanded="false">Comentarios <i class="far fa-comments fa-lg"
+                    data-target="#comments{{task.id}}" aria-expanded="false">Comentarios <i class="far fa-comments fa-lg"
                         style="color: rgb(226, 226, 226);" aria-hidden="true"></i></button>
-                <div id="comments5" class="collapse" style="">
-                    <h3 id="reply-title" class="comment-reply-title">Dejar comentario <small><a rel="nofollow"
-                                id="cancel-comment-reply-link" href="/2011/08/28/facebook-comment-plugin/#respond"
-                                style="display:none;">Cancelar respuesta</a></small></h3>
-                    <form action="" method="post" id="commentform" class="comment-form" novalidate="">
-                        <div class="clearfix"></div>
-                        <div class="comment-form-input-wrap td-form-comment">
-                            <textarea placeholder="Comentario:" id="comment" class="form-control" name="comment"
-                                cols="45" rows="8" aria-required="true"></textarea>
-                            <!-- 
-                                        <br>
-                                    <br>
-                                    -->
-                        </div>
-                        <!-- 
-                                <div class="comment-form-input-wrap td-form-author">
-                                    <input class="form-control" id="author" name="author" placeholder="Nombre:*" type="text"
-                                        value="" size="30" aria-required='true' />
-                                    <br>
-                                    <br>
-                                </div>
-                                <div class="comment-form-input-wrap td-form-email">
-                                    <input class="form-control" id="email" name="email" placeholder="Correo electrónico:*"
-                                        type="text" value="" size="30" aria-required='true' />
-                                    <br>
-                                </div>
-        
-        
-                            
-        
-                                <style type="text/css">
-                                    #gdpr-comments-compliance>div {
-                                        
+                <div id="comments{{task.id}}" class="collapse" >
                     
-                                        /*margin: 1rem 0;*/
-                                        
-                                        margin: 0.3rem 0;
-                                    }
-        
-                                    #gdpr-comments-checkbox-wrap {
-                                        display: flex;
-                                        align-items: baseline;
-                                    }
-        
-                                    #gdpr-comments-checkbox+label {
-                                        display: inline;
-                                        margin: 0;
-                                    }
-        
-                                    #gdpr-comments-compliance-text {
-                                        font-size: .8em;
-                                    }
-                                </style>
-        
-                                -->
-
-                        <div id="gdpr-comments-compliance">
-                            <div id="gdpr-comments-checkbox-wrap">
-                                <!--
-                                        <input id="gdpr-comments-checkbox" type="checkbox" name="gdpr_comments_checkbox"
-                                            value="1" required="required" />
-                                    
-                                            <label for="gdpr-comments-checkbox">He leído la <a href="">política de privacidad</a> y
-                                            acepto que se almacenen mis datos para recibir respuestas por correo
-                                            electrónico.</label>
-                                        -->
-
-                            </div>
+                    <form action="" method="" id="commentform" class="comment-form" novalidate="">
+                        <div class="comment-form-input-wrap td-form-comment">
+                            <textarea placeholder="Escriba su comentario..." id="comment" class="form-control" name="comment"
+                            rows="3" maxlength="400" required></textarea>
+          
                         </div>
+                
                         <br>
-                        <a href="" class="btn btn-outline-dark">Publicar comentario</a>
-                        <br>
-                        <input type="hidden" name="comment_post_ID" value="3584" id="comment_post_ID">
-                        <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-                        <p style="display: none;">
-                            <input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce"
-                                value="190a14062b">
-                        </p>
-                        <p style="display: none;">
-                            <input type="hidden" id="ak_js" name="ak_js" value="83"></p>
+                        <button type="submit" class="btn btn-outline-dark">Publicar comentario</button>
                         <br>
 
                         <div class="media">
@@ -288,11 +219,6 @@
                         <br>
                     </form>
 
-                    <!--
-                                <div class="fb-comments" data-href="http://127.0.0.1:5000/index" data-numposts="1"
-                                data-width="100%">
-                            </div>
-                        -->
                 </div>
 
 
