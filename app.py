@@ -211,6 +211,29 @@ def creaPersonaje():
         db.session.add(task)
         db.session.commit()
     return redirect(url_for('index'))
+@app.route('/crear/<nombre>', methods = ['POST'])
+def editaPersonaje(nombre):
+    task =  personajes.query.filter_by(nombre = nombre).first()
+    task1 = publicaciones.query.filter_by(personaje = nombre)
+    if(request.form['personaje']!=''):
+        task.nombre = request.form['personaje']
+        task1.personaje = request.form['personaje']
+    if(request.form['descripcion']!=''):
+        task.informacion =  request.form['descripcion']
+    if(request.form['partido']!=''):
+        task.partido =  request.form['partido']
+    arch = request.files['imagen-personaje']
+    #si el usuar
+    if(arch.filename!=""):
+        foto = request.files['imagen-personaje']
+        f = foto.read()
+        with open('static/img/foto_{}.jpg'.format(task.nombre), 'wb') as archivo:
+            archivo.write(f)
+            task.foto = f 
+            task1.foto = f
+    db.session.commit()
+    db2.session.commit()
+    return redirect(url_for('index'))
 
 @app.route('/crearPublicacion', methods = ['POST'])
 def newPost():
