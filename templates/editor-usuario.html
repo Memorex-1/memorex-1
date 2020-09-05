@@ -10,8 +10,7 @@
 				<h3>
 					Bienvenido
 					{{ tasks.nombre }}
-				</h3><!--
-				<h3>BIENVENIDO ADMINISTRADOR</h3>agregado class y style por ahora no class="rounded-circle" height="23px" width="23px"-->
+				</h3>
 				<br>
 				{%if(tasks.foto==None)%}
 					<img src="{{url_for('static', filename='img/LogoAdmin.jpg')}}" id="avatar" width="200" height="200">
@@ -28,8 +27,7 @@
 							<td>Datos</td>
 						</table>
 					</h3>
-					<!--
-					<h3>Datos de Administrador</h3><br>-->
+
 				<table>
 					<tr>
 						<td>Nombre:</td>
@@ -48,12 +46,6 @@
 						<td>{{tasks.telefono}} </td>
 					</tr>
 				</table>
-				<!--
-					<h3>Datos de Administrador</h3><br>
-					<li>Nombre: </li><br>
-					<li>Apellido: </li><br>
-					<li>Correo: </li><br>
-					<li>Teléfono: </li><br>-->
 				</ul>
 			</div><!--bots-->
 		</div>
@@ -65,35 +57,26 @@
 				
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-					  <span class="input-group-text">Nombre</span>
+					  <span class="input-group-text">Nombres:</span>
 					</div>
-					<input type="text" id="nombre" name = "nombre" class="form-control">
+					<input type="text" id="nombre" name = "nombre" class="form-control" maxlength="40" value="{{ session['name'] }}" placeholder="Nuevo Nombre...">
 				</div>
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-					  <span class="input-group-text">Apellido</span>
+					  <span class="input-group-text">Apellidos:</span>
 					</div>
-					<input type="text"id="apellido" name = "apellido" class="form-control">
+					<input type="text"id="apellido" name = "apellido" class="form-control" maxlength="40" value="{{tasks.apellido}}" placeholder="Nuevo Apellido...">
 				</div>
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-					  <span class="input-group-text">Teléfono</span>
+					  <span class="input-group-text">Teléfono:</span>
 					</div>
-					<input type="text" id="telf" name = "telf"class="form-control">
+					<input type="tel" id="telf" name = "telf" class="form-control" value="{{tasks.telefono}}" maxlength="12" placeholder="Teléfono...">
 				</div>
 				<div class="custom-file mb-3">
 					<input type="file" class="custom-file-input" id="user-img" name="imagen-usuario">
 					<label class="custom-file-label" for="user-img">Suba nueva imagen de usuario</label>
 				</div>
-				<!--
-				<label for = "nombre">Nombre: </label>
-				<input type="text" name="nombre" ><br><br>
-				<label for = "apellido">Apellido: </label>
-				<input type="text" name="apellido" ><br><br>
-				<label for = "correo">Correo: </label>
-				<input type="email" name="email" ><br><br>
-				<label for = "telefono">Teléfono: </label>
-				<input type="telefono" name="telefono" ><br><br>-->
 				<button type="submit" id="CambiarDatos" class="btn btn-dark float-right">Cambiar Datos</button><br><br><!--boton cambiar datos-->
 			</form>
 		</div>

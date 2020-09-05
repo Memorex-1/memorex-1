@@ -11,20 +11,20 @@
             
             <div class="row m-0 p-0">
                 <div class="col-md-6 my-2 p-0 pr-2">
-                    <input type="text" id="perso-name" name = "personaje" placeholder="Nombre del personaje" class="form-control">
+                    <input type="text" id="perso-name" name = "personaje" placeholder="Nombre del personaje" maxlength="100"class="form-control" required>
                 </div>
                 <div class="col-md-6 my-2 p-0 pr-2">
-                    <input type="text" id="perso-org" name = "partido" placeholder="Organización Política" class="form-control">
+                    <input type="text" id="perso-org" name = "partido" placeholder="Organización Política" maxlength="80" class="form-control" required>
                 </div>
             </div>
             <div class="custom-file mb-3">
-                <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje">
+                <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje" required>
                 <label class="custom-file-label" for="perso-img">Suba una imagen de su personaje</label>
             </div>
         </div>
         <div class="form-group">
             <label for="perso-desc">Descripción:</label>
-            <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
+            <textarea class="form-control" name="descripcion" id="perso-desc" maxlength="1000" required></textarea>
         </div>
         <button type="submit" class="btn btn-outline-dark">Crear Personaje</button>
     </form>

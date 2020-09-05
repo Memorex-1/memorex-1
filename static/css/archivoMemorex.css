@@ -675,6 +675,11 @@ td{
 	padding-bottom: 10px;
 }
 
+.editar-usuario .input-group-text {
+	background-color: #333;
+	color: #ddd;
+}
+
 
 /*FOOTER***************************/
 
