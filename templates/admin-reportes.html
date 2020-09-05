@@ -3,14 +3,32 @@
 {% block content %}
 <div class="admin-rep-container container-fluid container-md shadow-lg bg-light">
     <div class="header-seccion shadow">
-        <h1>Administrar Reportes</h1>
+        <h1>Gestionar</h1>
     </div>
     <main>
-		<h2>Publicaciones reportadas</h2>
-    
-        {% for post in reportedPosts %}
-        <div class="publicacion p-reportado">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link btn-outline-dark active" data-toggle="tab" href="#publis">Publicaciones Reportadas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-outline-danger" data-toggle="tab" href="#persos">Personajes Reportados</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-outline-success" data-toggle="tab" href="#admin">Admins y Moderadores</a>
+            </li>
+        </ul>
+          
+          <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane container active" id="publis">
+                <h2>Publicaciones reportadas</h2>
             
+            {% for post in reportedPosts %}
+        <div class="publicacion p-reportado">
+                    
+                
+
+
             <div class="row m-0 p-0">
                 <div class="col-7">
                     Usuario: 
@@ -26,50 +44,73 @@
                     </form>
                     </div>
                 </div>
-            </div>
-            
-			<div class="" >
-				
-					<h3 style="font-family: 'Roboto Slab';">{{ post.titulo }}</h3>
+
+                    
+                    <div class="" >
                         
-                    <div>
-                        <span class="fecha-lbl">
-                            Fecha de publicación: <span class="fecha-publi">{{ post.fecha }}</span>
-                        </span>
+                            <h3 style="font-family: 'Roboto Slab';">{{ post.titulo }}</h3>
+                                
+                            <div>
+                                <span class="fecha-lbl">
+                                    Fecha de publicación: <span class="fecha-publi">{{ post.fecha }}</span>
+                                </span>
+                            </div>
+                    
+                        
+                            <div class="pr-perso" >
+                                <span>Personaje: </span>
+                                <span class="nombre-perso pl-2" style="color: rgb(145, 0, 0); font-weight: 700;">
+                                    {{ post.personaje }}
+                                </span>
+                            </div>
+                        
+
                     </div>
-			
-				
-                    <div class="pr-perso" >
-                        <span>Personaje: </span>
-						<span class="nombre-perso pl-2" style="color: rgb(145, 0, 0); font-weight: 700;">
-							{{ post.personaje }}
-						</span>
-					</div>
-				
-
-			</div>
 
 
-			<div class="media m-0 p-0" style="align-items: center;">
-				<div class="media-body publi-body-col1">
+                    <div class="media m-0 p-0" style="align-items: center;">
+                        <div class="media-body publi-body-col1">
 
-					<div class="info-publi">
-						{{ post.contenido }} 
-					</div>
-				</div>
+                            <div class="info-publi">
+                                {{ post.contenido }} 
+                            </div>
+                        </div>
 
 
-			</div>
-			<div class="fuente-publi m-0 p-0 mb-3">
-				<div class="col-12 p-0">
-					<span class="fuentes-lbl">Fuente(s):</span>
-					<a href="">{{ post.fuente }}
-                    </a>
-				</div>
-				<br>
-			</div>
+                    </div>
+                    <div class="fuente-publi m-0 p-0 mb-3">
+                        <div class="col-12 p-0">
+                            <span class="fuentes-lbl">Fuente(s):</span>
+                            <a href="">{{ post.fuente }}
+                            </a>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            </div>
+            <div class="tab-pane container fade" id="persos">
+                <h2>Personajes reportados</h2>
+            </div>
+            <div class="tab-pane container fade" id="admin">
+                <h2>Asignar Moderador</h2>
+                <div>
+                    <form class="" action="">
+                        <label for="">Nuevo Moderador: </label>
+                        <select class="selectpicker" data-width="50%" data-size="10" data-live-search="true" data-style="btn-outline-dark" title="Seleccione un usuario.." name="" id="">
+                            <option value="">Usuario1</option>
+                            <option value="">Usuario2</option>
+                            <option value="">Usuario3</option>
+                        </select>
+                        <button type="submit" href="" class="btn btn-outline-danger">Asignar</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
-        {% endfor %}
+
+		
     </main>
 </div>
 

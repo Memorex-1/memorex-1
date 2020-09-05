@@ -63,7 +63,7 @@ body {
 
 .nav-item i {
 	color: rgb(196, 0, 0);
-	font-size: 1.7em;
+	font-size: 1.2em;
 }
 
 .btn-group {
@@ -590,6 +590,7 @@ td{
 	background-color: #111;
 	padding: 10px 20px;
 	border-bottom: 1px solid #fff;
+	margin-bottom: 20px;
 }
 
 .header-seccion h1 {
@@ -612,7 +613,7 @@ td{
 }
 
 .admin-rep-container main  {
-	padding: 0 20px;
+	padding: 0 0;
 }
 
 .admin-rep-container h2 {
@@ -623,7 +624,17 @@ td{
 	text-align: center;
 	background-color: rgb(70, 0, 0);
 	color: #fff;
-	border-radius: 0 0 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.admin-rep-container .nav-tabs {
+	margin-bottom: 20px;
+	border-bottom: 2px solid #aaa;
+	padding: 0 10px;
+}
+
+.admin-rep-container .tab-content {
+	padding: 0 20px;
 }
 
 .p-reportado div{
