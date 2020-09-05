@@ -654,6 +654,75 @@ td{
 	padding-right: 20px;
 }
 
+#override .bg-danger {
+	color: #eee;
+}
+
+.perso-reportado .badge {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 500;
+	position: absolute;
+	top: 55px;
+	left: 10px;
+	font-size: 1em;
+	background-color: rgb(216, 0, 0);
+}
+
+.p-reportado .badge {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 500;
+	font-size: 1em;
+	background-color: rgb(216, 0, 0);
+	padding: 6px 10px;
+	margin: auto 0;
+}
+
+.p-reportado .btn-ign-del form {
+	margin: 0 10px;
+}
+
+.p-reportado .btn-ign-del .btn {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.9em;
+}
+.asign-mod form{
+	display: flex;
+	align-content: center;
+	justify-content: space-around;
+}
+
+.asign-mod {
+	padding: 30px 10px;
+	background-color: rgb(31, 31, 31);
+	color: #eee;
+	margin: 0 20px;
+}
+
+.lista-mods .mod {
+	padding: 20px 10px;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-between;
+}
+
+.lista-mods .mod .badge {
+	font-weight: 500;
+	font-size: 0.9em;
+	height: 25px;
+	padding: auto 10px;
+}
+
+.lista-mods .user-mod {
+	font-weight: 700;
+	color: rgb(201, 0, 0);
+}
+
+.lista-mods .mod .btn {
+	font-size: 0.9em;
+	
+}
+
 /*EDITAR DATOS****************************************/
 
 .editar-usuario ul {
