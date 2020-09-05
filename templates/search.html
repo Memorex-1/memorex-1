@@ -10,9 +10,9 @@
         <label for="inputsm">Personajes encontrados</label>
         {%endif%}
     </div>
-
+    
+    {%if opcion == 'Todo' or opcion == 'Personajes' or opcion == 'comun'%}
     <div class="row mt-0">
-        {%if opcion == 'Todo' or opcion == 'Personajes' or opcion == 'comun'%}
         {% for task in posts | reverse %}
         <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
             <div class="card">
