@@ -19,35 +19,32 @@
         </ul>
           
           <!-- Tab panes -->
-    <div class="tab-content">
-        <div class="tab-pane container active" id="publis">
+        <div class="tab-content">
+            <div class="tab-pane container active" id="publis">
                 <h2>Publicaciones reportadas</h2>
-            
-            {% for post in reportedPosts %}
-        <div class="publicacion p-reportado">
-                    
                 
+                {% for post in reportedPosts %}
+                <div class="publicacion p-reportado">
 
+                    <div class="row m-0 p-0">
+                        <div class="col-7">
+                            Usuario: 
+                            <span class="username-publi pl-2">{{ post.username }}</span>
+                        </div>
+                        <div class="col-5 d-flex justify-content-end">
+                            <div class="btn-group">
+                                <form method="post" action="/report?action=ignore&postType=post&postId={{ post.id }}">
+                                    <button type="submit" class="btn btn-outline-dark">Ignorar</button>
+                                </form>
+                                <form method="post" action="/report?action=delete&postType=post&postId={{ post.id }}">
+                                    <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                                </form>
+                            </div>
+                        </div>
 
-            <div class="row m-0 p-0">
-                <div class="col-7">
-                    Usuario: 
-                    <span class="username-publi pl-2">{{ post.username }}</span>
-                </div>
-                <div class="col-5 d-flex justify-content-end">
-                    <div class="btn-group">
-                    <form method="post" action="/report?action=ignore&postType=post&postId={{ post.id }}">
-                        <button type="submit" class="btn btn-outline-dark">Ignorar</button>
-                    </form>
-                    <form method="post" action="/report?action=delete&postType=post&postId={{ post.id }}">
-                        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
-                    </form>
-                    </div>
-                </div>
-
-                    
-                    <div class="" >
                         
+                        <div class="" >
+                            
                             <h3 style="font-family: 'Roboto Slab';">{{ post.titulo }}</h3>
                                 
                             <div>
@@ -63,35 +60,202 @@
                                     {{ post.personaje }}
                                 </span>
                             </div>
-                        
-
-                    </div>
+                        </div>
 
 
-                    <div class="media m-0 p-0" style="align-items: center;">
-                        <div class="media-body publi-body-col1">
+                        <div class="media m-0 p-0" style="align-items: center;">
+                            <div class="media-body publi-body-col1">
 
-                            <div class="info-publi">
-                                {{ post.contenido }} 
+                                <div class="info-publi">
+                                    {{ post.contenido }} 
+                                </div>
                             </div>
-                        </div>
 
 
-                    </div>
-                    <div class="fuente-publi m-0 p-0 mb-3">
-                        <div class="col-12 p-0">
-                            <span class="fuentes-lbl">Fuente(s):</span>
-                            <a href="">{{ post.fuente }}
-                            </a>
                         </div>
-                        <br>
+                        <div class="fuente-publi m-0 p-0 mb-3">
+                            <div class="col-12 p-0">
+                                <span class="fuentes-lbl">Fuente(s):</span>
+                                <a href="">{{ post.fuente }}
+                                </a>
+                            </div>
+                            <br>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
+            
             </div>
-            </div>
+
             <div class="tab-pane container fade" id="persos">
                 <h2>Personajes reportados</h2>
+                
+                <div class="row mt-0">
+                    
+                    <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
+            
+                        <div class="card">
+                            <div class="card-header">Nombre del perso
+                                <!--Botones de Reportar y modificar-->
+                               
+                                <div class="btn-group botones-header-perso">
+                                    <button type="button" class="btn btn-outline-dark boton-perso-header" data-toggle="modal" 
+                                        data-target="#myModal-Modificar" title="Modificar Personaje"><i class="fa fa-pen"></i><span class="sr-only">Modificar</span>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-danger boton-perso-header" data-toggle="modal" 
+                                    data-target="#myModal-Eliminar" title="Eliminar Personaje">
+                                        <i class="fas fa-user-times"></i>
+                                    </button>
+                                </div>
+                               
+                                <!--Fin Botones de Reportar y modificar-->
+                            </div>
+                            <img style="height: 200px;" class="card-img-top"
+                                src="http://127.0.0.1:5000/static/img/foto_KEIKO FUJIMORI.jpg" alt=""
+                                style="width:100%">
+                            <div class="card-body">
+                                <p class="card-text">Organización Política: </p>
+                                
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal1">Ver más<i class="fas fa-stream pl-2"></i></button>
+                                    <a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="right" title="Ver Publicaciones"><i class="far fa-address-card"></i></a>
+                                </div>
+            
+                                <div class="modal fade" id="myModal1" role="dialog" style="display: none;" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+            
+                                            <div class="modal-body">
+                                                <p>
+                                                </p>
+                                                <div class="container1 ">
+                                                    <div class="content animate_animated  animate_backInDown">
+            
+                                                    </div>
+                                                    <header>
+                                                        <h2 class="title-item">
+                                                            <span class="position"></span>
+                                                            KEIKO FUJIMORI
+                                                        </h2>
+                                                    </header>
+                                                    <section>
+            
+                                                        <div class=" text ">
+                                                            <address>
+                                                                <img style="max-width: 300px;" class="card-img-top"
+                                                                    src="http://127.0.0.1:5000/static/img/foto_KEIKO FUJIMORI.jpg"
+                                                                    alt="">
+            
+                                                            </address>
+                                                            <p class="paragraph">PARTIDO</p>
+                                                            <p class="paragraph">INFO</p>
+                                                        </div>
+                                                        <!--Links en los personajes-->
+                                                        <!-- <table class="table table-borderless">
+                                                            <tbody>
+                                                              <tr>
+                                                                <td>Link1</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>Link2</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>Link3</td>
+                                                              </tr>
+                                                            </tbody>
+                                                          </table> -->
+                                                        <!------------------------------------>
+            
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Cerrar</button>
+            
+                                                        </div>
+                                                    </section>
+                                                </div>
+            
+            
+                                            </div>
+                                        </div>
+            
+            
+            
+                                        <p></p>
+                                    </div>
+            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+            
+                    
+                </div>
+
+                <!-- The Modal Modificar personaje-->
+                <div class="modal fade" id="myModal-Modificar">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                    
+                        <!-- Modal Header Modificar personaje-->
+                        <div class="modal-header">
+                        <h4 class="modal-title">Modificar Personaje</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <!-- Modal body Modificar personaje-->
+                        <div class="modal-body">
+                        <form action="/crear" class="crear-perso" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <div class="row m-0 p-0">
+                                    <div class="col-md-6 my-2 p-0 pr-2">
+                                        <input type="text" id="perso-name" name = "personaje" placeholder="Nombre del personaje" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 my-2 p-0 pr-2">
+                                        <input type="text" id="perso-org" name = "partido" placeholder="Nueva Organización Política" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="custom-file mb-3">
+                                    <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje">
+                                    <label class="custom-file-label" for="perso-img">Suba nueva imagen de su personaje</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="perso-desc">Nueva descripción del personaje:</label>
+                                <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Modificar</button>
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!-- Fin The Modal Modificar personaje-->
+                
+
+                    <!-- The Modal Eliminar Personaje-->
+                <div class="modal fade" id="myModal-Eliminar">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    
+                        <!-- Modal Header Modificar personaje-->
+                        <div class="modal-header">
+                        <h4 class="modal-title">¿Está seguro que desea eliminar el personaje?</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <!-- Modal body Modificar personaje-->
+                        <div class="modal-body">
+                            <form action="" class="crear-perso d-flex justify-content-around" method="POST" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-dark">Cancelar</button>
+                                <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!-- Fin The Modal Modificar personaje-->
+
             </div>
             <div class="tab-pane container fade" id="admin">
                 <h2>Asignar Moderador</h2>

@@ -7,34 +7,34 @@
     {% if session['logged_in'] %}
     <div class="container">
         <div class="collapse" id="demo1">
-    <div class="form-group">
-      <div class="header-seccion shadow">
-        <h1>Crear Personaje</h1>
-      </div>
-      <form action="/crear" class="crear-perso" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="perso-name" class="">Personaje:</label>
-                
-                <div class="row m-0 p-0">
-                    <div class="col-md-6 my-2 p-0 pr-2">
-                        <input type="text" id="perso-name" name = "personaje" placeholder="Nombre del personaje" class="form-control">
-                    </div>
-                    <div class="col-md-6 my-2 p-0 pr-2">
-                        <input type="text" id="perso-org" name = "partido" placeholder="Organización Política" class="form-control">
-                    </div>
+                <div class="header-seccion shadow">
+                    <h1>Crear Personaje</h1>
                 </div>
-                <div class="custom-file mb-3">
-                    <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje">
-                    <label class="custom-file-label" for="perso-img">Suba una imagen de su personaje</label>
-                </div>
+                <form action="/crear" class="crear-perso" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="perso-name" class="">Personaje:</label>
+                        
+                        <div class="row m-0 p-0">
+                            <div class="col-md-6 my-2 p-0 pr-2">
+                                <input type="text" id="perso-name" name = "personaje" placeholder="Nombre del personaje" class="form-control">
+                            </div>
+                            <div class="col-md-6 my-2 p-0 pr-2">
+                                <input type="text" id="perso-org" name = "partido" placeholder="Organización Política" class="form-control">
+                            </div>
+                        </div>
+                        <div class="custom-file mb-3">
+                            <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje">
+                            <label class="custom-file-label" for="perso-img">Suba una imagen de su personaje</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perso-desc">Descripción:</label>
+                        <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-dark">Crear Personaje</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="perso-desc">Descripción:</label>
-                <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
-            </div>
-            <button type="submit" class="btn btn-outline-dark">Crear Personaje</button>
-        </form>
-        </div>
         </div>
         <div class="d-flex align-content-center justify-content-center">
             <button data-toggle="collapse" data-target="#demo1" class="btn btn-outline-dark collapsed px-5"
@@ -53,10 +53,14 @@
                     {% if session['logged_in'] %}
                     <div class="btn-group botones-header-perso">
                         <button type="button" class="btn btn-outline-dark boton-perso-header" data-toggle="modal" 
-                            data-target="#myModal-Modificar" title="Modificar Personaje"><i class="fa fa-pen"></i><span class="sr-only">Modificar</span>
+                            data-target="#myModal-Modificar{{task1.id}}" title="Modificar Personaje"><i class="fa fa-pen"></i><span class="sr-only">Modificar</span>
                         </button>
                         <button type="button" class="btn btn-outline-dark boton-perso-header" data-toggle="modal" 
-                            data-target="#myModal-Reportar" title="Reportar Personaje"><i class="far fa-flag"></i><span class="sr-only">Reportar</span>
+                            data-target="#myModal-Reportar{{task1.id}}" title="Reportar Personaje"><i class="far fa-flag"></i><span class="sr-only">Reportar</span>
+                        </button>
+                        <button type="button" class="btn btn-outline-danger boton-perso-header" data-toggle="modal" 
+                        data-target="#myModal-Eliminar{{task1.id}}" title="Eliminar Personaje">
+                            <i class="fas fa-user-times"></i>
                         </button>
                     </div>
                     {% endif %}
@@ -139,53 +143,11 @@
                 </div>
             </div>
         </div>
-       
-
-        {% endfor %}
-    </div>
 
 
-    <!-- <table class="table">
-        <thead>
-            <th>#</th>
-            <th>Nombre</th>
-            <th>Partido Político</th>
-            <th>Información</th>
-        </thead>
-        <tbody>
-            {% for task1 in tasks1 %}
-            <tr>
-                <td>{{task1.id}}</td>
-                <td>{{task1.nombre}}</td>
-                <td>{{task1.partido}}</td>
-
-                <td>
-                    <a href="personaj/{{task1.id}}">Ver más </a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table> -->
-    	<!--paginacion-->
-		<ul class=" pagination pagination-sm justify-content-end py-3">
-            {% if prev_url %}
-			<li class="page-item"><a class="page-link btn" href="{{prev_url }}" title="Anterior"><i class="fas fa-chevron-left"></i></a></li>
-			{% else %}
-        	<li class="page-item"><a class="page-link btn disabled" href="#" title="Anterior"><i class="fas fa-chevron-left"></i></a></li>
-			{% endif %}
-            {%for page in paginacion.iter_pages() %}
-			<li class="page-item"><a class="page-link btn" href="/personajes/{{page}}" title="{{page}}">{{page}}</a></li>
-			{% endfor %}
-
-			{% if next_url %}
-			<li class="page-item"><a class="page-link btn" href="{{ next_url }}" title="Siguiente"><i class="fas fa-chevron-right"></i></a></li>
-
-			{% endif %}
-		</ul>
-        <!---->
-    <!-- The Modal Modificar personaje-->
-  <div class="modal fade" id="myModal-Modificar">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
+<!-- The Modal Modificar personaje-->
+  <div class="modal fade" id="myModal-Modificar{{task1.id}}">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
       
         <!-- Modal Header Modificar personaje-->
@@ -197,25 +159,25 @@
         <!-- Modal body Modificar personaje-->
         <div class="modal-body">
         <form action="/crear" class="crear-perso" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-            <div class="row m-0 p-0">
-                <div class="col-md-6 my-2 p-0 pr-2">
-                    <input type="text" id="perso-name" name = "personaje" placeholder="Nombre del personaje" class="form-control">
+            <div class="form-group">
+                <div class="row m-0 p-0">
+                    <div class="col-md-6 my-2 p-0 pr-2">
+                        <input type="text" id="perso-name" name = "personaje" placeholder="Nombre del personaje" class="form-control">
+                    </div>
+                    <div class="col-md-6 my-2 p-0 pr-2">
+                        <input type="text" id="perso-org" name = "partido" placeholder="Nueva Organización Política" class="form-control">
+                    </div>
                 </div>
-                <div class="col-md-6 my-2 p-0 pr-2">
-                    <input type="text" id="perso-org" name = "partido" placeholder="Nueva Organización Política" class="form-control">
+                <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje">
+                    <label class="custom-file-label" for="perso-img">Suba nueva imagen de su personaje</label>
                 </div>
             </div>
-            <div class="custom-file mb-3">
-                <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje">
-                <label class="custom-file-label" for="perso-img">Suba nueva imagen de su personaje</label>
+            <div class="form-group">
+                <label for="perso-desc">Nueva descripción del personaje:</label>
+                <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="perso-desc">Nueva descripción del personaje:</label>
-            <textarea class="form-control" name="descripcion" id="perso-desc"></textarea>
-        </div>
-        <button type="submit" class="btn btn-dark">Modificar</button>
+            <button type="submit" class="btn btn-dark">Modificar</button>
         </form>
         </div>
       </div>
@@ -224,7 +186,7 @@
   <!-- Fin The Modal Modificar personaje-->
   
   <!-- The Modal Reportar-->
-  <div class="modal fade" id="myModal-Reportar">
+  <div class="modal fade" id="myModal-Reportar{{task1.id}}">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
       
@@ -270,5 +232,74 @@
     </div>
   </div>
   <!-- Fin The Modal Reportar-->
-</div>
+
+    <!-- The Modal Eliminar Personaje-->
+<div class="modal fade" id="myModal-Eliminar{{task1.id}}">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header Modificar personaje-->
+        <div class="modal-header">
+          <h4 class="modal-title">¿Está seguro que desea eliminar el personaje?</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body Modificar personaje-->
+        <div class="modal-body">
+            <form action="" class="crear-perso d-flex justify-content-around" method="POST" enctype="multipart/form-data">
+                <button type="submit" class="btn btn-dark">Cancelar</button>
+                <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin The Modal Modificar personaje-->
+
+
+       
+
+        {% endfor %}
+    </div>
+
+
+    <!-- <table class="table">
+        <thead>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Partido Político</th>
+            <th>Información</th>
+        </thead>
+        <tbody>
+            {% for task1 in tasks1 %}
+            <tr>
+                <td>{{task1.id}}</td>
+                <td>{{task1.nombre}}</td>
+                <td>{{task1.partido}}</td>
+
+                <td>
+                    <a href="personaj/{{task1.id}}">Ver más </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> -->
+    	<!--paginacion-->
+		<ul class=" pagination pagination-sm justify-content-end py-3">
+            {% if prev_url %}
+			<li class="page-item"><a class="page-link btn" href="{{prev_url }}" title="Anterior"><i class="fas fa-chevron-left"></i></a></li>
+			{% else %}
+        	<li class="page-item"><a class="page-link btn disabled" href="#" title="Anterior"><i class="fas fa-chevron-left"></i></a></li>
+			{% endif %}
+            {%for page in paginacion.iter_pages() %}
+			<li class="page-item"><a class="page-link btn" href="/personajes/{{page}}" title="{{page}}">{{page}}</a></li>
+			{% endfor %}
+
+			{% if next_url %}
+			<li class="page-item"><a class="page-link btn" href="{{ next_url }}" title="Siguiente"><i class="fas fa-chevron-right"></i></a></li>
+
+			{% endif %}
+		</ul>
+        <!---->
+    </div>
 {% endblock %}
