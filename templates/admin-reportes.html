@@ -18,10 +18,10 @@
                 </div>
                 <div class="col-5 d-flex justify-content-end">
                     <div class="btn-group">
-                    <form method="post" action="/ignorar/{{ post.id }}">
+                    <form method="post" action="/report?action=ignore&postType=post&postId={{ post.id }}">
                         <button type="submit" class="btn btn-outline-dark">Ignorar</button>
                     </form>
-                    <form method="post" action="/delete/{{ post.id }}">
+                    <form method="post" action="/report?action=delete&postType=post&postId={{ post.id }}">
                         <button type="submit" class="btn btn-outline-danger">Eliminar</button>
                     </form>
                     </div>
