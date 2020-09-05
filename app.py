@@ -61,22 +61,19 @@ def index(page=1):
             with open('static/img/foto_{}.jpg'.format(task.personaje), 'wb') as f:
                 f.write(foto)
     tasks = publicaciones.query.order_by(publicaciones.id.desc()).paginate(page,2,False)
-    next_url = url_for('index', page=tasks.next_num) \
+    next_url = url_for('index', page = tasks.next_num) \
         if tasks.has_next else None
-    prev_url = url_for('index', page=tasks.prev_num) \
+    prev_url = url_for('index', page = tasks.prev_num) \
         if tasks.has_prev else None
-    return render_template('index.html', tasks = tasks.items, tasks1 = tasks1, next_url=next_url,prev_url=prev_url, paginacion = tasks)
+    return render_template('index.html', tasks = tasks.items, tasks1 = tasks1, next_url = next_url,prev_url = prev_url, paginacion = tasks)
 
 @app.route('/search', methods = ['POST','GET'])
 def search():
-    if 'name' in session:
-        opcion = request.form['opc']
-    else:
-        opcion = 'comun'
+    opcion = request.form['opc']
     textoBuscar = "%"+request.form['buscar']+"%"
     post = personajes.query.filter(personajes.nombre.like(textoBuscar))
     publis = publicaciones.query.filter(publicaciones.personaje.like(textoBuscar))
-    return render_template('testeo.html', posts = post, publis = publis, opcion = opcion)
+    return render_template('search.html', posts = post, publis = publis, opcion = opcion)
 
 @app.route('/reportar/<post_id>', methods = ['POST','GET'])
 def report(post_id):
