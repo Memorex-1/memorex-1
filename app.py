@@ -107,6 +107,14 @@ def report():
     else:
         return '''<script> window.location=document.referrer; </script>'''
 
+@app.route('/postspersonaje', methods = ['POST','GET'])
+def characterPosts():
+    name = request.args.get('name')
+    postId = request.args.get('id')
+    personaje = personajes.query.filter_by(id = postId).first()
+    post = publicaciones.query.filter_by(personaje = name)
+    return render_template('personaj.html', posts = post, personaje = personaje)
+
 @app.route('/login',methods = ['POST','GET'])
 def login():
     if(request.method == "GET"):

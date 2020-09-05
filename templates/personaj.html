@@ -34,8 +34,9 @@
                         <address> 
 
                         </address>
-                        <p class="paragraph"> {{personaje.partido}}  </p>
-                         
+                        {% for post in posts %}
+                        <p class="paragraph"> {{post.contenido}}  </p>
+                        {% endfor %}
                     </div>
 
                 </section> 
