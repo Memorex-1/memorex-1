@@ -19,29 +19,32 @@
         </ul>
           
           <!-- Tab panes -->
-        <div class="tab-content">
-            <div class="tab-pane container active" id="publis">
+    <div class="tab-content">
+        <div class="tab-pane container active" id="publis">
                 <h2>Publicaciones reportadas</h2>
             
-                {% for post in reportedPosts %}
-                <div class="publicacion p-reportado">
+            {% for post in reportedPosts %}
+        <div class="publicacion p-reportado">
                     
-                    <div class="row m-0 p-0">
-                        <div class="col-7">
-                            Usuario: 
-                            <span class="username-publi pl-2">{{ post.username }}</span>
-                        </div>
-                        <div class="col-5 d-flex justify-content-end">
-                            <div class="btn-group">
-                            <form method="post" action="/ignorar/{{ post.id }}">
-                                <button type="submit" class="btn btn-outline-dark">Ignorar</button>
-                            </form>
-                            <form method="post" action="/delete/{{ post.id }}">
-                                <button type="submit" class="btn btn-outline-danger">Eliminar</button>
-                            </form>
-                            </div>
-                        </div>
+                
+
+
+            <div class="row m-0 p-0">
+                <div class="col-7">
+                    Usuario: 
+                    <span class="username-publi pl-2">{{ post.username }}</span>
+                </div>
+                <div class="col-5 d-flex justify-content-end">
+                    <div class="btn-group">
+                    <form method="post" action="/report?action=ignore&postType=post&postId={{ post.id }}">
+                        <button type="submit" class="btn btn-outline-dark">Ignorar</button>
+                    </form>
+                    <form method="post" action="/report?action=delete&postType=post&postId={{ post.id }}">
+                        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                    </form>
                     </div>
+                </div>
+
                     
                     <div class="" >
                         
@@ -85,6 +88,7 @@
                     </div>
                 </div>
                 {% endfor %}
+            </div>
             </div>
             <div class="tab-pane container fade" id="persos">
                 <h2>Personajes reportados</h2>

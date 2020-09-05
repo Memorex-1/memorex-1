@@ -14,10 +14,10 @@
     {%if opcion == 'Todo' or opcion == 'Personajes' or opcion == 'comun'%}
     <div class="row mt-0">
         {% for task in posts | reverse %}
-        <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
+        <div class="col-12 col-sm-4 col-lg-3 text-center mb-2">
             <div class="card">
                 <div class="card-header">{{task.nombre}}</div>
-                <img style="height: 300px;" class="card-img-top" src="static/img/foto_{{task.nombre}}.jpg"
+                <img style="height: 150px;" class="card-img-top" src="static/img/foto_{{task.nombre}}.jpg"
                     alt="{{task.nombre}}" style="width:100%">
                 <div class="card-body">
                     <p class="card-text">Organización Política: {{task.partido}}</p>

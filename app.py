@@ -1,4 +1,4 @@
-from flask import Flask,render_template,redirect,request,url_for,session,flash
+from flask import Flask,render_template,redirect,request,url_for,session,flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
@@ -23,6 +23,7 @@ class personajes(db.Model):
     fuente = db.Column(db.String(50))
     foto = db.Column("foto")
     partido = db.Column(db.String(50))
+    reportado = db.Column(db.Boolean, default = False)
 
 class usuarios(db1.Model):
     __tablename__ = 'login'
@@ -75,26 +76,36 @@ def search():
     publis = publicaciones.query.filter(publicaciones.personaje.like(textoBuscar))
     return render_template('search.html', posts = post, publis = publis, opcion = opcion)
 
-@app.route('/reportar/<post_id>', methods = ['POST','GET'])
-def report(post_id):
-    rPost = publicaciones.query.filter_by(id = post_id).first()
-    rPost.reportado = True
-    db2.session.commit()
-    return redirect(url_for('index'))
-
-@app.route('/ignorar/<post_id>', methods = ['POST','GET'])
-def ignorar(post_id):
-    rPost = publicaciones.query.filter_by(id = post_id).first()
-    rPost.reportado = False
-    db2.session.commit()
-    return redirect(url_for('adminReportes'))
-
-@app.route('/delete/<post_id>', methods = ['POST','GET'])
-def delete(post_id):
-    rPost = publicaciones.query.filter_by(id = post_id).first()
-    db2.session.delete(rPost)
-    db2.session.commit()
-    return redirect(url_for('adminReportes'))
+@app.route('/report', methods = ['POST','GET'])
+def report():
+    action = request.args.get('action')
+    postType = request.args.get('postType')
+    postId = request.args.get('postId')
+    if (postType == 'post'):
+        rPost = publicaciones.query.filter_by(id = postId).first()
+        if (action == 'report'):
+            rPost.reportado = True
+        elif (action == 'ignore'):
+            rPost.reportado = False
+        elif (action == 'delete'):
+            db2.session.delete(rPost)
+        db2.session.commit()
+    else: #Para personaje
+        rCharacter = personajes.query.filter_by(id = postId).first()
+        if (action == 'report'):
+            rCharacter.reportado = True
+        elif (action == 'ignore'):
+            rCharacter.reportado = False
+        elif (action == 'delete'):
+            db.session.delete(rPost)
+        db.session.commit()
+    # return redirect(url_for('index'))
+    if (action == 'report'):
+        return '''
+        <script> window.alert("Publicación reportada"); </script>
+        <script> window.history.back(); </script>'''
+    else:
+        return '''<script> window.location=document.referrer; </script>'''
 
 @app.route('/login',methods = ['POST','GET'])
 def login():
@@ -116,10 +127,6 @@ def login():
                 session['name'] = usuario.nombre      
                 session['rol'] = usuario.rol
                 session['logged_in'] = True
-                if (session['rol'] == 'mod'):
-                    session['mod'] = True
-                else:
-                    session['mod'] = False
                 return redirect(url_for('index'))
     return render_template('login.html')
 
@@ -169,6 +176,7 @@ def registro():
         if 'name' in session:
             return redirect(url_for('editor'))
         return render_template('sign-up.html')
+
     nombre = request.form['name']
     apellido = request.form['apellido']
     correo = request.form['email']
@@ -181,24 +189,23 @@ def registro():
     #registra la sesion 
     session['name'] = nombre
     session['logged_in'] = True
-    #session['firstname'] = apellido
-    #session['email'] = correo
     return render_template('login.html')        
 
 @app.route('/crear', methods = ['POST'])
 def creaPersonaje():
-    foto = request.files['imagen-personaje']
-    f = foto.read()
-    task = personajes(nombre = request.form['personaje'],informacion= request.form['descripcion'], partido = request.form['partido'])
-    with open('static/img/foto_{}.jpg'.format(task.nombre), 'wb') as archivo:
-        archivo.write(f)
-        task.foto = f  
-    db.session.add(task)
-    db.session.commit()
+    if 'name' in session:
+        foto = request.files['imagen-personaje']
+        f = foto.read()
+        task = personajes(nombre = request.form['personaje'],informacion= request.form['descripcion'], partido = request.form['partido'])
+        with open('static/img/foto_{}.jpg'.format(task.nombre), 'wb') as archivo:
+            archivo.write(f)
+            task.foto = f  
+        db.session.add(task)
+        db.session.commit()
     return redirect(url_for('index'))
 
 @app.route('/crearPublicacion', methods = ['POST'])
-def pagina1():
+def newPost():
     if 'name' in session:
         username = session['name']
         personaje = request.form['personaje']
