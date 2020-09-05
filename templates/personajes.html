@@ -74,10 +74,10 @@
                     <!--"personaj/{{task1.id}}" -->
                     <div class="btn-group">
                         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal{{task1.id}}">Ver más<i class="fas fa-stream pl-2"></i></button>
-                        <a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="right" title="Ver Publicaciones"><i class="far fa-address-card"></i></a>
+                        <a href="{{ url_for('characterPosts') }}?name={{ task1.nombre }}&id={{ task1.id }}" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="right" title="Ver Publicaciones"><i class="far fa-address-card"></i></a>
                     </div>
 
-                    <div class="modal fade" id="myModal{{task1.id}}" role="dialog" style="display: none;" aria-hidden="true">
+                    <div class="modal fade" id="myModal{{ task1.id }}" role="dialog" style="display: none;" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
 
