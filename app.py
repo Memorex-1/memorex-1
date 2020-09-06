@@ -89,7 +89,7 @@ def report():
             rPost.reportado = True
             chosenReason = request.form['optradio']
             rPost.reason = chosenReason
-            if (chosenReason == 'Other' & chosenReason != ''):
+            if (chosenReason == 'Other' and chosenReason != ''):
                 rPost.reason = request.form['other_text']
         elif (action == 'ignore'):
             rPost.reportado = False
@@ -102,7 +102,7 @@ def report():
             rCharacter.reportado = True
             chosenReason = request.form['optradio']
             rCharacter.reason = chosenReason
-            if (chosenReason == 'Other' & chosenReason != ''):
+            if (chosenReason == 'Other' and chosenReason != ''):
                 rCharacter.reason = request.form['other_text']
         elif (action == 'ignore'):
             rCharacter.reportado = False
