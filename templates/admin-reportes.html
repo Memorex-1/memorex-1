@@ -13,9 +13,11 @@
             <li class="nav-item">
                 <a class="nav-link btn-outline-danger" data-toggle="tab" href="#persos">Personajes Reportados</a>
             </li>
+            {% if session['rol'] == 'admin' %}
             <li class="nav-item">
                 <a class="nav-link btn-outline-success" data-toggle="tab" href="#admin">Admins y Moderadores</a>
             </li>
+            {% endif %}
         </ul>
           
           <!-- Tab panes -->
@@ -265,6 +267,7 @@
                 <!-- Fin The Modal Modificar personaje-->
 
             </div>
+            {% if session['rol'] == 'admin' %}
             <div class="tab-pane container fade " id="admin">
                 <h2 class="mb-0">Asignar nuevo moderador</h2>
                 <div class="asign-mod">
@@ -285,41 +288,32 @@
                     </form>
                 </div>
                 <h2>Moderadores</h2>
+
+                
                 <div class="lista-mods">
-                    <div class="mod row">
-                        <div class="col-12 col-sm-6 d-flex justify-content-around mb-2">
-                            <span class="badge badge-warning">Moderador</span>
-                            <span class="user-mod">Username</span>
-                        </div>
-                        
+                    {% for user in users %}
+                        {% if user.rol == 'mod' or user.rol == 'admin' %}
+                        <div class="mod row">
+                            <div class="col-12 col-sm-6 d-flex justify-content-around mb-2">
+                                <span class="badge badge-warning">{{ user.rol }}</span>
+                                <span class="user-mod">{{ user.nombre }}</span>
+                            </div>
+                            
 
-                        <div class="btn-group col-12 col-sm-6">
-                            <button title="Hacer Administrador" style="color: #000;" class="btn btn-outline-warning">
-                                Asignar Admin
-                            </button>
-                            <button title="Eliminar Moderador" class="btn btn-dark">
-                                Eliminar Mod
-                            </button>
+                            <div class="btn-group col-12 col-sm-6">
+                                <button title="Hacer Administrador" style="color: #000;" class="btn btn-outline-warning">
+                                    Asignar Admin
+                                </button>
+                                <button title="Eliminar Moderador" class="btn btn-dark">
+                                    Eliminar Mod
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mod row">
-                        <div class="col-12 col-sm-6 d-flex justify-content-around mb-2">
-                            <span class="badge badge-warning">Administrador</span>
-                            <span class="user-mod">Username2</span>
-                        </div>
-                        
-
-                        <div class="btn-group col-12 col-sm-6">
-                            <button title="Hacer Administrador" style="color: #000;" class="btn btn-outline-warning">
-                                Asignar Admin
-                            </button>
-                            <button title="Eliminar Moderador" class="btn btn-dark">
-                                Eliminar Mod
-                            </button>
-                        </div>
-                    </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
+            {% endif %}
 
         </div>
 

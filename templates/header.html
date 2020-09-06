@@ -86,7 +86,7 @@
 						<a class="dropdown-item px-3" href="http://localhost:5000/editor-usuario"><i class="fas fa-user mr-2"></i>Mi
 							Cuenta</a>
 						{% if session['rol'] == 'mod' or session['rol'] == 'admin' %}
-						<a class="dropdown-item px-3" href="http://localhost:5000/admin-reportes"><i
+						<a class="dropdown-item px-3" href="{{ url_for('adminReportes') }}"><i
 								class="fas fa-cog mr-2"></i>Administrar</a>
 						{% endif %}
 						<a class="dropdown-item px-3" href="http://localhost:5000/salir"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar
