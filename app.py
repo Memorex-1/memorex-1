@@ -24,6 +24,7 @@ class personajes(db.Model):
     foto = db.Column("foto")
     partido = db.Column(db.String(50))
     reportado = db.Column(db.Boolean, default = False)
+    reason = db.Column(db.String(20))
 
 class usuarios(db1.Model):
     __tablename__ = 'login'
@@ -47,6 +48,7 @@ class publicaciones(db2.Model):
     fuente = db2.Column(db.String(200))
     reportado = db2.Column(db.Boolean, default = False)
     foto = db2.Column("foto")
+    reason = db.Column(db.String(20))
 
 @app.route('/index')
 @app.route('/')  
