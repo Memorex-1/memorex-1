@@ -190,13 +190,12 @@
 					
 					<div class="modal-header">
 					<h4 class="modal-title">¿Está seguro que desea eliminar la publicación?</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					
 					
 					<div class="modal-body">
-						<form action="" class="crear-perso d-flex justify-content-around" method="POST" enctype="multipart/form-data">
-							<a data-dismiss="modal" style="color: #eee;" class="btn btn-dark">Cancelar</a>
+						<form method="post" action="{{ url_for('report') }}?action=delete&postType=post&postId={{ task.id }}" class="crear-perso d-flex justify-content-around" enctype="multipart/form-data">
+							<a type="" data-dismiss="modal" style="color: #eee;" class="btn btn-dark">Cancelar</a>
 							<button type="submit" class="btn btn-outline-danger">Eliminar</button>
 						</form>
 					</div>
