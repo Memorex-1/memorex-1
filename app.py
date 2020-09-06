@@ -196,6 +196,11 @@ def editor():
             if(request.form['telf']!=''):
                 telefono =request.form['telf']
                 tasks.telefono = telefono
+            if(request.form['contra']!=''):
+                contraseña = request.form['contra']
+                password_encode = contraseña.encode("utf-8")
+                password_ecriptado = bcrypt.hashpw(password_encode,semilla)
+                tasks.contraseña = password_ecriptado
             
             arch = request.files['imagen-usuario']
             #si el usuar
