@@ -1,4 +1,4 @@
-from flask import Flask,render_template,redirect,request,url_for,session,flash, jsonify
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
@@ -78,7 +78,7 @@ def search():
 
 @app.route('/report', methods = ['POST','GET'])
 def report():
-    action = request.args.get('action')
+    action = request.args.get('action') # report/ignore/delete
     postType = request.args.get('postType')
     postId = request.args.get('postId')
     if (postType == 'post'):
@@ -103,7 +103,6 @@ def report():
                 db2.session.delete(charPost)
             db2.session.commit()
         db.session.commit()
-    # return redirect(url_for('index'))
     if (action == 'report'):
         return '''
         <script> window.alert("Publicación reportada"); </script>
@@ -215,6 +214,7 @@ def creaPersonaje():
         db.session.add(task)
         db.session.commit()
     return redirect(url_for('index'))
+
 @app.route('/crear/<nombre>', methods = ['POST'])
 def editaPersonaje(nombre):
     task =  personajes.query.filter_by(nombre = nombre).first()
@@ -261,7 +261,7 @@ def newPost():
     return redirect(url_for('index'))
 
 @app.route('/salir')
-def salir():
+def logout():
     session.clear()
     session['logged_in'] = False
     return redirect(url_for('index'))
@@ -290,12 +290,22 @@ def referenica():
     task.informacion = request.form['descripcion']+" "
     db.session.commit()
     return redirect(url_for('editor'))
+
 @app.route('/admin-reportes', methods = ['POST','GET'])
 def adminReportes():
     reportedPost = publicaciones.query.filter(publicaciones.reportado)
     reportedCharacter = personajes.query.filter(personajes.reportado)
     users = usuarios.query.all()
     return render_template('admin-reportes.html', reportedPosts = reportedPost, reportedCharacters = reportedCharacter, users = users)
+
+@app.route('/role', methods = ['POST','GET'])
+def role():
+    userId = request.args.get('id')
+    newRole = request.args.get('role')
+    user = usuarios.query.filter_by(id = userId).first()
+    user.rol = newRole
+    db1.session.commit()
+    return '''<script> window.location=document.referrer; </script>'''
 
 if __name__=='__main__':
     app.run(debug=True, port=5000)
