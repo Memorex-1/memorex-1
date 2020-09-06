@@ -125,6 +125,9 @@
 					data-target="#myModal-Eliminar{{task.id}}" title="Eliminar Personaje">
 					<i class="far fa-trash-alt"></i>
 				</button>
+				<button type="button" class="btn btn-outline-dark float-right" data-toggle="modal" 
+				data-target="#myModal-Modificar{{task.id}}" title="Modificar Publicacion"><i class="fa fa-pen"></i><span class="sr-only">Modificar</span>
+				</button>
 				{% endif %}
 
 			</div>
@@ -175,15 +178,62 @@
 					</div>
 				</div>
 			</div>
+			</div>
 
-			<!-- The Modal Eliminar Personaje-->
+			<!-- MODAL MODIFICAR PUBLI -->
+			<div class="modal fade" id="myModal-Modificar{{task.id}}">
+				<div class="modal-dialog modal-lg modal-dialog-centered">
+				<div class="modal-content">
+				
+					
+					<div class="modal-header">
+					<h4 class="modal-title" style="font-size: 1.1em; font-weight: 700;">Modificar Personaje</h4>
+					</div>
+					
+					
+					<div class="modal-body publicar">
+						<form method="post" action="" class="publicar">
+							
+							<input type="text" id="titulo" name="titulo" maxlength="120" value="{{task.titulo}}" style="width: 80%;" placeholder="Título...">
+
+							<label for="personaje-select " style="display: block;">Personaje:</label>
+
+
+							<select name="personaje" class="selectpicker mb-2 mr-2" data-size="5"
+								data-live-search="true" data-style="btn-outline-dark">
+								
+								{%for task1 in tasks1%}
+									
+									{% if task.personaje == task1.nombre %}
+									<option value="{{task1.nombre}}" selected>{{task1.nombre}}</option>
+									{% else %}
+									<option value="{{task1.nombre}}">{{task1.nombre}}</option>
+									{% endif %}
+								{%endfor%}
+							</select>
+							<label for="fecha" id="lblfecha">Fecha </label>
+							<input type="date" id="fecha" value="{{task.fecha}}" name="fecha">
+
+							<textarea name="descripcion" id="descripcion" maxlength="1000" placeholder="Describe el acontecimiento...">{{task.contenido}}</textarea>
+							<label for="referencias">Fuente(s): </label>
+							<textarea name="referencias" id="referencias" maxlength="400" placeholder="Referencias, citas, enlaces, etc...">{{task.fuente}}</textarea>
+
+							<button type="submit" class="btn btn-dark">Modificar</button>
+						</form>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!-- FIN MODAL MODIFICA PUBLI -->
+
+			<!-- The Modal Eliminar Publi-->
 			<div class="modal fade" id="myModal-Eliminar{{task.id}}">
 				<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 				
 					
 					<div class="modal-header">
-					<h4 class="modal-title">¿Está seguro que desea eliminar la publicación?</h4>
+					<h4 class="modal-title" style="font-size: 1.1em; font-weight: 700;">¿Está seguro que desea eliminar la publicación?</h4>
 					</div>
 					
 					
@@ -196,7 +246,7 @@
 				</div>
 				</div>
 			</div>
-			<!-- Fin The Modal Eliminar personaje-->
+			<!-- Fin The Modal Eliminar publi-->
 
 			<div class="row m-0 p-0">
 				<div class="col-8 m-0 p-0" style="color: #000;">
@@ -270,6 +320,7 @@
 
 			</div>
 		</div>
+		
 		{% endfor %}
 		<!--paginacion-->
 		<ul class="pagination pagination-sm justify-content-end py-3">

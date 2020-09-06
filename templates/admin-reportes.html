@@ -40,6 +40,9 @@
                                 <form method="post" action="/report?action=delete&postType=post&postId={{ post.id }}">
                                     <button type="submit" class="btn btn-outline-danger">Eliminar</button>
                                 </form>
+                                <button type="button" class="btn btn-outline-dark float-right" data-toggle="modal" 
+                                data-target="#myModal-Modificar{{post.id}}" title="Modificar Publicacion"><i class="fa fa-pen"></i><span class="sr-only">Modificar</span>
+                                </button>
                             </div>
                         </div>
                         
@@ -89,6 +92,45 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- MODAL MODIFICAR PUBLI -->
+                <div class="modal fade" id="myModal-Modificar{{post.id}}">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                    
+                        
+                        <div class="modal-header">
+                        <h4 class="modal-title" style="font-size: 1.1em; font-weight: 700;">Modificar Personaje</h4>
+                        </div>
+                        
+                        
+                        <div class="modal-body publicar">
+                            <form method="post" action="" class="publicar">
+                                
+                                <input type="text" id="titulo" name="titulo" maxlength="120" value="{{post.titulo}}" style="width: 80%;" placeholder="Título...">
+
+                                <label for="personaje-select " style="display: block;">Personaje:</label>
+
+
+                                <select name="personaje" class="selectpicker mb-2 mr-2" title="Seleccione un personaje..." data-size="5"
+                                    data-live-search="true" data-style="btn-outline-dark">
+                                        <option value="{{post.personaje}}" selected>{{post.personaje}}</option>
+                                        
+                                </select>
+                                <label for="fecha" id="lblfecha">Fecha </label>
+                                <input type="date" id="fecha" value="{{post.fecha}}" name="fecha">
+
+                                <textarea name="descripcion" id="descripcion" maxlength="1000" placeholder="Describe el acontecimiento...">{{post.contenido}}</textarea>
+                                <label for="referencias">Fuente(s): </label>
+                                <textarea name="referencias" id="referencias" maxlength="400" placeholder="Referencias, citas, enlaces, etc...">{{post.fuente}}</textarea>
+
+                                <button type="submit" class="btn btn-dark">Modificar</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!-- FIN MODAL MODIFICA PUBLI -->
                 {% endfor %}
             
             </div>
