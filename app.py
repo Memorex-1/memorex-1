@@ -167,7 +167,7 @@ def login():
                     return redirect(url_for('index'))
                 return '''
         <script> window.alert("Su cuenta ha sido vetada."); </script>
-        <script> window.location = "{{ url_for('index')}}"; </script>'''
+        <script> window.location=document.referrer; </script>'''
     return render_template('login.html')
 
 @app.route('/editor-usuario', methods = ['POST','GET'])
