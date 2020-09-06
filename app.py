@@ -160,10 +160,14 @@ def login():
             #verifica el password
             if(bcrypt.checkpw(password_encode,password_encriptado_encode)):
                 #registra la sesion
-                session['name'] = usuario.nombre      
-                session['rol'] = usuario.rol
-                session['logged_in'] = True
-                return redirect(url_for('index'))
+                if (usuario.rol != 'VETADO'):
+                    session['name'] = usuario.nombre      
+                    session['rol'] = usuario.rol
+                    session['logged_in'] = True
+                    return redirect(url_for('index'))
+                return '''
+        <script> window.alert("Su cuenta ha sido vetada."); </script>
+        <script> window.location = "{{ url_for('index')}}"; </script>'''
     return render_template('login.html')
 
 @app.route('/editor-usuario', methods = ['POST','GET'])
