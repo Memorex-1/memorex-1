@@ -214,10 +214,14 @@ def creaPersonaje():
 @app.route('/crear/<nombre>', methods = ['POST'])
 def editaPersonaje(nombre):
     task =  personajes.query.filter_by(nombre = nombre).first()
-    task1 = publicaciones.query.filter_by(personaje = nombre)
+    task1 = publicaciones.query.filter_by(personaje = nombre).all()
     if(request.form['personaje']!=''):
+        archi = 'static/img/foto_{}.jpg'.format(task.nombre)
+        os.rename(archi, 'static/img/foto_{}.jpg'.format(request.form['personaje']))
         task.nombre = request.form['personaje']
-        task1.personaje = request.form['personaje']
+        for o in task1:
+            o.personaje = request.form['personaje']
+            o.foto = task.foto
     if(request.form['descripcion']!=''):
         task.informacion =  request.form['descripcion']
     if(request.form['partido']!=''):
@@ -230,7 +234,8 @@ def editaPersonaje(nombre):
         with open('static/img/foto_{}.jpg'.format(task.nombre), 'wb') as archivo:
             archivo.write(f)
             task.foto = f 
-            task1.foto = f
+            for o in task1:
+                o.foto = f
     db.session.commit()
     db2.session.commit()
     return redirect(url_for('index'))
