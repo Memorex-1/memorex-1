@@ -2,16 +2,21 @@
 
 {% block content %}
 <div class="container-fluid container-md lista-persos bg-white main shadow-lg">
+    {% if opt == 'no_results' %}
+    <div class="titulo-busqueda">
+        <hr>
+        <!-- para la busqueda de personajes -->
+        <label for="inputsm">No se encontraron resultados</label>
+    </div>
+    {% endif %}
+    {% if opt == 'chars_posts' or opt == 'only_chars' %}
     <div class="titulo-busqueda">
         <!-- <h3>Se encontraron los siguientes resultados...</h3>-->
         <hr>
         <!-- para la busqueda de personajes -->
-        {%if opcion == 'Todo' or opcion == 'Personajes'%}
         <label for="inputsm">Personajes encontrados</label>
-        {%endif%}
     </div>
     
-    {%if opcion == 'Todo' or opcion == 'Personajes' or opcion == 'comun'%}
     <div class="row mt-0">
         {% for task in posts | reverse %}
         <div class="col-12 col-sm-4 col-lg-3 text-center mb-2">
@@ -80,8 +85,8 @@
 
         {% endfor %}
     </div>
-        {%endif%}
-        {%if opcion == 'Todo' or opcion == 'Publicaciones' or opcion == 'comun'%}
+    {%endif%}
+    {% if opt == 'chars_posts' or opt == 'only_posts' %}
         <hr>
         <div class="titulo-busqueda">
             <label for="inputsm">Publicaciones encontradas</label>
@@ -227,7 +232,7 @@
         </div>
 
         {% endfor %}
-        {%endif%}
+    {%endif%}
     </div>
 </div>
 {% endblock %}

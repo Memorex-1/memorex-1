@@ -72,11 +72,26 @@ def index(page=1):
 
 @app.route('/search', methods = ['POST','GET'])
 def search():
-    opcion = request.form['opc']
+    option = request.form['opc']
     textoBuscar = "%"+request.form['buscar']+"%"
-    post = personajes.query.filter(personajes.nombre.like(textoBuscar))
-    publis = publicaciones.query.filter(publicaciones.personaje.like(textoBuscar))
-    return render_template('search.html', posts = post, publis = publis, opcion = opcion)
+    if (option == 'Todo'):
+        post = personajes.query.filter(personajes.nombre.like(textoBuscar))
+        publi = publicaciones.query.filter(publicaciones.personaje.like(textoBuscar))
+        if (post != None and publi != None):
+            return render_template('search.html', posts = post, publis = publi, opt='chars_posts')
+        elif (post != None and publi == None):
+            return render_template('search.html', posts = post, opt='only_chars')
+        elif (post == None and publi != None):
+            return render_template('search.html', publis = publi, opt='only_posts')
+    elif (option == 'Personajes'):
+        post = personajes.query.filter(personajes.nombre.like(textoBuscar))
+        if (post != None):
+            return render_template('search.html', posts = post, opt='only_chars')
+    elif (option == 'Publicaciones'):
+        post = publicaciones.query.filter(personajes.nombre.like(textoBuscar))
+        if (post != None):
+            return render_template('search.html', publis = post, opt='only_posts')
+    return render_template('search.html', opt='no_results')
 
 @app.route('/report', methods = ['POST','GET'])
 def report():
