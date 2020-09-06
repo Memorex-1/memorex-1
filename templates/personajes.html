@@ -3,7 +3,9 @@
 {% block content %}
 
 <div class="container-fluid container-md lista-persos bg-white main shadow-lg">
+
     <!--Colapsable en personajes-->
+    
     {% if session['logged_in'] %}
     <div class="container">
         <div class="collapse" id="demo1">
@@ -42,14 +44,18 @@
         </div>
     </div>
     {% endif %}
+
     <!--Fin Colapsable en personajes-->
+
     <div class="row mt-0">
         {% for task1 in tasks1 %}
         <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
 
             <div class="card">
                 <div class="card-header">{{task1.nombre}}
+
                     <!--Botones de Reportar y modificar-->
+
                     {% if session['logged_in'] %}
                     <div class="btn-group botones-header-perso">
                         <button type="button" class="btn btn-outline-dark boton-perso-header" data-toggle="modal" 
@@ -64,14 +70,16 @@
                         </button>
                     </div>
                     {% endif %}
+
                     <!--Fin Botones de Reportar y modificar-->
+
                 </div>
                 <img style="height: 300px;" class="card-img-top"
                     src="http://127.0.0.1:5000/static/img/foto_{{task1.nombre}}.jpg" alt="{{task1.nombre}}"
                     style="width:100%">
                 <div class="card-body">
                     <p class="card-text">Organización Política: {{task1.partido}}</p>
-                    <!--"personaj/{{task1.id}}" -->
+                    
                     <div class="btn-group">
                         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal{{task1.id}}">Ver más<i class="fas fa-stream pl-2"></i></button>
                         <a href="{{ url_for('characterPosts') }}?name={{ task1.nombre }}&id={{ task1.id }}" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="right" title="Ver Publicaciones"><i class="far fa-address-card"></i></a>
@@ -106,21 +114,6 @@
                                                 <p class="paragraph">{{task1.partido}}</p>
                                                 <p class="paragraph">{{task1.informacion}}</p>
                                             </div>
-                                            <!--Links en los personajes-->
-                                            <!-- <table class="table table-borderless">
-                                                <tbody>
-                                                  <tr>
-                                                    <td>Link1</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Link2</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Link3</td>
-                                                  </tr>
-                                                </tbody>
-                                              </table> -->
-                                            <!------------------------------------>
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default"
@@ -146,17 +139,20 @@
 
 
 <!-- The Modal Modificar personaje-->
+
   <div class="modal fade" id="myModal-Modificar{{task1.id}}">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
       
         <!-- Modal Header Modificar personaje-->
+
         <div class="modal-header">
           <h4 class="modal-title">Modificar Personaje</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body Modificar personaje-->
+
         <div class="modal-body">
         <form action="/crear/{{task1.nombre}}" class="crear-perso" method="POST" enctype="multipart/form-data">
             <div class="form-group">
@@ -183,20 +179,24 @@
       </div>
     </div>
   </div>
+
   <!-- Fin The Modal Modificar personaje-->
   
   <!-- The Modal Reportar-->
+
   <div class="modal fade" id="myModal-Reportar{{task1.id}}">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
       
         <!-- Modal Header Reportar-->
+
         <div class="modal-header">
           <h4 class="modal-title">¿Cual es la razon por la que este personaje debe ser reportado?</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body Reportar-->
+
         <div class="modal-body">
           <form method="post" action="{{ url_for('report') }}?action=report&postType=character&postId={{task1.id}}">
     		<div class="form-check">
@@ -231,20 +231,24 @@
       </div>
     </div>
   </div>
+
   <!-- Fin The Modal Reportar-->
 
     <!-- The Modal Eliminar Personaje-->
+
 <div class="modal fade" id="myModal-Eliminar{{task1.id}}">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
       
         <!-- Modal Header Modificar personaje-->
+
         <div class="modal-header">
           <h4 class="modal-title">¿Está seguro que desea eliminar el personaje?</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body Modificar personaje-->
+
         <div class="modal-body">
             <form method="post" action="{{ url_for('report') }}?action=delete&postType=character&postId={{ task1.id }}" class="crear-perso d-flex justify-content-around" enctype="multipart/form-data">
                 <a type="" data-dismiss="modal" style="color: #eee;" class="btn btn-dark">Cancelar</a>
@@ -254,6 +258,7 @@
       </div>
     </div>
   </div>
+
   <!-- Fin The Modal Modificar personaje-->
 
 
@@ -262,29 +267,8 @@
         {% endfor %}
     </div>
 
-
-    <!-- <table class="table">
-        <thead>
-            <th>#</th>
-            <th>Nombre</th>
-            <th>Partido Político</th>
-            <th>Información</th>
-        </thead>
-        <tbody>
-            {% for task1 in tasks1 %}
-            <tr>
-                <td>{{task1.id}}</td>
-                <td>{{task1.nombre}}</td>
-                <td>{{task1.partido}}</td>
-
-                <td>
-                    <a href="personaj/{{task1.id}}">Ver más </a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table> -->
-    	<!--paginacion-->
+        <!--paginacion-->
+        
 		<ul class=" pagination pagination-sm justify-content-end py-3">
             {% if prev_url %}
 			<li class="page-item"><a class="page-link btn" href="{{prev_url }}" title="Anterior"><i class="fas fa-chevron-left"></i></a></li>
@@ -299,7 +283,8 @@
 			<li class="page-item"><a class="page-link btn" href="{{ next_url }}" title="Siguiente"><i class="fas fa-chevron-right"></i></a></li>
 
 			{% endif %}
-		</ul>
+        </ul>
+        
         <!---->
     </div>
 {% endblock %}

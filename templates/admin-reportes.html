@@ -21,6 +21,7 @@
         </ul>
           
           <!-- Tab panes -->
+
         <div class="tab-content">
             <div class="tab-pane container active" id="publis">
                 <h2>Publicaciones reportadas</h2>
@@ -94,6 +95,7 @@
                 </div>
 
                 <!-- MODAL MODIFICAR PUBLI -->
+
                 <div class="modal fade" id="myModal-Modificar{{post.id}}">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
@@ -131,7 +133,9 @@
                     </div>
                     </div>
                 </div>
+
                 <!-- FIN MODAL MODIFICA PUBLI -->
+
                 {% endfor %}
             
             </div>
@@ -147,7 +151,9 @@
                             <div class="card-header position-relative">
                                 <span class="badge badge-danger">Razón: {{ rChar.reason }}</span>
                                 {{ rChar.nombre }}
+
                                 <!--Botones de Reportar y modificar-->
+
                                 <div class="btn-group botones-header-perso">
                                     <button type="button" class="btn btn-outline-dark boton-perso-header" data-toggle="modal" 
                                         data-target="#myModal-Modificar" title="Modificar Personaje"><i class="fa fa-pen"></i><span class="sr-only">Modificar</span>
@@ -159,6 +165,7 @@
                                 </div>
                                
                                 <!--Fin Botones de Reportar y modificar-->
+
                             </div>
                             
                             <img style="height: 200px; object-fit: cover;" class="card-img-top"
@@ -200,22 +207,7 @@
                                                             <p class="paragraph">PARTIDO</p>
                                                             <p class="paragraph">INFO</p>
                                                         </div>
-                                                        <!--Links en los personajes-->
-                                                        <!-- <table class="table table-borderless">
-                                                            <tbody>
-                                                              <tr>
-                                                                <td>Link1</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Link2</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Link3</td>
-                                                              </tr>
-                                                            </tbody>
-                                                          </table> -->
-                                                        <!------------------------------------>
-            
+                                                        
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-default"
                                                                 data-dismiss="modal">Cerrar</button>
@@ -244,17 +236,20 @@
                 
 
                 <!-- The Modal Modificar personaje-->
+                
                 <div class="modal fade" id="myModal-Modificar">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                     
                         <!-- Modal Header Modificar personaje-->
+
                         <div class="modal-header">
                         <h4 class="modal-title">Modificar Personaje</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         
                         <!-- Modal body Modificar personaje-->
+
                         <div class="modal-body">
                         <form action="/crear/{{ rChar.nombre }}" class="crear-perso" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
@@ -281,21 +276,25 @@
                     </div>
                     </div>
                 </div>
+
                 <!-- Fin The Modal Modificar personaje-->
                 
 
                 <!-- The Modal Eliminar Personaje-->
+
                 <div class="modal fade" id="myModal-Eliminar">
                     <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                     
                         <!-- Modal Header Modificar personaje-->
+
                         <div class="modal-header">
                         <h4 class="modal-title">¿Está seguro que desea eliminar el personaje?</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         
                         <!-- Modal body Modificar personaje-->
+
                         <div class="modal-body">
                             
                             <form method="post" action="{{ url_for('report') }}?action=delete&postType=character&postId={{ rChar.id }}" class="crear-perso d-flex justify-content-around" enctype="multipart/form-data">
@@ -307,6 +306,7 @@
                     </div>
                 </div>
                 {% endfor %}
+
                 <!-- Fin The Modal Modificar personaje-->
 
             </div>

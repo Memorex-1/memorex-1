@@ -7,14 +7,17 @@ body {
 	min-height: 100%;
 	background-color: #eee;
 	position: relative;
-}/*se esta bloqueando para la imagen*/
+}
+
+/*se esta bloqueando para la imagen*/
+
 /*para la imagen */
+
 #avatar{
 	object-fit: cover;
-    /*border: 1px solid;   borde a la imagen*/
-    display: block;      /*usado para centrar imagen*/
-    margin-left: auto;   /*usado para centrar imagen*/
-    margin-right: auto;  /*usado para centrar imagen*/
+    display: block;      
+    margin-left: auto;  
+    margin-right: auto;  
 }
 
 #override .boton-sec a, #override .boton-sec .btn {
@@ -23,12 +26,16 @@ body {
 	width: 50%;
 }
 
-#override .boton-sec .btn  {width: 100%; background-color: #000;}
+#override .boton-sec .btn  {
+	width: 100%; 
+	background-color: #000;
+}
 
 #override .boton-sec .btn:hover {
 	transition: 200ms ease-in-out all;
 	background-color: rgb(122, 0, 0);
 }
+
 #override .btn-user {
 	font-size: 0.9;
 }
@@ -48,10 +55,12 @@ body {
 	background-color: #fff;
 }
 
-#override .topbar .navbar-nav a {color: #000; font-weight: bold;}
+#override .topbar .navbar-nav a {
+	color: #000; 
+	font-weight: bold;
+}
 
 #override .navbar-nav a:hover {
-
 	transition: ease-in-out;
 	transition-duration: 200ms;
 	color: rgb(255, 0, 0);
@@ -77,16 +86,20 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
+
 	#override .carousel img {
 		height: 400px;
 		right: 100px;
 	}
+
 }
 
 @media screen and (max-width: 768px) {
+
 	#override .carousel img {
 		height: 300px;
 	}
+
 }
 
 #override .select-busqueda {
@@ -98,6 +111,7 @@ body {
 	border: 1px solid rgb(102, 102, 102);
 	border-radius: 5px 0 0 5px;
 }
+
 #override .botones-user {
 	display: flex;
 	flex-direction: row;
@@ -118,9 +132,6 @@ body {
 	transition: 100ms ease-in-out all;
 }
 
-@media screen and (max-width: 920px) {
-	
-}
 
 /*************************************************************/
 
@@ -145,16 +156,19 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+
   	.grid-info {
     		display: grid;
     		grid-template-areas: "texto imagen";
     		grid-template-columns: 50% 50%;
     		grid-gap: 30px;
 	  }
+
 }
 
 
 /****REDES SOCIALES****/
+
 .contenedor-redes a{
 	display: inline;
 	margin-right:5px;
@@ -177,34 +191,39 @@ color: var(--secundario);
 .bienvenida {
 	background-color: #000;
 }
+
 /*************************************/
+
 .botonLogout{
 	float: right;
 	height: 100px;  	
 	width: 100px;
 }
+
 /*bloqueando contenedor*/
+
 .contenedor{
-	/*display: flex;*/
 	flex-flow: row nowrap;
 	margin: 0 auto;
-	width: 50%;/*centrar*/
+	width: 50%;
 }
+
 .item{
 	margin: 1em;
 	padding: 1em;
 	color: #ffffff;
-	/*border: 1px solid;    notar borde*/
-	border-radius: 1%;/*borde redondeado*/
+	border-radius: 1%;
 }
+
 /*para el row del bots*/
+
 .row{
 	margin: 1em;
 	padding: 1em;
-	/*border: 1px solid;    notar borde*/
 }
-/************/
+
 /*resaltar en rojo*/
+
 .item h2 {
 	padding: 5px 15px;
 	background-color: rgb(160, 0, 0);
@@ -212,8 +231,11 @@ color: var(--secundario);
 	width: 100%;
 	margin: 0 0 10px 0;
 }
+
 /*******************/
+
 /*resaltar en rojo el bots*/
+
 .row h2 {
 	padding: 5px 15px;
 	background-color: rgb(160, 0, 0);
@@ -221,38 +243,35 @@ color: var(--secundario);
 	width: 100%;
 	margin: 0 0 10px 0;
 }
+
 /*******************/
+
 #item1{
 	columns: 2;/*para dividir*/
 	background-color: #ffffff;
 	color:#010113;
 	flex-grow: 1;
 }
+
 #item4{
 	background-color: #ffffff;
 	color:#010113;
 	flex-grow: 2;
 }
+
 h2{
 	font-family: 'Arial';
 	font-weight: bold;
 	font-size: 1em;
 }
+
 h3{
 	font-family: 'Arial';
 	font-weight: bold;
 	font-size: 1em;
 }
-/*
-table {
-  background-color: #FFFFFF; 
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-*/
+
 td{
-  /*border: solid 1px #000000;*/
   text-align: left;
   padding: 10px;
 }
@@ -337,7 +356,10 @@ td{
 	display: block;
 }
 
-#personaje {display: none; margin: 0;}
+#personaje {
+	display: none;
+	margin: 0;
+}
 
 #personaje-select {
 	padding: 0;
@@ -358,11 +380,18 @@ td{
 	float: none;
 }
 
-#lblfecha {width: 50px; display: block;}
-.clear {height: 35px;}
+#lblfecha {
+	width: 50px; 
+	display: block;
+}
+
+.clear {
+	height: 35px;
+}
 
 
 /*PUBLICACIONES ESTILOS********************/
+
 .publicacion {
 	border-bottom: 2px solid #aaa;
 	padding-top: 20px;
@@ -413,6 +442,7 @@ td{
 	padding: 0 20px 10px 5px;
 	color: #000;
 }
+
 .publi-body-col2{ 
 	background-color: rgb(32, 0, 0);
 	padding: 0.6em 0.8em;
@@ -422,6 +452,7 @@ td{
 	display: flex;
 	flex-direction: row;
 }
+
 #override .publi-body-col2 img {
 	width: 60px;
 	height: 60px;
@@ -430,6 +461,7 @@ td{
 }
 
 @media screen and (max-width: 768px) {
+
 	.publi-body-col2 {
 		flex-direction: column;
 		border-radius: 5px 0 0 5px;
@@ -442,6 +474,7 @@ td{
 	.publi-body-col2 img {
 		margin: 10px auto;
 	}
+
 }
 
 .publicacion .img-usuario {
@@ -608,6 +641,7 @@ td{
 }
 
 /*REPORTES**************************************************/
+
 .admin-rep-container {
 	padding: 0;
 }
@@ -749,6 +783,21 @@ td{
 	color: #ddd;
 }
 
+/*PUBLI DE PERSOS*************************************/
+
+.perso-publis{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.perso-publis img {
+	width: 500px;
+	object-fit: cover;
+}
+
+/***********************************+/
 
 /*FOOTER***************************/
 
@@ -773,11 +822,9 @@ footer span {
 
 [data-toggle="collapse"] .fa:before {  
 	content: "\f068";
-
 }
   
 [data-toggle="collapse"].collapsed .fa:before {
 	content: "\f067";
-
 }
   

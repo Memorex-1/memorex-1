@@ -6,11 +6,6 @@
 <main role="main" class="container-fluid container-md bg-white px-4 shadow-sm">
 	<div class="publicar collapse" id="demo1">
 		<form action="/crearPublicacion" method="POST">
-			<!-- <label for="" style="display: block;">Percepción:</label>
-			<input type="radio" id="bueno" name="percepcion" value="bueno">
-			<i class="fas fa-thumbs-up" aria-hidden="true"></i>
-			<input type="radio" id="malo" name="percepcion" value="malo">
-			<i class="fas fa-thumbs-down" aria-hidden="true"></i>-->
 			<input type="text" id="titulo" name="titulo" maxlength="120" placeholder="Título...">
 
 			<label for="personaje-select " style="display: block;">Personaje:</label>
@@ -132,7 +127,9 @@
 
 			</div>
 			<div class="container">
+
 				<!-- Modal Reporte-->
+
 				<div class="modal fade" id="modalReporte{{task.id}}">
 					<div class="modal-dialog">
 						<div class="modal-content bg-light" style="color: #000;">
@@ -181,6 +178,7 @@
 			</div>
 
 			<!-- MODAL MODIFICAR PUBLI -->
+
 			<div class="modal fade" id="myModal-Modificar{{task.id}}">
 				<div class="modal-dialog modal-lg modal-dialog-centered">
 				<div class="modal-content">
@@ -223,9 +221,11 @@
 				</div>
 				</div>
 			</div>
+
 			<!-- FIN MODAL MODIFICA PUBLI -->
 
 			<!-- The Modal Eliminar Publi-->
+
 			<div class="modal fade" id="myModal-Eliminar{{task.id}}">
 				<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -246,6 +246,7 @@
 				</div>
 				</div>
 			</div>
+
 			<!-- Fin The Modal Eliminar publi-->
 
 			<div class="row m-0 p-0">
@@ -284,6 +285,7 @@
 					<a href="{{task.fuente}}">{{task.fuente}}</a>
 				</div>
 				<br>
+
 				<!---->
 
 				<button type="button" class="btn btn-dark mb-2 collapsed" data-toggle="collapse"
@@ -322,7 +324,9 @@
 		</div>
 		
 		{% endfor %}
+
 		<!--paginacion-->
+
 		<ul class="pagination pagination-sm justify-content-end py-3">
 			{% if prev_url %}
 			<li class="page-item"><a title="Anterior" class="page-link btn" href="{{ prev_url }}"><i
@@ -344,16 +348,20 @@
 
 			{% endif %}
 		</ul>
+
 		<!---->
 
 	</main>
 
 	<script>
 		$(document).ready(function () {
+
 			// Activate Carousel
+
 			$("#myCarousel").carousel();
 
 			// Enable Carousel Indicators
+			
 			$(".item1").click(function () {
 				$("#myCarousel").carousel(0);
 			});

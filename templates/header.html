@@ -6,6 +6,7 @@
 	<meta name="description" content="contenido politico" />
 	<title>Memorex</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<!-- BOOTSTRAP CSS -->
 	<link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../static/bootstrap/css/bootstrap-select.min.css">
@@ -61,11 +62,13 @@
 				<form action="/search" method="post" class="col-12 col-lg-9 d-flex m-0 p-0 px-1">
 
 					<!-- para seleccionar la busqueda -->
+
 					<select class="selectpicker show-tick" data-width="30px" data-style="btn-dark select-busqueda" name="opc" title="Tipo de búsqueda" id="exampleFormControlSelect1">
 						<option value =Todo selected title="Buscar Todo">Todo</option>
 						<option title="Buscar personajes">Publicaciones</option>
 						<option title="Buscar publicaciones">Personajes</option>
 					</select>
+					
 					<!--  -->
 
 					<input type="text" class="form-control busqueda" style="border-radius: 0;" name="buscar" maxlength="150" placeholder="Buscar...">
@@ -98,7 +101,9 @@
 			{% else %}
 			<div class="botones-user col-12 col-md-7 row m-0 p-0">
 				<form action="/search" method="post" class=" position-relative col-12 col-lg-10 d-flex m-0 p-0 px-1">
+					
 					<!-- para seleccionar la busqueda -->
+
 					<select class="selectpicker show-tick" data-width="30px" data-style="btn-dark select-busqueda" name="opc" title="Tipo de búsqueda" id="exampleFormControlSelect1">
 						<option value =Todo selected title="Buscar Todo">Todo</option>
 						<option title="Buscar personajes">Publicaciones</option>

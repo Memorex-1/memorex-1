@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title> Lista de Personajes </title>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css')}}">
-        <link href="{{url_for('static', filename='css/Personaje.css')}}" rel ="stylesheet">
-        <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
-      />
-        
-  
-    </head>
+<!-- 
 
-    <body>
         <div class="container ">
             <div class="content animate__animated  animate__backInDown">
                 <div class="actions">
@@ -25,7 +10,6 @@
                 <header>
                     <h2 class="title-item"> 
                         <span class="position">{{personaje.id}}</span>
-                        {{personaje.nombre}} 
                     </h2>
                 </header>
                 <section>
@@ -41,6 +25,232 @@
 
                 </section> 
             </div>
-        </div>
-    </body>
-</html>
+        </div> -->
+
+
+{% extends "header.html" %}
+
+{% block content %}
+
+
+<main role="main" class="container-fluid container-md bg-white shadow-sm p-0">
+    <div class="header-seccion shadow">
+        <h1>{{personaje.nombre}}</h1>
+    </div>
+    <div class="perso-publis">
+        <img src="http://127.0.0.1:5000/static/img/foto_{{personaje.nombre}}.jpg" class="main-image" alt="{{personaje.nombre}}">
+        <div><b>Organización: </b> {{personaje.partido}}</div>
+    </div>
+
+    
+	
+		{% for post in posts%}
+		<div class="publicacion p-4">
+
+			<div>
+				<img src="/static/img/foto_{{post.username}}.jpg" alt="" class="img-usuario rounded-circle">
+				<span class="username-publi pl-2"> {{post.username}}</span>
+				
+				{% if session['logged_in'] %}
+				<button type="button" data-toggle="modal" data-target="#modalReporte{{post.id}}"
+					class="btn float-right">
+					<i class="far fa-flag" data-toggle="tooltip" data-placement="top" title="Reportar"
+						style="color: rgb(168, 0, 0);"></i>
+				</button>
+				<button type="button" class="btn btn-outline-danger float-right" data-toggle="modal" 
+					data-target="#myModal-Eliminar{{post.id}}" title="Eliminar Personaje">
+					<i class="far fa-trash-alt"></i>
+				</button>
+				<button type="button" class="btn btn-outline-dark float-right" data-toggle="modal" 
+				data-target="#myModal-Modificar{{post.id}}" title="Modificar Publicacion"><i class="fa fa-pen"></i><span class="sr-only">Modificar</span>
+				</button>
+				{% endif %}
+
+			</div>
+			<div class="container">
+
+				<!-- Modal Reporte-->
+
+				<div class="modal fade" id="modalReporte{{post.id}}">
+					<div class="modal-dialog">
+						<div class="modal-content bg-light" style="color: #000;">
+							<div class="modal-header">
+
+								<h4 class="modal-title" style="font-size: 1.1em; font-weight: 700;">¿Por qué razón
+									sientes que esta publicación debe ser
+									reportada?</h4>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+							</div>
+							<div class="modal-body">
+
+								<form method="post" action="{{ url_for('report') }}?action=report&postType=post&postId={{post.id}}">
+									<div class="form-check">
+										  <label class="form-check-label" for="radio1">
+											<input type="radio" class="form-check-input" id="radio1" name="optradio" value="Duplicado" checked>Duplicado
+										  </label>
+									</div>
+									<div class="form-check">
+										  <label class="form-check-label" for="radio2">
+											<input type="radio" class="form-check-input" id="radio2" name="optradio" value="Malintencionado">Malintencionado
+										  </label>
+									</div>
+									<div class="form-check">
+										  <label class="form-check-label" for="radio3">
+											<input type="radio" class="form-check-input" id="radio3" name="optradio" value="Irrelevante">Irrelevante
+										  </label>
+									</div>
+									<div class="form-check">
+										  <label class="form-check-label" data-toggle="collapse" data-target="#demo" for="radio4">
+											<input type="radio" class="form-check-input" id="radio4" name="optradio" value="Other">Otro:
+										  </label>
+									   <div id="demo" class="collapse">
+									<div class="form-group">
+										  <textarea class="form-control" rows="5" id="other_text" name="other_text"></textarea>
+									</div>
+									</div>
+									</div>
+									<br>
+									<button type="submit" class="btn btn-dark">Reportar</button>
+								</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+
+			<!-- MODAL MODIFICAR PUBLI -->
+
+			<div class="modal fade" id="myModal-Modificar{{post.id}}">
+				<div class="modal-dialog modal-lg modal-dialog-centered">
+				<div class="modal-content">
+				
+					
+					<div class="modal-header">
+						<h4 class="modal-title" style="font-size: 1.1em; font-weight: 700;">Modificar Personaje</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					
+					<div class="modal-body publicar">
+						<form action="/editarPublicacion/{{post.id}}" method="POST"  class="publicar">	
+							<input type="text" id="titulo" name="titulo" maxlength="120" value="{{post.titulo}}" style="width: 80%;" placeholder="Título...">
+
+							<label for="personaje-select " style="display: block;">Personaje:</label>
+
+
+							<select name="personaje" class="selectpicker mb-2 mr-2" data-size="5"
+								data-live-search="true" data-style="btn-outline-dark">
+							
+							</select>
+							<label for="fecha" id="lblfecha">Fecha </label>
+							<input type="date" id="fecha" value="{{post.fecha}}" name="fecha">
+
+							<textarea name="descripcion" id="descripcion" maxlength="1000" placeholder="Describe el acontecimiento...">{{post.contenido}}</textarea>
+							<label for="referencias">Fuente(s): </label>
+							<textarea name="referencias" id="referencias" maxlength="400" placeholder="Referencias, citas, enlaces, etc...">{{post.fuente}}</textarea>
+
+							<button type="submit" class="btn btn-dark">Modificar</button>
+						</form>
+					</div>
+				</div>
+				</div>
+			</div>
+
+			<!-- FIN MODAL MODIFICA PUBLI -->
+
+			<!-- The Modal Eliminar Publi-->
+
+			<div class="modal fade" id="myModal-Eliminar{{post.id}}">
+				<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+				
+					
+					<div class="modal-header">
+						<h4 class="modal-title" style="font-size: 1.1em; font-weight: 700;">¿Está seguro que desea eliminar la publicación?</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					
+					
+					<div class="modal-body">
+						<form method="post" action="{{ url_for('report') }}?action=delete&postType=post&postId={{ post.id }}" class="crear-perso d-flex justify-content-around" enctype="multipart/form-data">
+							<a type="" data-dismiss="modal" style="color: #eee;" class="btn btn-dark">Cancelar</a>
+							<button type="submit" class="btn btn-outline-danger">Eliminar</button>
+						</form>
+					</div>
+				</div>
+				</div>
+			</div>
+
+			<!-- Fin The Modal Eliminar publi-->
+
+			<div class="row m-0 p-0">
+				<div class="col-12 m-0 p-0" style="color: #000;">
+					<h3 style="font-family: 'Roboto Slab';">{{post.titulo}}</h2>
+						<span class="fecha-lbl">
+							Fecha de publicación: <span class="fecha-publi">{{post.fecha}}</span>
+						</span>
+				</div>
+				
+
+			</div>
+
+
+			<div class="media m-0 p-0" style="align-items: center;">
+				<div class="media-body publi-body-col1">
+
+					<div class="info-publi">
+						{{post.contenido}}
+					</div>
+				</div>
+
+
+			</div>
+			<div class="fuente-publi m-0 p-0 mb-3">
+				<div class="col-12 p-0">
+					<span class="fuentes-lbl">Fuente(s):</span>
+					<a href="{{post.fuente}}">{{post.fuente}}</a>
+				</div>
+				<br>
+
+				<!---->
+
+				<button type="button" class="btn btn-dark mb-2 collapsed" data-toggle="collapse"
+                    data-target="#comments{{post.id}}" aria-expanded="false">Comentarios <i class="far fa-comments fa-lg"
+                        style="color: rgb(226, 226, 226);" aria-hidden="true"></i></button>
+                <div id="comments{{post.id}}" class="collapse" >
+                    
+                    <form action="" method="" id="commentform" class="comment-form" novalidate="">
+                        <div class="comment-form-input-wrap td-form-comment">
+                            <textarea placeholder="Escriba su comentario..." id="comment" class="form-control" name="comment"
+                                 rows="3" maxlength="400" required></textarea>
+                        </div>
+            
+                        <br>
+                        <button type="submit" class="btn btn-outline-dark">Publicar comentario</button>
+                        <br>
+
+                        <div class="media">
+                            <div class="media-left media-top">
+                                <img src="../static/img/CerebroMemorex.jpg" class="media-object" style="width:80px">
+                            </div>
+                            <div class="media-body">
+                                <span class="username-publi pl-2"> Jhon Marco Salcedo Alfaro</span>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                        <br>
+                    </form>
+
+                </div>
+
+
+
+			</div>
+		</div>
+		
+		{% endfor %}
+
+
+	</main>
+
+	{% endblock %}
