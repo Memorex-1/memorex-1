@@ -190,10 +190,8 @@
 					<h4 class="modal-title" style="font-size: 1.1em; font-weight: 700;">Modificar Personaje</h4>
 					</div>
 					
-					
 					<div class="modal-body publicar">
-						<form method="post" action="" class="publicar">
-							
+						<form action="/editarPublicacion/{{task.id}}" method="POST"  class="publicar">	
 							<input type="text" id="titulo" name="titulo" maxlength="120" value="{{task.titulo}}" style="width: 80%;" placeholder="Título...">
 
 							<label for="personaje-select " style="display: block;">Personaje:</label>
