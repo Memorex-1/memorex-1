@@ -259,21 +259,21 @@ def newPost():
         db.session.add(task)
         db.session.commit()
     return redirect(url_for('index'))
-@app.route('/editarPublicacion/<int:id', methods = ['POST'])
+@app.route('/editarPublicacion/<int:id>', methods = ['POST'])
 def editarPu(id):
     task = publicaciones.query.filter_by(id = id).first()
-    if(request.form['personaje']=!""):
+    if(request.form['personaje']!=""):
         nuevoPersonaje = request.form['personaje']
         task.personaje = nuevoPersonaje
         task1 = personajes.query.filter_by(nombre = nuevoPersonaje).first()
         task.foto = task1.foto
-    if(request.form['titulo']=!""):
+    if(request.form['titulo']!=""):
         task.titulo = request.form['titulo']
-    if(request.form['fecha']=!""):
+    if(request.form['fecha']!=""):
         task.fecha = request.form['fecha']
-    if(request.form['contenido']=!""):
+    if(request.form['contenido']!=""):
         task.contenido = request.form['contenido']
-    if(request.form['fuente']=!""):
+    if(request.form['fuente']!=""):
         task.fuente = request.form['fuente']
     db2.session.commit()
     return redirect(url_for('index'))
