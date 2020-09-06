@@ -48,7 +48,7 @@ class publicaciones(db2.Model):
     fuente = db2.Column(db.String(200))
     reportado = db2.Column(db.Boolean, default = False)
     foto = db2.Column("foto")
-    reason = db.Column(db.String(20))
+    reason = db2.Column(db.String(20))
 
 @app.route('/index')
 @app.route('/')  
