@@ -797,8 +797,6 @@ td{
 	object-fit: cover;
 }
 
-/***********************************+/
-
 /*FOOTER***************************/
 
 body::after{ content:''; display:block; height:80px; }

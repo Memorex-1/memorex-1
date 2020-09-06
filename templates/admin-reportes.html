@@ -46,53 +46,53 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
                         
-
-                        
-                        <div class="" >
-                            <div>
-                                Usuario: 
-                                <span class="username-publi pl-2">{{ post.username }}</span>
-                            </div>
-                            
+                    <div class="" >
+                        <div>
+                            Usuario: 
+                            <span class="username-publi pl-2">{{ post.username }}</span>
+                        </div>
+                        <div>
                             <h3 style="font-family: 'Roboto Slab';">{{ post.titulo }}</h3>
-                                
-                            <div>
-                                <span class="fecha-lbl">
-                                    Fecha de publicación: <span class="fecha-publi">{{ post.fecha }}</span>
-                                </span>
-                            </div>
+                        </div>
+                            
+                        <div>
+                            <span class="fecha-lbl">
+                                Fecha de publicación: <span class="fecha-publi">{{ post.fecha }}</span>
+                            </span>
+                        </div>
+                
                     
-                        
-                            <div class="pr-perso" >
-                                <span>Personaje: </span>
-                                <span class="nombre-perso pl-2" style="color: rgb(145, 0, 0); font-weight: 700;">
-                                    {{ post.personaje }}
-                                </span>
-                            </div>
-                        </div>
-
-
-                        <div class="media m-0 p-0" style="align-items: center;">
-                            <div class="media-body publi-body-col1">
-
-                                <div class="info-publi">
-                                    {{ post.contenido }} 
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="fuente-publi m-0 p-0 mb-3">
-                            <div class="col-12 p-0">
-                                <span class="fuentes-lbl">Fuente(s):</span>
-                                <a href="">{{ post.fuente }}
-                                </a>
-                            </div>
-                            <br>
+                        <div class="pr-perso" >
+                            <span>Personaje: </span>
+                            <span class="nombre-perso pl-2" style="color: rgb(145, 0, 0); font-weight: 700;">
+                                {{ post.personaje }}
+                            </span>
                         </div>
                     </div>
+
+
+                    <div class="media m-0 p-0" style="align-items: center;">
+                        <div class="media-body publi-body-col1">
+
+                            <div class="info-publi">
+                                {{ post.contenido }} 
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="fuente-publi m-0 p-0 mb-3">
+                        <div class="col-12 p-0">
+                            <span class="fuentes-lbl">Fuente(s):</span>
+                            <a href="">{{ post.fuente }}
+                            </a>
+                        </div>
+                        <br>
+                    </div>
                 </div>
+                
 
                 <!-- MODAL MODIFICAR PUBLI -->
 
@@ -142,8 +142,9 @@
 
             <div class="tab-pane container fade perso-reportado" id="persos">
                 <h2>Personajes reportados</h2>
-                {% for rChar in reportedCharacters %}
                 <div class="row mt-0">
+                {% for rChar in reportedCharacters %}
+                
                     
                     <div class="col-12 col-sm-6 col-lg-4 text-center mb-2">
             
@@ -232,11 +233,11 @@
                    
             
                     
-                </div>
+                
                 
 
                 <!-- The Modal Modificar personaje-->
-                
+
                 <div class="modal fade" id="myModal-Modificar">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
@@ -306,6 +307,7 @@
                     </div>
                 </div>
                 {% endfor %}
+            </div>
 
                 <!-- Fin The Modal Modificar personaje-->
 
