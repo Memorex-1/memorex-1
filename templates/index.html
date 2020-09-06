@@ -145,26 +145,26 @@
 								<form method="post" action="{{ url_for('report') }}?action=report&postType=post&postId={{task.id}}">
 									<div class="form-check">
 										  <label class="form-check-label" for="radio1">
-											<input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Duplicado
+											<input type="radio" class="form-check-input" id="radio1" name="optradio" value="Duplicado" checked>Duplicado
 										  </label>
 									</div>
 									<div class="form-check">
 										  <label class="form-check-label" for="radio2">
-											<input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Malintencionado
+											<input type="radio" class="form-check-input" id="radio2" name="optradio" value="Malintencionado">Malintencionado
 										  </label>
 									</div>
 									<div class="form-check">
 										  <label class="form-check-label" for="radio3">
-											<input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">Irrelevante
+											<input type="radio" class="form-check-input" id="radio3" name="optradio" value="Irrelevante">Irrelevante
 										  </label>
 									</div>
 									<div class="form-check">
 										  <label class="form-check-label" data-toggle="collapse" data-target="#demo" for="radio4">
-											<input type="radio" class="form-check-input" id="radio4" name="optradio" value="option4">Otro:
+											<input type="radio" class="form-check-input" id="radio4" name="optradio" value="Other">Otro:
 										  </label>
 									   <div id="demo" class="collapse">
 									<div class="form-group">
-										  <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+										  <textarea class="form-control" rows="5" id="other_text" name="other_text"></textarea>
 									</div>
 									</div>
 									</div>
