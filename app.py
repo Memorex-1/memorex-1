@@ -87,6 +87,10 @@ def report():
         rPost = publicaciones.query.filter_by(id = postId).first()
         if (action == 'report'):
             rPost.reportado = True
+            chosenReason = request.form['optradio']
+            rPost.reason = chosenReason
+            if (chosenReason == 'Other' and chosenReason != ''):
+                rPost.reason = request.form['other_text']
         elif (action == 'ignore'):
             rPost.reportado = False
         elif (action == 'delete'):
@@ -96,6 +100,10 @@ def report():
         rCharacter = personajes.query.filter_by(id = postId).first()
         if (action == 'report'):
             rCharacter.reportado = True
+            chosenReason = request.form['optradio']
+            rCharacter.reason = chosenReason
+            if (chosenReason == 'Other' and chosenReason != ''):
+                rCharacter.reason = request.form['other_text']
         elif (action == 'ignore'):
             rCharacter.reportado = False
         elif (action == 'delete'):
