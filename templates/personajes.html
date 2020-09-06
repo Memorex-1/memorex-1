@@ -5,7 +5,7 @@
 <div class="container-fluid container-md lista-persos bg-white main shadow-lg">
 
     <!--Colapsable en personajes-->
-    
+
     {% if session['logged_in'] %}
     <div class="container">
         <div class="collapse" id="demo1">
@@ -200,27 +200,27 @@
         <div class="modal-body">
           <form method="post" action="{{ url_for('report') }}?action=report&postType=character&postId={{task1.id}}">
     		<div class="form-check">
-      			<label class="form-check-label" for="radio1">
-        			<input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Duplicado
+      			<label class="form-check-label" for="radio1{{task1.id}}">
+        			<input type="radio" class="form-check-input" id="radio1{{task1.id}}" name="optradio{{task1.id}}" required value="option1" checked>Duplicado
       			</label>
     		</div>
     		<div class="form-check">
-      			<label class="form-check-label" for="radio2">
-        			<input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Malintencionado
+      			<label class="form-check-label" for="radio2{{task1.id}}">
+        			<input type="radio" class="form-check-input" id="radio2{{task1.id}}" name="optradio{{task1.id}}" value="option2">Malintencionado
       			</label>
     		</div>
     		<div class="form-check">
-      			<label class="form-check-label" for="radio3">
-        			<input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">Irrelevante
+      			<label class="form-check-label" for="radio3{{task1.id}}">
+        			<input type="radio" class="form-check-input" id="radio3{{task1.id}}" name="optradio{{task1.id}}" value="option3">Irrelevante
       			</label>
     		</div>
     		<div class="form-check">
-      			<label class="form-check-label" data-toggle="collapse" data-target="#demo" for="radio4">
-        			<input type="radio" class="form-check-input" id="radio4" name="optradio" value="Other">Otro:
+      			<label class="form-check-label" data-toggle="collapse" data-target="#demo" for="radio4{{task1.id}}">
+        			<input type="radio" class="form-check-input" id="radio4{{task1.id}}" name="optradio{{task1.id}}" value="Other">Otro:
       			</label>
        		<div id="demo" class="collapse">
     		<div class="form-group">
-      			<textarea class="form-control" rows="5" id="other_text" name="other_text"></textarea>
+      			<textarea class="form-control" rows="5" id="other_text{{task1.id}}" name="other_text{{task1.id}}"></textarea>
     		</div>
             </div>
             </div>
