@@ -281,10 +281,10 @@ def editarPu(id):
         task.titulo = request.form['titulo']
     if(request.form['fecha']!=""):
         task.fecha = request.form['fecha']
-    if(request.form['contenido']!=""):
-        task.contenido = request.form['contenido']
-    if(request.form['fuente']!=""):
-        task.fuente = request.form['fuente']
+    if(request.form['descripcion']!=""):
+        task.contenido = request.form['descripcion']
+    if(request.form['referencias']!=""):
+        task.fuente = request.form['referencias']
     db2.session.commit()
     return redirect(url_for('index'))
 @app.route('/salir')

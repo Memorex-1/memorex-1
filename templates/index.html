@@ -191,10 +191,8 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					
-					
 					<div class="modal-body publicar">
-						<form method="post" action="" class="publicar">
-							
+						<form action="/editarPublicacion/{{task.id}}" method="POST"  class="publicar">	
 							<input type="text" id="titulo" name="titulo" maxlength="120" value="{{task.titulo}}" style="width: 80%;" placeholder="Título...">
 
 							<label for="personaje-select " style="display: block;">Personaje:</label>
