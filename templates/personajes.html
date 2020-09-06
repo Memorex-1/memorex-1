@@ -162,20 +162,20 @@
             <div class="form-group">
                 <div class="row m-0 p-0">
                     <div class="col-md-6 my-2 p-0 pr-2">
-                        <input type="text" id="perso-name" name = "personaje" placeholder="Nuevo nombre del personaje" maxlength="100" class="form-control">
+                        <input type="text" id="perso-name" value="{{task1.nombre}}" name = "personaje" placeholder="Nuevo nombre del personaje" maxlength="100" class="form-control">
                     </div>
                     <div class="col-md-6 my-2 p-0 pr-2">
-                        <input type="text" id="perso-org" name = "partido" placeholder="Nueva Organización Política" maxlength="80" class="form-control">
+                        <input type="text" id="perso-org" value="{{task1.partido}}" name = "partido" placeholder="Nueva Organización Política" maxlength="80" class="form-control">
                     </div>
                 </div>
                 <div class="custom-file mb-3">
                     <input type="file" class="custom-file-input" id="perso-img" name="imagen-personaje">
-                    <label class="custom-file-label" for="perso-img">Suba nueva imagen de su personaje</label>
+                    <label class="custom-file-label" for="perso-img">Si no desea cambiar la imagen, deje este espacio en blanco</label>
                 </div>
             </div>
             <div class="form-group">
                 <label for="perso-desc">Nueva descripción del personaje:</label>
-                <textarea class="form-control" name="descripcion" id="perso-desc" maxlength="1000"></textarea>
+                <textarea class="form-control" name="descripcion" id="perso-desc" maxlength="1000">{{task1.informacion}}</textarea>
             </div>
             <button type="submit" class="btn btn-dark">Modificar</button>
         </form>
