@@ -300,12 +300,16 @@ def adminReportes():
 
 @app.route('/role', methods = ['POST','GET'])
 def role():
-    userId = request.args.get('id')
+    action = request.args.get('action')
+    if (action == 'assign'):
+        userId = request.form['selector']
+    else:
+        userId = request.args.get('id')
     newRole = request.args.get('role')
     user = usuarios.query.filter_by(id = userId).first()
     user.rol = newRole
     db1.session.commit()
-    return '''<script> window.location=document.referrer; </script>'''
+    return redirect(url_for('adminReportes'))
 
 if __name__=='__main__':
     app.run(debug=True, port=5000)
