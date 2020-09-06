@@ -90,14 +90,18 @@ def report():
         elif (action == 'delete'):
             db2.session.delete(rPost)
         db2.session.commit()
-    else: #Para personaje
+    elif (postType == 'character'):
         rCharacter = personajes.query.filter_by(id = postId).first()
         if (action == 'report'):
             rCharacter.reportado = True
         elif (action == 'ignore'):
             rCharacter.reportado = False
         elif (action == 'delete'):
-            db.session.delete(rPost)
+            charPosts = publicaciones.query.filter(publicaciones.personaje == rCharacter.nombre)
+            db.session.delete(rCharacter)
+            for charPost in charPosts:
+                db2.session.delete(charPost)
+            db2.session.commit()
         db.session.commit()
     # return redirect(url_for('index'))
     if (action == 'report'):
@@ -126,7 +130,7 @@ def login():
         password = request.form['password']
         password_encode = password.encode("utf-8")
         usuario = usuarios.query.filter_by(correo = correo).first()
-        if(usuario !=None):
+        if(usuario != None):
             #obtiene el password encriptado encode
             password_encriptado_encode = usuario.contraseña
             #verifica el password
@@ -289,18 +293,8 @@ def referenica():
 @app.route('/admin-reportes', methods = ['POST','GET'])
 def adminReportes():
     reportedPost = publicaciones.query.filter(publicaciones.reportado)
-    return render_template('admin-reportes.html', reportedPosts = reportedPost)
-@app.route('/eliminar/<nombre>', methods = ['POST'])
-def eliminarPerso(nombre):
-    task =  personajes.query.filter_by(nombre = nombre).all()
-    task1 = publicaciones.query.filter_by(personaje = nombre).all()
-    for o in task:
-        db.session.delete(o)
-    for o in task1:
-        db2.session.delete(o)
-    db.session.commit()
-    db2.session.commit()
-    return redirect(url_for('index'))
+    reportedCharacter = personajes.query.filter(personajes.reportado)
+    return render_template('admin-reportes.html', reportedPosts = reportedPost, reportedCharacters = reportedCharacter)
 
 if __name__=='__main__':
     app.run(debug=True, port=5000)

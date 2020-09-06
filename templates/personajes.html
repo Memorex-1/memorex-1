@@ -198,7 +198,7 @@
         
         <!-- Modal body Reportar-->
         <div class="modal-body">
-          <form action="/action_page.php">
+          <form method="post" action="{{ url_for('report') }}?action=report&postType=character&postId={{task1.id}}">
     		<div class="form-check">
       			<label class="form-check-label" for="radio1">
         			<input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Duplicado
@@ -246,7 +246,7 @@
         
         <!-- Modal body Modificar personaje-->
         <div class="modal-body">
-            <form action="/eliminar/{{task1.nombre}}" class="crear-perso d-flex justify-content-around" method="POST" enctype="multipart/form-data">
+            <form method="post" action="{{ url_for('report') }}?action=delete&postType=character&postId={{ task1.id }}" class="crear-perso d-flex justify-content-around" enctype="multipart/form-data">
                 <a type="" data-dismiss="modal" style="color: #eee;" class="btn btn-dark">Cancelar</a>
                 <button type="submit" class="btn btn-outline-danger">Eliminar</button>
             </form>
