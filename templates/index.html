@@ -142,41 +142,35 @@
 							</div>
 							<div class="modal-body">
 
-								<div class="custom-control custom-radio">
-									<input type="radio" class="custom-control-input" id="duplicado{{task.id}}"
-										value="duplicado" name="reporte{{task.id}}">
-									<label for="duplicado{{task.id}}" class="custom-control-label ">Duplicado</label>
-								</div>
-
-								<div class="custom-control custom-radio">
-									<input type="radio" class="custom-control-input" id="malintencionado{{task.id}}"
-										value="malintencionado" name="reporte{{task.id}}">
-									<label for="malintencionado{{task.id}}"
-										class="custom-control-label ">Malintencionado</label>
-								</div>
-
-								<div class="custom-control custom-radio">
-									<input type="radio" class="custom-control-input" id="spam{{task.id}}" value="spam"
-										name="reporte{{task.id}}">
-									<label for="spam{{task.id}}" class="custom-control-label ">Irrelevante
-										(Spam)</label>
-								</div>
-								<div class="custom-control custom-radio">
-									<input type="radio" data-toggle="collapse"
-										data-target="#report-otro-text{{task.id}}" class="custom-control-input"
-										id="otro{{task.id}}" name="reporte{{task.id}}">
-									<label for="otro{{task.id}}" class="custom-control-label">Otro:</label>
-								</div>
-								<textarea name="otro-text" id="report-otro-text{{task.id}}"
-									placeholder="Escriba su razón..." rows="4" maxlength="200"
-									class="form-control collapse"></textarea>
-							</div>
-							<div class="modal-footer">
-								<form action="{{ url_for('report') }}?action=report&postType=post&postId={{task.id}}" method="POST"
-									class="col-12 d-flex m-0 p-0 justify-content-end">
-									<button class="btn btn-dark" type="submit">Reportar</button>
+								<form method="post" action="{{ url_for('report') }}?action=report&postType=post&postId={{task.id}}">
+									<div class="form-check">
+										  <label class="form-check-label" for="radio1">
+											<input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Duplicado
+										  </label>
+									</div>
+									<div class="form-check">
+										  <label class="form-check-label" for="radio2">
+											<input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Malintencionado
+										  </label>
+									</div>
+									<div class="form-check">
+										  <label class="form-check-label" for="radio3">
+											<input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">Irrelevante
+										  </label>
+									</div>
+									<div class="form-check">
+										  <label class="form-check-label" data-toggle="collapse" data-target="#demo" for="radio4">
+											<input type="radio" class="form-check-input" id="radio4" name="optradio" value="option4">Otro:
+										  </label>
+									   <div id="demo" class="collapse">
+									<div class="form-group">
+										  <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+									</div>
+									</div>
+									</div>
+									<br>
+									<button type="submit" class="btn btn-dark">Reportar</button>
 								</form>
-							</div>
 						</div>
 					</div>
 				</div>
