@@ -77,19 +77,19 @@ def search():
     if (option == 'Todo'):
         post = personajes.query.filter(personajes.nombre.like(textoBuscar))
         publi = publicaciones.query.filter(publicaciones.personaje.like(textoBuscar))
-        if (post != None and publi != None):
+        if (post.first() and publi.first()):
             return render_template('search.html', posts = post, publis = publi, opt='chars_posts')
-        elif (post != None and publi == None):
+        elif (post.first() and not publi.first()):
             return render_template('search.html', posts = post, opt='only_chars')
-        elif (post == None and publi != None):
+        elif (not post.first() and publi.first()):
             return render_template('search.html', publis = publi, opt='only_posts')
     elif (option == 'Personajes'):
         post = personajes.query.filter(personajes.nombre.like(textoBuscar))
-        if (post != None):
+        if (post.first()):
             return render_template('search.html', posts = post, opt='only_chars')
     elif (option == 'Publicaciones'):
-        post = publicaciones.query.filter(personajes.nombre.like(textoBuscar))
-        if (post != None):
+        post = publicaciones.query.filter(publicaciones.personaje.like(textoBuscar))
+        if (post.first()):
             return render_template('search.html', publis = post, opt='only_posts')
     return render_template('search.html', opt='no_results')
 
