@@ -294,7 +294,8 @@ def referenica():
 def adminReportes():
     reportedPost = publicaciones.query.filter(publicaciones.reportado)
     reportedCharacter = personajes.query.filter(personajes.reportado)
-    return render_template('admin-reportes.html', reportedPosts = reportedPost, reportedCharacters = reportedCharacter)
+    users = usuarios.query.all()
+    return render_template('admin-reportes.html', reportedPosts = reportedPost, reportedCharacters = reportedCharacter, users = users)
 
 if __name__=='__main__':
     app.run(debug=True, port=5000)
