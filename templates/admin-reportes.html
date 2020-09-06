@@ -345,11 +345,13 @@
                             </div>
                             
                             <div class="btn-group col-12 col-sm-6">
+                                {% if user.rol != 'admin' %}
                                 <form method="POST" action="{{ url_for('role')}}?action=reassign&id={{ user.id }}&role=admin">
                                     <button type="submit" style="color: #000;" class="btn btn-outline-warning">Asignar admin</button>
                                 </form>
+                                {% endif %}
                                 <form method="POST" action="{{ url_for('role')}}?action=reassign&id={{ user.id }}&role=basic">
-                                    <button type="submit" class="btn btn-dark">Quitar mod</button>
+                                    <button type="submit" class="btn btn-dark">Quitar {{ user.rol }}</button>
                                 </form>
                             </div>
                         </div>
